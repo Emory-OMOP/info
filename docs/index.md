@@ -26,6 +26,6 @@ By leveraging OMOP-CDM, we can:
 ---
 
 ## 🚀 Getting Started  
-Whether you’re a **researcher**, **analyst**, or simply curious about our work, this site is your starting point for exploring Emory’s OMOP ecosystem. Use the menu on your left (or hidden by :material-menu:) to get started! We recommend beginning with the OMOP Primers, particularly if you're unfamiliar with OMOP, but are quite familiar with data in an EHR.
+Whether you’re a **researcher**, **analyst**, or simply curious about our work, this site is your starting point for exploring Emory’s OMOP ecosystem. Use the menu on your left (or hidden by :material-menu:) to get started! We recommend beginning with the OMOP Training (Beginning first, then move to advanced if applicable), if you're unfamiliar with OMOP.
 
-[:octicons-arrow-right-24: OMOP Primers](OMOP Primers/index.md)
+[:octicons-arrow-right-24: Training](Training/index.md)
