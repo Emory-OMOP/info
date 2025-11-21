@@ -24,11 +24,11 @@ The standard vocabularies are foundational to understanding how clinical data an
 EHDEN’s base OHDSI tutorials are an important foundation, and have some of the same content as years following (EHDEN training content from 2019). However, the tutorials are a yearly event, and in our experience, the content gets tighter each year. For that reason, we recommend individuals start in the following order with their advanced OMOP training. Ideally, **you should have access to an OMOP-CDM database and are able to put these skills to immediate use**, else risk loosing the knowledge quickly.
 
 - OHDSI2025 Tutorial: An Introduction to the Journey from Data to Evidence Using OHDSI [(link)](https://youtu.be/lELiY5B27ps?si=MbJEGB64mOTsHB7X)
-  - Good foundation for answering the question “why even bother with this in the first place”
+    - Good foundation for answering the question “why even bother with this in the first place”
 - EHDEN Course - OMOP CDM and Standardized Vocabularies [(link)](https://academy.ehden.eu/course/view.php?id=4)
-  - Good piecemeal content breaking apart CDM and vocabularies
+    - Good piecemeal content breaking apart CDM and vocabularies
 - OHDSI2025 Tutorial: Developing and Evaluating Your ETL Process to the OMOP Common Data Model [(link)](https://www.youtube.com/watch?v=_67Mluiwqc0&list=PLpzbqK7kvfeXRQktX0PV-cRpb3EFA2e7Z&index=1)
-  - Going deeper with EHDEN - Extract, Transform and Load course [(link)](https://academy.ehden.eu/course/view.php?id=7)
+    - Going deeper with EHDEN - Extract, Transform and Load course [(link)](https://academy.ehden.eu/course/view.php?id=7)
 - OHDSI2025 Tutorial: Using the OHDSI Standardized Vocabularies for Research [(link)](https://www.youtube.com/watch?v=IETB9r4O04I&list=PLpzbqK7kvfeXRQktX0PV-cRpb3EFA2e7Z&index=2)
 
 ---
@@ -36,6 +36,7 @@ EHDEN’s base OHDSI tutorials are an important foundation, and have some of the
 # Next steps
 
 Once you are thoroughly familiar with the OMOP-CDM, you should be able to appropriately utilize tooling against the model, including SQL, R, Python, and GUI applications (White Rabbit, Rabbit in a Hat, Usagi, ATHENA, ATLAS). Please see our "Applications" page for additional details regarding the applications we use. If you're working in Epic and you want to see how Epic concepts are converted to OMOP dimensions, please refer to our "OMOP Primers" for further details.
+
 
 
 
