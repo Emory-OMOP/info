@@ -7,6 +7,8 @@
 
     - This is a great resource for learning about the tools and methods of OHDSI. It is a living document that is updated regularly.
 
-- [Our Journey Annual Report, 2024](https://www.ohdsi.org/wp-content/uploads/2024/10/OurJourney2024.pdf)
+- [Our Journey Annual Report, 2025](https://www.ohdsi.org/wp-content/uploads/2025/10/OurJourney-2025.pdf)
 
     - Great review of all the goings on in the community in the prior year.
+    - Archive:
+        - [2024 report](https://www.ohdsi.org/wp-content/uploads/2024/10/OurJourney2024.pdf)
