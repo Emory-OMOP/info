@@ -11,7 +11,7 @@ The following training steps are recommended for familiarizing yourself with the
 
 ### The Standardized Vocabularies (~45 minutes)
 
-The standard vocabularies are foundational to understanding how clinical data and clinical concepts are represented in the OMOP CDM. The following instructional resources rely upon the user having an [EHDEN Academy](https://academy.ehden.eu/my/) account, which is free to create. The following three resources are pieces of EHDEN courses, which provide the minimum information required to work successfully with the OMOP CDM via the cohort generation and data analysis tool, ATLAS (more in the next section on How to Use the OMOP CDM).
+The standard vocabularies are foundational to understanding how clinical data and clinical concepts are represented in the OMOP CDM. The following instructional resources rely upon the user having an [EHDEN Academy](https://academy.ehden.eu/my/) account, which is free to create. The following three resources are pieces of EHDEN courses, which provide the minimum information required to work successfully with the OMOP CDM.
 
 - **[Vocabulary Introduction](https://academy.ehden.eu/mod/page/view.php?id=207)**: An overview of the OMOP Vocabulary, which provides standardized terminology for the OMOP CDM.
 - **[Concepts](https://academy.ehden.eu/mod/page/view.php?id=208)**: A detailed explanation of *concepts* within the OMOP, including how they are defined and used.
@@ -21,7 +21,7 @@ The standard vocabularies are foundational to understanding how clinical data an
 
 # Recommended Advanced Training (~10 hours)
 
-EHDEN’s base OHDSI tutorials are an important foundation, and have some of the same content as years following (EHDEN training content from 2019). However, the tutorials are a yearly event, and in our experience, the content gets tighter each year. For that reason, we actually recommend individuals start in the following order with their OMOP training. Ideally, **you should have access to an OMOP-CDM database and are able to put these skills to immediate use**, else risk loosing the knowledge quickly.
+EHDEN’s base OHDSI tutorials are an important foundation, and have some of the same content as years following (EHDEN training content from 2019). However, the tutorials are a yearly event, and in our experience, the content gets tighter each year. For that reason, we recommend individuals start in the following order with their advanced OMOP training. Ideally, **you should have access to an OMOP-CDM database and are able to put these skills to immediate use**, else risk loosing the knowledge quickly.
 
 - OHDSI2025 Tutorial: An Introduction to the Journey from Data to Evidence Using OHDSI [(link)](https://youtu.be/lELiY5B27ps?si=MbJEGB64mOTsHB7X)
   - Good foundation for answering the question “why even bother with this in the first place”
@@ -36,5 +36,6 @@ EHDEN’s base OHDSI tutorials are an important foundation, and have some of the
 # Next steps
 
 Once you are thoroughly familiar with the OMOP-CDM, you should be able to appropriately utilize tooling against the model, including SQL, R, Python, and GUI applications (White Rabbit, Rabbit in a Hat, Usagi, ATHENA, ATLAS). Please see our "Applications" page for additional details regarding the applications we use. If you're working in Epic and you want to see how Epic concepts are converted to OMOP dimensions, please refer to our "OMOP Primers" for further details.
+
 
 
