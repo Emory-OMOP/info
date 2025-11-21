@@ -17,6 +17,8 @@ The standard vocabularies are foundational to understanding how clinical data an
 - **[Concepts](https://academy.ehden.eu/mod/page/view.php?id=208)**: A detailed explanation of *concepts* within the OMOP, including how they are defined and used.
 - **[Standardized Concepts](https://academy.ehden.eu/mod/page/view.php?id=211)**: An in-depth look at the standardized vocabularies used in the OMOP CDM, including how they are structured and utilized.
 
+---
+
 # Recommended Advanced Training (~10 hours)
 
 EHDEN’s base OHDSI tutorials are an important foundation, and have some of the same content as years following (EHDEN training content from 2019). However, the tutorials are a yearly event, and in our experience, the content gets tighter each year. For that reason, we actually recommend individuals start in the following order with their OMOP training. Ideally, **you should have access to an OMOP-CDM database and are able to put these skills to immediate use**, else risk loosing the knowledge quickly.
@@ -29,8 +31,10 @@ EHDEN’s base OHDSI tutorials are an important foundation, and have some of the
   - Going deeper with EHDEN - Extract, Transform and Load course [(link)](https://academy.ehden.eu/course/view.php?id=7)
 - OHDSI2025 Tutorial: Using the OHDSI Standardized Vocabularies for Research [(link)](https://www.youtube.com/watch?v=IETB9r4O04I&list=PLpzbqK7kvfeXRQktX0PV-cRpb3EFA2e7Z&index=2)
 
+---
+
 # Next steps
 
-Once you are thoroughly familiar with the OMOP-CDM, you should be able to appropriately utilize tooling against the model, including SQL, R, Python, and GUI applications (White Rabbit, Rabbit in a Hat, Usagi, ATHENA, ATLAS). Please see our "Applications" page for additional details regarding the applications we use.
+Once you are thoroughly familiar with the OMOP-CDM, you should be able to appropriately utilize tooling against the model, including SQL, R, Python, and GUI applications (White Rabbit, Rabbit in a Hat, Usagi, ATHENA, ATLAS). Please see our "Applications" page for additional details regarding the applications we use. If you're working in Epic and you want to see how Epic concepts are converted to OMOP dimensions, please refer to our "OMOP Primers" for further details.
 
 
