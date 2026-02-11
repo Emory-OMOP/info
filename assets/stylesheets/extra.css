@@ -1,0 +1,20 @@
+/* Light mode */
+:root > * {
+  --md-primary-fg-color:        #012169;
+  --md-primary-fg-color--light: #E4E7EF;
+  --md-primary-fg-color--dark:  #0C2340;
+  /* Add more custom variables as needed */
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #323233;
+  --md-primary-fg-color--light: #252526;
+  --md-primary-fg-color--dark:  #1e1e1e;
+  /* Add more custom variables as needed */
+}
+
+/* Force 2-column layout only for grids using grid-2 */
+.grid.cards.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
