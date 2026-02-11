@@ -1,3 +1,12 @@
+# Concept Coverage in Enterprise OMOP
+
+Current Source To Concept Mapping Document
+
+[info/Emory-OMOP/info/blob/main/supporting/STCM__Stakeholder_view__v20250510.xlsx](https://github.com/Emory-OMOP/info/blob/main/supporting/STCM__Stakeholder_view__v20250510.xlsx)
+
+
+## Per Concept Data Source, Table, and Column Coverage
+
 | data_source | table | column | total_rows | count_greater_0 | percentage of frequency_greater_0 |
 | ---|---|---|---|---|---|
 | Enterprise Subsample (dv20250418) | concept | concept_id | 7437037 | 7437036 | 100 |
