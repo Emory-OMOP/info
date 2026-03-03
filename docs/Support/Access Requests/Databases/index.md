@@ -98,7 +98,16 @@ Confirm completion and upload certificates for both required trainings:
 
 ---
 
-### Step 4: Submit
+### Step 4: Review the OMOP Terms of Data Use
+
+Read the **OMOP Terms of Data Use** agreement carefully, then provide your electronic signature.
+
+??? example "What does the Terms of Data Use cover?"
+    The agreement covers appropriate use of the OMOP database, including data security requirements, disclosure restrictions, and compliance with Emory's HIPAA security and technical controls.
+
+---
+
+### Step 5: Submit
 
 Click **Submit**. The Data Solutions team will review your request and provision access.
 
