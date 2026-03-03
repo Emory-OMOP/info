@@ -19,7 +19,7 @@ Users may develop against Emory's OMOP-CDM with any tool that can access our dat
 
     [:octicons-arrow-right-24: Emory's R Repositories](https://ohdsi-atlas.emory.edu/atlas/#/home)
 
-    [:octicons-arrow-right-24: Emory's R Training Resources](../../Training/Emory/R/index.md))
+    [:octicons-arrow-right-24: Emory's R Training Resources](../../Training/Emory/R/index.md)
 
     ### Popular OHDSI Community Tools
 
@@ -48,4 +48,14 @@ Users may develop against Emory's OMOP-CDM with any tool that can access our dat
 </div>
 
 
-:material-language-python: __Python__
+<div class="grid cards grid-2" markdown>
+
+-   :material-language-python: __Python__
+
+    ---
+
+    Python is a general-purpose programming language increasingly used in the OHDSI community for data analysis, machine learning, and ETL pipelines. Connect to Emory's OMOP data lake using `redshift_connector` or any Redshift-compatible driver.
+
+    [:octicons-arrow-right-24: Database Connection Guide](../../Support/Access%20Requests/Databases/index.md#after-youre-approved)
+
+</div>

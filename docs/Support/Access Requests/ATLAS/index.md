@@ -47,17 +47,19 @@ Describe your use case for the ATLAS tool. If you are unsure what to write, you 
 
 > *Exploring concept and cohort creation using the OMOP-CDM*
 
-### Step 3: Confirm Required Trainings
+### Step 3: Upload Required Trainings
 
-Confirm that you have completed both **Biomedical CITI training** (within the last 3 years) and **Emory's HIPAA training**.
+Confirm completion and upload certificates for both required trainings:
 
-![REDCap form showing the justification field and required training confirmations](../../../assets/images/atlas_access_request_2.png)
+1. **Biomedical CITI training** — completed within the last 3 years. Select **Yes** and upload your certificate.
+2. **Emory HIPAA training** — current. Select **Yes** and upload your certificate.
 
 ### Step 4: Review the OMOP Terms of Data Use
 
-Before submitting, you will be presented with the **OMOP Terms of Data Use**. Please read and understand this agreement, then provide your electronic signature.
+Read the **OMOP Terms of Data Use** agreement carefully, then provide your electronic signature.
 
-![OMOP Terms of Data Use agreement](../../../assets/images/atlas_access_request_3.png)
+??? example "What does the Terms of Data Use cover?"
+    The agreement covers appropriate use of the OMOP database, including data security requirements, disclosure restrictions, and compliance with Emory's HIPAA security and technical controls.
 
 ### Step 5: Submit
 

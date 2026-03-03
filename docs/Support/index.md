@@ -46,6 +46,6 @@ The following workflows are recommended for the most expedient support:
 
     [:octicons-arrow-right-24: Request ATLAS Access](Access Requests/ATLAS/index.md)
 
-    :octicons-arrow-right-24: Request Database Access (Under Construction)
+    [:octicons-arrow-right-24: Request Database Access](Access Requests/Databases/index.md)
 
 </div>
