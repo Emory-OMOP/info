@@ -34,8 +34,8 @@ We encourage you to use the tools and the communities that are readily at your d
 
 ## Where to go when you're ready to use this SOP
 
-1) complete the brief OMOP User Source-Target Knowledge self-assessment form (🚧 under constuction as of release date 🚧).
-2) complete the OMOP Source to Target Data Mapping Template (🚧 under constuction as of release date 🚧)
+1) complete the brief OMOP User Source-Target Knowledge self-assessment form (🚧 under construction as of release date 🚧).
+2) complete the OMOP Source to Target Data Mapping Template (🚧 under construction as of release date 🚧)
     - you can provide as much or as little detail as you like, but the more detail you provide, the easier it will be for us to implement your request.
 3) attend the next Enterprise OMOP Community Meeting to discuss the request with the team and with other users
     - this is a great time to ask questions about the data, and to get feedback from the community on your request
