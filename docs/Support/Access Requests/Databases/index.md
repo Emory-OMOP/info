@@ -70,16 +70,12 @@ Fill in your name and Emory email, then make the following selections: (1)
 |-------|----------------|
 | Which resources do you need access to? | **Databases, applications, and data lakes** |
 | Which application, database, or data lake? | **Data Solutions Team Data Lake** |
-| Which OMOP domain do you need? | **OMOP - EHC De-Identified** |
+| Which data sources do you need? | **omop_prod (de-id)** — Enterprise OMOP Database - De-ID schema |
 
-!!! warning "Select the correct system"
-    The screenshot below shows **OMOP - Atlas** highlighted — that's for ATLAS access. For database access, select **Data Solutions Team Data Lake** instead (the option directly below it).
-
-<!-- TODO: Capture database-specific screenshot with correct selection highlighted -->
-![REDCap form showing resource and system selections](../../../assets/images/atlas_access_request_1.png)
+![REDCap form showing resource, system, and data source selections for database access](../../../assets/images/db_access_request_1.png)
 
 ??? tip "Need access to identified data?"
-    Start with de-identified access first. Identified data requires additional approvals — including IRB protocol documentation — and is handled through a separate process. Contact the Data Solutions team for guidance.
+    The form also lists **omop_prod** (without de-id) — the Enterprise OMOP Database with identified data. This option requires an approved IRB protocol and will be provisioned as a custom schema for your project. Start with de-identified access first, and contact the Data Solutions team for guidance on identified data.
 
 ---
 
@@ -91,29 +87,18 @@ Describe your use case for direct database access. A brief statement is sufficie
 
 ---
 
-### Step 3: Confirm Required Trainings
+### Step 3: Upload Required Trainings
 
-Confirm that you have completed both required trainings:
+Confirm completion and upload certificates for both required trainings:
 
-1. **Biomedical CITI training** — within the last 3 years
-2. **Emory HIPAA training** — current
+1. **Biomedical CITI training** — completed within the last 3 years. Select **Yes** and upload your certificate.
+2. **Emory HIPAA training** — current. Select **Yes** and upload your certificate.
 
-![REDCap form showing the justification field and required training confirmations](../../../assets/images/atlas_access_request_2.png)
-
----
-
-### Step 4: Review the Terms of Data Use
-
-Read the **OMOP Terms of Data Use** agreement carefully, then provide your electronic signature.
-
-??? example "What does the Terms of Data Use cover?"
-    The agreement covers appropriate use of the OMOP database, including data security requirements, disclosure restrictions, and compliance with Emory's HIPAA security and technical controls.
-
-![OMOP Terms of Data Use agreement](../../../assets/images/atlas_access_request_3.png)
+![REDCap form showing training confirmations and certificate upload fields](../../../assets/images/db_access_request_2.png)
 
 ---
 
-### Step 5: Submit
+### Step 4: Submit
 
 Click **Submit**. The Data Solutions team will review your request and provision access.
 
