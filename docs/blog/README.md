@@ -2,9 +2,43 @@
 
 MkDocs Material blog for surfacing funding opportunities, OHDSI network updates, real-world evidence developments, and announcements to Emory's OMOP research community.
 
-## Adding a post
+## Quick reference — "I haven't touched this in months"
 
-Create a markdown file in `docs/blog/posts/` with this template:
+The blog has 3 moving parts:
+
+| What | Where | How |
+|------|-------|-----|
+| Published posts | `docs/blog/posts/` | Markdown files with frontmatter |
+| Raw drafts (fetched) | `scripts/blog_drafts/` | Auto-fetched, not visible to users |
+| Blog landing page | `docs/blog/index.md` | **Auto-generated** — do not edit by hand |
+
+### Weekly maintenance (5 min)
+
+1. The GitHub Action fetches new drafts every Monday → creates a PR
+2. Review the PR, delete junk drafts you don't want
+3. Edit keepers in `scripts/blog_drafts/` — add editorial context (see [Publishing a draft](#publishing-a-draft))
+4. Publish:
+   ```bash
+   uv run scripts/fetch_opportunities.py publish filename1.md filename2.md
+   ```
+   This moves to posts, extracts deadlines, and regenerates the landing page automatically.
+5. Commit and merge
+
+### Changing the pinned post
+
+Set `pin: true` in the post's frontmatter (only one post should be pinned at a time). Then regenerate:
+
+```bash
+uv run scripts/update_blog_index.py
+```
+
+The script picks the most recent pinned post for the banner automatically.
+
+---
+
+## Post template
+
+Create a markdown file in `docs/blog/posts/`:
 
 ```markdown
 ---
@@ -24,16 +58,15 @@ Brief description that appears in the blog listing.
 
 <!-- more -->
 
-Full post content below the fold. Supports all MkDocs Material
-features — admonitions, tables, code blocks, links, etc.
+Full post content below the fold.
 ```
 
 ### Required fields
 
 | Field | Description |
 |-------|-------------|
-| `date` | Publication date (`YYYY-MM-DD`) |
-| `categories` | One or more from the allowed list below |
+| `date` | When the source published/announced this (`YYYY-MM-DD`) |
+| `categories` | One or more from the [allowed list](#categories) |
 
 ### Optional fields
 
@@ -41,31 +74,132 @@ features — admonitions, tables, code blocks, links, etc.
 |-------|-------------|
 | `authors` | Author key(s) from `.authors.yml` |
 | `tags` | Free-form tags for filtering |
-| `draft` | Set `true` to hide from production (visible in `mkdocs serve`) |
+| `draft` | `true` to hide from production (visible in `mkdocs serve`) |
+| `pin` | `true` to pin post to top of blog feed + landing page banner |
+| `promoted` | `true` to mark as a featured post (for future automation) |
+| `deadline_loi` | LOI deadline (`YYYY-MM-DD`) — shown on Funding category cards |
+| `deadline_app` | Application deadline (`YYYY-MM-DD`) — shown on Funding category cards |
+| `deadline_close` | Close date (`YYYY-MM-DD`) — shown on Funding category cards |
 
 ### The `<!-- more -->` separator
 
-Everything above the separator shows in the blog listing as the post excerpt. Everything below only appears when a reader clicks through to the full post. If omitted, the entire post shows in the listing.
+Everything above it shows as the excerpt in the blog listing. Everything below is the full post. **This is required** — the blog plugin enforces `post_excerpt: required`.
+
+For funding posts, put key deadlines above `<!-- more -->` so they're visible in the feed:
+
+```markdown
+PCORI has opened Cycle 2 of its Broad Pragmatic Studies funding...
+
+**LOI Deadline**: April 1, 2026 | **Application Deadline**: April 28, 2026
+
+<!-- more -->
+```
+
+### File naming
+
+```
+docs/blog/posts/YYYY-MM-DD-short-slug.md
+```
+
+MkDocs sorts by the `date` frontmatter field, not the filename.
+
+---
+
+## Publishing a draft
+
+Drafts land in `scripts/blog_drafts/` from the fetcher. They are raw — thin content, no editorial framing, `draft: true` set.
+
+### Step 1: Triage
+
+```bash
+uv run scripts/fetch_opportunities.py list
+```
+
+Shows all pending drafts with category, date, source, and title. Delete the ones that aren't relevant.
+
+### Step 2: Edit (the human part)
+
+Open the draft in `scripts/blog_drafts/` and add editorial value:
+
+- Add a **"Why this matters for Emory"** section or Emory-specific framing
+- Clean up the excerpt (text above `<!-- more -->`)
+- For funding: make sure deadline dates are in the content (the publish command extracts them)
+- Optionally set `pin: true` (one at a time) or `promoted: true`
+
+The `date` field is already set to when the source posted it — leave it as-is.
+
+### Step 3: Publish
+
+```bash
+# Publish specific drafts (after editing)
+uv run scripts/fetch_opportunities.py publish filename.md
+
+# Or publish all remaining drafts
+uv run scripts/fetch_opportunities.py publish --all
+```
+
+This automatically:
+
+- Moves the file from `scripts/blog_drafts/` → `docs/blog/posts/`
+- Strips `draft: true` from frontmatter
+- Extracts deadline dates from content into frontmatter (`deadline_loi`, `deadline_app`, `deadline_close`)
+- Regenerates `docs/blog/index.md` with updated category cards
+
+### Step 4: Commit and push
+
+```bash
+git add docs/blog/ && git commit -m "Publish new blog posts" && git push
+```
+
+---
+
+## Landing page generator
+
+**Never edit `docs/blog/index.md` by hand.** It is generated by:
+
+```bash
+uv run scripts/update_blog_index.py         # write index.md
+uv run scripts/update_blog_index.py --dry-run  # preview without writing
+```
+
+The script:
+
+- Scans all posts in `docs/blog/posts/`
+- Finds the most recent post per category
+- Reads deadline fields from funding post frontmatter
+- Finds the pinned post for the banner
+- Writes `docs/blog/index.md` with category cards, dates, and deadline info
+
+Run it after publishing any post, changing the pinned post, or adding a new category.
+
+---
 
 ## Categories
 
 Posts must use categories from this list (enforced in `mkdocs.yml`):
 
-| Category | Use for |
-|----------|---------|
-| **Funding** | NIH RFAs, foundation grants, internal pilot funding, award announcements |
-| **OHDSI** | Network studies, OHDSI symposium, community tools, workgroup updates |
-| **Real-World Evidence** | RWE methods, regulatory developments, policy changes |
-| **Vocabulary** | Vocabulary releases, mapping updates, concept coverage changes |
-| **Data Quality** | DQD results, pipeline improvements, known issue resolutions |
-| **Infrastructure** | Platform changes, new tooling, access updates, downtime notices |
-| **Community** | Training sessions, onboarding, team updates, user spotlights |
+| Category | Icon | Use for |
+|----------|------|---------|
+| **Funding** | :material-cash-multiple: | NIH RFAs, foundation grants, pilot funding, award announcements |
+| **OHDSI** | :material-account-group: | Network studies, symposium, community tools, workgroup updates |
+| **Real-World Evidence** | :material-flask: | RWE methods, regulatory developments, policy changes |
+| **Vocabulary** | :material-book-open-variant: | Vocabulary releases, mapping updates, concept coverage |
+| **Data Quality** | :material-check-decagram: | DQD results, pipeline improvements, known issues |
+| **Infrastructure** | :material-server-network: | Platform changes, new tooling, access updates, downtime |
+| **Community** | :material-human-greeting-proximity: | Training, onboarding, team updates, research discussions |
 
-To add a new category, update the `categories_allowed` list in `mkdocs.yml` under the `blog` plugin.
+To add a new category:
+
+1. Add it to `categories_allowed` in `mkdocs.yml` under the `blog` plugin
+2. Add it to the `CATEGORIES` dict in `scripts/update_blog_index.py`
+3. Publish at least one post in that category (otherwise no sidebar link generates)
+4. Run `uv run scripts/update_blog_index.py`
+
+---
 
 ## Authors
 
-Authors are defined in `docs/blog/.authors.yml`:
+Defined in `docs/blog/.authors.yml`:
 
 ```yaml
 authors:
@@ -75,86 +209,61 @@ authors:
     avatar: https://github.com/identicons/dsmith.png
 ```
 
-To add a new author, add an entry with a unique key, name, description, and avatar URL.
+---
 
-## File naming
+## Automated funding fetcher
 
-No strict naming convention required — MkDocs sorts posts by the `date` field in frontmatter, not the filename. A recommended pattern for readability:
-
-```
-docs/blog/posts/YYYY-MM-DD-short-slug.md
-```
-
-## Automated funding opportunity fetcher
-
-The script `scripts/fetch_opportunities.py` aggregates funding opportunities and research news from 6 sources into draft blog posts for review before publishing.
+`scripts/fetch_opportunities.py` aggregates opportunities from 6 sources into `scripts/blog_drafts/`.
 
 ### Sources
 
 | Source | Type | What it finds |
 |--------|------|---------------|
-| **NIH Guide** | RSS | NIH policy notices and funding announcements |
-| **Grants.gov** | API | Federal FOAs from HHS, NIH, AHRQ, VA, NSF, DOD |
-| **NIH Reporter** | API | Recently funded projects using OMOP/RWE methods |
-| **PCORI** | Web scrape | Patient-centered outcomes research funding (Open/Upcoming) |
-| **OHDSI Forums** | RSS | Community discussions, collaborations, network studies |
+| **NIH Guide** | RSS | Policy notices and funding announcements |
+| **Grants.gov** | API | Federal FOAs (HHS, NIH, AHRQ, VA, NSF, DOD) |
+| **NIH Reporter** | API | Recently funded OMOP/RWE projects |
+| **PCORI** | Web scrape | Patient-centered outcomes research funding |
+| **OHDSI Forums** | RSS | Community discussions, collaborations |
 | **PubMed** | API | Recent OMOP/RWE methods publications |
 
-### Automated workflow (CI/CD)
+### CI/CD
 
-A GitHub Action (`.github/workflows/fetch-opportunities.yml`) runs **every Monday at 8am ET** and can also be triggered manually from the Actions tab.
+GitHub Action (`.github/workflows/fetch-opportunities.yml`) runs **every Monday at 8am ET**. Also triggerable manually from the Actions tab.
 
-1. **Fetch** — the Action runs the fetcher and creates draft files in `docs/blog/drafts/`
-2. **PR** — if new drafts are found, a PR is opened automatically (branch: `auto/opportunities-YYYY-MM-DD`)
-3. **Review** — you review the PR, delete posts you don't want, and keep the ones worth publishing
-4. **Publish** — move approved drafts from `drafts/` to `posts/` (the `publish` command does this and strips `draft: true`), then merge the PR
-5. **Deploy** — the site rebuilds with the new posts on merge
+1. Fetches new drafts into `scripts/blog_drafts/`
+2. Opens a PR if new drafts found (branch: `auto/opportunities-YYYY-MM-DD`)
+3. You review, curate, publish (see [Publishing a draft](#publishing-a-draft))
 
-### Manual workflow (local)
+### Local fetch
 
 ```bash
-# Fetch new opportunities into docs/blog/drafts/
-uv run scripts/fetch_opportunities.py fetch
-
-# Preview locally (drafts visible in serve mode)
-uv run mkdocs serve
-
-# List pending drafts
-uv run scripts/fetch_opportunities.py list
-
-# Publish reviewed drafts (moves to posts/, strips draft: true)
-uv run scripts/fetch_opportunities.py publish --all
-# Or publish specific files:
-uv run scripts/fetch_opportunities.py publish file1.md file2.md
-
-# Dry run (see what would be fetched without creating files)
-uv run scripts/fetch_opportunities.py fetch --dry-run
-
-# Fetch from a specific source only
-uv run scripts/fetch_opportunities.py fetch --source pcori --source grants-gov
+uv run scripts/fetch_opportunities.py fetch              # fetch all sources
+uv run scripts/fetch_opportunities.py fetch --dry-run     # preview only
+uv run scripts/fetch_opportunities.py fetch --source pcori  # one source
 ```
 
-Available `--source` values: `nih-guide`, `ohdsi`, `grants-gov`, `nih-reporter`, `pcori`, `pubmed`
+Available sources: `nih-guide`, `ohdsi`, `grants-gov`, `nih-reporter`, `pcori`, `pubmed`
 
 ### Deduplication
 
-The fetcher tracks previously seen posts in `scripts/feed_state.json` (gitignored). Running `fetch` multiple times won't create duplicate drafts. Delete this file to reset and re-fetch everything.
+Tracked in `scripts/feed_state.json` (gitignored). Delete it to re-fetch everything.
 
-### Reviewing drafts
+---
 
-Each draft has `draft: true` in its frontmatter, so it won't appear on the published site. When reviewing:
+## Key files
 
-- **Delete** drafts that aren't relevant
-- **Edit** drafts to add context, fix formatting, or add author attribution
-- **Publish** by running `uv run scripts/fetch_opportunities.py publish <filename>` or manually moving the file to `posts/` and removing the `draft: true` line
-
-## Features
-
-- **Pagination** — 10 posts per page
-- **Categories** — browseable category pages auto-generated
-- **Tags** — tag index page at `/blog/tags/`
-- **Archive** — monthly archive auto-generated
-- **Drafts** — set `draft: true` in frontmatter to preview locally without publishing
+| File | Purpose |
+|------|---------|
+| `docs/blog/index.md` | Landing page — **auto-generated**, do not edit |
+| `docs/blog/posts/*.md` | Published posts |
+| `docs/blog/.authors.yml` | Author definitions |
+| `docs/blog/tags.md` | Tag index page |
+| `scripts/blog_drafts/` | Raw fetched drafts (not in docs build) |
+| `scripts/fetch_opportunities.py` | Fetcher script |
+| `scripts/update_blog_index.py` | Landing page generator |
+| `scripts/feed_state.json` | Dedup state (gitignored) |
+| `.github/workflows/fetch-opportunities.yml` | Weekly fetch CI |
+| `mkdocs.yml` | Blog plugin config, allowed categories |
 
 ## See also
 

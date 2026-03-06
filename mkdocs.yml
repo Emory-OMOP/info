@@ -63,6 +63,9 @@ plugins:
       blog_dir: blog
       post_date_format: long
       post_url_format: "{slug}"
+      post_excerpt: required
+      draft: false
+      draft_on_serve: true
       categories: true
       categories_name: Categories
       categories_allowed:

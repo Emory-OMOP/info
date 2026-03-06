@@ -14,7 +14,7 @@ Sources:
   - PubMed: recent OMOP/RWE methods publications (eutils API)
 
 Usage:
-    # Fetch new opportunities into docs/blog/drafts/
+    # Fetch new opportunities into scripts/blog_drafts/
     uv run scripts/fetch_opportunities.py fetch [--dry-run]
 
     # Publish reviewed drafts to docs/blog/posts/
@@ -43,7 +43,7 @@ import httpx
 # ---------------------------------------------------------------------------
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DRAFTS_DIR = REPO_ROOT / "docs" / "blog" / "drafts"
+DRAFTS_DIR = REPO_ROOT / "scripts" / "blog_drafts"
 POSTS_DIR = REPO_ROOT / "docs" / "blog" / "posts"
 STATE_FILE = Path(__file__).resolve().parent / "feed_state.json"
 
@@ -774,8 +774,63 @@ def cmd_fetch(args: argparse.Namespace) -> int:
     return 0
 
 
+def _extract_deadlines(content: str) -> dict[str, str]:
+    """Extract deadline dates from post content into frontmatter fields."""
+    deadlines: dict[str, str] = {}
+
+    # Match patterns like "LOI Deadline: April 1, 2026" or "Closes: 03/06/2026"
+    patterns = [
+        (r"LOI\s+Deadline[:\s]*(\w+\s+\d{1,2},?\s+\d{4})", "deadline_loi"),
+        (r"Application\s+Deadline[:\s]*(\w+\s+\d{1,2},?\s+\d{4})", "deadline_app"),
+        (r"Closes[:\s]*(\d{2}/\d{2}/\d{4})", "deadline_close"),
+        (r"Closes[:\s]*(\w+\s+\d{1,2},?\s+\d{4})", "deadline_close"),
+    ]
+
+    for pattern, key in patterns:
+        m = re.search(pattern, content, re.IGNORECASE)
+        if m and key not in deadlines:
+            raw = m.group(1)
+            # Try to parse into YYYY-MM-DD
+            for fmt in ("%B %d, %Y", "%B %d %Y", "%m/%d/%Y"):
+                try:
+                    dt = datetime.strptime(raw.replace(",", "").strip(), fmt.replace(",", ""))
+                    deadlines[key] = dt.strftime("%Y-%m-%d")
+                    break
+                except ValueError:
+                    continue
+            else:
+                deadlines[key] = raw  # Keep raw if parsing fails
+
+    return deadlines
+
+
+def _inject_frontmatter_fields(content: str, fields: dict[str, str]) -> str:
+    """Add fields to YAML frontmatter block."""
+    if not fields:
+        return content
+
+    # Find end of frontmatter
+    m = re.match(r"(---\n)(.*?)(\n---)", content, re.DOTALL)
+    if not m:
+        return content
+
+    fm_block = m.group(2)
+
+    # Only add fields not already present
+    additions = []
+    for key, val in fields.items():
+        if key not in fm_block:
+            additions.append(f"{key}: {val}")
+
+    if not additions:
+        return content
+
+    new_fm = fm_block + "\n" + "\n".join(additions)
+    return m.group(1) + new_fm + m.group(3) + content[m.end():]
+
+
 def cmd_publish(args: argparse.Namespace) -> int:
-    """Move drafts to posts directory."""
+    """Move drafts to posts directory with deadline extraction."""
     if not DRAFTS_DIR.exists():
         print("No drafts directory found.", file=sys.stderr)
         return 1
@@ -783,7 +838,7 @@ def cmd_publish(args: argparse.Namespace) -> int:
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
 
     if args.all:
-        files = list(DRAFTS_DIR.glob("*.md"))
+        files = sorted(DRAFTS_DIR.glob("*.md"))
     elif args.files:
         files = [DRAFTS_DIR / f for f in args.files]
     else:
@@ -796,9 +851,16 @@ def cmd_publish(args: argparse.Namespace) -> int:
             print(f"  Not found: {src.name}", file=sys.stderr)
             continue
 
-        # Read content and strip draft: true
         content = src.read_text()
+
+        # Strip draft: true
         content = re.sub(r"^draft:\s*true\n", "", content, flags=re.MULTILINE)
+
+        # Extract deadline dates from content → frontmatter
+        deadlines = _extract_deadlines(content)
+        if deadlines:
+            content = _inject_frontmatter_fields(content, deadlines)
+            print(f"  Deadlines: {deadlines}")
 
         dest = POSTS_DIR / src.name
         dest.write_text(content)
@@ -806,12 +868,22 @@ def cmd_publish(args: argparse.Namespace) -> int:
         print(f"  Published: {src.name}")
         published += 1
 
-    print(f"\n{published} draft(s) published to posts/")
+    if published:
+        print(f"\n{published} draft(s) published to posts/")
+        # Regenerate blog index
+        index_script = Path(__file__).resolve().parent / "update_blog_index.py"
+        if index_script.exists():
+            print("\nRegenerating blog index...")
+            import subprocess
+            subprocess.run([sys.executable, str(index_script)], check=True)
+    else:
+        print("\nNo drafts published.")
+
     return 0
 
 
 def cmd_list(args: argparse.Namespace) -> int:
-    """List current drafts."""
+    """List current drafts with category, date, and source."""
     if not DRAFTS_DIR.exists():
         print("No drafts directory.")
         return 0
@@ -823,12 +895,25 @@ def cmd_list(args: argparse.Namespace) -> int:
 
     print(f"{len(drafts)} draft(s):\n")
     for d in drafts:
-        # Extract title from frontmatter
         content = d.read_text()
         title_match = re.search(r"^# (.+)$", content, re.MULTILINE)
         title = title_match.group(1) if title_match else d.stem
-        print(f"  {d.name}")
+
+        # Extract category
+        cat_match = re.search(r"categories:\n\s+-\s+(.+)", content)
+        cat = cat_match.group(1).strip() if cat_match else "?"
+
+        # Extract date
+        date_match = re.search(r"^date:\s+(.+)$", content, re.MULTILINE)
+        date_str = date_match.group(1).strip() if date_match else "?"
+
+        # Extract source
+        source_match = re.search(r"\*\*Source\*\*:\s+\[(.+?)\]", content)
+        source = source_match.group(1) if source_match else "?"
+
+        print(f"  [{cat:<20}] {date_str}  {d.name}")
         print(f"    {title}")
+        print(f"    Source: {source}")
         print()
 
     return 0
