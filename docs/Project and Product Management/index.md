@@ -1,8 +1,32 @@
-# Overview
+---
+hide:
+  - footer
+title: Project & Product Management
+---
 
-With our stellar community, we are incredibly excited to be on the OMOP journey! There are certainly challenges we are addressing together, but we rely on everyone to help us to develop and maintain the best possible OMOP CDM. We are committed to transparency and collaboration, and we want to ensure that everyone has a voice in the process. To that end, it is important you understand what we are working on!
+# Project & Product Management
 
-## Subsections
+How the Emory OMOP team plans, prioritizes, and delivers work — from high-level roadmap to day-to-day engineering workflow.
 
-- For the most up to date list of features as well as their scope status, please review Jira.
-- For the most up to date 10,000 foot view of our product roadmap and priorities, please review our [Product Roadmap](Product%20Roadmap/index.md).
+<div class="grid cards" markdown>
+
+-   :material-map-marker-path:{ .lg .middle } **Product Roadmap**
+
+    ---
+
+    Priorities, planned features, and timeline across all workstreams — data mapping, infrastructure, tooling, and community enablement.
+
+    [:octicons-arrow-right-24: View roadmap](Product%20Roadmap/index.md){ .md-button }
+
+-   :material-cog-sync-outline:{ .lg .middle } **DevOps Philosophy**
+
+    ---
+
+    Our hybrid framework combining DataOps, Shape Up, and Kanban — designed for a small data engineering team shipping research infrastructure.
+
+    [:octicons-arrow-right-24: Framework overview](DevOps%20Philosophy/index.md){ .md-button }
+
+</div>
+
+!!! question "Want to request a feature or report a bug?"
+    Use our [:octicons-arrow-right-24: Support](../Support/index.md) page to submit requests through the appropriate channels.

@@ -1,0 +1,228 @@
+{%- extends "main.html" -%}
+
+{% block tabs %}
+  {{ super() }}
+
+  <style>
+    .md-header { display: none }
+    .md-tabs { display: none }
+    .md-main__inner { margin: 0 }
+    .md-content { display: none }
+    .md-typeset h1 { display: none }
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary { display: none }
+    }
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary { display: none }
+    }
+  </style>
+
+  <!-- Hero -->
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__content">
+          <div class="mdx-hero__headline">
+            Emory Enterprise OMOP
+          </div>
+          <div class="mdx-hero__tagline">
+            Millions of de-identified patient records, mapped to one global standard.
+            Build cohorts. Run analyses. Scale to the world.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mdx-scroll-hint" aria-hidden="true">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- What you can do -->
+  <section class="mdx-features">
+    <div class="md-grid md-typeset">
+
+      <div class="mdx-features__heading mdx-fade">What you can do</div>
+      <div class="mdx-features__subheading mdx-fade">
+        Whether you're a researcher, analyst, or clinician — pick your tool, ask your question, get answers.
+      </div>
+
+      <!-- Row 1 -->
+      <div class="mdx-features__row mdx-fade">
+        <a href="{{ 'Applications/GUI/' | url }}" class="mdx-features__card" title="Build cohorts">
+          <div class="mdx-features__icon">
+            <span class="twemoji">
+              {% include ".icons/material/account-group.svg" %}
+            </span>
+          </div>
+          <div class="mdx-features__title">Build cohorts</div>
+          <p>Define study populations visually with ATLAS &mdash; inclusion criteria, temporal logic, and demographic filters, no code required.</p>
+        </a>
+
+        <a href="{{ 'Support/Access Requests/Databases/' | url }}" class="mdx-features__card" title="Query with code">
+          <div class="mdx-features__icon">
+            <span class="twemoji">
+              {% include ".icons/material/database-search.svg" %}
+            </span>
+          </div>
+          <div class="mdx-features__title">Query with code</div>
+          <p>Write SQL, Python, or R against Redshift directly. Full access to every table, every column, on your terms.</p>
+        </a>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="mdx-features__row mdx-fade">
+        <a href="{{ 'Data in Enterprise OMOP/' | url }}" class="mdx-features__card" title="Explore the data">
+          <div class="mdx-features__icon">
+            <span class="twemoji">
+              {% include ".icons/material/database-import.svg" %}
+            </span>
+          </div>
+          <div class="mdx-features__title">Explore the data</div>
+          <p>Conditions, drugs, measurements, procedures, visits &mdash; standardized from Epic and Cerner into one common data model.</p>
+        </a>
+
+        <a href="{{ 'OMOP Primers/' | url }}" class="mdx-features__card" title="Join a global network">
+          <div class="mdx-features__icon">
+            <span class="twemoji">
+              {% include ".icons/material/earth.svg" %}
+            </span>
+          </div>
+          <div class="mdx-features__title">Join a global network</div>
+          <p>Your analyses run anywhere OMOP lives. Reproduce results across the OHDSI network of 400+ institutions worldwide.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why OMOP at Emory -->
+  <section class="mdx-collab">
+    <div class="md-grid md-typeset">
+      <div class="mdx-collab__heading mdx-fade">Why OMOP at Emory</div>
+      <div class="mdx-collab__image">
+        <img src="{{ 'assets/images/ohdsi-network.png' | url }}" alt="OHDSI global network of 400+ institutions">
+      </div>
+      <div class="mdx-collab__body mdx-fade">
+        <p class="mdx-collab__lead">
+          One data model. Multiple source systems. Global interoperability.
+        </p>
+        <p>
+          The <strong>OMOP Common Data Model</strong> is a global standard for organizing
+          healthcare data. At Emory, we use it to unify records from
+          <strong>Epic</strong> and <strong>Cerner</strong> into a single, research-ready
+          data lake &mdash; so you can focus on discovery instead of data wrangling.
+        </p>
+        <p>
+          Because OMOP is the foundation of the <strong>OHDSI network</strong>,
+          your cohort definitions, analyses, and phenotypes are portable to
+          400+ institutions across 40+ countries. Local insight becomes global evidence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ready to start -->
+  <section class="mdx-cta mdx-fade">
+    <div class="md-grid md-typeset">
+      <div class="mdx-cta__inner">
+        <div class="mdx-cta__heading">Ready to get started?</div>
+        <p>
+          Request access to ATLAS or the database, then follow our training guides
+          to run your first query in minutes.
+        </p>
+        <div class="mdx-cta__buttons">
+          <a href="{{ 'Support/' | url }}" class="md-button md-button--primary">
+            Request access
+          </a>
+          <a href="{{ 'Training/' | url }}" class="md-button">
+            Explore training
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ================================================================
+     PLACEHOLDER — LLM Chat Widget
+     Pending approval to deploy an LLM on the homepage. When ready:
+     1. Uncomment the chat section below
+     2. Uncomment the chat.js script tag in the scripts block
+     3. Configure AGENT_URL and PASSKEY in chat.js
+     4. Add modal.css back to mkdocs.yml if needed
+     ================================================================
+
+  <section class="mdx-features">
+    <div class="md-grid md-typeset">
+      <div class="mdx-features__heading mdx-fade">From hypothesis to discovery</div>
+      <div class="mdx-features__subheading mdx-fade">
+        Millions of de-identified patient records, mapped to one global standard.
+        Pick your tool. Ask your question. Get answers.
+      </div>
+      <div class="mdx-chat mdx-fade" id="chat-container">
+        <div class="mdx-chat__status" id="chat-status"></div>
+        <div class="mdx-chat__controls">
+          <div class="mdx-chat__picker" id="chat-picker">
+            <button type="button" class="mdx-chat__picker-trigger" id="chat-picker-trigger" disabled>
+              <svg class="mdx-chat__picker-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M12 1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 4.5h2V7h-2zM5 7h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM8.5 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM15.5 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8 17h8v1.5H8z"/>
+              </svg>
+              <span class="mdx-chat__picker-label" id="chat-picker-label">Model</span>
+              <svg class="mdx-chat__picker-chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+              </svg>
+            </button>
+            <div class="mdx-chat__picker-dropdown" id="chat-picker-dropdown"></div>
+          </div>
+        </div>
+        <div class="mdx-chat__messages" id="chat-messages">
+          <div class="mdx-chat__welcome" id="chat-welcome">
+            Ask anything about the clinical data
+          </div>
+        </div>
+        <form class="mdx-chat__form" id="chat-form" autocomplete="off">
+          <input type="text" id="chat-input" placeholder="How many patients have Type 2 Diabetes?" disabled>
+          <button type="submit" id="chat-send" disabled aria-label="Send">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </form>
+        <div class="mdx-chat__suggestions" id="chat-suggestions">
+          <button type="button" data-prompt="How many patients have Type 2 Diabetes?">Type 2 Diabetes prevalence</button>
+          <button type="button" data-prompt="What are the most common drugs prescribed for hypertension?">Hypertension drugs</button>
+          <button type="button" data-prompt="Build a cohort of patients over 65 with heart failure">Heart failure cohort</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  #}
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("mdx-fade--visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll(".mdx-fade").forEach(function(el) {
+        observer.observe(el);
+      });
+    });
+  </script>
+  {# Chat widget script — uncomment when LLM is approved
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="{{ 'assets/javascripts/chat.js' | url }}?v=6"></script>
+  #}
+{% endblock %}

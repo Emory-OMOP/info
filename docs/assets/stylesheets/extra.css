@@ -3,18 +3,874 @@
   --md-primary-fg-color:        #012169;
   --md-primary-fg-color--light: #E4E7EF;
   --md-primary-fg-color--dark:  #0C2340;
-  /* Add more custom variables as needed */
 }
 
 /* Dark mode */
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #323233;
-  --md-primary-fg-color--light: #252526;
-  --md-primary-fg-color--dark:  #1e1e1e;
-  /* Add more custom variables as needed */
+  --md-primary-fg-color:        #6B9ACD;
+  --md-primary-fg-color--light: #4A7AB5;
+  --md-primary-fg-color--dark:  #3A6AA0;
+  --md-accent-fg-color:         #8BB4E0;
+  --md-typeset-a-color:         #8BB4E0;
 }
 
-/* Force 2-column layout only for grids using grid-2 */
-.grid.cards.grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+/* ==========================================================================
+   Homepage — Hero
+   ========================================================================== */
+
+.mdx-container {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1123 258'><path d='M1124,2c0,0 0,256 0,256l-1125,0l0,-48c0,0 16,5 55,5c116,0 197,-92 325,-92c121,0 114,46 254,46c140,0 214,-167 572,-166Z' style='fill: hsla(0, 0%, 100%, 1)'/></svg>") no-repeat bottom,
+    linear-gradient(
+      to bottom,
+      var(--md-primary-fg-color),
+      hsla(213, 55%, 32%, 1) 99%,
+      var(--md-default-bg-color) 99%
+    );
+  padding-top: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+[data-md-color-scheme="slate"] .mdx-container {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1123 258'><path d='M1124,2c0,0 0,256 0,256l-1125,0l0,-48c0,0 16,5 55,5c116,0 197,-92 325,-92c121,0 114,46 254,46c140,0 214,-167 572,-166Z' style='fill: hsla(230, 15%, 14%, 1)'/></svg>") no-repeat bottom,
+    linear-gradient(
+      to bottom,
+      var(--md-primary-fg-color),
+      hsla(230, 15%, 24%, 1) 99%,
+      var(--md-default-bg-color) 99%
+    );
+}
+
+.mdx-container > .md-grid {
+  width: 100%;
+}
+
+.mdx-hero {
+  color: var(--md-primary-bg-color);
+  margin: 0 .8rem;
+}
+
+.mdx-hero__headline {
+  color: currentcolor;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.mdx-hero__content {
+  padding: 4rem 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mdx-hero__tagline {
+  color: hsla(0, 0%, 100%, .9);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: .5rem;
+}
+
+@media screen and (min-width: 60em) {
+  .mdx-hero__headline {
+    font-size: 3rem;
+  }
+  .mdx-hero__tagline {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 29.984375em) {
+  .mdx-hero__headline {
+    font-size: 1.4rem;
+  }
+}
+
+/* Scroll hint chevron */
+@keyframes mdx-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(.5rem); }
+}
+
+.mdx-scroll-hint {
+  position: absolute;
+  bottom: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: mdx-bounce 2s ease-in-out infinite;
+  opacity: .85;
+  transition: opacity .3s;
+}
+
+.mdx-scroll-hint:hover {
+  opacity: 1;
+}
+
+.mdx-scroll-hint svg {
+  width: 5rem;
+  height: 5rem;
+  fill: hsla(0, 0%, 100%, 1);
+  filter: drop-shadow(0 0 .5rem hsla(0, 0%, 0%, .4));
+}
+
+@media screen and (max-width: 29.984375em) {
+  .mdx-scroll-hint {
+    bottom: 5rem;
+  }
+  .mdx-scroll-hint svg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+/* ==========================================================================
+   Homepage — Scroll fade-in
+   ========================================================================== */
+
+@keyframes mdx-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mdx-fade {
+  opacity: 0;
+  transform: translateY(1.5rem);
+}
+
+.mdx-fade--visible {
+  animation: mdx-fade-in .6s ease forwards;
+}
+
+/* ==========================================================================
+   Homepage — Features
+   ========================================================================== */
+
+.mdx-features {
+  padding: 4rem 0;
+}
+
+.mdx-features__heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: .75rem;
+}
+
+.mdx-features__subheading {
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+  font-size: .95rem;
+  line-height: 1.6;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+}
+
+.mdx-features__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (max-width: 60em) {
+  .mdx-features__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mdx-features__card {
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .2rem;
+  display: block;
+  padding: 1.5rem;
+  color: var(--md-default-fg-color);
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.mdx-features__card:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: var(--md-shadow-z2);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+}
+
+.mdx-features__icon {
+  color: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .mdx-features__card {
+  border-color: hsla(215, 30%, 40%, .3);
+  background: hsla(220, 15%, 16%, 1);
+}
+
+[data-md-color-scheme="slate"] .mdx-features__card:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .3);
+}
+
+.mdx-features__icon .twemoji svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.mdx-features__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: .5rem 0 .25rem;
+}
+
+.mdx-features__card p {
+  color: var(--md-default-fg-color--light);
+  font-size: .85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Homepage — Chat widget
+   ========================================================================== */
+
+.mdx-chat {
+  max-width: 48rem;
+  margin: 0 auto 2.5rem;
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .4rem;
+  overflow: hidden;
+  background: var(--md-default-bg-color);
+  box-shadow: var(--md-shadow-z1);
+}
+
+/* Status bar */
+.mdx-chat__status {
+  font-size: .8rem;
+  padding: .5rem 1rem;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+
+.mdx-chat__status--connected {
+  display: none;
+}
+
+.mdx-chat__status--streaming {
+  display: none;
+}
+
+.mdx-chat__status--offline {
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+}
+
+.mdx-chat__status--connecting {
+  background: var(--md-default-fg-color--lightest);
+}
+
+/* Model picker — toolbar row */
+.mdx-chat__controls {
+  padding: .4rem .75rem;
+  border-bottom: .05rem solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+}
+
+/* Model picker — wrapper (anchors the dropdown) */
+.mdx-chat__picker {
+  position: relative;
+  display: inline-block;
+}
+
+/* Model picker — trigger button */
+.mdx-chat__picker-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: inherit;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: .3rem .65rem;
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  cursor: pointer;
+  box-shadow: 0 1px 3px hsla(0, 0%, 0%, .08);
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.mdx-chat__picker-trigger:hover:not(:disabled) {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 2px 8px hsla(0, 0%, 0%, .12);
+}
+
+.mdx-chat__picker-trigger:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.mdx-chat__picker-icon {
+  width: .85rem;
+  height: .85rem;
+  fill: currentcolor;
+  flex-shrink: 0;
+}
+
+.mdx-chat__picker-chevron {
+  width: .9rem;
+  height: .9rem;
+  fill: var(--md-default-fg-color--light);
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+
+.mdx-chat__picker--open .mdx-chat__picker-chevron {
+  transform: rotate(180deg);
+}
+
+/* Model picker — dropdown panel */
+.mdx-chat__picker-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + .35rem);
+  left: 0;
+  z-index: 10;
+  min-width: 14rem;
+  padding: .6rem;
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .4rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 4px 20px hsla(0, 0%, 0%, .12), 0 1px 4px hsla(0, 0%, 0%, .08);
+}
+
+.mdx-chat__picker--open .mdx-chat__picker-dropdown {
+  display: block;
+}
+
+/* Model picker — group headings */
+.mdx-chat__picker-group {
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--md-default-fg-color--lighter);
+  padding: .45rem .35rem .2rem;
+}
+
+.mdx-chat__picker-group:first-child {
+  padding-top: .15rem;
+}
+
+/* Model picker — chips */
+.mdx-chat__picker-chip {
+  display: inline-block;
+  font-family: inherit;
+  font-size: .75rem;
+  padding: .25rem .6rem;
+  margin: .15rem .1rem;
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+
+.mdx-chat__picker-chip:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.mdx-chat__picker-chip--active {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.mdx-chat__picker-chip--active:hover {
+  color: var(--md-primary-bg-color);
+}
+
+/* Messages area */
+.mdx-chat__messages {
+  min-height: 12rem;
+  max-height: 28rem;
+  overflow-y: auto;
+  padding: 1rem 1.25rem;
+  scroll-behavior: smooth;
+}
+
+.mdx-chat__welcome {
+  text-align: center;
+  color: var(--md-default-fg-color--lighter);
+  font-size: .95rem;
+  padding: 4rem 0;
+}
+
+/* System notices (model switch, etc.) */
+.mdx-chat__notice {
+  text-align: center;
+  font-size: .75rem;
+  color: var(--md-default-fg-color--lighter);
+  padding: .5rem 0;
+  margin: .75rem 0;
+  border-top: .05rem solid var(--md-default-fg-color--lightest);
+  border-bottom: .05rem solid var(--md-default-fg-color--lightest);
+}
+
+/* Individual messages */
+.mdx-chat__msg {
+  margin-bottom: 1.25rem;
+}
+
+.mdx-chat__msg:last-child {
+  margin-bottom: 0;
+}
+
+.mdx-chat__label {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--md-default-fg-color--lighter);
+  margin-bottom: .25rem;
+}
+
+.mdx-chat__msg--user .mdx-chat__text {
+  color: var(--md-default-fg-color);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.mdx-chat__msg--assistant .mdx-chat__text {
+  color: var(--md-default-fg-color);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.mdx-chat__text pre {
+  background: var(--md-code-bg-color);
+  border-radius: .2rem;
+  padding: .75rem 1rem;
+  overflow-x: auto;
+  font-size: .8rem;
+  margin: .5rem 0;
+}
+
+.mdx-chat__text pre br {
+  display: none;
+}
+
+.mdx-chat__text code {
+  background: var(--md-code-bg-color);
+  border-radius: .15rem;
+  padding: .05em .3em;
+  font-size: .85em;
+}
+
+.mdx-chat__text pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Tool call pills */
+.mdx-chat__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-bottom: .25rem;
+}
+
+.mdx-chat__tools:empty {
+  display: none;
+}
+
+.mdx-chat__tool {
+  font-size: .7rem;
+  padding: .15rem .5rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mdx-chat__tool--running {
+  background: hsla(40, 90%, 55%, .15);
+  color: hsla(40, 80%, 35%, 1);
+}
+
+[data-md-color-scheme="slate"] .mdx-chat__tool--running {
+  background: hsla(40, 90%, 55%, .2);
+  color: hsla(40, 80%, 70%, 1);
+}
+
+.mdx-chat__tool--running::before {
+  content: "";
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: hsla(40, 90%, 55%, 1);
+  margin-right: .35rem;
+  animation: mdx-pulse .8s ease-in-out infinite;
+}
+
+@keyframes mdx-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+
+.mdx-chat__tool--done {
+  background: hsla(140, 60%, 45%, .12);
+  color: hsla(140, 50%, 35%, 1);
+}
+
+[data-md-color-scheme="slate"] .mdx-chat__tool--done {
+  background: hsla(140, 60%, 45%, .2);
+  color: hsla(140, 50%, 70%, 1);
+}
+
+.mdx-chat__tool--done::before {
+  content: "\2713";
+  margin-right: .3rem;
+  font-size: .65rem;
+}
+
+/* Inline charts */
+.mdx-chat__chart {
+  margin: .75rem 0 .5rem;
+  padding: .5rem;
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  max-width: 100%;
+}
+
+.mdx-chat__chart canvas {
+  max-height: 16rem;
+}
+
+/* Input area */
+.mdx-chat__form {
+  display: flex;
+  border-top: .05rem solid var(--md-default-fg-color--lightest);
+  padding: .5rem;
+  gap: .5rem;
+}
+
+.mdx-chat__form input {
+  flex: 1;
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  padding: .6rem .85rem;
+  font-size: .9rem;
+  font-family: inherit;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  outline: none;
+  transition: border-color .2s;
+}
+
+.mdx-chat__form input:focus {
+  border-color: var(--md-primary-fg-color);
+}
+
+.mdx-chat__form input:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.mdx-chat__form button {
+  border: none;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border-radius: .3rem;
+  padding: 0 .85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: opacity .2s;
+}
+
+.mdx-chat__form button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.mdx-chat__form button svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentcolor;
+}
+
+/* Suggestion chips */
+.mdx-chat__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  padding: .65rem 1rem .85rem;
+  justify-content: center;
+}
+
+.mdx-chat__suggestions button {
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font-size: .75rem;
+  padding: .3rem .75rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color .2s, color .2s;
+}
+
+.mdx-chat__suggestions button:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+/* Chat widget — mobile */
+@media screen and (max-width: 29.984375em) {
+  .mdx-chat {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin-left: -.8rem;
+    margin-right: -.8rem;
+  }
+  .mdx-chat__messages {
+    min-height: 8rem;
+    max-height: 20rem;
+    padding: .75rem;
+  }
+  .mdx-chat__welcome {
+    padding: 2.5rem 0;
+    font-size: .85rem;
+  }
+  .mdx-chat__form {
+    padding: .4rem;
+    gap: .35rem;
+  }
+  .mdx-chat__form input {
+    padding: .5rem .65rem;
+    font-size: .85rem;
+  }
+  .mdx-chat__suggestions {
+    padding: .5rem .65rem .65rem;
+    gap: .3rem;
+  }
+  .mdx-chat__suggestions button {
+    font-size: .7rem;
+    padding: .25rem .6rem;
+  }
+  .mdx-chat__picker-dropdown {
+    min-width: 12rem;
+    padding: .5rem;
+  }
+  .mdx-chat__picker-chip {
+    font-size: .7rem;
+    padding: .2rem .5rem;
+  }
+}
+
+/* ==========================================================================
+   Homepage — From discovery to global collaboration
+   ========================================================================== */
+
+.mdx-collab {
+  padding: 4rem 0 3rem;
+  background: var(--md-default-bg-color);
+}
+
+.mdx-collab__heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--md-default-bg-color);
+  padding: 1.25rem 0;
+}
+
+.mdx-collab__image {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.mdx-collab__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: .4rem;
+  box-shadow: var(--md-shadow-z2);
+}
+
+.mdx-collab__body {
+  max-width: 38rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mdx-collab__lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.mdx-collab__body p {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: .75rem;
+}
+
+.mdx-collab__prompt {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: .9rem;
+  font-style: italic;
+  color: var(--md-primary-fg-color);
+  background: var(--md-code-bg-color);
+  border-radius: .3rem;
+  padding: .85rem 1.25rem;
+  margin: 1.25rem auto;
+  max-width: 32rem;
+}
+
+.mdx-collab__footnote {
+  font-size: .85rem !important;
+  color: var(--md-default-fg-color--lighter) !important;
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 60em) {
+  .mdx-collab__heading {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 29.984375em) {
+  .mdx-collab {
+    padding: 2.5rem 0 2rem;
+  }
+  .mdx-collab__heading {
+    font-size: 1.3rem;
+  }
+  .mdx-collab__lead {
+    font-size: 1rem;
+  }
+  .mdx-collab__prompt {
+    font-size: .8rem;
+    padding: .65rem 1rem;
+  }
+}
+
+/* ==========================================================================
+   Homepage — CTA
+   ========================================================================== */
+
+.mdx-cta {
+  background-color: var(--md-default-fg-color--lightest);
+  padding: 4rem 0;
+}
+
+[data-md-color-scheme="slate"] .mdx-cta {
+  background-color: hsla(230, 15%, 18%, 1);
+}
+
+.mdx-cta__inner {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.mdx-cta__heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mdx-cta__inner p {
+  color: var(--md-default-fg-color--light);
+  font-size: .95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.mdx-cta__buttons .md-button {
+  margin: .25rem;
+}
+
+.mdx-cta__buttons .md-button--primary {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+/* ==========================================================================
+   Grid cards — light enhancements on top of Material's built-in styling
+   ========================================================================== */
+
+/* Tint card icons with the primary brand color */
+.md-typeset .grid.cards .twemoji,
+.md-typeset .grid.cards .emojione {
+  color: var(--md-primary-fg-color);
+}
+
+/* ==========================================================================
+   Dark mode — Cards, buttons, and links
+   ========================================================================== */
+
+/* Give grid cards visible borders and subtle elevation in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li {
+  border: .05rem solid hsla(215, 30%, 40%, .3);
+  background: hsla(220, 15%, 16%, 1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .3);
+}
+
+/* Make buttons visible in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .md-button {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button:hover {
+  background: var(--md-primary-fg-color);
+  color: hsla(230, 15%, 14%, 1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: hsla(230, 15%, 14%, 1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover {
+  background: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Dark mode header bar — keep it dark, not blue */
+[data-md-color-scheme="slate"] .md-header {
+  background: hsla(230, 15%, 14%, 1);
+}
+
+/* Dark mode nav tabs — keep them dark */
+[data-md-color-scheme="slate"] .md-tabs {
+  background: hsla(230, 15%, 12%, 1);
 }

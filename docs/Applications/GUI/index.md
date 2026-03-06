@@ -1,83 +1,62 @@
 ---
 hide:
   - toc
-title: GUI Heavy Applications
+title: GUI Applications
 ---
 
-## Graphic User Interface Heavy (point and click)
+# GUI Applications
 
-<div class="grid cards grid-2" markdown>
+Web-based tools for cohort building, data quality assessment, and standardized analyses — no coding required.
 
--   :material-globe-model:{ .lg .middle } __ATLAS__ 
+<div class="grid cards" markdown>
 
-    ---
-
-    The OHDSI ATLAS application is a web-based tool for designing and executing population-level analyses on large-scale observational health databases. It attempts to provide a user-friendly interface for researchers to define their study populations, specify their analysis parameters, and visualize the results. However, it can be challenging to get started! Please see the following for assistance.
-
-    ### Training and Documentation
-
-
-    [:octicons-arrow-right-24: Emory's Training Resources](../../Training/Emory/ATLAS/index.md)
-
-    [:octicons-arrow-right-24: OHDSI's Documentation](https://github.com/OHDSI/Atlas)
-
-
-    ### Application Links
-    
-    [:octicons-arrow-right-24: Emory's Instance (VPN Required)](https://ohdsi-atlas.emory.edu/atlas/#/home)
-
-    [:octicons-arrow-right-24: OHDSI's Demo Instance](http://atlas-demo.ohdsi.org/)
-
--   :material-diamond-outline: __Data Quality Dashboard__
-
-    ---
-    The Data Quality Dashboard is a web-based tool for assessing the quality of observational health data. It provides a user-friendly interface for researchers to explore the quality of data in an OMOP instance. Though typically a shiny application, Emory has developed a static version that contains the five most recent dashboards, for the five most recent releases of our OMOP data.
-
-    ### Application Links
-
-    [:octicons-arrow-right-24: Emory's Data Quality Dashboard](https://ohdsi.github.io/DataQualityDashboard/)
-
-    
-
--   :material-diamond-outline: __CohortDiagnostics__
-
-    ---
-    :woman_construction_worker_tone4: :man_construction_worker_tone5: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :woman_construction_worker_tone3: :man_construction_worker_tone1:
-        
-    This application is on Emory's roadmap for implementation, but is not presently available. 
-
-    :woman_construction_worker_tone1: :man_construction_worker_tone4: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :woman_construction_worker_tone5: :man_construction_worker_tone3:
+-   :material-globe-model:{ .lg .middle } **ATLAS**
 
     ---
 
-    CohortDiagnostics is an OHDSI tool for evaluating the performance of cohort definitions. It provides a set of standardized analyses to assess the characteristics and outcomes of the target population defined by a cohort.
+    The OHDSI ATLAS application is a web-based tool for designing and executing population-level analyses on observational health databases. Define study populations, specify analysis parameters, and visualize results through a point-and-click interface.
+
+    [:octicons-arrow-right-24: Emory's Instance (VPN required)](https://ohdsi-atlas.emory.edu/atlas/#/home){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: OHDSI Demo Instance](http://atlas-demo.ohdsi.org/){ .md-button }
+
+    [:octicons-arrow-right-24: Emory training resources](../../Training/Emory/ATLAS/index.md)
+    [:octicons-arrow-right-24: OHDSI documentation](https://github.com/OHDSI/Atlas)
+
+-   :material-diamond-outline:{ .lg .middle } **Data Quality Dashboard**
 
     ---
 
-    [:octicons-arrow-right-24: OHDSI's Cohort Diagnostics Documentation](https://ohdsi.github.io/CohortDiagnostics/)
+    Assess the quality of observational health data across Emory's OMOP instance. Emory maintains a static version with the five most recent dashboards corresponding to the five most recent data releases.
 
-    [:octicons-arrow-right-24: Tips on Using Cohort Diagnostics](https://ohdsi.github.io/CohortDiagnostics/)
+    [:octicons-arrow-right-24: Emory's Data Quality Dashboard](https://emorydatasolutions.github.io/e_omop_dqd/){ .md-button }
 
-
--   :simple-target: __PhenotypeLibrary__
-
-    ---
-    :woman_construction_worker_tone4: :man_construction_worker_tone5: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :woman_construction_worker_tone3: :man_construction_worker_tone1:
-        
-    This application is on Emory's roadmap for implementation, but is not presently available. 
-
-    :woman_construction_worker_tone1: :man_construction_worker_tone4: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :material-toy-brick-outline: --- :woman_construction_worker_tone5: :man_construction_worker_tone3:
+-   :material-chart-box-outline:{ .lg .middle } **ARES**
 
     ---
 
-    The OHDSI Phenotype Library is a repository of standardized phenotype definitions that can be used for observational research. It aims to facilitate the sharing and reuse of phenotype definitions across different studies and institutions.
+    OHDSI's data characterization tool for exploring source-level data quality, concept prevalence, and temporal trends. Browse data density, concept-level summaries, and quality metrics across Emory's OMOP instance.
 
-    Emory intends to implement a local version that will track the phenotypes our community has developed locally, along with the CohortDiagnostics associated with each submitted cohorts.
+    [:octicons-arrow-right-24: Emory's ARES (VPN required)](https://ohdsi-rstudio.emory.edu/ares/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: OHDSI documentation](https://ohdsi.github.io/Ares/){ .md-button }
+
+-   :material-stethoscope:{ .lg .middle } **CohortDiagnostics**
 
     ---
 
-    [:octicons-arrow-right-24: OHDSI's Phenotype Library](https://data.ohdsi.org/PhenotypeLibrary/)
+    An OHDSI tool for evaluating cohort definitions with standardized analyses — assess characteristics and outcomes of target populations.
 
-    [:octicons-arrow-right-24: Tips on Using the Phenotype Library](https://data.ohdsi.org/PhenotypeLibrary/) :construction:
+    *On Emory's roadmap — not yet available.*
+
+    [:octicons-arrow-right-24: OHDSI documentation](https://ohdsi.github.io/CohortDiagnostics/){ .md-button }
+
+-   :simple-target:{ .lg .middle } **PhenotypeLibrary**
+
+    ---
+
+    A repository of standardized phenotype definitions for observational research. Emory plans to implement a local version tracking community-developed phenotypes alongside CohortDiagnostics results.
+
+    *On Emory's roadmap — not yet available.*
+
+    [:octicons-arrow-right-24: OHDSI Phenotype Library](https://data.ohdsi.org/PhenotypeLibrary/){ .md-button }
 
 </div>
