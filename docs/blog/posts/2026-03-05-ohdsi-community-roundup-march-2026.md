@@ -30,4 +30,4 @@ An active thread on [best practices for coupling OMOP with ML metadata](2026-03-
 
 ## MindMeetsMachines at OHDSI EU
 
-The [OHDSI EU Symposium](https://forums.ohdsi.org/) (April 19) will feature a human-vs-AI concept mapping challenge — a practical test of automated vocabulary mapping quality.
+The [OHDSI EU Symposium](https://forums.ohdsi.org/t/mindmeetsmachines-vocabulary-edition-ohdsi-eu-symposium/25056) (April 19) will feature a human-vs-AI concept mapping challenge — a practical test of automated vocabulary mapping quality.

@@ -93,6 +93,101 @@
   }
 }
 
+/* ==========================================================================
+   Homepage — Quick-nav icon bar
+   ========================================================================== */
+
+.mdx-quicknav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.mdx-quicknav__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: hsla(0, 0%, 100%, .12);
+  color: hsla(0, 0%, 100%, .85);
+  transition: background .2s, transform .2s;
+}
+
+.mdx-quicknav__item:hover {
+  background: hsla(0, 0%, 100%, .25);
+  transform: scale(1.12);
+  text-decoration: none;
+  color: #fff;
+}
+
+.mdx-quicknav__item .twemoji svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentcolor;
+}
+
+/* Tooltip */
+.mdx-quicknav__item::after {
+  content: attr(data-label);
+  position: absolute;
+  top: calc(100% + .6rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-.25rem);
+  white-space: nowrap;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  padding: .3rem .6rem;
+  border-radius: .25rem;
+  background: hsla(0, 0%, 0%, .7);
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+}
+
+.mdx-quicknav__item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+[data-md-color-scheme="slate"] .mdx-quicknav__item {
+  background: hsla(0, 0%, 100%, .08);
+}
+
+[data-md-color-scheme="slate"] .mdx-quicknav__item:hover {
+  background: hsla(0, 0%, 100%, .18);
+}
+
+@media screen and (max-width: 29.984375em) {
+  .mdx-quicknav {
+    gap: .6rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    max-width: 16rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mdx-quicknav__item {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  .mdx-quicknav__item .twemoji svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+}
+
 /* Scroll hint chevron */
 @keyframes mdx-bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
