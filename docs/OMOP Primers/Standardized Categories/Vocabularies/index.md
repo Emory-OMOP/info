@@ -1,50 +1,80 @@
-# OMOP Primer for Vocabularies
+---
+hide:
+  - footer
+title: Vocabularies
+---
 
-The purpose of this document is to help streamline understanding of the OMOP structure from the perspective of someone with experience in interacting with Cerner and Epic databases. The goal is to provide a high-level overview of the OMOP vocabularies, including the tables and their relationships.
+# Vocabularies
 
-The structure of the following document is organized by OMOP table, and goes along with the CDM diagram flow (i.e., concept then vocabulary then domain, etc.). Each table's section describes the purpose of the table, and notes on usage at a very high level. This primer supplements but does not replace the OMOP CDM documentation and OHDSI Conventions. Furthermore, **if you don't intend to undergo training for anything else, *DO* complete training on the vocabularies if you intend to work with OMOP data**. See Education and Training for details on where to go for training.
+The **OMOP Standardized Vocabularies** are the mapping layer that makes everything else work. They translate the source codes you're used to (ICD-10, CPT, NDC, local Epic codes) into a shared standard language (SNOMED, RxNorm, LOINC) so researchers can define cohorts and variables consistently — regardless of whether the data came from Epic, Cerner, or a claims feed.
 
-The tables discussed in this document are included in the orange "Standardized Vocabularies" of the OMOP v5.4 diagram below:
+!!! warning "If you learn one thing beyond the clinical tables, learn this"
+    The vocabularies are what make OMOP powerful. Without them, you're just writing SQL against a different schema. With them, you can say "give me all patients with any type of diabetes" and get every ICD-9, ICD-10, and SNOMED code automatically. See [Training](../../../Training/index.md) for vocabulary-specific courses.
 
-![simple_erd](../../../assets/images/cdm54.png)
+## Why Vocabularies Matter for Epic Users
 
-# 📖 Standardized Vocabulary Overview
+In Epic, you work with **source codes** — ICD-10 for diagnoses, CPT/HCPCS for procedures, NDC for medications. To build a comprehensive cohort, you'd need to manually assemble code lists.
 
-The **OMOP Standardized Vocabularies** are the foundation that make it possible to do **apples-to-apples comparisons across different data sources**, even when the original data use different coding systems (like ICD, SNOMED, CPT, RxNorm, or NDC).
+In OMOP, the vocabulary does this for you:
 
-OMOP maps these codes to a **shared vocabulary** so researchers can define cohorts and concepts in a **consistent and reproducible way**, regardless of whether the data came from Epic, Cerner, Medicare claims, or anywhere else.
+| Epic Workflow | OMOP Equivalent |
+|---|---|
+| Manually list every ICD-10 code for diabetes | Query `concept_ancestor` for all descendants of the "Diabetes mellitus" SNOMED concept |
+| Cross-reference ICD-9 and ICD-10 for historical data | Both are already mapped to the same SNOMED standard concepts |
+| Look up NDC codes for a drug class | Query RxNorm ingredient + `concept_ancestor` to get all formulations |
+| Build a local code-to-meaning lookup | `source_to_concept_map` + `concept` already provides this |
 
-The vocabulary tables aren’t where you usually look for clinical data—but they are **what make OMOP work under the hood**. Even if you are not working on an OMOP project, you may even wish to use the mappings available in the OMOP vocabularies between medical ontologies (e.g., ICD-9 to SNOMED), or review the hierarchies so that you can easily select all descendant concepts off of a parent concept represented in both a standard and non-standard format (e.g., "give me all the )
+## Key Vocabulary Tables
 
-**Special note on the word "standard"**: In the context of OMOP, "standard" refers to the codes that are chosen by the community by way of the CDM Workgroup -> vocabulary subgroup. The community members creating these mappings are often using ontologist's ready made tools to support their work (such as ICD to SNOMED mappings outside of OHDSI). Alternatively, they utilize expert consensus in the particular fields of medicine to create the mappings and identify the vocabularies that are the coordinated "standard" vocabulary. If issues with a mapping are identified via pressure testing by the global community of OMOP implementers, these may lead to a community remapping effort (typically discussed as logged github issues, discussion in the forums, or efforts of a particular workgroup to improve the ontology of interest to their work). For more details, please see OHDSI vocabulary working group's documentation and working repositories ([Vocabulary Github wiki](https://github.com/OHDSI/Vocabulary-v5.0/wiki)).
+<div class="grid cards" markdown>
 
-## 🧠 Concept
+-   :material-book-alphabet:{ .lg .middle } **Concept**
 
-**Purpose**: Every concept (diagnosis, drug, lab, procedure, etc.) has a row in this table.
-**Notes on use**: Think of it as a **dictionary of all the medical terms** OMOP understands. This will be one of the primary tables you use to find the right codes when building a study definition (e.g., all codes for “heart failure”).
+    ---
 
-## 🔗 Concept Relationship
+    The dictionary of all medical terms OMOP understands. Every diagnosis, drug, lab, procedure, unit, and domain has a row here. This is one of the primary tables you'll use when building study definitions.
 
-**Purpose**: Defines relationships between concepts.
-**Notes on use**: This table helps in understanding how different concepts are related to each other. For example, you'd use this table and the concept table to understand which codes are nested underneath larger concepts for a medical concept, such as "primary malignant neoplasm of the left upper lobe of lung" being associated with an anatomic site of left upper lobe of lung, which itself is related to lung. Also used to **map from source codes (ICD, CPT, etc.) to standard OMOP codes** by using the `relationship_id`'s between concepts, such as "is a" or "maps to". 
+-   :material-link-variant:{ .lg .middle } **Concept Relationship**
 
-## 🌳 Concept Ancestor
+    ---
 
-**Purpose**: Helps find all the specific codes under a broader category that would otherwise be rather difficult via the use of concept relationship.
-**Notes on use**: You can use this table to easily find all the descendant concepts of a given concept. For example, if you want to find all the codes related to "diabetes", you can use this table to get all the specific subtypes (like "type 1 diabetes", "type 2 diabetes", etc.) under that category without having to specify those children (like “type 2 diabetes with nephropathy”). This table is essential when creating cohort definitions using broad clinical categories.
+    Defines how concepts relate to each other. Use this to **map source codes to standard codes** (via "Maps to" relationships) or to navigate between related concepts (e.g., a lung cancer subtype's anatomic site).
 
-## 🗺️ Source to Concept Map
+-   :material-file-tree:{ .lg .middle } **Concept Ancestor**
 
-**Purpose**: Maps local codes to standard OMOP concepts.
-**Notes on use**: This table is used to map local codes without a common medical ontology to standard OMOP concepts. For example, internal Epic codes for "Female" do not use a common medical ontology, nor does "height" measurements. This is critical for Emory, and is intended to improve drastically over time.
-**Special note**: We highly encourage collaboration on getting better and better mappings that are important to our users. Please see the Custom Concept SOP for details.
+    ---
+
+    The hierarchy navigator. Find all specific codes under a broader category without manually listing them. "Give me all descendants of diabetes" returns type 1, type 2, gestational, diabetes with nephropathy — everything in the hierarchy.
+
+-   :material-map-marker-path:{ .lg .middle } **Source to Concept Map**
+
+    ---
+
+    Maps **local codes** (internal Epic codes, custom lab identifiers) to standard OMOP concepts. Critical for Emory — this is where non-standard source values get their OMOP meaning. We encourage community collaboration on improving these mappings via the [Custom Concept SOP](../../../Emory%20OMOP%20Community/Community%20Contribution%20SOP/Custom%20Concept%20SOP/index.md).
+
+</div>
+
+## What "Standard" Means in OMOP
+
+In OMOP, "standard" doesn't mean arbitrary. The OHDSI community's [Vocabulary Working Group](https://github.com/OHDSI/Vocabulary-v5.0/wiki) decides which vocabulary serves as the standard for each domain:
+
+| Domain | Standard Vocabulary | Source Vocabularies (mapped) |
+|---|---|---|
+| Conditions | SNOMED | ICD-9-CM, ICD-10-CM, Read, MedDRA |
+| Drugs | RxNorm / RxNorm Extension | NDC, GPI, ATC |
+| Measurements | LOINC | Local lab codes, CPT (some) |
+| Procedures | SNOMED | CPT4, HCPCS, ICD-10-PCS |
+
+These mappings are maintained by domain experts — ontologists use existing cross-walks (like NLM's ICD-to-SNOMED maps) supplemented by expert consensus. When issues are found by the global OMOP community, they're logged as GitHub issues and resolved through workgroup remapping efforts.
 
 ## Clinical Use Case Examples
 
-| Question | Vocabulary Role |
-|----------|------------------|
-| I want to identify all patients with “heart failure” | Use `concept_ancestor` + `concept` to find the right standard codes |
-| I need to include both ICD-9 and ICD-10 codes in my phenotype | Use `concept_relationship` to map source codes to standard ones |
-| I’m building a cohort of patients on ACE inhibitors | Use `concept` (for RxNorm ingredients) + `concept_ancestor` (for all ACEs) |
-| I want to understand if a procedure is surgical or diagnostic | Use `concept_relationship` or check `concept_class_id` in `concept` |
-| I have a local lab code from our hospital—how can I use it in OMOP? | Check `source_to_concept_map` if it was mapped, or create a new mapping |
+??? example "Common vocabulary queries"
+
+    | Question | How to use the vocabulary |
+    |---|---|
+    | Find all patients with any type of heart failure | Use `concept_ancestor` + `concept` to get all SNOMED descendants of "Heart failure" |
+    | Include both ICD-9 and ICD-10 codes in a phenotype | Use `concept_relationship` to map source codes to their shared SNOMED standard |
+    | Build a cohort of patients on ACE inhibitors | Use `concept` for the RxNorm ingredient + `concept_ancestor` for all ACE inhibitor drugs |
+    | Understand if a procedure is surgical vs. diagnostic | Check `concept_class_id` in `concept` or navigate `concept_relationship` |
+    | Map a local lab code to a standard concept | Check `source_to_concept_map`; if unmapped, submit via the Custom Concept SOP |

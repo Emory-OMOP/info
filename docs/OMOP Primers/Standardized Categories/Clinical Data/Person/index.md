@@ -1,44 +1,52 @@
 ---
-search:
-  exclude: false
 hide:
-#   - toc
   - footer
+title: Person
 ---
 
-#🧍 Person
+# Person
 
-The `person` table in OMOP CDM represents a **single row per patient**—think of it as the OMOP equivalent of the patient header in Epic or Cerner. However, unlike EHR systems where demographic details may be split across multiple modules or updated with each encounter, the OMOP `person` table **captures one consolidated record per individual**.
+**Epic equivalent**: Patient header / registration demographics
 
-This table is foundational: most other OMOP tables (conditions, drugs, visits, etc.) link back to `person_id`.
+The `person` table is the center of the OMOP universe — **one row per patient**. In Epic, demographic details can be split across registration modules, updated with each encounter, and duplicated across systems. In OMOP, all of that consolidates into a single record per individual.
 
-## Key OMOP Fields Mapped to Familiar EHR Concepts
+Every other clinical table (`condition_occurrence`, `drug_exposure`, `measurement`, etc.) links back to `person_id`. This is always your starting point.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `person_id` | MRN or Enterprise ID | OMOP’s internal unique ID for each patient. Often derived from source MRN or unique enterprise ID but re-identified for privacy. | Needed to join across all patient-level data. |
-| `gender_concept_id` | Sex at birth / Gender Identity | Links to a standard concept like "Male", "Female", etc. May differ from `gender_source_value` (what’s recorded in EHR). | Important for sex-based cohort definitions. |
-| `year_of_birth` + `month_of_birth` + `day_of_birth` | DOB | Captured as separate fields (can support date shifting for de-identification). Full DOB used only if permitted. | Age-based eligibility, pediatric vs adult cohorts. |
-| `race_concept_id`, `ethnicity_concept_id` | Race/Ethnicity fields in registration | Standardized values to support cross-site analytics. Mapped from source values. | Useful in health equity research or SDoH analyses. |
-| `location_id` | Home address or zip | Points to `location` table (not in `person` directly). Often de-identified. | Can be used for geospatial or regional analyses. |
-| `provider_id` | PCP or Managing Physician | Links to primary provider if available. May be null in data where provider not consistently recorded. | Could anchor attribution or provider-level studies. |
-| `care_site_id` | Facility or department | Links the patient to their main care site. In multi-hospital systems, helps attribute patients to locations. | Useful for site-level variation or resource analysis. |
-| `*_source_value` | Raw EHR entry | Reflects the original text value from the EHR system (e.g., "M", "F", "Hispanic or Latino"). | Can help debug mapping inconsistencies or local terminologies. |
+## Epic-to-OMOP Field Mapping
 
-## Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **No longitudinal demographic tracking**: This table is a snapshot—not a history. Updates to gender, race, or location over time are not captured here. You’ll need to look at `observation` or other domains if longitudinal info is critical.
-- **Birthdates may be shifted or truncated**: Especially in de-identified datasets, full birthdates may be redacted to protect privacy.
-- **Source values ≠ standard values**: Always use the `*_concept_id` fields for analytics to ensure standardization across sites.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `person_id` | MRN / Enterprise ID | Unique patient identifier (re-keyed for privacy) |
+    | `gender_concept_id` | Sex at birth / Gender | Standardized concept — "Male", "Female", etc. May differ from `gender_source_value` |
+    | `year_of_birth`, `month_of_birth`, `day_of_birth` | Date of birth | Split fields to support date shifting for de-identification |
+    | `race_concept_id` | Race (registration) | Standardized race value mapped from source |
+    | `ethnicity_concept_id` | Ethnicity (registration) | Standardized ethnicity value mapped from source |
+    | `location_id` | Home address / ZIP | Foreign key to `location` table (often de-identified) |
+    | `provider_id` | PCP / Managing physician | Primary provider if available; may be null |
+    | `care_site_id` | Primary facility / department | Main care site attribution |
+    | `*_source_value` fields | Raw EHR text | Original values from the source system (e.g., "M", "Hispanic or Latino") |
 
-## Clinical Use Cases
+## What to Watch For
 
-Here are some examples of where you'd use this information. It relies upon both the above table, as well as contains a requirement for another table to help guide your search for additional information.
+!!! warning "Common pitfalls"
 
-| Question | Where to Look |
-|----------|----------------|
-| What is the proportion of female african american patients in the database? | `person.race_concept_id` + `person.gender_concept_id` |
-| What is the average age of patients (frozen at death date) in the database? | `person.year_of_birth` + `death` | 
-| Are there disparities in statin prescribing across racial groups? | `person.race_concept_id` + `drug_exposure` |
-| How many pediatric patients were seen for asthma in the past year? | `person.year_of_birth` + `condition_occurrence` |
-| What are the characteristics of patients seen at our cancer center? | `person.care_site_id` + `visit_occurrence` |
+    **Snapshot, not history**
+    :   This table captures the *current* state. If a patient's address, race, or gender was updated over time, only the latest value is here. For longitudinal demographics, check the `observation` table.
+
+    **Birth dates may be shifted**
+    :   De-identified datasets may truncate or shift dates of birth. Don't assume full precision.
+
+    **Use `concept_id`, not `source_value`**
+    :   Always use `gender_concept_id`, `race_concept_id`, etc. for analysis. The `*_source_value` fields contain raw EHR text that varies across source systems.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Proportion of female African American patients in the database | `person.race_concept_id` + `person.gender_concept_id` |
+| Average age at death | `person.year_of_birth` + `death` |
+| Statin prescribing disparities across racial groups | `person.race_concept_id` + `drug_exposure` |
+| Pediatric patients seen for asthma in the past year | `person.year_of_birth` + `condition_occurrence` |
+| Patient characteristics at a specific care site | `person.care_site_id` + `visit_occurrence` |

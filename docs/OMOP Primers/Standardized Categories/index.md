@@ -1,11 +1,50 @@
-# Standardized Clinical Data
+---
+hide:
+  - footer
+title: Standardized Categories
+---
 
-The purpose of this section is to help streamline understanding of the OMOP structure from the perspective of someone with experience in interacting with Cerner and Epic databases. The goal is to provide a high-level overview of the OMOP structure, including the tables and their relationships, as compared to the familiar frameworks of an EHR system.
+# Standardized Categories
 
-The structure of the following tables is organized by OMOP table, and goes along with the CDM table flow (i.e., person then observation_period then visit_occurrence, etc). The tables themselves then describe the OMOP field, an EHR approximate analogue, a brief description, followed by clinical relevance. This primer supplements but does not replace the OMOP CDM documentation and OHDSI Conventions. Furthermore, some columns may be left out if they were not deemed particularly relevant for the purposes of the primer. Once you start coming up with your own research questions, it will be important that the official documentation is referenced.
+The OMOP CDM organizes tables into categories that match the color-coded regions on the CDM diagram. If you're coming from Epic, think of this as a re-organization of the same clinical data you already know — just structured around patients instead of encounters.
 
-The tables discussed in this document are included in the blue "Standardized Clinical Data", red "Standardized Health System", and some aspects of the purple "Standardized Derived Elements" sections of the OMOP v5.4 diagram below.
+!!! note "Person-centric, not encounter-centric"
+    In Epic, you navigate from encounters to data. In OMOP, you navigate from patients to data. Encounters (`visit_occurrence`) are one of many tables linked to `person` — not the organizing spine.
 
-**NOTE**: In contrast to EHR systems which are typically internally organized around encounter events, the OMOP CDM is organized around **individual patients** via the `person` table centric structure.
+<div class="grid cards" markdown>
 
-![simple_erd](../../assets/images/cdm54.png)
+-   :material-heart-pulse:{ .lg .middle } **Clinical Data**
+
+    ---
+
+    The core research tables. Conditions, drugs, measurements, procedures, visits, observations, notes, devices, specimens, and derived elements (eras, episodes).
+
+    [:octicons-arrow-right-24: Clinical Data](Clinical%20Data/index.md){ .md-button }
+
+-   :material-hospital-building:{ .lg .middle } **Health System**
+
+    ---
+
+    Where care happens and who delivers it: providers, care sites, and geographic locations.
+
+    [:octicons-arrow-right-24: Health System](Health%20System/index.md){ .md-button }
+
+-   :material-book-open-variant:{ .lg .middle } **Vocabularies**
+
+    ---
+
+    The mapping layer under everything — how ICD, CPT, NDC, and local codes translate to standard OMOP concepts. If you only learn one thing beyond the clinical tables, learn this.
+
+    [:octicons-arrow-right-24: Vocabularies](Vocabularies/index.md){ .md-button }
+
+-   :material-cash-multiple:{ .lg .middle } **Health Economics**
+
+    ---
+
+    Cost and insurance coverage data. Sparse in EHR-derived OMOP (including Emory), but important for claims-linked analyses.
+
+    [:octicons-arrow-right-24: Health Economics](Health%20Economics/index.md){ .md-button }
+
+</div>
+
+![OMOP CDM v5.4 entity relationship diagram showing standardized table categories](../../assets/images/cdm54.png)

@@ -1,40 +1,54 @@
-# 🔌 Device Exposure
+---
+hide:
+  - footer
+title: Device Exposure
+---
 
-The `device_exposure` table captures **medical devices used on or implanted in a patient**, such as catheters, pacemakers, orthopedic implants, glucose monitors, or stents. These entries represent either **documented use, insertion, or supply of a device**, typically recorded in surgical records, supply chain systems, or EHR documentation modules.
+# Device Exposure
 
-In Epic or Cerner, this information may come from **procedural documentation, implant registries, anesthesia records**, or even **supply tracking systems** in the OR. Some data pipelines also derive it from **claims for durable medical equipment (DME)**.
+**Epic equivalent**: Surgical implant records / Anesthesia records / Supply chain / DME claims
 
-Each row represents a **single device exposure event**.
+The `device_exposure` table captures **medical devices used on or implanted in a patient** — pacemakers, catheters, orthopedic implants, glucose monitors, stents, and other equipment. In Epic, this data comes from procedural documentation, implant registries, anesthesia records, and supply tracking systems.
 
-## Key OMOP Fields Mapped to Familiar EHR Concepts
+Each row is a single device exposure event.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `device_exposure_id` | Device record ID | Unique identifier for the device exposure event. | Used internally for joins. |
-| `person_id` | Patient ID | Foreign key to `person`. | Ties the device record to the patient. |
-| `device_concept_id` | Device catalog / SNOMED concept | Standard concept representing the device used (e.g., "Total hip prosthesis", "Central venous catheter"). | Use for cohort definitions or exposure tracking. |
-| `device_exposure_start_date` | Implant or insertion date | Start date of device usage (e.g., implant date). Time in `device_exposure_start_datetime`. | Critical for temporal alignment with procedures or outcomes. |
-| `device_exposure_end_date` | Removal or usage end | If known, the end of exposure (e.g., removal of catheter). Often null. | Used for defining duration of exposure or device-related risk. |
-| `device_type_concept_id` | Source/context type | Indicates origin of data (e.g., EHR, registry, billing). | Helpful for understanding context and reliability. |
-| `unique_device_id` | UDI / barcode | Device identifier from supply chain or implant logs. Not always populated. | Useful for FDA surveillance or registries. |
-| `quantity` | Count of devices used | Number of devices (e.g., 2 stents in one procedure). | Important in cardiovascular and orthopedic analyses. |
-| `provider_id` | Performing provider | Who inserted or documented the device. | Supports attribution analyses or team-based reviews. |
-| `visit_occurrence_id` | Related visit | Visit when the device was used. | Anchors device use to an encounter setting. |
-| `device_source_value` | Local device code | Original EHR/supply system code for the device. | Useful for mapping QA or inventory tracking. |
-| `device_source_concept_id` | Source code’s mapped concept | Concept ID mapped from the raw code. | May help trace source-device relationships. |
+## Epic-to-OMOP Field Mapping
 
-## Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Often sparsely populated**: Many EHR pipelines don’t yet load robust device data, and this is true for Emory (see Known Quality Issues to monitor for updates).
-- **Device end dates often null**: Implants may not have removal dates unless explanted or expired.
-- **Device naming can be vague**: Concepts are still maturing—validate `device_concept_id` definitions when building cohorts.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `device_exposure_id` | Device record ID | Unique identifier |
+    | `person_id` | Patient ID / MRN | Links to the patient |
+    | `device_concept_id` | Device concept | Standardized device (e.g., "Total hip prosthesis", "Central venous catheter") |
+    | `device_exposure_start_date` | Implant / insertion date | When the device was used or placed |
+    | `device_exposure_end_date` | Removal / usage end | When removed or exposure ended (often null for implants) |
+    | `device_type_concept_id` | Data provenance | EHR, registry, billing, etc. |
+    | `unique_device_id` | UDI / barcode | Device identifier from supply chain or implant logs |
+    | `quantity` | Count | Number of devices (e.g., 2 stents) |
+    | `provider_id` | Performing provider | Who inserted or documented the device |
+    | `visit_occurrence_id` | Linked encounter | Visit context |
+    | `device_source_value` | Local device code | Original code from the source system |
 
-## Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| How many patients have received orthopedic implants? | `device_concept_id` filtered for joint prostheses |
-| What is the average time between pacemaker insertion and first complication? | `device_exposure` (pacemaker) + `condition_occurrence` (complication) |
-| Are urinary catheters associated with increased infection rates? | `device_exposure` (catheter) + `condition_occurrence` (UTI) |
-| How many patients had central lines placed in the ICU? | `device_exposure` + `visit_detail` (filtered for ICU) |
-| What types of devices are most frequently removed within 30 days? | `device_exposure_end_date` − `device_exposure_start_date` |
+!!! warning "Common pitfalls"
+
+    **Often sparse at Emory**
+    :   Device data requires robust supply chain or implant registry integration. Check our [Known Issues](../../../../Data%20in%20Enterprise%20OMOP/Data%20Quality/Known%20Issues/index.md) page for current population status.
+
+    **Null end dates for implants**
+    :   Permanent implants (pacemakers, prostheses) typically have no `device_exposure_end_date` unless explanted.
+
+    **Device naming is still maturing**
+    :   OMOP device concepts are less mature than drug or condition concepts. Validate `device_concept_id` definitions carefully when building cohorts.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Orthopedic implant prevalence | `device_concept_id` filtered for joint prostheses |
+| Pacemaker to first complication | `device_exposure` (pacemaker) + `condition_occurrence` (complication) |
+| Catheter-associated infection rates | `device_exposure` (catheter) + `condition_occurrence` (UTI/CLABSI) |
+| Central lines placed in ICU | `device_exposure` + `visit_detail` (ICU filter) |
+| Devices removed within 30 days | `device_exposure_end_date` − `device_exposure_start_date` |

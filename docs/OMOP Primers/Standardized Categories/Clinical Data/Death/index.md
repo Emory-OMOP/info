@@ -1,41 +1,49 @@
 ---
-search:
-  exclude: false
 hide:
-#   - toc
   - footer
+title: Death
 ---
 
-# ⛔ Death
+# Death
 
-The `death` table captures **mortality information for a patient**, typically sourced from EHR discharge records, vital statistics registries, or external sources such as a state death index. This table **contains one row per deceased person**, if death is known or recorded. For example, Emory supplements EHR data with **state death data**.
+**Epic equivalent**: Discharge records (deceased disposition) / State death index / Vital statistics
 
-This table is essential when defining **overall survival**, **mortality-related endpoints**, and **time-to-event** analyses.
+The `death` table captures **mortality information** — one row per deceased person. At Emory, sources include EHR discharge records and state death data supplements.
 
-## Key OMOP Fields Mapped to Familiar EHR Concepts
+This table is critical for **survival analysis**, **mortality endpoints**, and **time-to-event** studies.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `person_id` | Patient ID | Foreign key to `person`. | Identifies the deceased individual. |
-| `death_date` | Date of death | Date of death, as recorded. | Primary date used for censoring in survival analyses. |
-| `death_datetime` | Time of death | If available, includes timestamp. | Rarely populated unless from inpatient EHR source. |
-| `death_type_concept_id` | Source of record | Indicates where the death record came from (EHR, claims, registry). | Helps interpret data reliability. |
-| `cause_concept_id` | Primary cause of death | Standard concept (often SNOMED) for cause of death, if available. | Useful for cause-specific mortality studies. |
-| `cause_source_value` | Source code (e.g., ICD-10) | Original value for cause of death. | May be from death certificate or final discharge diagnosis. |
-| `cause_source_concept_id` | Mapped cause concept | Standard concept ID mapped from the source code. | Supports analytics using OMOP vocabularies. |
+## Epic-to-OMOP Field Mapping
 
-## Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Absence ≠ alive**: If a person is not in the `death` table, it doesn’t guarantee they’re living—death may not have been captured.
-- **Death date may be imprecise**: Especially when sourced from claims or external datasets. Validation is recommended for survival analyses.
-- **Cause of death not always present**: Many EHRs do not record structured cause of death unless pulled from vital records.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `person_id` | Patient ID / MRN | Identifies the deceased patient |
+    | `death_date` | Date of death | As recorded from available sources |
+    | `death_datetime` | Time of death | Rarely populated unless from inpatient EHR |
+    | `death_type_concept_id` | Data provenance | EHR, claims, registry, state death data |
+    | `cause_concept_id` | Primary cause of death | SNOMED concept for cause (if available) |
+    | `cause_source_value` | ICD-10 cause code | Original value from death certificate or discharge diagnosis |
 
-## Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| What is the all-cause mortality rate in the oncology cohort? | `death.person_id` + `condition_occurrence` (cancer) |
-| What’s the median time from diagnosis to death in Alzheimer’s patients? | `condition_occurrence` (Alzheimer's) + `death_date` |
-| How many patients died within 30 days of a surgical procedure? | `procedure_occurrence` + `death` + date interval logic |
-| What is the distribution of causes of death in stroke patients? | `condition_occurrence` (stroke) + `death.cause_concept_id` |
-| Are mortality rates higher in patients with social risk factors (e.g., food insecurity)? | `observation` + `death` |
+!!! warning "Common pitfalls"
+
+    **Absence does not mean alive**
+    :   If a patient is not in the `death` table, they may still be deceased — the death simply wasn't captured. This is a right-censoring issue in survival analysis.
+
+    **Date precision varies**
+    :   Deaths from external sources (claims, state indices) may have imprecise dates. Validate for time-to-event analyses.
+
+    **Cause of death is often missing**
+    :   Structured cause of death requires vital records data. Many EHR-only deaths have no `cause_concept_id`.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| All-cause mortality in the oncology cohort | `death` + `condition_occurrence` (cancer) |
+| Median survival from Alzheimer's diagnosis | `condition_occurrence` (Alzheimer's) + `death.death_date` |
+| 30-day post-surgical mortality | `procedure_occurrence` + `death` + date interval |
+| Cause-of-death distribution in stroke patients | `condition_occurrence` (stroke) + `death.cause_concept_id` |
+| Mortality and social risk factors | `observation` (SDoH) + `death` |

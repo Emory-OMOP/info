@@ -1,35 +1,50 @@
-# 💊:material-tape-measure:📆 Drug Era
+---
+hide:
+  - footer
+title: Drug Era
+---
 
-The `drug_era` table represents **aggregated, inferred periods during which a patient was continuously exposed to a particular drug or drug class**. It consolidates multiple individual `drug_exposure` records into a **single era of use**, adjusting for gaps and overlaps based on rules defined in the ETL process.
+# Drug Era
 
-This is similar to how clinicians think of **“being on a medication”**, even if refills or administrations were fragmented in the record.
+**Epic equivalent**: No direct equivalent — derived from medication records
 
-The `drug_era` table is **not sourced directly from EHR or claims**, but is derived during ETL from the `drug_exposure` table using a **persistence window** (e.g., 30-day gap between fills before ending an era).
+The `drug_era` table represents **continuous periods of medication exposure**, aggregated from individual `drug_exposure` records using persistence window gap logic. It answers "how long was the patient on this medication?" rather than "how many prescriptions were written?"
 
-### Key OMOP Fields Mapped to Familiar Clinical Concepts
+Drug eras work at the **RxNorm ingredient level** (e.g., "metformin", not a specific brand or formulation).
 
-| OMOP Field | Clinical Analogy | Description | Clinical Relevance |
-|------------|------------------|-------------|---------------------|
-| `drug_era_id` | Medication episode ID | Unique identifier for the drug era. | Used internally for joins or summarization. |
-| `person_id` | Patient ID | Foreign key to `person`. | Links the era to the patient. |
-| `drug_concept_id` | RxNorm ingredient or class | Concept representing the drug used (e.g., "Metformin"). | Use for class-based analyses, rather than brand-specific events. |
-| `drug_era_start_date` | Therapy start date | First day the patient is considered exposed. | Serves as anchor for treatment duration or time-at-risk logic. |
-| `drug_era_end_date` | Therapy end date | Last date of exposure, allowing for inferred continuation. | Used to calculate duration of use. |
-| `drug_exposure_count` | Number of records collapsed | Total number of raw exposures contributing to the era. | Helps distinguish long use from one-time events. |
-| `gap_days` | Total days between exposures | Combined gap days tolerated during the era. | Indicates fragmentation or refill behavior. |
+## Field Reference
 
-### Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Derived, not raw**: Drug eras are inferred and may not align exactly with prescription dates.
-- **Gap logic is customizable**: Different ETLs use different thresholds (e.g., 30-day gap between fills); check your site’s settings.
-- **Drug class mapping**: Uses ingredient-level concepts; not always at the NDC or brand name level.
+    | OMOP Field | What It Captures |
+    |---|---|
+    | `drug_era_id` | Unique identifier |
+    | `person_id` | Links to the patient |
+    | `drug_concept_id` | RxNorm ingredient concept |
+    | `drug_era_start_date` | First day of continuous exposure |
+    | `drug_era_end_date` | Last day + persistence window |
+    | `drug_exposure_count` | Number of source records collapsed |
+    | `gap_days` | Total gap days tolerated within the era |
 
-### Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| How long are patients typically on statin therapy? | `drug_era` filtered for statin concepts + `drug_era_end_date` − `drug_era_start_date` |
-| What proportion of patients discontinue metformin within the first year? | `drug_era` (metformin) + filtering by duration |
-| Can we identify treatment-free intervals in oncology drug classes? | `drug_era` filtered for chemo agents + gaps between eras |
-| How many diabetes patients had overlapping insulin and GLP-1 agonist use? | `drug_era` with class-level concepts + overlap logic |
-| Are certain medications more likely to have fragmented adherence patterns? | `gap_days` + `drug_exposure_count` in `drug_era` |
+!!! warning "Common pitfalls"
+
+    **Derived, not raw**
+    :   Eras are inferred from prescription/administration records. They may not align exactly with actual medication use.
+
+    **Gap logic is configurable**
+    :   Typically 30 days between fills. Check your site's ETL configuration.
+
+    **Ingredient-level only**
+    :   Eras are at the RxNorm ingredient level, not brand or formulation. Multiple brand-name prescriptions for the same ingredient collapse into one era.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Typical duration of statin therapy | `drug_era` (statin concepts) + era duration |
+| Metformin discontinuation within first year | `drug_era` (metformin) filtered by duration |
+| Treatment-free intervals in oncology | `drug_era` (chemo agents) + gaps between eras |
+| Overlapping insulin and GLP-1 agonist use | `drug_era` with class-level concepts + overlap logic |
+| Fragmented adherence patterns by drug class | `gap_days` + `drug_exposure_count` |
