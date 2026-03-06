@@ -1,23 +1,63 @@
-# Overview
+---
+hide:
+  - footer
+title: Releases
+---
 
-Releases for Emory Enterprise OMOP are demarcated via semantic versioning 2.0, **x.x.x** (see [Semantic Versioning](https://semver.org/)). The versioning scheme is as follows:
+# Releases
 
-- Major version: Incremented for major changes to the data model or ETL process.
-    
-    - **Note on versioning, Apr-23-2025**: We reserve major version increments for changes that have received considerable community feedback with > 40 users of our tools per month (initial starting point), with at least 5 daily active users. For the time being, widespread querying and adoption is more akin to targeted beta testing, so we seek to make improvements with our current users prior to rolling out and attempting to recruit at scale within Emory.
+Emory Enterprise OMOP uses [Semantic Versioning 2.0](https://semver.org/) — **MAJOR.MINOR.PATCH**.
 
-- Minor version: Incremented for minor changes to the data model or ETL process.
+- **Major** — structural changes to the data model, identity resolution, or ETL architecture
+- **Minor** — new tables, concept mappings, or pipeline features
+- **Patch** — bug fixes and corrections that don't change the data model
 
-- Patch version: Incremented for bug fixes or minor changes that do not affect the data model or ETL process.
+## Current Release
 
-## Technology Used to Maintain Version Control
+<div class="grid cards" markdown>
 
-- **Github**: Enterprise and protected public version control and collaboration platforms utilized. See the development repo for comprehensive releases, including release notes and release information.
-    - [ETL development repo](https://github.service.emory.edu/LITS/omop_emory_dbt/releases) holds the code that most users will interact with.
-        - releases and all version information is housed here
-    - [ETL production repo](https://github.com/EmoryDataSolutions/ds-dbt-projects) holds our production code
-        - This is essentially a direct copy of the dev repo. 
-        - Users will likely never have access to this repo as it is used purely by our administrator.
+-   :material-rocket-launch:{ .lg .middle } **v1.0.0** — March 2026
 
-- **Jira**: Project management tool used to track issues and bugs. 
-    - The Jira Enterprise OMOP Release Planning project is where we track all issues and bugs. If you report a but on this site, you are taken to a jira form. Please see the jira release notes for further details.
+    ---
+
+    Patient identity stabilization, HIPAA-compliant de-identification, cross-project subsampling infrastructure, and vocabulary updates.
+
+    [:octicons-arrow-right-24: Release notes](v1.0.0/index.md){ .md-button .md-button--primary }
+
+</div>
+
+## Previous Releases
+
+<div class="grid cards" markdown>
+
+-   :material-package-variant:{ .lg .middle } **v0.2.x** — April–August 2025
+
+    ---
+
+    Initial community release series — Epic ETL integration, CDM v5.4 migration, DBT test suite, provider deduplication, vocabulary updates, and QA automation across 5 monthly releases.
+
+    [:octicons-arrow-right-24: v0.2.x release notes](v0.2.x/index.md){ .md-button }
+
+</div>
+
+## Source Repositories
+
+<div class="grid cards" markdown>
+
+-   :octicons-repo-16:{ .lg .middle } **Development**
+
+    ---
+
+    Primary development repository with all dbt projects, stored procedures, and CI/CD workflows.
+
+    [:octicons-arrow-right-24: emory_omop_enterprise](https://github.com/EmoryDataSolutions/emory_omop_enterprise){ .md-button }
+
+-   :octicons-repo-16:{ .lg .middle } **Documentation**
+
+    ---
+
+    This documentation site — MkDocs Material, hosted on GitHub Pages.
+
+    [:octicons-arrow-right-24: emory-omop](https://github.com/Emory-OMOP/emory-omop){ .md-button }
+
+</div>
