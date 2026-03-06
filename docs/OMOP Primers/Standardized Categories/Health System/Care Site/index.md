@@ -1,32 +1,49 @@
-# 🏢 Care Site
+---
+hide:
+  - footer
+title: Care Site
+---
 
-The `care_site` table represents **physical locations or organizational units** within a healthcare system where care is delivered. This can include **hospitals, outpatient clinics, departments, specialty units, or service lines**.
+# Care Site
 
-In Epic or Cerner, this typically maps to **facility or department IDs**, **clinic names**, or **cost center groupings** used in scheduling and encounter metadata. In OMOP, the `care_site_id` is referenced by other tables—like `visit_occurrence`, `person`, and `provider`—to indicate *where* care was delivered or attributed.
+**Epic equivalent**: Facility / Department IDs / Clinic names / Cost center groupings
 
-### Key OMOP Fields Mapped to Familiar EHR Concepts
+The `care_site` table represents **physical locations or organizational units** where care is delivered — hospitals, clinics, departments, specialty units, and service lines. In Epic, this maps to facility and department IDs used in scheduling and encounter metadata.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `care_site_id` | Department or facility ID | Unique ID for the care site. | Used for facility- or department-level stratification. |
-| `care_site_name` | Clinic name / Facility name | Human-readable name of the care site (e.g., "Emory Winship Cancer Center"). | Useful for labeling or QA. |
-| `place_of_service_concept_id` | Setting type | Standard concept for place of care (e.g., "Inpatient hospital", "Outpatient clinic"). | Enables classification of care context across systems. |
-| `location_id` | Address link | Foreign key to the `location` table with physical address info. | Supports regional or spatial analysis. |
-| `care_site_source_value` | Local care site code | Original identifier from the source system (e.g., CLARITY_DEPARTMENT_ID). | Useful for mapping, QA, or linking to non-OMOP data. |
-| `place_of_service_source_value` | Raw POS string | Local text for place of service, if available (e.g., "ED", "Ambulatory"). | Helps validate POS mappings or site classifications. |
+`care_site_id` is referenced by `visit_occurrence`, `person`, and `provider` to indicate *where* care was delivered.
 
-### Common Pitfalls and What to Watch For
+## Epic-to-OMOP Field Mapping
 
-- **Granularity varies by site**: Some sites use departments as care sites; others use whole facilities. Understand your data model.
-- **Not all visits link to a `care_site_id`**: Especially true for data extracted from billing or claims. Validate completeness before using as a filter.
-- **Use `location_id` for geospatial work**: `care_site` is the logical unit; `location` provides physical address/geography.
+??? example "Field reference (click to expand)"
 
-### Clinical Use Cases
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `care_site_id` | Department / Facility ID | Unique identifier |
+    | `care_site_name` | Clinic / facility name | Human-readable name (e.g., "Emory Winship Cancer Center") |
+    | `place_of_service_concept_id` | Setting type | Standardized concept: inpatient hospital, outpatient clinic, etc. |
+    | `location_id` | Physical address | Foreign key to `location` table |
+    | `care_site_source_value` | Local care site code | Original ID (e.g., CLARITY_DEPARTMENT_ID) |
+    | `place_of_service_source_value` | Raw POS string | Local text ("ED", "Ambulatory", etc.) |
 
-| Question | Where to Look |
-|----------|----------------|
-| How many patients were seen at our main cancer center last year? | `visit_occurrence.care_site_id` + `care_site_name` |
-| Are hypertension control rates different across our primary care clinics? | `measurement` + `visit_occurrence` + `care_site_id` |
-| What is the procedure volume for each surgical department? | `procedure_occurrence` + `visit_occurrence.care_site_id` |
-| Can we geocode our care delivery locations to study access? | `care_site.location_id` + `location.latitude/longitude` |
-| Which care sites have the highest readmission rates? | `visit_occurrence.care_site_id` + readmission logic |
+## What to Watch For
+
+!!! warning "Common pitfalls"
+
+    **Granularity varies**
+    :   Some data models use departments as care sites; others use whole facilities. Know what your data contains.
+
+    **Not all visits link to a care site**
+    :   Especially for billing or claims-derived data. Validate completeness before filtering on `care_site_id`.
+
+    **Use `location` for geospatial work**
+    :   `care_site` is the logical unit. `location` (via `location_id`) provides the physical address and coordinates.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Patients seen at the main cancer center | `visit_occurrence.care_site_id` + `care_site_name` |
+| Hypertension control rates by primary care clinic | `measurement` + `visit_occurrence` + `care_site_id` |
+| Procedure volume by surgical department | `procedure_occurrence` + `visit_occurrence.care_site_id` |
+| Geocoding care delivery locations | `care_site.location_id` + `location.latitude/longitude` |
+| Readmission rates by care site | `visit_occurrence.care_site_id` + readmission logic |

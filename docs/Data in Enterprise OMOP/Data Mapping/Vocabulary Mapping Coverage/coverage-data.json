@@ -1,0 +1,142 @@
+{
+  "generated": "2026-03-03",
+  "summary": {
+    "total_vocabs": 4,
+    "total_rows": 135232,
+    "total_mapped": 110037,
+    "total_unmapped": 25195,
+    "overall_coverage": 81.4
+  },
+  "vocabs": [
+    {
+      "name": "EU2_Flowsheets",
+      "files": [
+        {
+          "filename": "mapping.csv",
+          "last_modified": "2026-03-03",
+          "total": 25166,
+          "mapped": 0,
+          "unmapped": 25166,
+          "coverage": 0.0,
+          "predicates": {"noMatch": 25166},
+          "confidence": {},
+          "metadata_completeness": {
+            "mapping_tool": {"count": 0, "total": 25166},
+            "mapper": {"count": 0, "total": 25166},
+            "reviewer": {"count": 0, "total": 25166}
+          },
+          "top_unmapped": [
+            {"code": "301070", "description": "Temperature", "frequency": 72891888, "status": "active"},
+            {"code": "301550", "description": "Pulse", "frequency": 57683612, "status": "active"},
+            {"code": "304890", "description": "Resp", "frequency": 51571512, "status": "active"},
+            {"code": "301100", "description": "Temp Source", "frequency": 49610588, "status": "active"},
+            {"code": "301090", "description": "SpO2", "frequency": 49571396, "status": "active"}
+          ]
+        }
+      ],
+      "totals": {
+        "total": 25166,
+        "mapped": 0,
+        "unmapped": 25166,
+        "coverage": 0.0
+      }
+    },
+    {
+      "name": "GIS",
+      "files": [
+        {
+          "filename": "gis_hierarchy.csv",
+          "last_modified": "2024-10-01",
+          "total": 89332,
+          "mapped": 89332,
+          "unmapped": 0,
+          "coverage": 100.0,
+          "predicates": {"broadMatch": 30940, "exactMatch": 2895, "narrowMatch": 3330, "skos:relatedMatch": 52146, "": 21},
+          "confidence": {"mean": 1.0, "min": 1.0, "max": 1.0},
+          "metadata_completeness": {
+            "mapping_tool": {"count": 0, "total": 89332},
+            "mapper": {"count": 0, "total": 89332},
+            "reviewer": {"count": 0, "total": 89332}
+          },
+          "top_unmapped": []
+        },
+        {
+          "filename": "gis_mapping.csv",
+          "last_modified": "2025-04-14",
+          "total": 9606,
+          "mapped": 9606,
+          "unmapped": 0,
+          "coverage": 100.0,
+          "predicates": {"broadMatch": 96, "exactMatch": 1481, "narrowMatch": 6898, "skos:relatedMatch": 1131},
+          "confidence": {"mean": 1.0, "min": 1.0, "max": 1.0},
+          "metadata_completeness": {
+            "mapping_tool": {"count": 0, "total": 9606},
+            "mapper": {"count": 0, "total": 9606},
+            "reviewer": {"count": 0, "total": 9606}
+          },
+          "top_unmapped": []
+        }
+      ],
+      "totals": {
+        "total": 98938,
+        "mapped": 98938,
+        "unmapped": 0,
+        "coverage": 100.0
+      }
+    },
+    {
+      "name": "MIMIC",
+      "files": [
+        {
+          "filename": "mimic_mapping.csv",
+          "last_modified": "2025-05-05",
+          "total": 10993,
+          "mapped": 10879,
+          "unmapped": 114,
+          "coverage": 99.0,
+          "predicates": {"broadMatch": 795, "exactMatch": 7980, "narrowMatch": 323, "noMatch": 114, "skos:closeMatch": 358, "skos:closeMatchValue": 6, "skos:relatedMatch": 1417},
+          "confidence": {"mean": 1.0, "min": 1.0, "max": 1.0},
+          "metadata_completeness": {
+            "mapping_tool": {"count": 0, "total": 10993},
+            "mapper": {"count": 10993, "total": 10993},
+            "reviewer": {"count": 0, "total": 10993}
+          },
+          "top_unmapped": []
+        }
+      ],
+      "totals": {
+        "total": 10993,
+        "mapped": 10879,
+        "unmapped": 114,
+        "coverage": 99.0
+      }
+    },
+    {
+      "name": "PSYCHIATRY",
+      "files": [
+        {
+          "filename": "psych_mapping.csv",
+          "last_modified": "2025-03-24",
+          "total": 85,
+          "mapped": 54,
+          "unmapped": 31,
+          "coverage": 63.5,
+          "predicates": {"broadMatch": 3, "exactMatch": 49, "narrowMatch": 2, "noMatch": 31},
+          "confidence": {"mean": 0.99, "min": 0.9, "max": 1.0},
+          "metadata_completeness": {
+            "mapping_tool": {"count": 0, "total": 85},
+            "mapper": {"count": 85, "total": 85},
+            "reviewer": {"count": 0, "total": 85}
+          },
+          "top_unmapped": []
+        }
+      ],
+      "totals": {
+        "total": 85,
+        "mapped": 54,
+        "unmapped": 31,
+        "coverage": 63.5
+      }
+    }
+  ]
+}

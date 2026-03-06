@@ -1,41 +1,56 @@
-# 🚬 Observation
+---
+hide:
+  - footer
+title: Observation
+---
 
-The `observation` table is a **catch-all for clinical facts about a patient that don’t fit into other domains** like condition, drug, or measurement. This includes data such as social determinants of health, smoking status, patient-reported outcomes, screening responses, and sometimes free-text concepts coded into structured fields. The general rule of thumb for the OHDSI community is if you can possible represent the data in a different table, do so. If not, use this table.
+# Observation
 
-In Epic or Cerner, this may map to **flowsheet entries, social history tabs, questionnaires, or structured note templates**. It is often the home for **important non-diagnostic data** such as advance directives, functional status, or reasons for medication non-use.
+**Epic equivalent**: Social history / Flowsheet entries / Questionnaires / Structured note templates
 
-Use this table when you're trying to capture **qualitative or coded observations** that inform care but are not classic diagnoses or measurements.
+The `observation` table is the **catch-all for clinical facts** that don't fit into conditions, drugs, or measurements. Smoking status, social determinants of health, patient-reported outcomes, screening responses, advance directives, and reasons for medication non-use all land here.
 
-## Key OMOP Fields Mapped to Familiar EHR Concepts
+In Epic, this data comes from social history tabs, flowsheet entries, questionnaires, and structured note templates. The OHDSI community's rule: if the data can go in a more specific table, it should. If not, it goes here.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `observation_id` | Observation record ID | Unique identifier for the observation. | Used internally for joins. |
-| `person_id` | Patient ID | Foreign key to `person`. | Ties the observation to the patient. |
-| `observation_concept_id` | Structured concept | Standardized concept for the observation (e.g., "Former smoker", "Lives alone"). | Use this for cohort logic or population segmentation. |
-| `observation_date` | Observation date | When the observation occurred or was recorded. Time stored in `observation_datetime`. | Important for anchoring to clinical timeline. |
-| `observation_type_concept_id` | Source type | Indicates origin of observation (EHR, survey, registry, etc.). | Useful in understanding reliability or mode of capture. |
-| `value_as_number` | Quantitative value | Numeric value, if applicable (e.g., pack years smoked). | Used when the observation includes a scale or score. |
-| `value_as_string` | Free-text value | Text value, if recorded that way. | Can be used for manual audits, not for standardized analytics. |
-| `value_as_concept_id` | Coded value | Concept ID when response is categorical (e.g., "Yes", "No", "Former"). | Preferred for categorical analytics. |
-| `qualifier_concept_id` | Modifier or context | Optional extra context (e.g., severity or status). | Occasionally populated for nuanced responses. |
-| `unit_concept_id` | Units of numeric values | Unit concept if the observation is quantitative. | Important for interpreting `value_as_number`. |
-| `provider_id` | Recording clinician | Who recorded the observation. | Useful for attribution or audit. |
-| `visit_occurrence_id` | Visit ID | Visit during which the observation occurred. | Contextualizes the setting (e.g., inpatient vs outpatient). |
-| `observation_source_value` | Local field name or label | Original value as stored in EHR (e.g., "TOB_STATUS"). | Useful for mapping validation or source tracing. |
+## Epic-to-OMOP Field Mapping
 
-## Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Overlap with `condition_occurrence` and `measurement`**: Use `observation` only when the data doesn’t clearly belong in those tables.
-- **Text vs concept**: Try to use `value_as_concept_id` for standardization. `value_as_string` is rarely analyzable directly.
-- **High site-specific variation**: Different institutions load different types of observations—be aware of what your dataset includes.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `observation_id` | Observation record ID | Unique identifier |
+    | `person_id` | Patient ID / MRN | Links to the patient |
+    | `observation_concept_id` | Structured concept | Standardized concept (e.g., "Former smoker", "Lives alone") |
+    | `observation_date` | Observation date | When recorded; `observation_datetime` has time precision |
+    | `observation_type_concept_id` | Source type | Origin: EHR, survey, registry, etc. |
+    | `value_as_number` | Numeric value | For scaled/scored responses (e.g., pack-years, pain score) |
+    | `value_as_string` | Free-text value | Unstructured text response (not for standardized analysis) |
+    | `value_as_concept_id` | Coded value | Categorical response as a concept (e.g., "Yes", "No", "Former") |
+    | `qualifier_concept_id` | Modifier / context | Optional severity, status, or other qualifier |
+    | `unit_concept_id` | Unit | Unit for numeric observations |
+    | `provider_id` | Recording clinician | Who recorded the observation |
+    | `visit_occurrence_id` | Linked encounter | Visit context |
+    | `observation_source_value` | Local field name | Original EHR label (e.g., "TOB_STATUS") |
 
-## Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| What percentage of patients are current smokers? | `observation_concept_id` = smoking status + `value_as_concept_id` |
-| How many patients screened positive for food insecurity? | `observation_concept_id` for SDOH + `value_as_concept_id` = positive |
-| What’s the prevalence of patient-reported pain scores > 6? | `observation_concept_id` = pain score + `value_as_number` filter |
-| Which patients declined statin therapy despite indication? | `observation` for medication non-use + `condition_occurrence` |
-| What proportion of hospice patients have an advance directive recorded? | `observation_concept_id` = advance directive + `condition_occurrence` or `visit_occurrence` |
+!!! warning "Common pitfalls"
+
+    **Domain overlap**
+    :   If it looks like a diagnosis, check `condition_occurrence` first. If it has a numeric result with units, check `measurement`. `observation` is the last resort.
+
+    **Prefer `concept_id` over `string`**
+    :   `value_as_string` is not analyzable at scale. Use `value_as_concept_id` for categorical responses.
+
+    **High site-specific variation**
+    :   Different institutions load very different things into observation. Always check what's actually in your dataset before assuming coverage.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Current smoking prevalence | `observation_concept_id` (smoking status) + `value_as_concept_id` |
+| Food insecurity screening results | `observation_concept_id` (SDoH) + `value_as_concept_id` (positive) |
+| Patient-reported pain scores > 6 | `observation_concept_id` (pain score) + `value_as_number` filter |
+| Patients who declined statin therapy | `observation` (medication non-use) + `condition_occurrence` |
+| Advance directive documentation in hospice patients | `observation_concept_id` (advance directive) + `visit_occurrence` |

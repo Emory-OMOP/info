@@ -1,1 +1,11 @@
 .DS_Store
+.private
+site/
+
+# Generated artifacts (not for the site)
+scripts/community_data/community_overlap.html
+scripts/community_data/community_overlap*.pdf
+scripts/community_data/exports/
+
+# Feed fetcher state (dedup tracking, regenerated on fetch)
+scripts/feed_state.json

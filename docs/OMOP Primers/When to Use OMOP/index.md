@@ -1,28 +1,125 @@
 ---
-search:
-  exclude: false
 hide:
-#   - toc
   - footer
 title: When to Use OMOP
 ---
 
 # When to Use OMOP
 
-The following section outlines the key considerations for using the OMOP Common Data Model (CDM) at Emory vs. other resources available to us.
+Emory has multiple data platforms. Choosing the right one saves weeks of work. This guide helps you decide when Enterprise OMOP is the right fit — and when you should use Epic Clarity, Caboodle, or the Reporting Workbench instead.
 
-## Why OMOP Over Other Data Resources?
+## OMOP vs. Epic Resources at a Glance
 
-Enterprise OMOP is a structural standardization (all medications are in the Drug table) and semantic harmonization (all NDCs map to RxNorm) of the Clarity tables, as well as the legacy Clinical Data Warehouse primarily populated with Cerner data. All data are cleaned of non-events and mapped to standard codes where applicable. The OMOP vocabulary also contains hierarchies and classifications of coding systems enabling requestors to more easily define their variables of interest. The standardized structure and basic cleaning of the data enables easier query writing for BI-Developers.
+| | **Enterprise OMOP** | **Epic Clarity / Caboodle** | **Reporting Workbench** |
+|---|---|---|---|
+| **Best for** | Multi-source research, standardized analytics, federated studies | Operational reporting, real-time data, full encounter detail | Quick ad-hoc operational reports |
+| **Data sources** | Epic Clarity + Legacy CDW (Cerner) + Tumor Registry + OpenSpecimen | Epic only | Epic only |
+| **Coding** | Standardized (SNOMED, RxNorm, LOINC) | Source codes (ICD-10, CPT, NDC) | Source codes |
+| **Structure** | Patient-centric, cleaned, de-duplicated | Encounter-centric, raw | Pre-built report templates |
+| **Timeliness** | Periodic refresh (lags real-time) | Near real-time | Near real-time |
+| **Cross-site** | Yes — OHDSI network-compatible | No | No |
+| **Vocabularies** | Hierarchies + mappings built in | Manual code lists | Manual code lists |
 
-## Use cases fit for Enterprise OMOP
+## Use OMOP When...
 
-The data in Enterprise OMOP meets many medical research use cases. Comparisions of different treatments on outcomes; healthcare utilization; EHR data linked to tumor registry participants; EHR data linked to OpenSpecimen biospecimen data. This data is focused on presenting the best information we have about what happened to the patient across a variety of data sources at Emory.
+<div class="grid cards" markdown>
 
-## Use Cases not fit for Enterprise OMOP
+-   :material-check-circle:{ .lg .middle } **Comparative effectiveness research**
 
-Enterprise OMOP is not a replacement for the Clarity tables, Caboodle Data Warehouse, or the Reporting Workbench. The Epic infrastructure is the source of truth for the ongoing data for our health care system ingested into an EHR. Enterprise OMOP is a cleaned and standardized version of the data in Legacy CDW and data in Epic Clarity. If you need to understand the full extent of what happened to a patient, you should always start with an Epic resource.
+    ---
 
-Data points which did not occur or are future events are not included. Examples include Canceled encounters, future procedures, missed medications, or charges for services. Historical demographic data for a patient or provider (i.e., deprecated or inaccurate demographics or addresses not representing current state) are not included.
+    Comparing treatments, outcomes, or utilization patterns across patient populations using standardized codes and clean data.
 
-Finally, the cadence for Enterprise OMOP at present is likely to lag behind real-time data and will never catch up to source (see “cadence” documentation for more). If a study is focused on the intent to treat (what care did the provider try to give and not what happened to the patient), then we should not use OMOP for that project.
+-   :material-check-circle:{ .lg .middle } **Federated or multi-site studies**
+
+    ---
+
+    Running analyses that need to be portable across OHDSI network sites. OMOP's standard structure means your query works everywhere.
+
+-   :material-check-circle:{ .lg .middle } **Linking across data sources**
+
+    ---
+
+    Combining EHR data with tumor registry (Winship) or biospecimen data (OpenSpecimen) in a single, patient-centric model.
+
+-   :material-check-circle:{ .lg .middle } **Cohort definitions using standard vocabularies**
+
+    ---
+
+    Using SNOMED hierarchies to capture "all diabetes" without manually listing every ICD-10 code. The vocabulary does the work.
+
+-   :material-check-circle:{ .lg .middle } **Health equity and SDoH analyses**
+
+    ---
+
+    Standardized demographics, geographic data, and observation-domain social determinants in a research-ready format.
+
+-   :material-check-circle:{ .lg .middle } **You need cleaned data**
+
+    ---
+
+    Non-events (cancelled encounters, missed medications, future procedures) are excluded. What's in OMOP is what actually happened.
+
+</div>
+
+## Don't Use OMOP When...
+
+<div class="grid cards" markdown>
+
+-   :material-close-circle:{ .lg .middle } **You need real-time or near-real-time data**
+
+    ---
+
+    OMOP refreshes on a periodic cadence. If your study depends on today's data, start with an Epic resource.
+
+-   :material-close-circle:{ .lg .middle } **You need the full encounter narrative**
+
+    ---
+
+    OMOP captures what happened to the patient, not everything the provider intended. Cancelled orders, missed medications, and charge-only entries are excluded. Use Clarity for the complete picture.
+
+-   :material-close-circle:{ .lg .middle } **Intent-to-treat analysis**
+
+    ---
+
+    If your study is about what care the provider *tried* to deliver (not what the patient received), Clarity or the CDW is the better source.
+
+-   :material-close-circle:{ .lg .middle } **Historical demographic tracking**
+
+    ---
+
+    OMOP's `person` table is a snapshot — it doesn't track address changes, insurance transitions, or prior name/gender over time.
+
+-   :material-close-circle:{ .lg .middle } **Operational or billing reports**
+
+    ---
+
+    Charge data, scheduling workflows, and real-time census are Epic's domain. OMOP is built for research, not operations.
+
+</div>
+
+## What OMOP Actually Is (Under the Hood)
+
+Enterprise OMOP is a **structural standardization** and **semantic harmonization** of the data in Epic Clarity and the legacy Clinical Data Warehouse (primarily Cerner). In practice, that means:
+
+Structural standardization
+:   All medications land in `drug_exposure`, all diagnoses in `condition_occurrence`, all labs in `measurement` — regardless of which source system they came from.
+
+Semantic harmonization
+:   NDC codes map to RxNorm. ICD-10 maps to SNOMED. Local lab codes map to LOINC. The vocabulary layer translates source codes into a shared language.
+
+Cleaning
+:   Non-events are removed. Records are de-duplicated where applicable. The result is a curated research dataset, not a raw operational dump.
+
+!!! warning "OMOP is not a replacement for Clarity"
+    It's a research-optimized view of the same underlying data. If something looks unexpected in OMOP, the source of truth is always the Epic infrastructure. See our [Known Issues](../Data%20in%20Enterprise%20OMOP/Data%20Quality/Known%20Issues/index.md) page for documented limitations.
+
+## Next Steps
+
+Ready to explore the data model? Head to the [OMOP Primers](../OMOP%20Primers/index.md) landing page for table-by-table guides, or jump straight to the tables you'll use most:
+
+- [Person](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Person/index.md) — start here, it's the center of everything
+- [Visit Occurrence](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Visits/Visit%20Occurrence/index.md) — the encounter equivalent
+- [Condition Occurrence](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Conditions/Condition%20Occurrence/index.md) — diagnoses and problems
+- [Drug Exposure](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Drugs/Drug%20Exposure/index.md) — medications
+- [Measurement](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Measurement/index.md) — labs and vitals

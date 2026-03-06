@@ -1,70 +1,89 @@
-# Overview
+---
+hide:
+  - footer
+title: Data Quality Design
+---
 
-Our data quality design process philosophy is heavily influenced by DataOps framework (see Data Quality Philosophy for more)
+# Data Quality Design
 
-## Background materials
+Our data quality process is heavily influenced by the [DataOps framework](https://dataopsmanifesto.org/en/), which combines software engineering and manufacturing best practices to treat all aspects of the pipeline — software, data, and subsamples used in tests — as part of a CI/CD process.
 
-https://dataopsmanifesto.org/en/
+## What is DataOps?
 
-## DataOps Defined
-Combination of various software engineering and manufacturing best practices, ultimately treating all aspects of the pipeline (software, data, subsamples used in unit tests) as part of a CI/CD process.
+DataOps is not simply "DevOps for data." It extends DevOps principles with manufacturing-inspired process control, treating the analytic pipeline as a production system where quality is built in, not bolted on.
 
-![Manufacturing](../../../assets/images/manufacturing.png)
+![Manufacturing process control as a foundation for DataOps](../../../assets/images/manufacturing.png)
 
-![DevOps](../../../assets/images/devops.png)
-
-DevOps is one component of DataOps, but it's not just simple adoption of "devops for data"
+![DevOps lifecycle — one component of the broader DataOps approach](../../../assets/images/devops.png)
 
 ## DataOps Manifesto
 
-1. Continually Satisfy Your Customer	Deliver valuable analytic insights early and continuously.	SELECT COUNT(*) FROM patient_data WHERE last_updated > NOW() - INTERVAL '1 day';
-2. Value Working Analytics	Measure performance by the delivery of insightful and accurate analytics.	SELECT COUNT(*) FROM analytics_reports WHERE status = 'active';
-3. Embrace Change	Welcome evolving customer needs to generate competitive advantage.	SELECT * FROM feature_requests WHERE status = 'pending';
-4. It's a Team Sport	Encourage diverse roles and skills within analytic teams.	SELECT team_member, role FROM project_team WHERE project_id = 123;
-5. Daily Interactions	Ensure daily collaboration among customers, analytic teams, and operations.	SELECT meeting_date, participants FROM daily_standups WHERE project_id = 123;
-6. Self-Organize	Allow teams to self-organize for optimal results.	SELECT team_name, autonomy_level FROM teams WHERE project_id = 123;
-7. Reduce Heroism	Create sustainable and scalable processes to minimize reliance on individual effort.	SELECT process_name, is_documented FROM workflows WHERE critical = TRUE;
-8. Reflect	Regularly self-reflect to fine-tune operational performance.	SELECT feedback_date, action_items FROM retrospectives WHERE team_id = 456;
-9. Analytics is Code	Treat analytics as code, versioning all aspects of the analytics process.	SELECT script_name, version FROM analytics_scripts WHERE project_id = 123;
-10. Orchestrate	Coordinate data, tools, code, environments, and team efforts for success.	SELECT workflow_name, status FROM orchestrations WHERE project_id = 123;
-11. Make it Reproducible	Ensure results are reproducible by versioning everything.	SELECT dataset_name, version FROM datasets WHERE project_id = 123;
-12. Disposable Environments	Provide easy-to-create, isolated, and disposable environments for experimentation.	SELECT environment_id, status FROM dev_environments WHERE user_id = 789;
-13. Simplicity	Focus on simplicity to enhance agility and efficiency.	SELECT process_name FROM processes WHERE complexity = 'low';
-14. Analytics is Manufacturing	Apply process-thinking to achieve continuous efficiencies in analytics.	SELECT stage, efficiency_metric FROM analytics_pipeline WHERE project_id = 123;
-15. Quality is Paramount	Build pipelines capable of automated detection of abnormalities and security issues.	SELECT check_name, status FROM quality_checks WHERE pipeline_id = 123;
-16. Monitor Quality and Performance	Continuously monitor performance, security, and quality measures.	SELECT metric_name, value FROM performance_metrics WHERE pipeline_id = 123;
-17. Reuse	Avoid repetition by reusing previous work.	SELECT component_name, usage_count FROM reusable_components WHERE project_id = 123;
-18. Improve Cycle Times	Minimize the time from customer need to analytic insight.	SELECT request_id, time_to_completion FROM customer_requests WHERE project_id = 123;
+The [DataOps Manifesto](https://dataopsmanifesto.org/en/) defines 18 principles. The following table summarizes each and how we apply them at Emory.
 
-# Steps to Implement DataOps
-## Step 1 - Add data and logic tests
+| # | Principle | Summary |
+|---|-----------|---------|
+| 1 | Continually satisfy your customer | Deliver valuable analytic insights early and continuously |
+| 2 | Value working analytics | Measure performance by delivery of accurate, insightful analytics |
+| 3 | Embrace change | Welcome evolving requirements to maintain competitive advantage |
+| 4 | It's a team sport | Encourage diverse roles and skills within analytic teams |
+| 5 | Daily interactions | Ensure daily collaboration among researchers, engineers, and operations |
+| 6 | Self-organize | Allow teams to self-organize for optimal results |
+| 7 | Reduce heroism | Build sustainable processes; minimize reliance on individual effort |
+| 8 | Reflect | Regularly self-reflect to improve operational performance |
+| 9 | Analytics is code | Version all aspects of the analytics process |
+| 10 | Orchestrate | Coordinate data, tools, code, environments, and team efforts |
+| 11 | Make it reproducible | Ensure results are reproducible by versioning everything |
+| 12 | Disposable environments | Provide easy-to-create, isolated environments for experimentation |
+| 13 | Simplicity | Focus on simplicity to enhance agility and efficiency |
+| 14 | Analytics is manufacturing | Apply process-thinking to achieve continuous efficiencies |
+| 15 | Quality is paramount | Build pipelines capable of automated anomaly and security detection |
+| 16 | Monitor quality and performance | Continuously monitor performance, security, and quality measures |
+| 17 | Reuse | Avoid repetition by reusing previous work |
+| 18 | Improve cycle times | Minimize the time from customer need to analytic insight |
 
-Inspired by Statistical Process Control (SPC; from manufacturing)SPC: Data stays within an acceptable statistical range
-tests validate data values at the inputs and outputs of each processing stage in the pipelinethis implies fixing and or flagging the data. For WinshipOMOP, we "quarantine" all signal
-There is a necessary feedback loop whenever the logic test is put in place. The test is created, someone is notified, it's acted upon, test is rerun, etc., until the loop is escaped by the agreed upon measure of success.
+## Implementation Steps
 
-## Step 2 - Use Version Control
+???+ example "Step 1 — Add Data and Logic Tests"
 
-I would extend their definition and push for versioning of code, documentation, tests, and meetings all aligned within context of versions. It's critical we understand all aspects of version up and down the stack.
+    Inspired by **Statistical Process Control (SPC)** from manufacturing: data must stay within an acceptable statistical range. Tests validate data values at the inputs and outputs of each processing stage in the pipeline.
 
-## Step 3 - Branch and Merge
+    - Tests that fail trigger a notification-and-fix feedback loop
+    - Failed records are "quarantined" until resolved
+    - The loop continues until the agreed-upon measure of success is met
 
-As stated for step 2, I would argue we should have such items up and down the entirety of the infrastructure.
+??? example "Step 2 — Use Version Control"
 
-## Step 4 - Use Multiple Environments
+    Version code, documentation, tests, and meeting notes — all aligned within the context of releases. Understanding all aspects of version changes up and down the stack is critical.
 
-Implement "Test Kitchens" where individual developers can play around with an environment
+??? example "Step 3 — Branch and Merge"
 
-## Step 5 - Reuse and Containerize
+    Apply branching and merging not just to code, but across the entirety of the infrastructure — including data models, tests, and documentation.
 
-Specific non-obvious note: It's a good idea to allow for endpoints that other engineers/analysts can utilize without having to really touch the guts in some cases: Just setup the container locally, and then utilize as needed.
+??? example "Step 4 — Use Multiple Environments"
 
-## Step 6 - Parameterize your processing
+    Implement "test kitchens" where individual developers can experiment in isolated environments without affecting production data or pipelines.
 
-Specific non-obvious note: Which version of raw data should be used? Is the data for production or for testing? Records have changing filters? Should specific processing steps in workflow be included?
+??? example "Step 5 — Reuse and Containerize"
 
-If the data-analytic pipeline is designed with the right flexibility, it will be ready to accommodate different run-time circumstances. I'd argue that atomizing code sets this up well as it's easy to run or not run a particular step for testing.This is untested though. It's been successful-ish for winomop
+    Package reusable components so that engineers and analysts can utilize them without touching the internals — set up the container locally and use as needed.
 
-## Step 7 - Work without fear or heroism
+??? example "Step 6 — Parameterize Processing"
 
-### 🚧 Remainder Sections under constuction as of release date 🚧
+    Design pipelines with flexibility for different run-time circumstances:
+
+    - Which version of raw data should be used?
+    - Is this a production or testing run?
+    - Should specific processing steps be included or skipped?
+
+    Atomizing code into discrete steps supports this naturally — each step can be independently included or excluded.
+
+??? example "Step 7 — Work Without Fear"
+
+    When tests, version control, and isolated environments are in place, team members can experiment and iterate without risking production data.
+
+## Related Pages
+
+- [:octicons-arrow-right-24: Data Quality Results](../Data%20Quality%20Results/index.md) — OHDSI DQD summary and failure analysis
+- [:octicons-arrow-right-24: DBT Pipeline Tests](../DBT%20Tests/index.md) — column-level test definitions for every table
+- [:octicons-arrow-right-24: Known Issues](../Known%20Issues/index.md) — table-by-table mapping gaps and workarounds
+- [:octicons-arrow-right-24: DataOps Manifesto](https://dataopsmanifesto.org/en/) — the full 18 principles

@@ -1,3 +1,15 @@
+# Concept Top 10 Values
+
+This reference shows the **10 most frequent concept values** for each concept column in every OMOP table, broken down by data source (Enterprise, CDW, Epic). Use it to understand what data is most prevalent and to identify mapping gaps.
+
+!!! tip "How to use this table"
+    - **Blank `concept_id`** or **`concept_name`** indicates unmapped source values — the source data exists but isn't mapped to a standard OMOP concept
+    - **`concept_id = 0`** means "No matching concept" — the ETL attempted mapping but found no match
+    - **`percentage_within_column`** shows how much of the column's total data each concept represents
+    - Use this alongside [:octicons-arrow-right-24: Current Concept Coverage](../Current%20Concept%20Coverage/index.md) to assess mapping completeness
+
+---
+
 | schema | tbl_name | col_name | concept_id | total_rows | value_count | percentage_within_column | concept_name  |
 | ---|---|---|---|---|---|---|---|
 | Enterprise | care_site | place_of_service_concept_id  |  | 36112 | 33077 | 91.6 |  |

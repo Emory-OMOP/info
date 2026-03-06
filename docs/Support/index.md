@@ -2,50 +2,59 @@
 search:
   exclude: false
 hide:
-  - footer  
+  - footer
 title: Support
 ---
 
-# Defined Support Workflows
+# Support
 
-The following workflows are recommended for the most expedient support:
+The following workflows are recommended for the most expedient support.
 
-<div class="grid cards grid-2" markdown>
+## Report an Issue
 
--   :octicons-bug-16:{ .lg .middle } __Report a Bug__ 
+<div class="grid cards" markdown>
 
-    ---
-    
-    The best way to report a bug without follow-up questions from support is to:
-
-    * Describe the issue you're experiencing
-    * Include steps to reproduce the issue
-    * Provide any relevant screenshots or error messages
-    
-    [:octicons-arrow-right-24: Bug Report Form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/203)
-
-
--   :octicons-sparkles-fill-16:{ .lg .middle } __Request a Feature__  
+-   :octicons-bug-16:{ .lg .middle } **Report a Bug**
 
     ---
 
-    If you have a feature request, please provide the following information:
+    Include steps to reproduce, relevant screenshots, and any error messages for the fastest resolution.
 
-    * A clear description of the feature you would like to see
-    * The problem this feature would solve
-    * Any relevant use cases or examples
+    [:octicons-arrow-right-24: Bug Report Form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/203){ .md-button }
 
-    [:octicons-arrow-right-24: Feature Request Form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/204)
-
-
--   :material-earth:{ .lg .middle } __Request Access to an OMOP Resource__  
+-   :octicons-sparkles-fill-16:{ .lg .middle } **Request a Feature**
 
     ---
 
-    If you need access to an OMOP resource, you will need to complete a request via REDCap. Specific documented workflows at present:
+    Describe the feature, the problem it solves, and any relevant use cases or examples.
 
-    [:octicons-arrow-right-24: Request ATLAS Access](Access Requests/ATLAS/index.md)
-
-    [:octicons-arrow-right-24: Request Database Access](Access Requests/Databases/index.md)
+    [:octicons-arrow-right-24: Feature Request Form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/204){ .md-button }
 
 </div>
+
+## Request Access
+
+All access to Emory OMOP resources is managed through REDCap.
+
+<div class="grid cards" markdown>
+
+-   :material-web:{ .lg .middle } **ATLAS Access**
+
+    ---
+
+    Request access to Emory's ATLAS instance for cohort building and standardized analyses against de-identified OMOP data.
+
+    [:octicons-arrow-right-24: ATLAS access workflow](Access Requests/ATLAS/index.md){ .md-button }
+
+-   :material-database:{ .lg .middle } **Database Access**
+
+    ---
+
+    Request direct SQL access to Emory's OMOP data lake on Amazon Redshift for custom queries using DBeaver, Python, R, or other tools.
+
+    [:octicons-arrow-right-24: Database access workflow](Access Requests/Databases/index.md){ .md-button }
+
+</div>
+
+!!! question "Not sure what you need?"
+    Join our [:octicons-arrow-right-24: Microsoft Teams channel](../Contact%20Us/index.md) to ask questions and get guidance from the team.

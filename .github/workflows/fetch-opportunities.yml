@@ -1,0 +1,78 @@
+name: Fetch Funding Opportunities
+
+on:
+  schedule:
+    # Every Monday at 8am ET (12:00 UTC)
+    - cron: "0 12 * * 1"
+  workflow_dispatch: # manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Fetch opportunities
+        run: uv run scripts/fetch_opportunities.py fetch
+
+      - name: Check for new drafts
+        id: check
+        run: |
+          if [ -n "$(ls scripts/blog_drafts/*.md 2>/dev/null)" ]; then
+            COUNT=$(ls scripts/blog_drafts/*.md | wc -l | tr -d ' ')
+            echo "has_drafts=true" >> "$GITHUB_OUTPUT"
+            echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_drafts=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create PR with new drafts
+        if: steps.check.outputs.has_drafts == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="auto/opportunities-$(date +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH"
+          git add scripts/blog_drafts/ scripts/feed_state.json
+          git commit -m "Add ${{ steps.check.outputs.count }} new funding opportunity draft(s)"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "New funding opportunities — $(date +%Y-%m-%d)" \
+            --body "$(cat <<'EOF'
+          ## New Drafts
+
+          This PR contains **${{ steps.check.outputs.count }}** new funding opportunity draft(s) fetched from NIH Guide, OHDSI Forums, and PCORI.
+
+          ### Review workflow
+
+          1. Check each file in `scripts/blog_drafts/`
+          2. Delete any posts you don't want to publish
+          3. For posts worth publishing:
+             - Copy to `docs/blog/posts/`, remove `draft: true`
+             - Add editorial context (why it matters, Emory-specific framing)
+             - Set `promoted: true` and `pin: true` if it should be featured
+             - Update the Featured grid in `docs/blog/index.md` if promoting
+          4. Merge this PR — the site will rebuild with the new posts
+
+          ### Quick review locally
+
+          ```bash
+          git checkout $BRANCH
+          ls scripts/blog_drafts/
+          ```
+          EOF
+          )" \
+            --base main \
+            --head "$BRANCH"

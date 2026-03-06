@@ -1,39 +1,51 @@
-# 👩‍⚕️ Provider
+---
+hide:
+  - footer
+title: Provider
+---
 
-The `provider` table represents **individual clinicians or care team members** who deliver or document healthcare services—such as physicians, residents, nurses, PAs, therapists, or advanced practice providers.
+# Provider
 
-In Epic or Cerner, this typically maps to **provider master tables**, including **attending, ordering, performing, or authoring providers** found across encounters, procedures, prescriptions, and documentation.
+**Epic equivalent**: Provider master table / Attending, ordering, performing, authoring providers
 
-This table allows OMOP to support **provider attribution**, **practice pattern analysis**, and **linkage of care events to clinicians**.
+The `provider` table represents **individual clinicians** — physicians, residents, nurses, PAs, therapists, and other care team members. In Epic, this maps to the provider master table referenced across encounters, procedures, prescriptions, and documentation.
 
-### Key OMOP Fields Mapped to Familiar EHR Concepts
+## Epic-to-OMOP Field Mapping
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `provider_id` | Provider ID | Unique identifier for a clinician. | Referenced across OMOP tables to link care to specific individuals. |
-| `provider_name` | Clinician name | Optional name field (often redacted or omitted in de-identified data). | Can help with quality assurance or small internal datasets. |
-| `npi` | National Provider Identifier | Standard U.S. NPI (if available). | Useful for linking to external registries or credentialing sources. |
-| `dea` | DEA number | Drug Enforcement Administration number (if available). | Rarely used, but may be relevant in controlled substance research. |
-| `specialty_concept_id` | Provider specialty | Standard concept (e.g., "Internal Medicine", "Medical Oncology"). | Enables provider-type stratification or filtering. |
-| `care_site_id` | Affiliated facility or clinic | Foreign key to the `care_site` table. | Identifies where the provider primarily practices. |
-| `year_of_birth` | Year of birth | Not commonly populated. May be used in workforce analytics. | Rare in EHR exports. |
-| `gender_concept_id` | Provider gender | Gender identity (e.g., Male, Female). May be sourced from HR systems. | Sometimes used in workforce equity analyses. |
-| `provider_source_value` | Local provider ID | The original ID from the source system (e.g., PROVIDER_ID in Clarity). | Essential for mapping and QA. |
-| `specialty_source_value` | Raw specialty string | Source system’s specialty value (e.g., “Cardiology”). | Used to validate `specialty_concept_id`. |
-| `specialty_source_concept_id` | Mapped concept from source | Concept ID derived from source specialty. | Supports consistency with OMOP vocabularies. |
+??? example "Field reference (click to expand)"
 
-### Common Pitfalls and What to Watch For
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `provider_id` | Provider ID | Unique identifier, referenced across OMOP tables |
+    | `provider_name` | Clinician name | Often redacted in de-identified datasets |
+    | `npi` | National Provider Identifier | Standard U.S. NPI (if available) |
+    | `dea` | DEA number | For controlled substance research (rarely populated) |
+    | `specialty_concept_id` | Provider specialty | Standardized concept (e.g., "Internal Medicine", "Medical Oncology") |
+    | `care_site_id` | Affiliated facility | Where the provider primarily practices |
+    | `year_of_birth` | Year of birth | Rarely populated |
+    | `gender_concept_id` | Provider gender | From HR systems (workforce analytics) |
+    | `provider_source_value` | Local provider ID | Original ID from Epic (e.g., PROVIDER_ID in Clarity) |
+    | `specialty_source_value` | Raw specialty string | Source system's specialty label |
 
-- **Not always linked across all events**: Many OMOP ETLs omit `provider_id` from certain events (e.g., condition, drug) if the source doesn't track it.
-- **Provider names often redacted**: Especially in limited or de-identified datasets.
-- **Specialty mapping may be shallow**: Specialty codes vary by EHR, and Emory's is unfortunately a bit limited.
+## What to Watch For
 
-### Clinical Use Cases
+!!! warning "Common pitfalls"
 
-| Question | Where to Look |
-|----------|----------------|
-| Which providers see the highest number of patients with uncontrolled diabetes? | `measurement` + `condition_occurrence` + `provider_id` |
-| What is the prescribing pattern for opioids by provider specialty? | `drug_exposure` + `provider.specialty_concept_id` |
-| How many procedures were performed by general surgeons last year? | `procedure_occurrence` + `provider.specialty_concept_id` |
-| Are there differences in documentation patterns between provider types? | `note` + `provider_id` + `note_type_concept_id` |
-| Can we profile care delivery patterns at the provider vs care site level? | Any clinical event table + `provider_id` + `care_site_id` |
+    **Not linked on all events**
+    :   Many OMOP ETLs omit `provider_id` from certain tables if the source doesn't track it. Don't assume universal coverage.
+
+    **Names often redacted**
+    :   Especially in de-identified datasets. Use `provider_id` for joins, not names.
+
+    **Specialty mapping is limited at Emory**
+    :   Specialty codes vary by EHR and Emory's mapping is a work in progress. Validate `specialty_concept_id` before using as a primary filter.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Providers with most uncontrolled diabetes patients | `measurement` + `condition_occurrence` + `provider_id` |
+| Opioid prescribing by provider specialty | `drug_exposure` + `provider.specialty_concept_id` |
+| Surgical procedure volume by surgeon | `procedure_occurrence` + `provider.specialty_concept_id` |
+| Documentation patterns by provider type | `note` + `provider_id` + `note_type_concept_id` |
+| Provider vs. care site attribution | Any clinical table + `provider_id` + `care_site_id` |

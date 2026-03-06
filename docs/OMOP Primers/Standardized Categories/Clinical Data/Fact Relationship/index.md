@@ -1,39 +1,54 @@
-# 🔗 Fact Relationship
+---
+hide:
+  - footer
+title: Fact Relationship
+---
 
-The `fact_relationship` table captures **relationships between individual records (“facts”) across different OMOP tables**. This allows the model to express complex, sometimes hierarchical connections between events—such as linking a measurement to a procedure, connecting two conditions, or defining temporal sequences.
+# Fact Relationship
 
-Think of this as the **glue for non-obvious relationships**—like associating a biopsy procedure with a pathology finding, or linking a pregnancy diagnosis to a delivery event.
+**Epic equivalent**: No direct equivalent — implicit relationships made explicit
 
-In EHR terms, there often isn’t a single field that explicitly defines these relationships. Instead, they are **implied through timing, proximity, or clinical documentation**. OMOP makes these linkages explicit through this table.
+The `fact_relationship` table captures **relationships between records across different OMOP tables**. In EHR systems, these connections are usually implied through timing, proximity, or clinical context. OMOP makes them explicit — linking a biopsy procedure to its pathology finding, or a pregnancy diagnosis to a delivery event.
 
-### Key OMOP Fields Mapped to Familiar EHR Concepts
+Think of it as the glue for non-obvious cross-domain connections.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `domain_concept_id_1` | Source domain 1 | Identifies the domain of the first record (e.g., condition, procedure, measurement). | Required to locate the fact in the appropriate table. |
-| `fact_id_1` | Record ID 1 | The ID of the record in the first domain table. | Links to the specific event (e.g., condition_occurrence_id). |
-| `domain_concept_id_2` | Source domain 2 | Domain of the second record. | Enables cross-domain links. |
-| `fact_id_2` | Record ID 2 | ID of the second event. | Used to tie it back to its source table. |
-| `relationship_concept_id` | Type of relationship | Standard concept describing the nature of the link (e.g., “Has associated procedure”, “Is temporally after”). | Defines clinical or logical connection between facts. |
+## Field Reference
 
-### Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Rarely populated by default**: Most standard ETL pipelines do not fill this table unless explicitly extended. Emory is no exception as this (see Known Quality Issues to monitor for updates).
-- **No foreign key enforcement**: This is a “soft” join across tables—requires validation and thoughtful curation.
-- **Concept ID-driven logic**: Must understand the relationship concept vocabulary to interpret the connection.
+    | OMOP Field | What It Captures |
+    |---|---|
+    | `domain_concept_id_1` | Domain of the first record (condition, procedure, measurement, etc.) |
+    | `fact_id_1` | The record ID in the first domain's table |
+    | `domain_concept_id_2` | Domain of the second record |
+    | `fact_id_2` | The record ID in the second domain's table |
+    | `relationship_concept_id` | The nature of the link (e.g., "Has associated finding") |
 
-### Common Relationship Concept Examples
+    **Example relationship concept:**
 
-| Concept | Meaning |
-|--------|---------|
-| `44818770` – "Has associated finding (SNOMED)" | Links a procedure to a diagnosis that justified it. |
+    | Concept ID | Meaning |
+    |---|---|
+    | `44818770` | "Has associated finding" — links a procedure to a justifying diagnosis |
 
-### Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| How are pathology results linked to biopsy procedures? | `fact_relationship` between `measurement` and `procedure_occurrence` |
-| Which diagnoses were directly associated with a given surgery? | `fact_relationship` linking `condition_occurrence` to `procedure_occurrence` |
-| Can we identify composite blood pressure readings from systolic + diastolic values? | `measurement` + `fact_relationship` (e.g., “is component of”) |
-| How can we define a pregnancy episode from related diagnoses and procedures? | `condition_occurrence`, `procedure_occurrence`, `fact_relationship` with temporal link concepts |
-| What conditions are explicitly tied to a device insertion? | `fact_relationship` between `condition_occurrence` and `device_exposure` |
+!!! warning "Common pitfalls"
+
+    **Rarely populated**
+    :   Most ETL pipelines don't fill this table by default. Emory does not currently populate it. See [Known Issues](../../../../Data%20in%20Enterprise%20OMOP/Data%20Quality/Known%20Issues/index.md) for updates.
+
+    **Soft joins — no foreign keys**
+    :   Relationships are concept-driven, not enforced by referential integrity. Validate carefully.
+
+    **Requires understanding the relationship vocabulary**
+    :   You need to know the `relationship_concept_id` to interpret what the link means.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Link pathology results to biopsy procedures | `fact_relationship` between `measurement` and `procedure_occurrence` |
+| Diagnoses that justified a specific surgery | `fact_relationship` linking `condition_occurrence` to `procedure_occurrence` |
+| Composite blood pressure from systolic + diastolic | `measurement` + `fact_relationship` ("is component of") |
+| Pregnancy episode from related diagnoses + procedures | `fact_relationship` with temporal link concepts |
+| Conditions tied to device insertions | `fact_relationship` between `condition_occurrence` and `device_exposure` |

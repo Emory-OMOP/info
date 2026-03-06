@@ -1,0 +1,40 @@
+name: Update Coverage Data from CVB
+
+on:
+  repository_dispatch:
+    types: [coverage-update]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch coverage JSON from CVB
+        env:
+          GH_TOKEN: ${{ secrets.CVB_READ_TOKEN }}
+        run: |
+          # Download the latest coverage-data.json artifact from CVB
+          gh run download --repo Emory-OMOP/CVB \
+            --name coverage-data \
+            --dir /tmp/coverage \
+            || { echo "No artifact found, skipping"; exit 0; }
+
+          TARGET="docs/Data in Enterprise OMOP/Data Mapping/Vocabulary Mapping Coverage/coverage-data.json"
+          cp /tmp/coverage/coverage-data.json "$TARGET"
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "docs/Data in Enterprise OMOP/Data Mapping/Vocabulary Mapping Coverage/coverage-data.json"
+          if git diff --cached --quiet; then
+            echo "No changes to coverage data"
+          else
+            git commit -m "Update vocabulary mapping coverage data"
+            git push
+          fi

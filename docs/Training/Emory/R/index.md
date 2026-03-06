@@ -1,6 +1,6 @@
 ---
-search:
-  exclude: false
+hide:
+  - footer
 title: R Training Resources
 ---
 

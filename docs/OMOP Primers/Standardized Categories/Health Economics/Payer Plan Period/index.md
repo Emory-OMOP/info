@@ -1,42 +1,53 @@
-## 💳 Payer Plan Period
+---
+hide:
+  - footer
+title: Payer Plan Period
+---
 
-The `payer_plan_period` table captures **the span of time during which a patient was covered by a specific insurance plan or payer**. This is especially important in claims-based datasets but can also appear in EHRs with linked registration or benefits data.
+# Payer Plan Period
 
-In Epic or Cerner, this information comes from **registration/ADT systems** or **insurance eligibility feeds**. Each row represents a **continuous period of insurance enrollment or coverage** under a specific plan or payer.
+**Epic equivalent**: Registration / ADT insurance data / Eligibility feeds
 
-This table is essential for identifying **study eligibility**, **payer-type stratification (e.g., Medicare vs commercial)**, and **longitudinal analyses of access to care**.
+The `payer_plan_period` table captures **spans of insurance coverage** under specific plans and payers. In Epic, this comes from registration and insurance eligibility feeds. Each row is a continuous period of enrollment or coverage.
 
-### Key OMOP Fields Mapped to Familiar EHR/Claims Concepts
+Essential for **eligibility criteria**, **payer stratification**, and **continuous enrollment filters**. Sparse in EHR-derived OMOP including Emory's.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `payer_plan_period_id` | Coverage segment ID | Unique ID for the coverage period. | Used internally for joining across time. |
-| `person_id` | Patient ID | Foreign key to `person`. | Ties the coverage window to the individual. |
-| `payer_plan_period_start_date` | Coverage start date | First day the insurance plan was active for the patient. | Used for defining eligibility windows. |
-| `payer_plan_period_end_date` | Coverage end date | Last day of plan coverage. | Used for censoring or risk window definitions. |
-| `payer_concept_id` | Payer organization | Standard concept for the payer (e.g., "Medicare", "Private payer"). | Enables payer-type stratification in studies. |
-| `payer_source_value` | Raw payer name/code | Payer name or ID from the source system. | Useful for QA or site-specific filtering. |
-| `payer_source_concept_id` | Mapped concept for payer | Concept derived from the source code. | Sometimes used for deeper categorization. |
-| `plan_concept_id` | Plan type (e.g., HMO, PPO) | Standard concept representing the plan type or product. | Can be used to group plan characteristics across systems. |
-| `plan_source_value` | Local plan name or code | Original plan name or ID (e.g., "BlueCross HMO Plan 2023"). | Helps with crosswalks and QA. |
-| `plan_source_concept_id` | Mapped concept for plan | Concept ID for standardized plan type. | Useful when aggregating across product lines. |
-| `sponsor_concept_id` | Employer or group sponsor | Standard concept for the sponsoring organization (if tracked). | Rarely populated, but may be useful for employer-sponsored plan analyses. |
-| `sponsor_source_value` | Raw sponsor name/code | Local employer or group code. | Mostly relevant for commercial claims datasets. |
-| `sponsor_source_concept_id` | Mapped concept for sponsor | Concept ID representing employer, union, or group. | Seldom populated unless deeply enriched. |
-| `family_source_value` | Family group code | ID tying patient to family coverage (e.g., household policy). | May be useful in pediatric, dependent, or household analyses. |
+## Epic-to-OMOP Field Mapping
 
-### Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Often absent in pure EHR datasets**: This table is usually only populated when linked with claims or registration data. Emory is no exception. Please see Known Quality Issues for updates.
-- **No claim detail here**: This table represents *coverage*, not actual service-level claims.
-- **Start/end gaps can exist**: Validate continuity before assuming a patient is “continuously enrolled”.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `payer_plan_period_id` | Coverage segment ID | Unique identifier |
+    | `person_id` | Patient ID / MRN | Links to the patient |
+    | `payer_plan_period_start_date` | Coverage start | First day of active coverage |
+    | `payer_plan_period_end_date` | Coverage end | Last day of coverage |
+    | `payer_concept_id` | Payer organization | "Medicare", "Private payer", etc. |
+    | `payer_source_value` | Raw payer name/code | Original payer ID from source |
+    | `plan_concept_id` | Plan type | HMO, PPO, etc. |
+    | `plan_source_value` | Local plan name | Original plan name (e.g., "BlueCross HMO Plan 2023") |
+    | `sponsor_concept_id` | Employer/group | Sponsoring organization (rarely populated) |
+    | `family_source_value` | Family group code | Household policy ID (for dependent analyses) |
 
-### Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| How many patients had continuous Medicaid coverage during pregnancy? | `payer_plan_period.payer_concept_id` + coverage window + `condition_occurrence` |
-| Are there differences in cancer screening rates by insurance type? | `payer_concept_id` + `procedure_occurrence` or `measurement` |
-| What is the average duration of commercial plan enrollment? | `payer_plan_period_end_date` − `payer_plan_period_start_date` |
-| Can we define eligibility criteria based on at least 12 months of continuous coverage? | `payer_plan_period` duration filtering |
-| Are high-cost therapies being accessed differently by Medicare vs private payers? | `drug_exposure` + `payer_concept_id` stratification |
+!!! warning "Common pitfalls"
+
+    **Often absent in EHR-derived OMOP**
+    :   This table is primarily populated from claims or linked eligibility data. Emory's is limited. See [Known Issues](../../../../Data%20in%20Enterprise%20OMOP/Data%20Quality/Known%20Issues/index.md) for updates.
+
+    **Coverage, not claims**
+    :   This table represents *insurance enrollment*, not service-level claim detail.
+
+    **Validate continuity**
+    :   Gaps between coverage periods are possible. Don't assume continuous enrollment without checking.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Continuous Medicaid coverage during pregnancy | `payer_plan_period` + `condition_occurrence` (pregnancy) |
+| Cancer screening rates by insurance type | `payer_concept_id` + `procedure_occurrence` or `measurement` |
+| Average commercial plan enrollment duration | `payer_plan_period` end − start date |
+| 12-month continuous eligibility filter | `payer_plan_period` duration filtering |
+| Access to high-cost therapies by payer type | `drug_exposure` + `payer_concept_id` |

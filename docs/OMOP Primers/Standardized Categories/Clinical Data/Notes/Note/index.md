@@ -1,42 +1,55 @@
-# 📝 Note
+---
+hide:
+  - footer
+title: Note
+---
 
-The `note` table captures **unstructured clinical text**—such as progress notes, discharge summaries, radiology reports, pathology interpretations, and other narrative documentation written by clinicians.
+# Note
 
-In Epic or Cerner, this aligns with **clinical documentation**, **radiology reports**, or the **history and physical**. The contents are typically stored in **free text**, though downstream NLP pipelines can extract structured elements into OMOP's `note_nlp` table.
+**Epic equivalent**: Clinical documentation / Radiology reports / History & Physical / Discharge summaries
 
-Each row represents **a single clinical note or report**, with metadata that includes the authoring provider, note type, date, and associated visit.
+The `note` table captures **unstructured clinical text** — progress notes, discharge summaries, radiology reports, pathology interpretations, and other narrative documentation. In Epic, this maps to clinical documentation across all modules.
 
-This table is critical for supporting **natural language processing (NLP)** efforts, **phenotyping**, and identifying documentation patterns not captured in structured fields.
+Each row is a single note or report. Downstream NLP pipelines can extract structured entities into the `note_nlp` table.
 
-## Key OMOP Fields Mapped to Familiar EHR Concepts
+## Epic-to-OMOP Field Mapping
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `note_id` | Note record ID | Unique identifier for the note. | Used internally and in `note_nlp` joins. |
-| `person_id` | Patient ID | Foreign key to `person`. | Ties the note to the patient. |
-| `note_date` | Note entry date | Date the note was authored. Time component in `note_datetime`. | Used for anchoring in timelines or pre/post analysis. |
-| `note_type_concept_id` | Note category | Type of note (e.g., discharge summary, pathology report). Standardized using OMOP concepts. | Helps categorize free-text by context. |
-| `note_class_concept_id` | Note class | Classifies the format or channel (e.g., dictation, transcription, structured note). | Useful for analyzing documentation workflows. |
-| `note_title` | Note header or title | Original title as written in the EHR (e.g., "Follow-Up", "Operative Report"). | May be helpful in NLP preprocessing. |
-| `note_text` | Full note body | The unstructured text of the note. | Used for NLP and qualitative review. |
-| `encoding_concept_id` | Character encoding | Usually UTF-8. Not commonly queried. | Mostly metadata. |
-| `language_concept_id` | Language of note | Typically English. Can be relevant for multi-lingual systems. | Supports localization and language-based NLP strategies. |
-| `provider_id` | Author | Clinician who wrote or dictated the note. | Useful for attribution or signature audits. |
-| `visit_occurrence_id` | Related visit | Encounter during which the note was created. | Helps place the note in clinical context. |
-| `note_source_value` | Local note type or label | Original source value (e.g., "IM Progress Note"). | Useful for mapping QA and interpretability. |
+??? example "Field reference (click to expand)"
 
-## Common Pitfalls and What to Watch For
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `note_id` | Note record ID | Unique identifier |
+    | `person_id` | Patient ID / MRN | Links to the patient |
+    | `note_date` | Note entry date | When authored; `note_datetime` has time precision |
+    | `note_type_concept_id` | Note category | Type: discharge summary, pathology report, progress note, etc. |
+    | `note_class_concept_id` | Note class | Format: dictation, transcription, structured note |
+    | `note_title` | Note header | Original title (e.g., "Follow-Up", "Operative Report") |
+    | `note_text` | Full note body | The unstructured text content |
+    | `encoding_concept_id` | Character encoding | Usually UTF-8 (metadata) |
+    | `language_concept_id` | Language | Typically English |
+    | `provider_id` | Author | Who wrote or dictated the note |
+    | `visit_occurrence_id` | Linked encounter | Visit context |
+    | `note_source_value` | Local note type | Original source label (e.g., "IM Progress Note") |
 
-- **Large volume**: This table can be massive in EHR-derived datasets—use filters by date, type, or visit. It's best to avoid full table scans, and to get the presence/absence of a specific note type for a patient sample prior to later running queries to extract additional note information.
-- **Unstructured content**: Hard to analyze without NLP; requires `note_nlp` or external tools to parse.
-- **Note titles can vary by site/provider**: Standardizing requires mapping logic for `note_type_concept_id`.
+## What to Watch For
 
-## Clinical Use Cases
+!!! warning "Common pitfalls"
 
-| Question | Where to Look |
-|----------|----------------|
-| How often do clinicians document advance directives in the free-text notes? | `note_text` with keyword/NLP search + `note_type_concept_id` |
-| What is the sentiment of discharge summaries for palliative care patients? | `note_text` + `condition_occurrence` (palliative care) + NLP |
-| Can we extract ECOG performance status from oncology notes? | `note_text` + NLP model + `condition_occurrence` (cancer) |
-| How many patients have mentions of suicidal ideation in notes but not coded diagnoses? | `note_text` keyword search vs `condition_occurrence` |
-| What are the most common note types authored in the ER setting? | `note_type_concept_id` + `visit_occurrence.visit_concept_id` = ER |
+    **Large table — filter first**
+    :   The note table can be massive. Always filter by date, note type, or visit before scanning. Check presence/absence of a note type for your patient sample before extracting full text.
+
+    **Unstructured by nature**
+    :   Notes require NLP to analyze at scale. The `note_nlp` table captures structured extractions.
+
+    **Note titles vary by site and provider**
+    :   Don't rely on `note_title` for classification — use `note_type_concept_id` instead.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Advance directive documentation in free-text notes | `note_text` keyword/NLP search + `note_type_concept_id` |
+| Discharge summary analysis for palliative care | `note_text` + `condition_occurrence` (palliative) + NLP |
+| ECOG performance status from oncology notes | `note_text` + NLP extraction + `condition_occurrence` (cancer) |
+| Suicidal ideation in notes vs. coded diagnoses | `note_text` keyword search vs. `condition_occurrence` |
+| Most common note types in the ER | `note_type_concept_id` + `visit_occurrence` (ER filter) |

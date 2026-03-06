@@ -1,42 +1,60 @@
-# 💊 Drug Exposure
+---
+hide:
+  - footer
+title: Drug Exposure
+---
 
-The `drug_exposure` table captures **medications a patient is recorded as having received or been prescribed**. This includes inpatient administered drugs, outpatient prescriptions, pharmacy claims, and even inferred exposures from e-prescribing systems.
+# Drug Exposure
 
-In Epic/Cerner terms, this table draws from sources like **medication orders**, **MAR (med administration records)**, **prescription history**, and **outpatient pharmacy data**. It’s used for **medication usage analysis**, **adherence tracking**, **treatment pattern exploration**, and **cohort eligibility logic**.
+**Epic equivalent**: Medication orders / MAR (Medication Administration Record) / Prescription history / Pharmacy data
 
-Each row represents **a single medication exposure**, with as much granularity as available from the source system.
+The `drug_exposure` table captures **every medication event** — inpatient administrations, outpatient prescriptions, pharmacy dispenses, and self-reported medications. In Epic, this data is scattered across medication orders, the MAR, prescription history, and pharmacy modules. In OMOP, it all lands here.
 
-## Key OMOP Fields Mapped to Familiar EHR Concepts
+Each row is a single medication exposure event. Medications are coded in RxNorm (mapped from NDC, GPI, or local codes).
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `drug_exposure_id` | Medication record ID | Unique identifier for this drug exposure event. | Used internally for joins and grouping. |
-| `person_id` | Patient ID | Foreign key to `person`. | Links drug use to the patient. |
-| `drug_concept_id` | Standard RxNorm code | Standard concept ID for the medication. Enables cross-site and longitudinal analysis. | Always use for cohort definitions and standardized queries. |
-| `drug_exposure_start_date`, `drug_exposure_end_date` | Start/end of medication | Dates when the patient was exposed to the drug. End may be null or inferred. | Critical for assessing exposure duration and treatment windows. |
-| `drug_type_concept_id` | Route of entry | Identifies source/type of the data (e.g., EHR prescription, pharmacy dispense, claims fill). | Important for understanding reliability and context of data. |
-| `stop_reason` | Cancel reason / Discontinue reason | Why the drug was stopped, if documented. Often not populated. | Useful in medication reconciliation or adherence studies. |
-| `refills` | Refills authorized | Number of times the prescription could be refilled. | Can be used to estimate medication coverage or gaps. |
-| `quantity` | Total amount | Total quantity dispensed or administered. | Helpful in dose standardization or exposure modeling. |
-| `days_supply` | Days intended to last | Duration drug is intended to cover. Often populated in claims. | Used in adherence metrics (e.g., MPR, PDC). |
-| `route_concept_id` | Oral / IV / Topical, etc. | Standard concept for route of administration. | Useful for differentiating formulations or clinical setting (e.g., IV chemo vs oral). |
-| `sig` | Free-text prescription directions | Original instructions (e.g., "1 tab PO BID x 10d"). | Rarely analyzed directly, but helpful in context. |
-| `visit_occurrence_id` | Associated visit | Encounter during which the medication was prescribed/administered. | Important for understanding setting of initiation. |
-| `drug_source_value` | NDC or local drug code | The original code from the EHR system. | Useful for mapping QA or investigating local formulary nuances. |
-| `drug_source_concept_id` | Source code concept | Maps the raw source code to a standard concept. | Secondary to `drug_concept_id` in standardized analysis. |
+## Epic-to-OMOP Field Mapping
 
-## Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **Multiple rows for refills or administrations**: Some systems split each fill/admin into separate entries. These are aggregated to the extent captured by the enterprise OMOP team, but it is possible some slipped through. None are presently known however.
-- **Missing route or days supply**: Not all EHRs populate these fields—especially for inpatient meds.
-- **Null `drug_exposure_end_date`**: Often inferred by `days_supply`; may not reflect true treatment stop.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `drug_exposure_id` | Medication record ID | Unique identifier for the exposure event |
+    | `person_id` | Patient ID / MRN | Links to the patient |
+    | `drug_concept_id` | RxNorm standard concept | Standardized drug (ingredient, clinical drug, or branded). Always use for analysis |
+    | `drug_exposure_start_date` | Order/admin start date | When the medication exposure began |
+    | `drug_exposure_end_date` | Order/admin end date | When it ended. Often null — may need to infer from `days_supply` |
+    | `drug_type_concept_id` | Data provenance | Whether from prescription, dispensing, administration, etc. |
+    | `stop_reason` | Discontinuation reason | Why the medication was stopped (if documented) |
+    | `refills` | Number of refills | Refill count authorized |
+    | `quantity` | Quantity dispensed | Amount dispensed or administered |
+    | `days_supply` | Days supply | Intended duration of the supply |
+    | `route_concept_id` | Route of administration | Oral, IV, subcutaneous, etc. |
+    | `sig` | Prescription instructions | Free-text dosing instructions |
+    | `visit_occurrence_id` | Linked encounter | Visit during which the drug was ordered/given |
+    | `drug_source_value` | NDC / local code | Original code from the source system |
 
-## Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| What proportion of hypertensive patients are taking ACE inhibitors? | `condition_occurrence` + `drug_exposure.drug_concept_id` filtered for ACE inhibitors |
-| How long do breast cancer patients stay on endocrine therapy? | `condition_occurrence` + `drug_exposure` filtered for tamoxifen/aromatase inhibitors |
-| Are statins being prescribed equitably across racial groups? | `person.race_concept_id` + `drug_exposure` filtered for statins |
-| How many patients were given antibiotics during an ER visit? | `drug_exposure` + `visit_occurrence.visit_concept_id` = ER |
-| Can we detect chemo cycles based on administration intervals? | `drug_exposure` filtered for antineoplastics, analyze timing via `drug_exposure_start_date` |
+!!! warning "Common pitfalls"
+
+    **Many rows per medication per patient**
+    :   Each refill, each MAR administration, each separate prescription generates a row. Use `drug_era` to collapse into continuous exposure periods.
+
+    **Null end dates are common**
+    :   `drug_exposure_end_date` is often missing. You may need to calculate it as `start_date + days_supply`.
+
+    **Route and sig are often sparse**
+    :   Not all source systems capture `route_concept_id` or `sig` consistently.
+
+    **Ingredient-level analysis**
+    :   For drug class analyses (e.g., "all ACE inhibitors"), query at the RxNorm ingredient level using `concept_ancestor`.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| ACE inhibitor use among hypertension patients | `drug_exposure` (ACE ingredient descendants) + `condition_occurrence` (hypertension) |
+| Duration of endocrine therapy in breast cancer | `drug_exposure` + `condition_occurrence` (breast cancer) |
+| Statin prescribing equity across racial groups | `drug_exposure` + `person.race_concept_id` |
+| Antibiotics given in the ER | `drug_exposure` + `visit_occurrence` filtered by ER |
+| Chemotherapy cycle detection | `drug_exposure` (chemo drugs) grouped by `person_id` + date intervals |

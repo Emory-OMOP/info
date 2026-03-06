@@ -1,35 +1,50 @@
-# 📍 Location
+---
+hide:
+  - footer
+title: Location
+---
 
-The `location` table contains **geographic and address-level data** for people, care sites, and providers. It represents physical locations—such as **home addresses, facility addresses, or clinic sites**—but does *not* include specific hospital rooms. GPS coordinates including latitude and longitude may be included if available.
+# Location
 
-In Epic or Cerner, this corresponds to **patient registration addresses**, **facility address records**, or **provider contact locations**. In OMOP, the `location_id` is referenced by other tables (like `person`, `care_site`, and `provider`) to indicate where something or someone is located.
+**Epic equivalent**: Patient registration addresses / Facility address records / Provider contact info
 
-### Key OMOP Fields Mapped to Familiar EHR Concepts
+The `location` table holds **geographic and address data** for patients, care sites, and providers. In Epic, this comes from patient registration addresses and facility records. In OMOP, other tables (`person`, `care_site`, `provider`) reference `location_id` to indicate where something or someone is located.
 
-| OMOP Field | EHR Analogy | Description | Clinical Relevance |
-|------------|-------------|-------------|---------------------|
-| `location_id` | Address ID | Unique identifier for the location. | Used to link addresses to patients, providers, or sites. |
-| `address_1`, `address_2` | Street address | Line 1 and optional line 2 of the street address. | Typically suppressed or redacted in de-identified datasets. |
-| `city` | City | City name. | Useful for geographic stratification. |
-| `state` | State | State or province code (e.g., "GA"). | Enables regional cohort definitions. |
-| `zip` | ZIP or postal code | 5- or 9-digit code. | Used for zip-code level analyses or geocoding. |
-| `county` | County name | May be derived from zip. | Helpful for public health mapping or rural-urban classifications. |
-| `location_source_value` | Original address ID | Local address ID from the source system. | Useful for crosswalks and QA. |
-| `country_concept_id` | Country concept | OMOP concept representing the country (e.g., United States). | Useful for international datasets or cross-border studies. |
-| `latitude`, `longitude` | Geo-coordinates | Not always populated; supports geospatial analysis. | Critical in studies involving environmental exposures or neighborhood-level SDoH. |
+## Epic-to-OMOP Field Mapping
 
-### Common Pitfalls and What to Watch For
+??? example "Field reference (click to expand)"
 
-- **De-identification**: Address fields are often partially or fully removed in HIPAA-limited datasets. Only select staff at Emory will have full access to this table.
-- **ZIP codes may not be enough**: Many analyses require linking zip to census tract or SDoH indices—this must be done outside OMOP or via extensions.
-- **Location ≠ care site**: The `location` table is used *by* `care_site` and `provider`, not a substitute for those.
+    | OMOP Field | Epic Equivalent | What It Captures |
+    |---|---|---|
+    | `location_id` | Address ID | Unique identifier |
+    | `address_1`, `address_2` | Street address | Typically suppressed in de-identified datasets |
+    | `city` | City | City name |
+    | `state` | State | State/province code (e.g., "GA") |
+    | `zip` | ZIP / postal code | 5- or 9-digit code |
+    | `county` | County | May be derived from ZIP |
+    | `location_source_value` | Original address ID | Local ID from the source system |
+    | `country_concept_id` | Country | OMOP concept for country |
+    | `latitude`, `longitude` | Geo-coordinates | For geospatial analysis (not always populated) |
 
-### Clinical Use Cases
+## What to Watch For
 
-| Question | Where to Look |
-|----------|----------------|
-| How many patients reside in rural zip codes? | `person.location_id` + `location.zip` + rural-urban classification crosswalk |
-| What are the regional variations in hypertension treatment? | `drug_exposure` + `person.location_id` + `location.state` |
-| Which care sites are located in medically underserved areas? | `care_site.location_id` + `location.zip` |
-| Can we stratify outcomes by patient neighborhood-level deprivation index? | `location.zip` + external mapping to ADI or SVI |
-| What proportion of patients reside within 10 miles of our primary cancer center? | `person.location_id` + `location.latitude/longitude` + geodistance calculation |
+!!! warning "Common pitfalls"
+
+    **De-identification limits access**
+    :   Address fields are often partially or fully removed under HIPAA. Only select Emory staff have full access to this table.
+
+    **ZIP alone may not be enough**
+    :   Many SDoH analyses require linking ZIP to census tract, ADI, or SVI indices — this must be done outside OMOP.
+
+    **Location is not care site**
+    :   `location` holds addresses. `care_site` and `provider` *reference* `location_id` for their physical location.
+
+## Research Patterns
+
+| Question | Tables Involved |
+|---|---|
+| Patients in rural ZIP codes | `person.location_id` + `location.zip` + rural-urban crosswalk |
+| Regional variation in hypertension treatment | `drug_exposure` + `person.location_id` + `location.state` |
+| Medically underserved care site locations | `care_site.location_id` + `location.zip` |
+| Outcomes by neighborhood deprivation index | `location.zip` + external ADI/SVI mapping |
+| Distance from home to cancer center | `person.location_id` + `location.latitude/longitude` + geodistance |

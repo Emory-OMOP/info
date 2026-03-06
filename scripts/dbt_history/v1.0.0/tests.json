@@ -1,0 +1,2653 @@
+{
+  "test.EmoryOmopEnterprise.not_null_observation_person_id.8fa7495344": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_observation_person_id.8fa7495344",
+    "name": "not_null_observation_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_observation_person_id__person_id__ref_person_.e1ae5f3106": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_observation_person_id__person_id__ref_person_.e1ae5f3106",
+    "name": "relationships_observation_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_observation_observation_concept_id.4725260db7": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_observation_observation_concept_id.4725260db7",
+    "name": "not_null_observation_observation_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "observation_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "observation_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_observation_concept_id__concept_id__observation_concept_id_not_in_0_99___ref_concept_.da32975ec1": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_observation_concept_id__concept_id__observation_concept_id_not_in_0_99___ref_concept_.da32975ec1",
+    "name": "dbt_utils_relationships_where_observation_observation_concept_id__concept_id__observation_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "observation_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "observation_concept_id not in (0, -99)",
+        "column_name": "observation_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_observation_observation_date.0cde7d2dd7": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_observation_observation_date.0cde7d2dd7",
+    "name": "not_null_observation_observation_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "observation_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "observation_date",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_observation_observation_type_concept_id.3f8e08f159": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_observation_observation_type_concept_id.3f8e08f159",
+    "name": "not_null_observation_observation_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "observation_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "observation_type_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_observation_type_concept_id__concept_id__observation_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.d3f84498db": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_observation_type_concept_id__concept_id__observation_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.d3f84498db",
+    "name": "dbt_utils_relationships_where_observation_observation_type_concept_id__concept_id__observation_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "observation_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "observation_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "observation_type_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_value_as_concept_id__concept_id__value_as_concept_id_not_in_0_99___ref_concept_.20d22732b6": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_value_as_concept_id__concept_id__value_as_concept_id_not_in_0_99___ref_concept_.20d22732b6",
+    "name": "dbt_utils_relationships_where_observation_value_as_concept_id__concept_id__value_as_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "value_as_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "value_as_concept_id not in (0, -99)",
+        "column_name": "value_as_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_qualifier_concept_id__concept_id__qualifier_concept_id_not_in_0_99___ref_concept_.439f24a3de": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_qualifier_concept_id__concept_id__qualifier_concept_id_not_in_0_99___ref_concept_.439f24a3de",
+    "name": "dbt_utils_relationships_where_observation_qualifier_concept_id__concept_id__qualifier_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "qualifier_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "qualifier_concept_id not in (0, -99)",
+        "column_name": "qualifier_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_.1fe5535217": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_.1fe5535217",
+    "name": "dbt_utils_relationships_where_observation_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "unit_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "unit_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Unit'",
+        "column_name": "unit_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Unit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_observation_provider_id__provider_id__ref_provider_.531e2ef5ba": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_observation_provider_id__provider_id__ref_provider_.531e2ef5ba",
+    "name": "relationships_observation_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_observation_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.6929746e26": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_observation_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.6929746e26",
+    "name": "relationships_observation_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "observation",
+    "column_name": "visit_occurrence_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('visit_occurrence')",
+        "field": "visit_occurrence_id",
+        "column_name": "visit_occurrence_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 visit_occurrence.visit_occurrence_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_observation_source_concept_id__concept_id__observation_source_concept_id_not_in_0_99___ref_concept_.71fc5a39f1": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_observation_source_concept_id__concept_id__observation_source_concept_id_not_in_0_99___ref_concept_.71fc5a39f1",
+    "name": "dbt_utils_relationships_where_observation_observation_source_concept_id__concept_id__observation_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "observation_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "observation_source_concept_id not in (0, -99)",
+        "column_name": "observation_source_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_obs_event_field_concept_id__concept_id__obs_event_field_concept_id_not_in_0_99___ref_concept_.fb7da660b6": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_observation_obs_event_field_concept_id__concept_id__obs_event_field_concept_id_not_in_0_99___ref_concept_.fb7da660b6",
+    "name": "dbt_utils_relationships_where_observation_obs_event_field_concept_id__concept_id__obs_event_field_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "observation",
+    "column_name": "obs_event_field_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "obs_event_field_concept_id not in (0, -99)",
+        "column_name": "obs_event_field_concept_id",
+        "model": "{{ get_where_subquery(ref('observation')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_person_person_id.6f9ab4b4de": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_person_person_id.6f9ab4b4de",
+    "name": "not_null_person_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "person",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.unique_person_person_id.ee18b5e56c": {
+    "unique_id": "test.EmoryOmopEnterprise.unique_person_person_id.ee18b5e56c",
+    "name": "unique_person_person_id",
+    "test_type": "unique",
+    "namespace": null,
+    "table": "person",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "unique",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "unique",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_person_gender_concept_id.a1409c1a02": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_person_gender_concept_id.a1409c1a02",
+    "name": "not_null_person_gender_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "person",
+    "column_name": "gender_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "gender_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_gender_concept_id__concept_id__gender_concept_id_not_in_0_99___ref_concept___domain_id_Gender_.90b861fb8e": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_gender_concept_id__concept_id__gender_concept_id_not_in_0_99___ref_concept___domain_id_Gender_.90b861fb8e",
+    "name": "dbt_utils_relationships_where_person_gender_concept_id__concept_id__gender_concept_id_not_in_0_99___ref_concept___domain_id_Gender_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "person",
+    "column_name": "gender_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "gender_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Gender'",
+        "column_name": "gender_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Gender)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_person_year_of_birth.03ea95e466": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_person_year_of_birth.03ea95e466",
+    "name": "not_null_person_year_of_birth",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "person",
+    "column_name": "year_of_birth",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "year_of_birth",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_person_race_concept_id.288243421d": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_person_race_concept_id.288243421d",
+    "name": "not_null_person_race_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "person",
+    "column_name": "race_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "race_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_race_concept_id__concept_id__race_concept_id_not_in_0_99_44814659___ref_concept___domain_id_Race_.0ce544d994": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_race_concept_id__concept_id__race_concept_id_not_in_0_99_44814659___ref_concept___domain_id_Race_.0ce544d994",
+    "name": "dbt_utils_relationships_where_person_race_concept_id__concept_id__race_concept_id_not_in_0_99_44814659___ref_concept___domain_id_Race_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "person",
+    "column_name": "race_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "race_concept_id not in (0, -99, 44814659)",
+        "to_condition": "domain_id = 'Race'",
+        "column_name": "race_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Race)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_person_ethnicity_concept_id.e352f804af": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_person_ethnicity_concept_id.e352f804af",
+    "name": "not_null_person_ethnicity_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "person",
+    "column_name": "ethnicity_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "ethnicity_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_ethnicity_concept_id__concept_id__ethnicity_concept_id_not_in_0_99___ref_concept___domain_id_Ethnicity_.fe608250b6": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_ethnicity_concept_id__concept_id__ethnicity_concept_id_not_in_0_99___ref_concept___domain_id_Ethnicity_.fe608250b6",
+    "name": "dbt_utils_relationships_where_person_ethnicity_concept_id__concept_id__ethnicity_concept_id_not_in_0_99___ref_concept___domain_id_Ethnicity_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "person",
+    "column_name": "ethnicity_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "ethnicity_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Ethnicity'",
+        "column_name": "ethnicity_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Ethnicity)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_person_location_id__location_id__ref_location_.79d8c8dcfc": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_person_location_id__location_id__ref_location_.79d8c8dcfc",
+    "name": "relationships_person_location_id__location_id__ref_location_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "person",
+    "column_name": "location_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('location')",
+        "field": "location_id",
+        "column_name": "location_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 location.location_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_person_provider_id__provider_id__ref_provider_.d43dc27ddd": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_person_provider_id__provider_id__ref_provider_.d43dc27ddd",
+    "name": "relationships_person_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "person",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_person_care_site_id__care_site_id__ref_care_site_.eaef208a81": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_person_care_site_id__care_site_id__ref_care_site_.eaef208a81",
+    "name": "relationships_person_care_site_id__care_site_id__ref_care_site_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "person",
+    "column_name": "care_site_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('care_site')",
+        "field": "care_site_id",
+        "column_name": "care_site_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 care_site.care_site_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_gender_source_concept_id__concept_id__gender_source_concept_id_not_in_0_99___ref_concept_.e2d7242342": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_gender_source_concept_id__concept_id__gender_source_concept_id_not_in_0_99___ref_concept_.e2d7242342",
+    "name": "dbt_utils_relationships_where_person_gender_source_concept_id__concept_id__gender_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "person",
+    "column_name": "gender_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "gender_source_concept_id not in (0, -99)",
+        "column_name": "gender_source_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_race_source_concept_id__concept_id__race_source_concept_id_not_in_0_99___ref_concept_.76116dc012": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_race_source_concept_id__concept_id__race_source_concept_id_not_in_0_99___ref_concept_.76116dc012",
+    "name": "dbt_utils_relationships_where_person_race_source_concept_id__concept_id__race_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "person",
+    "column_name": "race_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "race_source_concept_id not in (0, -99)",
+        "column_name": "race_source_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_ethnicity_source_concept_id__concept_id__ethnicity_source_concept_id_not_in_0_99___ref_concept_.d4cd15865b": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_person_ethnicity_source_concept_id__concept_id__ethnicity_source_concept_id_not_in_0_99___ref_concept_.d4cd15865b",
+    "name": "dbt_utils_relationships_where_person_ethnicity_source_concept_id__concept_id__ethnicity_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "person",
+    "column_name": "ethnicity_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "ethnicity_source_concept_id not in (0, -99)",
+        "column_name": "ethnicity_source_concept_id",
+        "model": "{{ get_where_subquery(ref('person')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_death_person_id.05e446446c": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_death_person_id.05e446446c",
+    "name": "not_null_death_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "death",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('death')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_death_person_id__person_id__ref_person_.85986c0077": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_death_person_id__person_id__ref_person_.85986c0077",
+    "name": "relationships_death_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "death",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('death')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_death_death_date.7d86f6855c": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_death_death_date.7d86f6855c",
+    "name": "not_null_death_death_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "death",
+    "column_name": "death_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "death_date",
+        "model": "{{ get_where_subquery(ref('death')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_death_death_type_concept_id__concept_id__death_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.4b61cf57c8": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_death_death_type_concept_id__concept_id__death_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.4b61cf57c8",
+    "name": "dbt_utils_relationships_where_death_death_type_concept_id__concept_id__death_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "death",
+    "column_name": "death_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "death_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "death_type_concept_id",
+        "model": "{{ get_where_subquery(ref('death')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_death_cause_concept_id__concept_id__cause_concept_id_not_in_0_99___ref_concept_.2db4c2f6de": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_death_cause_concept_id__concept_id__cause_concept_id_not_in_0_99___ref_concept_.2db4c2f6de",
+    "name": "dbt_utils_relationships_where_death_cause_concept_id__concept_id__cause_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "death",
+    "column_name": "cause_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "cause_concept_id not in (0, -99)",
+        "column_name": "cause_concept_id",
+        "model": "{{ get_where_subquery(ref('death')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_death_cause_source_concept_id__concept_id__cause_source_concept_id_not_in_0_99___ref_concept_.35fb1f73e3": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_death_cause_source_concept_id__concept_id__cause_source_concept_id_not_in_0_99___ref_concept_.35fb1f73e3",
+    "name": "dbt_utils_relationships_where_death_cause_source_concept_id__concept_id__cause_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "death",
+    "column_name": "cause_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "cause_source_concept_id not in (0, -99)",
+        "column_name": "cause_source_concept_id",
+        "model": "{{ get_where_subquery(ref('death')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_drug_exposure_person_id.e6d75aa2b9": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_drug_exposure_person_id.e6d75aa2b9",
+    "name": "not_null_drug_exposure_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_drug_exposure_person_id__person_id__ref_person_.811ae7ceb8": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_drug_exposure_person_id__person_id__ref_person_.811ae7ceb8",
+    "name": "relationships_drug_exposure_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_concept_id.f309abd476": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_concept_id.f309abd476",
+    "name": "not_null_drug_exposure_drug_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "drug_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "drug_concept_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_drug_concept_id__concept_id__drug_concept_id_not_in_0_99___ref_concept___domain_id_Drug_.d5ce9e2ef3": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_drug_concept_id__concept_id__drug_concept_id_not_in_0_99___ref_concept___domain_id_Drug_.d5ce9e2ef3",
+    "name": "dbt_utils_relationships_where_drug_exposure_drug_concept_id__concept_id__drug_concept_id_not_in_0_99___ref_concept___domain_id_Drug_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "drug_exposure",
+    "column_name": "drug_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "drug_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Drug'",
+        "column_name": "drug_concept_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Drug)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_exposure_start_date.61d182cfaa": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_exposure_start_date.61d182cfaa",
+    "name": "not_null_drug_exposure_drug_exposure_start_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "drug_exposure_start_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "drug_exposure_start_date",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_exposure_end_date.89e020fdd4": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_exposure_end_date.89e020fdd4",
+    "name": "not_null_drug_exposure_drug_exposure_end_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "drug_exposure_end_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "drug_exposure_end_date",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_type_concept_id.5e130283b2": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_drug_exposure_drug_type_concept_id.5e130283b2",
+    "name": "not_null_drug_exposure_drug_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "drug_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "drug_type_concept_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_drug_type_concept_id__concept_id__drug_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.1711151c7c": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_drug_type_concept_id__concept_id__drug_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.1711151c7c",
+    "name": "dbt_utils_relationships_where_drug_exposure_drug_type_concept_id__concept_id__drug_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "drug_exposure",
+    "column_name": "drug_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "drug_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "drug_type_concept_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_route_concept_id__concept_id__route_concept_id_not_in_0_99___ref_concept___domain_id_Route_.8df7e2dd56": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_route_concept_id__concept_id__route_concept_id_not_in_0_99___ref_concept___domain_id_Route_.8df7e2dd56",
+    "name": "dbt_utils_relationships_where_drug_exposure_route_concept_id__concept_id__route_concept_id_not_in_0_99___ref_concept___domain_id_Route_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "drug_exposure",
+    "column_name": "route_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "route_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Route'",
+        "column_name": "route_concept_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Route)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_drug_exposure_provider_id__provider_id__ref_provider_.022f932272": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_drug_exposure_provider_id__provider_id__ref_provider_.022f932272",
+    "name": "relationships_drug_exposure_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_drug_exposure_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.a7ed7dfcb5": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_drug_exposure_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.a7ed7dfcb5",
+    "name": "relationships_drug_exposure_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "drug_exposure",
+    "column_name": "visit_occurrence_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('visit_occurrence')",
+        "field": "visit_occurrence_id",
+        "column_name": "visit_occurrence_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 visit_occurrence.visit_occurrence_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_drug_source_concept_id__concept_id__drug_source_concept_id_not_in_0_99___ref_concept_.e51bb08cfd": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_drug_exposure_drug_source_concept_id__concept_id__drug_source_concept_id_not_in_0_99___ref_concept_.e51bb08cfd",
+    "name": "dbt_utils_relationships_where_drug_exposure_drug_source_concept_id__concept_id__drug_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "drug_exposure",
+    "column_name": "drug_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "drug_source_concept_id not in (0, -99)",
+        "column_name": "drug_source_concept_id",
+        "model": "{{ get_where_subquery(ref('drug_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_provider_provider_id.3b46670424": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_provider_provider_id.3b46670424",
+    "name": "not_null_provider_provider_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "provider",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('provider')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.unique_provider_provider_id.b08928e435": {
+    "unique_id": "test.EmoryOmopEnterprise.unique_provider_provider_id.b08928e435",
+    "name": "unique_provider_provider_id",
+    "test_type": "unique",
+    "namespace": null,
+    "table": "provider",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "unique",
+      "kwargs": {
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('provider')) }}"
+      },
+      "namespace": null
+    },
+    "display": "unique",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_specialty_concept_id__concept_id__specialty_concept_id_not_in_0_99___ref_concept_.a3ee7cffbd": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_specialty_concept_id__concept_id__specialty_concept_id_not_in_0_99___ref_concept_.a3ee7cffbd",
+    "name": "dbt_utils_relationships_where_provider_specialty_concept_id__concept_id__specialty_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "provider",
+    "column_name": "specialty_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "specialty_concept_id not in (0, -99)",
+        "column_name": "specialty_concept_id",
+        "model": "{{ get_where_subquery(ref('provider')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_care_site_id__care_site_id__care_site_id_not_in_0_99___ref_care_site_.d9688243ae": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_care_site_id__care_site_id__care_site_id_not_in_0_99___ref_care_site_.d9688243ae",
+    "name": "dbt_utils_relationships_where_provider_care_site_id__care_site_id__care_site_id_not_in_0_99___ref_care_site_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "provider",
+    "column_name": "care_site_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('care_site')",
+        "field": "care_site_id",
+        "from_condition": "care_site_id not in (0, -99)",
+        "column_name": "care_site_id",
+        "model": "{{ get_where_subquery(ref('provider')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 care_site.care_site_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_specialty_source_concept_id__concept_id__specialty_source_concept_id_not_in_0_99___ref_concept_.00f9fa3a1a": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_specialty_source_concept_id__concept_id__specialty_source_concept_id_not_in_0_99___ref_concept_.00f9fa3a1a",
+    "name": "dbt_utils_relationships_where_provider_specialty_source_concept_id__concept_id__specialty_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "provider",
+    "column_name": "specialty_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "specialty_source_concept_id not in (0, -99)",
+        "column_name": "specialty_source_concept_id",
+        "model": "{{ get_where_subquery(ref('provider')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_gender_source_concept_id__concept_id__gender_source_concept_id_not_in_0_99___ref_concept_.9284785d59": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_provider_gender_source_concept_id__concept_id__gender_source_concept_id_not_in_0_99___ref_concept_.9284785d59",
+    "name": "dbt_utils_relationships_where_provider_gender_source_concept_id__concept_id__gender_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "provider",
+    "column_name": "gender_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "gender_source_concept_id not in (0, -99)",
+        "column_name": "gender_source_concept_id",
+        "model": "{{ get_where_subquery(ref('provider')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_device_exposure_person_id.1330a61d39": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_device_exposure_person_id.1330a61d39",
+    "name": "not_null_device_exposure_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_device_exposure_person_id__person_id__ref_person_.894d3b47b9": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_device_exposure_person_id__person_id__ref_person_.894d3b47b9",
+    "name": "relationships_device_exposure_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_device_exposure_device_concept_id.041c422e55": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_device_exposure_device_concept_id.041c422e55",
+    "name": "not_null_device_exposure_device_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "device_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "device_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_device_concept_id__concept_id__device_concept_id_not_in_0_99___ref_concept___domain_id_Device_.9b73bbf587": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_device_concept_id__concept_id__device_concept_id_not_in_0_99___ref_concept___domain_id_Device_.9b73bbf587",
+    "name": "dbt_utils_relationships_where_device_exposure_device_concept_id__concept_id__device_concept_id_not_in_0_99___ref_concept___domain_id_Device_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "device_exposure",
+    "column_name": "device_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "device_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Device'",
+        "column_name": "device_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Device)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_device_exposure_device_exposure_start_date.23aa3e8aea": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_device_exposure_device_exposure_start_date.23aa3e8aea",
+    "name": "not_null_device_exposure_device_exposure_start_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "device_exposure_start_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "device_exposure_start_date",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_device_exposure_device_type_concept_id.9600b2592d": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_device_exposure_device_type_concept_id.9600b2592d",
+    "name": "not_null_device_exposure_device_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "device_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "device_type_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_device_type_concept_id__concept_id__device_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.44c6df8328": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_device_type_concept_id__concept_id__device_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.44c6df8328",
+    "name": "dbt_utils_relationships_where_device_exposure_device_type_concept_id__concept_id__device_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "device_exposure",
+    "column_name": "device_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "device_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "device_type_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_device_exposure_provider_id__provider_id__ref_provider_.23736ac216": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_device_exposure_provider_id__provider_id__ref_provider_.23736ac216",
+    "name": "relationships_device_exposure_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_device_exposure_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.c993394705": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_device_exposure_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.c993394705",
+    "name": "relationships_device_exposure_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "device_exposure",
+    "column_name": "visit_occurrence_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('visit_occurrence')",
+        "field": "visit_occurrence_id",
+        "column_name": "visit_occurrence_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 visit_occurrence.visit_occurrence_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_device_source_concept_id__concept_id__device_source_concept_id_not_in_0_99___ref_concept_.9702e8e6be": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_device_source_concept_id__concept_id__device_source_concept_id_not_in_0_99___ref_concept_.9702e8e6be",
+    "name": "dbt_utils_relationships_where_device_exposure_device_source_concept_id__concept_id__device_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "device_exposure",
+    "column_name": "device_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "device_source_concept_id not in (0, -99)",
+        "column_name": "device_source_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_.e30761e1b0": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_.e30761e1b0",
+    "name": "dbt_utils_relationships_where_device_exposure_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "device_exposure",
+    "column_name": "unit_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "unit_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Unit'",
+        "column_name": "unit_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Unit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_unit_source_concept_id__concept_id__unit_source_concept_id_not_in_0_99___ref_concept_.0445fd6e60": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_device_exposure_unit_source_concept_id__concept_id__unit_source_concept_id_not_in_0_99___ref_concept_.0445fd6e60",
+    "name": "dbt_utils_relationships_where_device_exposure_unit_source_concept_id__concept_id__unit_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "device_exposure",
+    "column_name": "unit_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "unit_source_concept_id not in (0, -99)",
+        "column_name": "unit_source_concept_id",
+        "model": "{{ get_where_subquery(ref('device_exposure')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_procedure_occurrence_person_id.95f33a8709": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_procedure_occurrence_person_id.95f33a8709",
+    "name": "not_null_procedure_occurrence_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_procedure_occurrence_person_id__person_id__ref_person_.901403d0b9": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_procedure_occurrence_person_id__person_id__ref_person_.901403d0b9",
+    "name": "relationships_procedure_occurrence_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_procedure_occurrence_procedure_concept_id.39a7f862ab": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_procedure_occurrence_procedure_concept_id.39a7f862ab",
+    "name": "not_null_procedure_occurrence_procedure_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "procedure_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "procedure_concept_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_procedure_concept_id__concept_id__procedure_concept_id_not_in_0_99___ref_concept___domain_id_Procedure_.b6c29bcd8b": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_procedure_concept_id__concept_id__procedure_concept_id_not_in_0_99___ref_concept___domain_id_Procedure_.b6c29bcd8b",
+    "name": "dbt_utils_relationships_where_procedure_occurrence_procedure_concept_id__concept_id__procedure_concept_id_not_in_0_99___ref_concept___domain_id_Procedure_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "procedure_occurrence",
+    "column_name": "procedure_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "procedure_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Procedure'",
+        "column_name": "procedure_concept_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Procedure)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_procedure_occurrence_procedure_date.7e26c7adde": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_procedure_occurrence_procedure_date.7e26c7adde",
+    "name": "not_null_procedure_occurrence_procedure_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "procedure_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "procedure_date",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_procedure_occurrence_procedure_type_concept_id.697b6199fb": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_procedure_occurrence_procedure_type_concept_id.697b6199fb",
+    "name": "not_null_procedure_occurrence_procedure_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "procedure_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "procedure_type_concept_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_procedure_type_concept_id__concept_id__procedure_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.13f362ea09": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_procedure_type_concept_id__concept_id__procedure_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.13f362ea09",
+    "name": "dbt_utils_relationships_where_procedure_occurrence_procedure_type_concept_id__concept_id__procedure_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "procedure_occurrence",
+    "column_name": "procedure_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "procedure_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "procedure_type_concept_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_modifier_concept_id__concept_id__modifier_concept_id_not_in_0_99___ref_concept_.0556f93a8a": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_modifier_concept_id__concept_id__modifier_concept_id_not_in_0_99___ref_concept_.0556f93a8a",
+    "name": "dbt_utils_relationships_where_procedure_occurrence_modifier_concept_id__concept_id__modifier_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "procedure_occurrence",
+    "column_name": "modifier_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "modifier_concept_id not in (0, -99)",
+        "column_name": "modifier_concept_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_procedure_occurrence_provider_id__provider_id__ref_provider_.c610ac14c8": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_procedure_occurrence_provider_id__provider_id__ref_provider_.c610ac14c8",
+    "name": "relationships_procedure_occurrence_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_procedure_occurrence_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.57f0006526": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_procedure_occurrence_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.57f0006526",
+    "name": "relationships_procedure_occurrence_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "procedure_occurrence",
+    "column_name": "visit_occurrence_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('visit_occurrence')",
+        "field": "visit_occurrence_id",
+        "column_name": "visit_occurrence_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 visit_occurrence.visit_occurrence_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_procedure_source_concept_id__concept_id__procedure_source_concept_id_not_in_0_99___ref_concept_.2fbc662895": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_procedure_occurrence_procedure_source_concept_id__concept_id__procedure_source_concept_id_not_in_0_99___ref_concept_.2fbc662895",
+    "name": "dbt_utils_relationships_where_procedure_occurrence_procedure_source_concept_id__concept_id__procedure_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "procedure_occurrence",
+    "column_name": "procedure_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "procedure_source_concept_id not in (0, -99)",
+        "column_name": "procedure_source_concept_id",
+        "model": "{{ get_where_subquery(ref('procedure_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_condition_occurrence_person_id.9f19d9c9cb": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_condition_occurrence_person_id.9f19d9c9cb",
+    "name": "not_null_condition_occurrence_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_condition_occurrence_person_id__person_id__ref_person_.f3b716ae22": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_condition_occurrence_person_id__person_id__ref_person_.f3b716ae22",
+    "name": "relationships_condition_occurrence_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_condition_occurrence_condition_concept_id.928bfff090": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_condition_occurrence_condition_concept_id.928bfff090",
+    "name": "not_null_condition_occurrence_condition_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "condition_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "condition_concept_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_concept_id__concept_id__condition_concept_id_not_in_0_99___ref_concept___domain_id_Condition_.4a236a856a": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_concept_id__concept_id__condition_concept_id_not_in_0_99___ref_concept___domain_id_Condition_.4a236a856a",
+    "name": "dbt_utils_relationships_where_condition_occurrence_condition_concept_id__concept_id__condition_concept_id_not_in_0_99___ref_concept___domain_id_Condition_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "condition_occurrence",
+    "column_name": "condition_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "condition_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Condition'",
+        "column_name": "condition_concept_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Condition)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_condition_occurrence_condition_start_date.6cbb11717a": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_condition_occurrence_condition_start_date.6cbb11717a",
+    "name": "not_null_condition_occurrence_condition_start_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "condition_start_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "condition_start_date",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_condition_occurrence_condition_type_concept_id.13b95f8e19": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_condition_occurrence_condition_type_concept_id.13b95f8e19",
+    "name": "not_null_condition_occurrence_condition_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "condition_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "condition_type_concept_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_type_concept_id__concept_id__condition_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.e1c1efe575": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_type_concept_id__concept_id__condition_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.e1c1efe575",
+    "name": "dbt_utils_relationships_where_condition_occurrence_condition_type_concept_id__concept_id__condition_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "condition_occurrence",
+    "column_name": "condition_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "condition_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "condition_type_concept_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_status_concept_id__concept_id__condition_status_concept_id_not_in_0_99___ref_concept___domain_id_Condition_Status_.4b8fa8beef": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_status_concept_id__concept_id__condition_status_concept_id_not_in_0_99___ref_concept___domain_id_Condition_Status_.4b8fa8beef",
+    "name": "dbt_utils_relationships_where_condition_occurrence_condition_status_concept_id__concept_id__condition_status_concept_id_not_in_0_99___ref_concept___domain_id_Condition_Status_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "condition_occurrence",
+    "column_name": "condition_status_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "condition_status_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Condition Status'",
+        "column_name": "condition_status_concept_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Condition Status)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_condition_occurrence_provider_id__provider_id__ref_provider_.b75b05445b": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_condition_occurrence_provider_id__provider_id__ref_provider_.b75b05445b",
+    "name": "relationships_condition_occurrence_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_condition_occurrence_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.2e469f049b": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_condition_occurrence_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.2e469f049b",
+    "name": "relationships_condition_occurrence_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "condition_occurrence",
+    "column_name": "visit_occurrence_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('visit_occurrence')",
+        "field": "visit_occurrence_id",
+        "column_name": "visit_occurrence_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 visit_occurrence.visit_occurrence_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_source_concept_id__concept_id__condition_source_concept_id_not_in_0_99___ref_concept_.daf82938ca": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_condition_occurrence_condition_source_concept_id__concept_id__condition_source_concept_id_not_in_0_99___ref_concept_.daf82938ca",
+    "name": "dbt_utils_relationships_where_condition_occurrence_condition_source_concept_id__concept_id__condition_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "condition_occurrence",
+    "column_name": "condition_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "condition_source_concept_id not in (0, -99)",
+        "column_name": "condition_source_concept_id",
+        "model": "{{ get_where_subquery(ref('condition_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_care_site_place_of_service_concept_id__concept_id__place_of_service_concept_id_not_in_0_99___ref_concept_.cd7ed2431a": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_care_site_place_of_service_concept_id__concept_id__place_of_service_concept_id_not_in_0_99___ref_concept_.cd7ed2431a",
+    "name": "dbt_utils_relationships_where_care_site_place_of_service_concept_id__concept_id__place_of_service_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "care_site",
+    "column_name": "place_of_service_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "place_of_service_concept_id not in (0, -99)",
+        "column_name": "place_of_service_concept_id",
+        "model": "{{ get_where_subquery(ref('care_site')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_care_site_location_id__location_id__ref_location_.0f7187e1b2": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_care_site_location_id__location_id__ref_location_.0f7187e1b2",
+    "name": "relationships_care_site_location_id__location_id__ref_location_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "care_site",
+    "column_name": "location_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('location')",
+        "field": "location_id",
+        "column_name": "location_id",
+        "model": "{{ get_where_subquery(ref('care_site')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 location.location_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_measurement_person_id.7cf48be66f": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_measurement_person_id.7cf48be66f",
+    "name": "not_null_measurement_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_measurement_person_id__person_id__ref_person_.b9201b5f92": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_measurement_person_id__person_id__ref_person_.b9201b5f92",
+    "name": "relationships_measurement_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_measurement_measurement_concept_id.d63d0b284a": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_measurement_measurement_concept_id.d63d0b284a",
+    "name": "not_null_measurement_measurement_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "measurement_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "measurement_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_measurement_concept_id__concept_id__measurement_concept_id_not_in_0_99___ref_concept___domain_id_Measurement_.71e13ea90a": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_measurement_concept_id__concept_id__measurement_concept_id_not_in_0_99___ref_concept___domain_id_Measurement_.71e13ea90a",
+    "name": "dbt_utils_relationships_where_measurement_measurement_concept_id__concept_id__measurement_concept_id_not_in_0_99___ref_concept___domain_id_Measurement_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "measurement_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "measurement_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Measurement'",
+        "column_name": "measurement_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Measurement)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_measurement_measurement_date.f0992e3082": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_measurement_measurement_date.f0992e3082",
+    "name": "not_null_measurement_measurement_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "measurement_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "measurement_date",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_measurement_measurement_type_concept_id.d32d33e40c": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_measurement_measurement_type_concept_id.d32d33e40c",
+    "name": "not_null_measurement_measurement_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "measurement_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "measurement_type_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_measurement_type_concept_id__concept_id__measurement_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.9669e8d7f2": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_measurement_type_concept_id__concept_id__measurement_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.9669e8d7f2",
+    "name": "dbt_utils_relationships_where_measurement_measurement_type_concept_id__concept_id__measurement_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "measurement_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "measurement_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "measurement_type_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_operator_concept_id__concept_id__operator_concept_id_not_in_0_99___ref_concept_.71011b055e": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_operator_concept_id__concept_id__operator_concept_id_not_in_0_99___ref_concept_.71011b055e",
+    "name": "dbt_utils_relationships_where_measurement_operator_concept_id__concept_id__operator_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "operator_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "operator_concept_id not in (0, -99)",
+        "column_name": "operator_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_value_as_concept_id__concept_id__value_as_concept_id_not_in_0_99___ref_concept_.5d50eb1c25": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_value_as_concept_id__concept_id__value_as_concept_id_not_in_0_99___ref_concept_.5d50eb1c25",
+    "name": "dbt_utils_relationships_where_measurement_value_as_concept_id__concept_id__value_as_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "value_as_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "value_as_concept_id not in (0, -99)",
+        "column_name": "value_as_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_.edca33edb5": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_.edca33edb5",
+    "name": "dbt_utils_relationships_where_measurement_unit_concept_id__concept_id__unit_concept_id_not_in_0_99___ref_concept___domain_id_Unit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "unit_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "unit_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Unit'",
+        "column_name": "unit_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Unit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_measurement_provider_id__provider_id__ref_provider_.1f264234a4": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_measurement_provider_id__provider_id__ref_provider_.1f264234a4",
+    "name": "relationships_measurement_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_measurement_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.4fb747555a": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_measurement_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_.4fb747555a",
+    "name": "relationships_measurement_visit_occurrence_id__visit_occurrence_id__ref_visit_occurrence_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "measurement",
+    "column_name": "visit_occurrence_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('visit_occurrence')",
+        "field": "visit_occurrence_id",
+        "column_name": "visit_occurrence_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 visit_occurrence.visit_occurrence_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_measurement_source_concept_id__concept_id__measurement_source_concept_id_not_in_0_99___ref_concept_.96faa7f0a7": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_measurement_source_concept_id__concept_id__measurement_source_concept_id_not_in_0_99___ref_concept_.96faa7f0a7",
+    "name": "dbt_utils_relationships_where_measurement_measurement_source_concept_id__concept_id__measurement_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "measurement_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "measurement_source_concept_id not in (0, -99)",
+        "column_name": "measurement_source_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_unit_source_concept_id__concept_id__unit_source_concept_id_not_in_0_99___ref_concept_.1c334832bf": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_unit_source_concept_id__concept_id__unit_source_concept_id_not_in_0_99___ref_concept_.1c334832bf",
+    "name": "dbt_utils_relationships_where_measurement_unit_source_concept_id__concept_id__unit_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "unit_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "unit_source_concept_id not in (0, -99)",
+        "column_name": "unit_source_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_meas_event_field_concept_id__concept_id__meas_event_field_concept_id_not_in_0_99___ref_concept_.d730e0128b": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_measurement_meas_event_field_concept_id__concept_id__meas_event_field_concept_id_not_in_0_99___ref_concept_.d730e0128b",
+    "name": "dbt_utils_relationships_where_measurement_meas_event_field_concept_id__concept_id__meas_event_field_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "measurement",
+    "column_name": "meas_event_field_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "meas_event_field_concept_id not in (0, -99)",
+        "column_name": "meas_event_field_concept_id",
+        "model": "{{ get_where_subquery(ref('measurement')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_location_location_id.af91958747": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_location_location_id.af91958747",
+    "name": "not_null_location_location_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "location",
+    "column_name": "location_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "location_id",
+        "model": "{{ get_where_subquery(ref('location')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.unique_location_location_id.e30ffdeb77": {
+    "unique_id": "test.EmoryOmopEnterprise.unique_location_location_id.e30ffdeb77",
+    "name": "unique_location_location_id",
+    "test_type": "unique",
+    "namespace": null,
+    "table": "location",
+    "column_name": "location_id",
+    "test_metadata": {
+      "name": "unique",
+      "kwargs": {
+        "column_name": "location_id",
+        "model": "{{ get_where_subquery(ref('location')) }}"
+      },
+      "namespace": null
+    },
+    "display": "unique",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_location_country_concept_id__concept_id__country_concept_id_not_in_0_99___ref_concept_.bb2ec35e0d": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_location_country_concept_id__concept_id__country_concept_id_not_in_0_99___ref_concept_.bb2ec35e0d",
+    "name": "dbt_utils_relationships_where_location_country_concept_id__concept_id__country_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "location",
+    "column_name": "country_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "country_concept_id not in (0, -99)",
+        "column_name": "country_concept_id",
+        "model": "{{ get_where_subquery(ref('location')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_detail_person_id.f40d29958e": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_detail_person_id.f40d29958e",
+    "name": "not_null_visit_detail_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_visit_detail_person_id__person_id__ref_person_.a572cd3588": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_visit_detail_person_id__person_id__ref_person_.a572cd3588",
+    "name": "relationships_visit_detail_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_concept_id.11df83fc24": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_concept_id.11df83fc24",
+    "name": "not_null_visit_detail_visit_detail_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "visit_detail_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_detail_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_visit_detail_concept_id__concept_id__visit_detail_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.e867bfebd6": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_visit_detail_concept_id__concept_id__visit_detail_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.e867bfebd6",
+    "name": "dbt_utils_relationships_where_visit_detail_visit_detail_concept_id__concept_id__visit_detail_concept_id_not_in_0_99___ref_concept___domain_id_Visit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_detail",
+    "column_name": "visit_detail_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "visit_detail_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Visit'",
+        "column_name": "visit_detail_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Visit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_start_date.cc3c8c51a7": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_start_date.cc3c8c51a7",
+    "name": "not_null_visit_detail_visit_detail_start_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "visit_detail_start_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_detail_start_date",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_end_date.fbf8c3e1c7": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_end_date.fbf8c3e1c7",
+    "name": "not_null_visit_detail_visit_detail_end_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "visit_detail_end_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_detail_end_date",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_type_concept_id.31ca3f2172": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_detail_visit_detail_type_concept_id.31ca3f2172",
+    "name": "not_null_visit_detail_visit_detail_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "visit_detail_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_detail_type_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_visit_detail_type_concept_id__concept_id__visit_detail_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.ef88d48770": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_visit_detail_type_concept_id__concept_id__visit_detail_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.ef88d48770",
+    "name": "dbt_utils_relationships_where_visit_detail_visit_detail_type_concept_id__concept_id__visit_detail_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_detail",
+    "column_name": "visit_detail_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "visit_detail_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "visit_detail_type_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_visit_detail_provider_id__provider_id__ref_provider_.7393623c5e": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_visit_detail_provider_id__provider_id__ref_provider_.7393623c5e",
+    "name": "relationships_visit_detail_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_visit_detail_care_site_id__care_site_id__ref_care_site_.415b4846fa": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_visit_detail_care_site_id__care_site_id__ref_care_site_.415b4846fa",
+    "name": "relationships_visit_detail_care_site_id__care_site_id__ref_care_site_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "visit_detail",
+    "column_name": "care_site_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('care_site')",
+        "field": "care_site_id",
+        "column_name": "care_site_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 care_site.care_site_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_visit_detail_source_concept_id__concept_id__visit_detail_source_concept_id_not_in_0_99___ref_concept_.94fc080005": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_visit_detail_source_concept_id__concept_id__visit_detail_source_concept_id_not_in_0_99___ref_concept_.94fc080005",
+    "name": "dbt_utils_relationships_where_visit_detail_visit_detail_source_concept_id__concept_id__visit_detail_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_detail",
+    "column_name": "visit_detail_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "visit_detail_source_concept_id not in (0, -99)",
+        "column_name": "visit_detail_source_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_admitted_from_concept_id__concept_id__admitted_from_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.3e2d8396d3": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_admitted_from_concept_id__concept_id__admitted_from_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.3e2d8396d3",
+    "name": "dbt_utils_relationships_where_visit_detail_admitted_from_concept_id__concept_id__admitted_from_concept_id_not_in_0_99___ref_concept___domain_id_Visit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_detail",
+    "column_name": "admitted_from_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "admitted_from_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Visit'",
+        "column_name": "admitted_from_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Visit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_discharged_to_concept_id__concept_id__discharged_to_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.11d937ff52": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_detail_discharged_to_concept_id__concept_id__discharged_to_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.11d937ff52",
+    "name": "dbt_utils_relationships_where_visit_detail_discharged_to_concept_id__concept_id__discharged_to_concept_id_not_in_0_99___ref_concept___domain_id_Visit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_detail",
+    "column_name": "discharged_to_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "discharged_to_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Visit'",
+        "column_name": "discharged_to_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_detail')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Visit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_occurrence_person_id.e916ff163a": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_occurrence_person_id.e916ff163a",
+    "name": "not_null_visit_occurrence_person_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_visit_occurrence_person_id__person_id__ref_person_.0f12e4784d": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_visit_occurrence_person_id__person_id__ref_person_.0f12e4784d",
+    "name": "relationships_visit_occurrence_person_id__person_id__ref_person_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "person_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('person')",
+        "field": "person_id",
+        "column_name": "person_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 person.person_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_concept_id.e13dd76157": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_concept_id.e13dd76157",
+    "name": "not_null_visit_occurrence_visit_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "visit_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_visit_concept_id__concept_id__visit_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.210ba4eba8": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_visit_concept_id__concept_id__visit_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.210ba4eba8",
+    "name": "dbt_utils_relationships_where_visit_occurrence_visit_concept_id__concept_id__visit_concept_id_not_in_0_99___ref_concept___domain_id_Visit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_occurrence",
+    "column_name": "visit_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "visit_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Visit'",
+        "column_name": "visit_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Visit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_start_date.6ef645340a": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_start_date.6ef645340a",
+    "name": "not_null_visit_occurrence_visit_start_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "visit_start_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_start_date",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_end_date.47f6967fe8": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_end_date.47f6967fe8",
+    "name": "not_null_visit_occurrence_visit_end_date",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "visit_end_date",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_end_date",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_type_concept_id.6078890882": {
+    "unique_id": "test.EmoryOmopEnterprise.not_null_visit_occurrence_visit_type_concept_id.6078890882",
+    "name": "not_null_visit_occurrence_visit_type_concept_id",
+    "test_type": "not_null",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "visit_type_concept_id",
+    "test_metadata": {
+      "name": "not_null",
+      "kwargs": {
+        "column_name": "visit_type_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "not_null",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_visit_type_concept_id__concept_id__visit_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.4e7c171968": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_visit_type_concept_id__concept_id__visit_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_.4e7c171968",
+    "name": "dbt_utils_relationships_where_visit_occurrence_visit_type_concept_id__concept_id__visit_type_concept_id_not_in_0_99___ref_concept___domain_id_Type_Concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_occurrence",
+    "column_name": "visit_type_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "visit_type_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Type Concept'",
+        "column_name": "visit_type_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Type Concept)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_visit_occurrence_provider_id__provider_id__ref_provider_.77cb711c3e": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_visit_occurrence_provider_id__provider_id__ref_provider_.77cb711c3e",
+    "name": "relationships_visit_occurrence_provider_id__provider_id__ref_provider_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "provider_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('provider')",
+        "field": "provider_id",
+        "column_name": "provider_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 provider.provider_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.relationships_visit_occurrence_care_site_id__care_site_id__ref_care_site_.e33297f863": {
+    "unique_id": "test.EmoryOmopEnterprise.relationships_visit_occurrence_care_site_id__care_site_id__ref_care_site_.e33297f863",
+    "name": "relationships_visit_occurrence_care_site_id__care_site_id__ref_care_site_",
+    "test_type": "relationships",
+    "namespace": null,
+    "table": "visit_occurrence",
+    "column_name": "care_site_id",
+    "test_metadata": {
+      "name": "relationships",
+      "kwargs": {
+        "to": "ref('care_site')",
+        "field": "care_site_id",
+        "column_name": "care_site_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": null
+    },
+    "display": "FK \u2192 care_site.care_site_id",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_visit_source_concept_id__concept_id__visit_source_concept_id_not_in_0_99___ref_concept_.409ed31996": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_visit_source_concept_id__concept_id__visit_source_concept_id_not_in_0_99___ref_concept_.409ed31996",
+    "name": "dbt_utils_relationships_where_visit_occurrence_visit_source_concept_id__concept_id__visit_source_concept_id_not_in_0_99___ref_concept_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_occurrence",
+    "column_name": "visit_source_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "visit_source_concept_id not in (0, -99)",
+        "column_name": "visit_source_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_admitted_from_concept_id__concept_id__admitted_from_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.83f06992af": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_admitted_from_concept_id__concept_id__admitted_from_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.83f06992af",
+    "name": "dbt_utils_relationships_where_visit_occurrence_admitted_from_concept_id__concept_id__admitted_from_concept_id_not_in_0_99___ref_concept___domain_id_Visit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_occurrence",
+    "column_name": "admitted_from_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "admitted_from_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Visit'",
+        "column_name": "admitted_from_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Visit)",
+    "config_enabled": true
+  },
+  "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_discharged_to_concept_id__concept_id__discharged_to_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.15729aac20": {
+    "unique_id": "test.EmoryOmopEnterprise.dbt_utils_relationships_where_visit_occurrence_discharged_to_concept_id__concept_id__discharged_to_concept_id_not_in_0_99___ref_concept___domain_id_Visit_.15729aac20",
+    "name": "dbt_utils_relationships_where_visit_occurrence_discharged_to_concept_id__concept_id__discharged_to_concept_id_not_in_0_99___ref_concept___domain_id_Visit_",
+    "test_type": "relationships_where",
+    "namespace": "dbt_utils",
+    "table": "visit_occurrence",
+    "column_name": "discharged_to_concept_id",
+    "test_metadata": {
+      "name": "relationships_where",
+      "kwargs": {
+        "to": "ref('concept')",
+        "field": "concept_id",
+        "from_condition": "discharged_to_concept_id not in (0, -99)",
+        "to_condition": "domain_id = 'Visit'",
+        "column_name": "discharged_to_concept_id",
+        "model": "{{ get_where_subquery(ref('visit_occurrence')) }}"
+      },
+      "namespace": "dbt_utils"
+    },
+    "display": "FK \u2192 concept (Visit)",
+    "config_enabled": true
+  }
+}
