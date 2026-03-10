@@ -50,7 +50,7 @@ In OMOP, the vocabulary does this for you:
 
     ---
 
-    Maps **local codes** (internal Epic codes, custom lab identifiers) to standard OMOP concepts. Critical for Emory — this is where non-standard source values get their OMOP meaning. We encourage community collaboration on improving these mappings via the [Custom Concept SOP](../../../Emory%20OMOP%20Community/Community%20Contribution%20SOP/Custom%20Concept%20SOP/index.md).
+    Maps **local codes** (internal Epic codes, custom lab identifiers) to standard OMOP concepts. Critical for Emory — this is where non-standard source values get their OMOP meaning. We encourage community collaboration on improving these mappings — see [Custom Concepts](../../../Data%20in%20Enterprise%20OMOP/Data%20Mapping/Custom%20Concepts/index.md) for how to request or contribute mappings.
 
 </div>
 
@@ -77,4 +77,4 @@ These mappings are maintained by domain experts — ontologists use existing cro
     | Include both ICD-9 and ICD-10 codes in a phenotype | Use `concept_relationship` to map source codes to their shared SNOMED standard |
     | Build a cohort of patients on ACE inhibitors | Use `concept` for the RxNorm ingredient + `concept_ancestor` for all ACE inhibitor drugs |
     | Understand if a procedure is surgical vs. diagnostic | Check `concept_class_id` in `concept` or navigate `concept_relationship` |
-    | Map a local lab code to a standard concept | Check `source_to_concept_map`; if unmapped, submit via the Custom Concept SOP |
+    | Map a local lab code to a standard concept | Check `source_to_concept_map`; if unmapped, [request a mapping](../../../Data%20in%20Enterprise%20OMOP/Data%20Mapping/Custom%20Concepts/requesting-mappings.md) |
