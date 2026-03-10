@@ -173,7 +173,13 @@
         "mapped": 29164,
         "unmapped": 28264,
         "coverage": 50.8
-      }
+      },
+      "source_mappings": [
+        {
+          "file": "mapping.csv",
+          "url": "https://github.com/Emory-OMOP/CVB/blob/main/EU2_Flowsheets/Mappings/mapping.csv"
+        }
+      ]
     }
   ]
 }

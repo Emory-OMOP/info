@@ -49,6 +49,12 @@
   <p style="color:var(--md-default-fg-color--light)">Loading…</p>
 </div>
 
+## Source Mappings
+
+<div id="cvb-source-mappings">
+  <p style="color:var(--md-default-fg-color--light)">Loading…</p>
+</div>
+
 ---
 
 <small>

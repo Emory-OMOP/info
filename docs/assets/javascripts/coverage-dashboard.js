@@ -254,6 +254,43 @@
     container.innerHTML = html;
   }
 
+  /* ── source mapping links ── */
+  function renderSourceMappings(data) {
+    var container = el("cvb-source-mappings");
+    if (!container) return;
+
+    var links = [];
+    data.vocabs.forEach(function (v) {
+      if (v.source_mappings && v.source_mappings.length) {
+        v.source_mappings.forEach(function (sm) {
+          links.push({
+            vocab: v.name,
+            file: sm.file,
+            url: sm.url,
+          });
+        });
+      }
+    });
+
+    if (links.length === 0) {
+      container.innerHTML = '<p style="color:var(--md-default-fg-color--light)">No source mappings available</p>';
+      return;
+    }
+
+    var html = '<div class="admonition info">'
+      + '<p class="admonition-title">Authorized access required</p>'
+      + '<p>Source mapping files are maintained in the CVB repository and are only accessible to qualified Emory OMOP team members. '
+      + 'Contact the Enterprise OMOP team on the <strong>OMOP Enterprise</strong> Teams channel to request access.</p>'
+      + '<ul>';
+
+    links.forEach(function (l) {
+      html += '<li><a href="' + l.url + '">' + l.vocab + ' / ' + l.file + '</a></li>';
+    });
+
+    html += '</ul></div>';
+    container.innerHTML = html;
+  }
+
   /* ── main ── */
   function init(data) {
     renderSummary(data);
@@ -262,6 +299,7 @@
     renderPredicateChart(data);
     renderUnmappedTable(data);
     renderVocabDetails(data);
+    renderSourceMappings(data);
   }
 
   // Load data: prefer inline global, fall back to fetch
