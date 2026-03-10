@@ -43,28 +43,6 @@
   <canvas id="cvb-chart-predicates"></canvas>
 </div>
 
-<!-- Top unmapped items -->
-## Top Unmapped Items by Frequency
-
-Items with the highest usage in source data that have not yet been mapped to standard OMOP concepts.
-
-<div class="cvb-table-wrap">
-<table class="cvb-table">
-  <thead>
-    <tr>
-      <th>Vocabulary</th>
-      <th>Code</th>
-      <th>Description</th>
-      <th style="text-align:right">Frequency</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody id="cvb-unmapped-tbody">
-    <tr><td colspan="5" style="text-align:center;color:var(--md-default-fg-color--light)">Loading…</td></tr>
-  </tbody>
-</table>
-</div>
-
 ## Vocabulary Details
 
 <div id="cvb-vocab-details">

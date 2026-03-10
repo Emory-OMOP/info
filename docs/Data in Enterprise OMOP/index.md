@@ -14,9 +14,9 @@ Emory's OMOP Enterprise pipeline transforms clinical data from Epic and the Clin
 
     ---
 
-    How source data flows from Epic and CDW into OMOP — the ELT pipeline, vocabulary mapping coverage, concept coverage statistics, and custom concepts.
+    How source data flows from Epic and CDW into OMOP — the ELT pipeline, vocabulary mapping coverage, and custom concepts.
 
-    [:octicons-arrow-right-24: Data Mapping](Data%20Mapping/Extract%20Load%20Transform%20(ELT)/index.md)
+    [:octicons-arrow-right-24: Data Mapping](Data%20Mapping/index.md)
 
 -   :material-check-decagram:{ .lg .middle } **Data Quality**
 
@@ -49,5 +49,5 @@ Emory's OMOP Enterprise pipeline transforms clinical data from Epic and the Clin
 | Area | Pages |
 |------|-------|
 | **Pipeline** | [Extract Load Transform (ELT)](Data%20Mapping/Extract%20Load%20Transform%20(ELT)/index.md) · [Era Algorithms](Data%20Mapping/Extract%20Load%20Transform%20(ELT)/Era%20Algorithms/index.md) |
-| **Coverage** | [Vocabulary Mapping Coverage](Data%20Mapping/Vocabulary%20Mapping%20Coverage/index.md) · [Current Concept Coverage](Data%20Mapping/Current%20Concept%20Coverage/index.md) · [Top 10 Concept Values](Data%20Mapping/Concept%20Top%2010%20Values/index.md) |
-| **Extensions** | [Custom Concepts](Data%20Mapping/Custom%20Concepts/index.md) |
+| **Coverage** | [Vocabulary Mapping Coverage](Data%20Mapping/Vocabulary%20Mapping%20Coverage/index.md) |
+| **Extensions** | [Custom Concepts](Data%20Mapping/Custom%20Concepts/index.md) · [Requesting Mappings](Data%20Mapping/Custom%20Concepts/requesting-mappings.md) · [Contributing Vocabularies](Data%20Mapping/Custom%20Concepts/contributing-vocabularies.md) |

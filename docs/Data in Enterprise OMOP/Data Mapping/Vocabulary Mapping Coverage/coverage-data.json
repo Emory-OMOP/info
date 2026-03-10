@@ -1,11 +1,11 @@
 {
-  "generated": "2026-03-03",
+  "generated": "2026-03-10",
   "summary": {
-    "total_vocabs": 4,
-    "total_rows": 135232,
-    "total_mapped": 110037,
-    "total_unmapped": 25195,
-    "overall_coverage": 81.4
+    "total_vocabs": 1,
+    "total_rows": 57428,
+    "total_mapped": 29164,
+    "total_unmapped": 28264,
+    "overall_coverage": 50.8
   },
   "vocabs": [
     {
@@ -13,129 +13,166 @@
       "files": [
         {
           "filename": "mapping.csv",
-          "last_modified": "2026-03-03",
-          "total": 25166,
-          "mapped": 0,
-          "unmapped": 25166,
-          "coverage": 0.0,
-          "predicates": {"noMatch": 25166},
-          "confidence": {},
+          "last_modified": "2026-03-10",
+          "total": 57428,
+          "mapped": 29164,
+          "unmapped": 28264,
+          "coverage": 50.8,
+          "predicates": {
+            "exactMatch": 5789,
+            "broadMatch": 19105,
+            "narrowMatch": 4242,
+            "noMatch": 28264,
+            "relatedMatch": 28
+          },
+          "confidence": {
+            "mean": 0.38,
+            "min": 0.0,
+            "max": 1.0
+          },
           "metadata_completeness": {
-            "mapping_tool": {"count": 0, "total": 25166},
-            "mapper": {"count": 0, "total": 25166},
-            "reviewer": {"count": 0, "total": 25166}
+            "mapping_tool": {
+              "count": 26953,
+              "total": 57428
+            },
+            "mapper": {
+              "count": 29164,
+              "total": 57428
+            },
+            "reviewer": {
+              "count": 26953,
+              "total": 57428
+            }
           },
           "top_unmapped": [
-            {"code": "301070", "description": "Temperature", "frequency": 72891888, "status": "active"},
-            {"code": "301550", "description": "Pulse", "frequency": 57683612, "status": "active"},
-            {"code": "304890", "description": "Resp", "frequency": 51571512, "status": "active"},
-            {"code": "301100", "description": "Temp Source", "frequency": 49610588, "status": "active"},
-            {"code": "301090", "description": "SpO2", "frequency": 49571396, "status": "active"}
+            {
+              "code": "3040109307",
+              "description": "MEWS Score (Background)",
+              "frequency": 205150820,
+              "status": "pending"
+            },
+            {
+              "code": "3040000415",
+              "description": "Early Detection of Sepsis Score V1",
+              "frequency": 73715909,
+              "status": "pending"
+            },
+            {
+              "code": "3040111455",
+              "description": "Deterioration Index Score",
+              "frequency": 52463674,
+              "status": "pending"
+            },
+            {
+              "code": "1600100315",
+              "description": "Restart Automatic Vitals Timer",
+              "frequency": 32478754,
+              "status": "pending"
+            },
+            {
+              "code": "1120100041",
+              "description": "I:E Ratio",
+              "frequency": 16290947,
+              "status": "pending"
+            },
+            {
+              "code": "301300",
+              "description": "BP Location",
+              "frequency": 15698616,
+              "status": "pending"
+            },
+            {
+              "code": "7",
+              "description": "Temp src",
+              "frequency": 15553573,
+              "status": "pending"
+            },
+            {
+              "code": "1600100456",
+              "description": "Restart Pain Assessment Timer",
+              "frequency": 13199863,
+              "status": "pending"
+            },
+            {
+              "code": "3040109762",
+              "description": "Pain Scale used",
+              "frequency": 9587941,
+              "status": "pending"
+            },
+            {
+              "code": "7060020",
+              "description": "Arm Bands On",
+              "frequency": 9160767,
+              "status": "pending"
+            },
+            {
+              "code": "3040109879",
+              "description": "The Patient's Environment is Safe",
+              "frequency": 9145756,
+              "status": "pending"
+            },
+            {
+              "code": "7060070",
+              "description": "Side Rails/Bed Safety",
+              "frequency": 9015687,
+              "status": "pending"
+            },
+            {
+              "code": "3040102808",
+              "description": "Positioning Frequency",
+              "frequency": 6204339,
+              "status": "pending"
+            },
+            {
+              "code": "3040109141",
+              "description": "Patient Activity During SpO2 Measurement",
+              "frequency": 6176269,
+              "status": "pending"
+            },
+            {
+              "code": "2100000074",
+              "description": "Weight in (lb) to have BMI = 25",
+              "frequency": 5727017,
+              "status": "pending"
+            },
+            {
+              "code": "3040102603",
+              "description": "Low Range Vt 6mL/kg",
+              "frequency": 5688477,
+              "status": "pending"
+            },
+            {
+              "code": "3040102604",
+              "description": "Adult Moderate Range Vt 8mL/kg",
+              "frequency": 5688477,
+              "status": "pending"
+            },
+            {
+              "code": "3040102605",
+              "description": "Adult High Range Vt 10mL/kg",
+              "frequency": 5688477,
+              "status": "pending"
+            },
+            {
+              "code": "3040104598",
+              "description": "Volume (mL)",
+              "frequency": 5450980,
+              "status": "pending"
+            },
+            {
+              "code": "3040102785",
+              "description": "Integumentary (WDL)",
+              "frequency": 5311674,
+              "status": "pending"
+            }
           ]
         }
       ],
       "totals": {
-        "total": 25166,
-        "mapped": 0,
-        "unmapped": 25166,
-        "coverage": 0.0
-      }
-    },
-    {
-      "name": "GIS",
-      "files": [
-        {
-          "filename": "gis_hierarchy.csv",
-          "last_modified": "2024-10-01",
-          "total": 89332,
-          "mapped": 89332,
-          "unmapped": 0,
-          "coverage": 100.0,
-          "predicates": {"broadMatch": 30940, "exactMatch": 2895, "narrowMatch": 3330, "skos:relatedMatch": 52146, "": 21},
-          "confidence": {"mean": 1.0, "min": 1.0, "max": 1.0},
-          "metadata_completeness": {
-            "mapping_tool": {"count": 0, "total": 89332},
-            "mapper": {"count": 0, "total": 89332},
-            "reviewer": {"count": 0, "total": 89332}
-          },
-          "top_unmapped": []
-        },
-        {
-          "filename": "gis_mapping.csv",
-          "last_modified": "2025-04-14",
-          "total": 9606,
-          "mapped": 9606,
-          "unmapped": 0,
-          "coverage": 100.0,
-          "predicates": {"broadMatch": 96, "exactMatch": 1481, "narrowMatch": 6898, "skos:relatedMatch": 1131},
-          "confidence": {"mean": 1.0, "min": 1.0, "max": 1.0},
-          "metadata_completeness": {
-            "mapping_tool": {"count": 0, "total": 9606},
-            "mapper": {"count": 0, "total": 9606},
-            "reviewer": {"count": 0, "total": 9606}
-          },
-          "top_unmapped": []
-        }
-      ],
-      "totals": {
-        "total": 98938,
-        "mapped": 98938,
-        "unmapped": 0,
-        "coverage": 100.0
-      }
-    },
-    {
-      "name": "MIMIC",
-      "files": [
-        {
-          "filename": "mimic_mapping.csv",
-          "last_modified": "2025-05-05",
-          "total": 10993,
-          "mapped": 10879,
-          "unmapped": 114,
-          "coverage": 99.0,
-          "predicates": {"broadMatch": 795, "exactMatch": 7980, "narrowMatch": 323, "noMatch": 114, "skos:closeMatch": 358, "skos:closeMatchValue": 6, "skos:relatedMatch": 1417},
-          "confidence": {"mean": 1.0, "min": 1.0, "max": 1.0},
-          "metadata_completeness": {
-            "mapping_tool": {"count": 0, "total": 10993},
-            "mapper": {"count": 10993, "total": 10993},
-            "reviewer": {"count": 0, "total": 10993}
-          },
-          "top_unmapped": []
-        }
-      ],
-      "totals": {
-        "total": 10993,
-        "mapped": 10879,
-        "unmapped": 114,
-        "coverage": 99.0
-      }
-    },
-    {
-      "name": "PSYCHIATRY",
-      "files": [
-        {
-          "filename": "psych_mapping.csv",
-          "last_modified": "2025-03-24",
-          "total": 85,
-          "mapped": 54,
-          "unmapped": 31,
-          "coverage": 63.5,
-          "predicates": {"broadMatch": 3, "exactMatch": 49, "narrowMatch": 2, "noMatch": 31},
-          "confidence": {"mean": 0.99, "min": 0.9, "max": 1.0},
-          "metadata_completeness": {
-            "mapping_tool": {"count": 0, "total": 85},
-            "mapper": {"count": 85, "total": 85},
-            "reviewer": {"count": 0, "total": 85}
-          },
-          "top_unmapped": []
-        }
-      ],
-      "totals": {
-        "total": 85,
-        "mapped": 54,
-        "unmapped": 31,
-        "coverage": 63.5
+        "total": 57428,
+        "mapped": 29164,
+        "unmapped": 28264,
+        "coverage": 50.8
       }
     }
   ]

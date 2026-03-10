@@ -25,4 +25,4 @@ The pipeline implements a **DataOps versioning paradigm** (see [:octicons-arrow-
 
 - [:octicons-arrow-right-24: Data Quality Design](../../Data%20Quality/Data%20Quality%20Design/index.md) — the DataOps framework behind our testing approach
 - [:octicons-arrow-right-24: Data Quality Results](../../Data%20Quality/Data%20Quality%20Results/index.md) — current test pass/fail status per table
-- [:octicons-arrow-right-24: Current Concept Coverage](../Current%20Concept%20Coverage/index.md) — mapping completeness by table and column
+- [:octicons-arrow-right-24: Vocabulary Mapping Coverage](../Vocabulary%20Mapping%20Coverage/index.md) — mapping completeness across CVB vocabulary projects

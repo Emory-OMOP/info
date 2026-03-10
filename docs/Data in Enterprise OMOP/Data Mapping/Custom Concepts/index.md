@@ -1,17 +1,14 @@
 ---
 search:
   exclude: false
+hide:
+  - footer
 title: Custom Concepts
 ---
 
 # Custom Concepts
 
 Custom concepts are additions to the standard OMOP vocabulary that capture Emory-specific data elements not covered by existing OHDSI ontologies. These allow Emory researchers to query local data elements using the same OMOP patterns used for standard concepts.
-
-!!! info "Want to request a custom concept?"
-    If you've identified source data in Epic or CDW that isn't currently mapped to an OMOP concept, follow the Community Contribution SOP to submit a request.
-
-    [:octicons-arrow-right-24: Custom Concept SOP](../../../Emory%20OMOP%20Community/Community%20Contribution%20SOP/Custom%20Concept%20SOP/index.md)
 
 ## How Custom Concepts Work
 
@@ -22,6 +19,29 @@ Custom concepts:
 - Follow OMOP naming conventions and are assigned concept IDs in a reserved range (2 billion+)
 - Are queryable using the same `concept`, `concept_ancestor`, and `concept_relationship` tables as standard concepts
 - Are documented and versioned alongside each product release
+- Are built through the **Custom Vocabulary Builder (CVB)**, an automated pipeline that produces OMOP-compatible vocabulary deltas
+
+## How to Get Involved
+
+<div class="grid cards" markdown>
+
+-   :material-message-question:{ .lg .middle } **Request a Mapping**
+
+    ---
+
+    Found unmapped source data in Epic or CDW? Submit a request and the vocabulary team will triage, prioritize, and build it into the next release.
+
+    [:octicons-arrow-right-24: Requesting Mappings](requesting-mappings.md)
+
+-   :material-source-branch:{ .lg .middle } **Contribute a Vocabulary**
+
+    ---
+
+    Have domain expertise and want to contribute mappings directly? Use the CVB pipeline to build OMOP-compatible vocabulary deltas and submit via pull request.
+
+    [:octicons-arrow-right-24: Contributing Vocabularies](contributing-vocabularies.md)
+
+</div>
 
 ## Current Coverage
 
@@ -31,4 +51,4 @@ The Enterprise OMOP team has prioritized mapping the most common source values a
 - Data elements from specialized workflows or research-specific instruments
 - Non-standard identifiers and local coding systems
 
-If you believe important data is missing, the [Custom Concept SOP](../../../Emory%20OMOP%20Community/Community%20Contribution%20SOP/Custom%20Concept%20SOP/index.md) provides a structured process for requesting additions.
+If you believe important data is missing, [request a mapping](requesting-mappings.md) to start the process.
