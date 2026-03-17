@@ -43,6 +43,12 @@
   <canvas id="cvb-chart-predicates"></canvas>
 </div>
 
+## Top Items by Frequency
+
+<div id="cvb-top-items">
+  <p style="color:var(--md-default-fg-color--light)">Loading…</p>
+</div>
+
 ## Vocabulary Details
 
 <div id="cvb-vocab-details">

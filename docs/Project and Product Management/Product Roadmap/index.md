@@ -24,3 +24,15 @@ The product roadmap is a living document that evolves as priorities shift, new r
     The Lucidchart roadmap requires an Emory account. Comments and suggestions are welcome directly on the diagram.
 
 For the most current status on individual work items, see the [GitHub project board](https://github.com/orgs/EmoryDataSolutions/projects) (core team access required).
+
+<div class="grid cards" markdown>
+
+-   :material-view-dashboard:{ .lg .middle } **Detailed Product Roadmap**
+
+    ---
+
+    Interactive timeline of shipped, in-progress, and planned data products with quarterly milestones and maturity status across all OMOP domains.
+
+    [:octicons-arrow-right-24: View Detailed Roadmap](detailed-roadmap.md)
+
+</div>

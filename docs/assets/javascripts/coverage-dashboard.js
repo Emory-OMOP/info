@@ -163,45 +163,92 @@
     });
   }
 
-  /* ── table: top unmapped items ── */
+  /* ── tabbed tables: top items by frequency per vocab ── */
   function renderUnmappedTable(data) {
-    var tbody = el("cvb-unmapped-tbody");
-    if (!tbody) return;
+    var container = el("cvb-top-items");
+    if (!container) return;
 
-    var rows = [];
+    // Collect rows per vocab
+    var vocabRows = {};
     data.vocabs.forEach(function (v) {
+      var rows = [];
       v.files.forEach(function (f) {
         if (f.top_unmapped && f.top_unmapped.length) {
           f.top_unmapped.forEach(function (item) {
             rows.push({
-              vocab: v.name,
-              code: item.code,
               description: item.description,
               frequency: item.frequency,
+              predicate: item.predicate || "",
+              confidence: item.confidence,
               status: item.status,
             });
           });
         }
       });
+      rows.sort(function (a, b) { return b.frequency - a.frequency; });
+      if (rows.length > 0) {
+        vocabRows[v.name] = rows.slice(0, 25);
+      }
     });
 
-    rows.sort(function (a, b) { return b.frequency - a.frequency; });
-    rows = rows.slice(0, 25);
-
-    if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--md-default-fg-color--light)">No frequency data available for unmapped items</td></tr>';
+    var vocabNames = Object.keys(vocabRows);
+    if (vocabNames.length === 0) {
+      container.innerHTML = '<p style="color:var(--md-default-fg-color--light)">No frequency data available</p>';
       return;
     }
 
-    tbody.innerHTML = rows.map(function (r) {
-      return "<tr>"
-        + "<td>" + r.vocab + "</td>"
-        + "<td><code>" + r.code + "</code></td>"
-        + "<td>" + r.description + "</td>"
-        + "<td style='text-align:right'>" + fmt(r.frequency) + "</td>"
-        + "<td>" + r.status + "</td>"
-        + "</tr>";
+    // Build tab labels
+    var labelsHtml = vocabNames.map(function (name, i) {
+      return '<button class="cvb-tab-btn' + (i === 0 ? " cvb-tab-btn--active" : "")
+        + '" data-tab="' + i + '">' + name + '</button>';
     }).join("");
+
+    // Build tab panels
+    var panelsHtml = vocabNames.map(function (name, i) {
+      var rows = vocabRows[name];
+      var html = '<div class="cvb-tab-panel' + (i === 0 ? " cvb-tab-panel--active" : "")
+        + '" data-tab="' + i + '">'
+        + '<div class="cvb-table-wrap"><table class="cvb-table"><thead><tr>'
+        + '<th>Description</th>'
+        + '<th style="text-align:right">Frequency</th>'
+        + '<th>Predicate</th>'
+        + '<th style="text-align:right">Confidence</th>'
+        + '<th>Status</th>'
+        + '</tr></thead><tbody>';
+
+      rows.forEach(function (r) {
+        var confStr = r.confidence != null ? r.confidence.toFixed(2) : "—";
+        var freqStr = r.frequency != null ? fmt(r.frequency) : "—";
+        html += "<tr>"
+          + "<td>" + r.description + "</td>"
+          + "<td style='text-align:right'>" + freqStr + "</td>"
+          + "<td>" + r.predicate + "</td>"
+          + "<td style='text-align:right'>" + confStr + "</td>"
+          + "<td>" + r.status + "</td>"
+          + "</tr>";
+      });
+
+      html += "</tbody></table></div></div>";
+      return html;
+    }).join("");
+
+    container.innerHTML = '<div class="cvb-tabs">'
+      + '<div class="cvb-tab-labels">' + labelsHtml + '</div>'
+      + panelsHtml
+      + '</div>';
+
+    // Wire up tab switching
+    container.querySelectorAll(".cvb-tab-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var idx = btn.getAttribute("data-tab");
+        container.querySelectorAll(".cvb-tab-btn").forEach(function (b) {
+          b.classList.toggle("cvb-tab-btn--active", b.getAttribute("data-tab") === idx);
+        });
+        container.querySelectorAll(".cvb-tab-panel").forEach(function (p) {
+          p.classList.toggle("cvb-tab-panel--active", p.getAttribute("data-tab") === idx);
+        });
+      });
+    });
   }
 
   /* ── vocab detail cards ── */

@@ -7,6 +7,7 @@
   var AGENT_URL = "http://localhost:8000";
   var PASSKEY = "changeme";
   var DEBUG = true; // TODO: set false before deploying
+  var MAX_TURNS = 8;
 
   var MODELS = [
     { provider: "claude",    model: "claude-haiku-4-5-20251001", label: "Haiku 4.5",           group: "Claude" },
@@ -27,6 +28,8 @@
   var streaming = false;
   var selectedModel = 0;
   var pickerOpen = false;
+  var turnCount = 0;
+  var conversationLog = [];
   var els = {};
 
   /* -----------------------------------------------------------
@@ -47,6 +50,13 @@
     els.pickerTrigger = document.getElementById("chat-picker-trigger");
     els.pickerLabel = document.getElementById("chat-picker-label");
     els.pickerDropdown = document.getElementById("chat-picker-dropdown");
+
+    // Turn counter
+    els.turnCounter = document.createElement("div");
+    els.turnCounter.className = "mdx-chat__turns";
+    var controls = els.container.querySelector(".mdx-chat__controls");
+    if (controls) controls.appendChild(els.turnCounter);
+    updateTurnCounter();
 
     buildPicker();
     els.form.addEventListener("submit", onSubmit);
@@ -109,6 +119,26 @@
         els.pickerTrigger.disabled = true;
         closePicker();
         break;
+    }
+  }
+
+  function updateTurnCounter() {
+    if (!els.turnCounter) return;
+    var remaining = MAX_TURNS - turnCount;
+    els.turnCounter.textContent = remaining + "/" + MAX_TURNS + " prompts left";
+    els.turnCounter.classList.remove("mdx-chat__turns--warn", "mdx-chat__turns--danger");
+    if (remaining <= 1) {
+      els.turnCounter.classList.add("mdx-chat__turns--danger");
+    } else if (remaining <= 3) {
+      els.turnCounter.classList.add("mdx-chat__turns--warn");
+    }
+    // Tint entire chat window
+    var chat = els.container.closest(".mdx-chat") || els.container;
+    chat.classList.remove("mdx-chat--warn", "mdx-chat--danger");
+    if (remaining <= 1) {
+      chat.classList.add("mdx-chat--danger");
+    } else if (remaining <= 3) {
+      chat.classList.add("mdx-chat--warn");
     }
   }
 
@@ -192,6 +222,7 @@
 
   async function sendMessage(message) {
     if (streaming) return;
+    if (turnCount >= MAX_TURNS) { showHandoff(); return; }
     streaming = true;
     setStatus("streaming");
 
@@ -202,11 +233,23 @@
     }
     els.suggestions.style.display = "none";
 
+    turnCount++;
+    updateTurnCounter();
+    conversationLog.push({ role: "user", content: message });
     addMessage("user", message);
     els.input.value = "";
 
     var assistantEl = addMessage("assistant", "");
     var textAccum = "";
+    var abortCtrl = new AbortController();
+    var lastActivity = Date.now();
+    // Watchdog: abort if no data received for 3 minutes
+    var watchdog = setInterval(function () {
+      if (Date.now() - lastActivity > 180000) {
+        abortCtrl.abort();
+        clearInterval(watchdog);
+      }
+    }, 5000);
 
     try {
       var res = await fetch(AGENT_URL + "/api/chat", {
@@ -221,6 +264,7 @@
           provider: MODELS[selectedModel].provider,
           model: MODELS[selectedModel].model,
         }),
+        signal: abortCtrl.signal,
       });
 
       if (!res.ok) throw new Error(res.status);
@@ -233,6 +277,7 @@
       while (true) {
         var chunk = await reader.read();
         if (chunk.done) break;
+        lastActivity = Date.now();
 
         buffer += decoder.decode(chunk.value, { stream: true });
         var lines = buffer.split("\n");
@@ -243,20 +288,35 @@
           if (line.startsWith("event: ")) {
             currentEvent = line.slice(7);
           } else if (line.startsWith("data: ") && currentEvent) {
-            handleEvent(currentEvent, JSON.parse(line.slice(6)), assistantEl);
+            try {
+              handleEvent(currentEvent, JSON.parse(line.slice(6)), assistantEl);
+            } catch (parseErr) {
+              if (DEBUG) console.warn("[chat] bad SSE payload:", line, parseErr);
+            }
             currentEvent = null;
           }
         }
       }
-    } catch (_) {
+    } catch (err) {
+      clearInterval(watchdog);
       if (!textAccum) {
-        assistantEl.querySelector(".mdx-chat__text").innerHTML =
-          "<em>Could not reach the agent.</em>";
+        var msg = err.name === "AbortError"
+          ? "<em>Request timed out \u2014 the agent may still be processing. Try again.</em>"
+          : "<em>Could not reach the agent.</em>";
+        assistantEl.querySelector(".mdx-chat__text").innerHTML = msg;
       }
     }
 
+    clearInterval(watchdog);
     streaming = false;
-    setStatus("connected");
+    if (textAccum) {
+      conversationLog.push({ role: "assistant", content: textAccum });
+    }
+    if (turnCount >= MAX_TURNS) {
+      showHandoff();
+    } else {
+      setStatus("connected");
+    }
 
     /* -- inner helper to accumulate text -- */
     var afterTool = false;
@@ -510,14 +570,21 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 
-    // Code blocks
-    h = h.replace(/```[\w]*\n?([\s\S]*?)```/g, "<pre><code>$1</code></pre>");
+    // Code blocks — preserve newlines as actual \n inside <pre>
+    var codeBlocks = [];
+    h = h.replace(/```[\w]*\n?([\s\S]*?)```/g, function (_, code) {
+      var idx = codeBlocks.length;
+      codeBlocks.push("<pre><code>" + code + "</code></pre>");
+      return "\x00CODE" + idx + "\x00";
+    });
     // Inline code
     h = h.replace(/`([^`]+)`/g, "<code>$1</code>");
     // Bold
     h = h.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-    // Newlines → <br> (CSS hides <br> inside <pre>)
+    // Newlines → <br> (outside code blocks only)
     h = h.replace(/\n/g, "<br>");
+    // Restore code blocks
+    h = h.replace(/\x00CODE(\d+)\x00/g, function (_, i) { return codeBlocks[+i]; });
     return h;
   }
 
@@ -603,6 +670,137 @@
       renderChart(msgEl, data || DEBUG_SAMPLES.bar);
       scrollBottom();
     };
+  }
+
+  /* -----------------------------------------------------------
+     Three-word ID generator
+     ----------------------------------------------------------- */
+  var WORDS = [
+    "alpine","amber","anchor","arrow","aspen","atlas","autumn","azure",
+    "basalt","beacon","birch","blade","bloom","bolt","branch","breeze",
+    "bridge","brook","canyon","canvas","cape","carbon","cedar","chalk",
+    "cliff","cloud","clover","coast","cobalt","comet","copper","coral",
+    "crane","creek","crest","crystal","cypress","dagger","dawn","delta",
+    "desert","dew","drift","dune","eagle","echo","edge","elm",
+    "ember","falcon","fern","field","flame","flint","forge","fox",
+    "frost","gale","garnet","gate","glacier","glen","granite","grove",
+    "harbor","hawk","hazel","heath","heron","hill","hollow","horizon",
+    "inlet","iron","isle","ivory","jade","jasper","juniper","keen",
+    "lake","lark","laurel","leaf","ledge","light","lily","linden",
+    "lotus","lunar","maple","marsh","meadow","mesa","mist","moon",
+    "moss","north","oak","oasis","ocean","onyx","orbit","orchid",
+    "osprey","otter","palm","path","peak","pearl","pebble","pine",
+    "plain","plume","pond","prairie","prism","quartz","rain","rapid",
+    "raven","reef","ridge","river","robin","rose","ruby","sage",
+    "sand","shadow","shore","sierra","silver","slate","snow","solar",
+    "spark","spring","spruce","star","steel","stone","storm","stream",
+    "summit","swift","teal","terra","thorn","thunder","tide","tiger",
+    "timber","trail","tulip","vale","valley","vapor","vine","violet",
+    "vista","wave","west","willow","wind","wing","winter","wolf",
+    "wren","yarrow","zenith","zephyr"
+  ];
+
+  function generateThreeWords() {
+    var a = WORDS[Math.floor(Math.random() * WORDS.length)];
+    var b = WORDS[Math.floor(Math.random() * WORDS.length)];
+    var c = WORDS[Math.floor(Math.random() * WORDS.length)];
+    return a + "-" + b + "-" + c;
+  }
+
+  /* -----------------------------------------------------------
+     Handoff — turn limit reached
+     ----------------------------------------------------------- */
+  var handoffId = null;
+
+  function showHandoff() {
+    els.input.disabled = true;
+    els.send.disabled = true;
+    els.pickerTrigger.disabled = true;
+
+    handoffId = generateThreeWords();
+
+    var handoff = document.createElement("div");
+    handoff.className = "mdx-chat__handoff";
+    handoff.innerHTML =
+      '<div class="mdx-chat__handoff-heading">Session complete</div>' +
+      '<div class="mdx-chat__handoff-id">' + handoffId + '</div>' +
+      '<p>You\u2019ve reached the ' + MAX_TURNS + '-turn limit for this session. ' +
+      'Download your session handoff to continue with your research team or in a follow-up session.</p>' +
+      '<div class="mdx-chat__handoff-actions">' +
+        '<button type="button" class="md-button md-button--primary" id="handoff-download">Download handoff</button>' +
+        '<button type="button" class="md-button" id="handoff-new">New session</button>' +
+      '</div>';
+
+    els.messages.appendChild(handoff);
+    scrollBottom();
+
+    document.getElementById("handoff-download").addEventListener("click", downloadHandoff);
+    document.getElementById("handoff-new").addEventListener("click", resetSession);
+
+    els.status.className = "mdx-chat__status";
+    els.status.textContent = "Session ended \u2014 " + handoffId;
+  }
+
+  function buildHandoffDocument() {
+    var now = new Date();
+    var lines = [
+      "# OHDSI Agent Session Handoff",
+      "",
+      "**Handoff ID:** `" + handoffId + "`",
+      "**Date:** " + now.toISOString().slice(0, 10),
+      "**Time:** " + now.toLocaleTimeString(),
+      "**Model:** " + MODELS[selectedModel].label,
+      "**Session ID:** " + (sessionId || "N/A"),
+      "**Turns:** " + turnCount,
+      "",
+      "---",
+      "",
+      "## Conversation",
+      "",
+    ];
+
+    conversationLog.forEach(function (msg) {
+      var label = msg.role === "user" ? "**User:**" : "**Agent:**";
+      lines.push(label);
+      lines.push("");
+      lines.push(msg.content);
+      lines.push("");
+    });
+
+    lines.push("---");
+    lines.push("");
+    lines.push("## Next Steps");
+    lines.push("");
+    lines.push("- [ ] Review findings above");
+    lines.push("- [ ] Refine cohort definitions as needed");
+    lines.push("- [ ] Share with research team for validation");
+    lines.push("");
+
+    return lines.join("\n");
+  }
+
+  function downloadHandoff() {
+    var doc = buildHandoffDocument();
+    var blob = new Blob([doc], { type: "text/markdown" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "handoff-" + handoffId + ".md";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function resetSession() {
+    turnCount = 0;
+    conversationLog = [];
+    sessionId = null;
+    handoffId = null;
+    updateTurnCounter();
+    els.messages.innerHTML =
+      '<div class="mdx-chat__welcome">Ask anything about the clinical data</div>';
+    els.welcome = els.messages.querySelector(".mdx-chat__welcome");
+    els.suggestions.style.display = "";
+    setStatus("connected");
   }
 
   /* -----------------------------------------------------------

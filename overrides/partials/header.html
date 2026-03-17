@@ -1,0 +1,114 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% set class = "md-header" %}
+{% if "navigation.tabs.sticky" in features %}
+  {% set class = class ~ " md-header--shadow md-header--lifted" %}
+{% elif "navigation.tabs" not in features %}
+  {% set class = class ~ " md-header--shadow" %}
+{% endif %}
+<header class="{{ class }}" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+
+    <!-- School selector (replaces stock logo) -->
+    <div class="mdx-school-selector" id="school-selector">
+      <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}">
+        <img src="{{ 'assets/images/schools/SOM_shield_hz_rv.png' | url }}" alt="{{ config.site_name }}" class="mdx-school-logo">
+      </a>
+      <button class="mdx-school-selector__toggle" aria-label="Select school" aria-expanded="false" id="school-toggle">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+      </button>
+      <div class="mdx-school-selector__dropdown" id="school-dropdown">
+        <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="mdx-school-selector__item">
+          <img src="{{ 'assets/images/schools/SOM_shield_hz_rv.png' | url }}" alt="School of Medicine" class="mdx-school-selector__thumb">
+          <span>School of Medicine</span>
+        </a>
+        {# SON hidden pending leadership approval — restore when approved
+        <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-school-selector__item">
+          <img src="{{ 'assets/images/schools/NURS_shield_hz_rv.png' | url }}" alt="School of Nursing" class="mdx-school-selector__thumb">
+          <span>Nell Hodgson Woodruff School of Nursing</span>
+        </a>
+        #}
+      </div>
+    </div>
+
+    <label class="md-header__button md-icon" for="__drawer">
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            {{ config.site_name }}
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            {% if page.meta and page.meta.title %}
+              {{ page.meta.title }}
+            {% else %}
+              {{ page.title }}
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+    {% if config.theme.palette %}
+      {% if not config.theme.palette is mapping %}
+        {% include "partials/palette.html" %}
+      {% endif %}
+    {% endif %}
+    {% if not config.theme.palette is mapping %}
+      {% include "partials/javascripts/palette.html" %}
+    {% endif %}
+    {% if config.extra.alternate %}
+      {% include "partials/alternate.html" %}
+    {% endif %}
+    {% if "material/search" in config.plugins %}
+      {% set search = config.plugins["material/search"] | attr("config") %}
+      {% if search.enabled %}
+        <label class="md-header__button md-icon" for="__search">
+          {% set icon = config.theme.icon.search or "material/magnify" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+    {% endif %}
+    {% if config.repo_url %}
+      <div class="md-header__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
+  </nav>
+  {% if "navigation.tabs.sticky" in features %}
+    {% if "navigation.tabs" in features %}
+      {% include "partials/tabs.html" %}
+    {% endif %}
+  {% endif %}
+</header>
+
+<script>
+(function() {
+  var toggle = document.getElementById("school-toggle");
+  var selector = document.getElementById("school-selector");
+  if (!toggle || !selector) return;
+  toggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+    var open = selector.classList.toggle("mdx-school-selector--open");
+    toggle.setAttribute("aria-expanded", open);
+  });
+  document.addEventListener("click", function(e) {
+    if (!selector.contains(e.target)) {
+      selector.classList.remove("mdx-school-selector--open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      selector.classList.remove("mdx-school-selector--open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
+</script>

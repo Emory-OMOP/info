@@ -18,9 +18,9 @@
   </style>
 
   <!-- Hero -->
-  <section class="mdx-container">
+  <section class="mdx-container mdx-container--school">
 
-    <!-- Quick-nav icon bar for returning visitors -->
+    <!-- Quick-nav icon bar -->
     <nav class="mdx-quicknav" aria-label="Quick navigation">
       <a href="{{ 'Data in Enterprise OMOP/' | url }}" class="mdx-quicknav__item" data-label="Data">
         <span class="twemoji">{% include ".icons/material/database-import.svg" %}</span>
@@ -37,25 +37,17 @@
       <a href="{{ 'Support/' | url }}" class="mdx-quicknav__item" data-label="Support">
         <span class="twemoji">{% include ".icons/material/lifebuoy.svg" %}</span>
       </a>
-      <a href="{{ 'blog/' | url }}" class="mdx-quicknav__item" data-label="News">
-        <span class="twemoji">{% include ".icons/material/newspaper-variant-outline.svg" %}</span>
-      </a>
-      <a href="{{ 'Contact Us/' | url }}" class="mdx-quicknav__item" data-label="Contact">
-        <span class="twemoji">{% include ".icons/material/email-outline.svg" %}</span>
-      </a>
       <div class="mdx-quicknav__picker" id="school-picker">
         <button type="button" class="mdx-quicknav__item" data-label="Schools" aria-expanded="false" id="school-picker-toggle">
           <span class="twemoji">{% include ".icons/material/domain.svg" %}</span>
         </button>
         <div class="mdx-quicknav__dropdown" id="school-picker-dropdown">
-          <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="mdx-quicknav__dropdown-item mdx-quicknav__dropdown-item--active">
+          <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="mdx-quicknav__dropdown-item">
             School of Medicine
           </a>
-          {# SON hidden pending leadership approval — restore when approved
-          <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-quicknav__dropdown-item">
+          <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-quicknav__dropdown-item mdx-quicknav__dropdown-item--active">
             School of Nursing
           </a>
-          #}
         </div>
       </div>
     </nav>
@@ -82,15 +74,15 @@
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div class="mdx-hero__content">
-          <img src="{{ 'assets/images/schools/SOM_shield_hz_rv.png' | url }}"
-               alt="Emory University School of Medicine"
+          <img src="{{ 'assets/images/schools/NURS_shield_hz_294.png' | url }}"
+               alt="Nell Hodgson Woodruff School of Nursing"
                class="mdx-hero__school-logo">
           <div class="mdx-hero__headline">
-            Emory Enterprise OMOP
+            Nursing Research, Powered by OMOP
           </div>
           <div class="mdx-hero__tagline">
             Millions of de-identified patient records, mapped to one global standard.<br>
-            Build cohorts. Run analyses. Scale to the world.
+            Build cohorts. Run analyses. Advance nursing science.
           </div>
         </div>
       </div>
@@ -108,7 +100,8 @@
 
       <div class="mdx-features__heading mdx-fade">What you can do</div>
       <div class="mdx-features__subheading mdx-fade">
-        Whether you're a researcher, analyst, or clinician — pick your tool, ask your question, get answers.
+        Whether you study falls, sepsis, pressure injuries, or readmissions &mdash;
+        pick your tool, ask your question, get answers.
       </div>
 
       <!-- Row 1 -->
@@ -120,7 +113,7 @@
             </span>
           </div>
           <div class="mdx-features__title">Build cohorts</div>
-          <p>Define study populations visually with ATLAS &mdash; inclusion criteria, temporal logic, and demographic filters, no code required.</p>
+          <p>Define patient populations around nursing-sensitive outcomes &mdash; falls, pressure injuries, catheter-associated infections &mdash; using visual cohort tools, no code required.</p>
         </a>
 
         <a href="{{ 'Support/Access Requests/Databases/' | url }}" class="mdx-features__card" title="Query with code">
@@ -143,7 +136,7 @@
             </span>
           </div>
           <div class="mdx-features__title">Explore the data</div>
-          <p>Conditions, drugs, measurements, procedures, visits &mdash; standardized from Epic and Cerner into one common data model.</p>
+          <p>Conditions, medications, vitals, procedures, and visits &mdash; standardized from Epic and Cerner into one common data model, ready for nursing research.</p>
         </a>
 
         <a href="{{ 'OMOP Primers/' | url }}" class="mdx-features__card" title="Join a global network">
@@ -163,59 +156,32 @@
   <!-- Why OMOP at Emory -->
   <section class="mdx-collab">
     <div class="md-grid md-typeset">
-      <div class="mdx-collab__heading mdx-fade">Why OMOP at Emory</div>
+      <div class="mdx-collab__heading mdx-fade">Why OMOP at the School of Nursing</div>
       <div class="mdx-collab__image">
         <img src="{{ 'assets/images/ohdsi-network.png' | url }}" alt="OHDSI global network of 400+ institutions">
       </div>
       <div class="mdx-collab__body mdx-fade">
         <p class="mdx-collab__lead">
-          One data model. Multiple source systems. Global interoperability.
+          Your clinical questions, answered with real-world data at scale.
         </p>
         <p>
-          The <strong>OMOP Common Data Model</strong> is a global standard for organizing
-          healthcare data. At Emory, we use it to unify records from
+          The <strong>OMOP Common Data Model</strong> unifies records from
           <strong>Epic</strong> and <strong>Cerner</strong> into a single, research-ready
-          data lake &mdash; so you can focus on discovery instead of data wrangling.
+          data lake. Study nursing-sensitive outcomes like falls, pressure injuries,
+          sepsis readmissions, and medication adherence &mdash; without wrestling
+          disparate source systems.
         </p>
         <p>
           Because OMOP is the foundation of the <strong>OHDSI network</strong>,
-          your cohort definitions, analyses, and phenotypes are portable to
-          400+ institutions across 40+ countries. Local insight becomes global evidence.
+          your cohort definitions and phenotypes are portable to
+          400+ institutions across 40+ countries. Nursing research at Emory
+          becomes global evidence.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Ready to start -->
-  <section class="mdx-cta mdx-fade">
-    <div class="md-grid md-typeset">
-      <div class="mdx-cta__inner">
-        <div class="mdx-cta__heading">Ready to get started?</div>
-        <p>
-          Request access to ATLAS or the database, then follow our training guides
-          to run your first query in minutes.
-        </p>
-        <div class="mdx-cta__buttons">
-          <a href="{{ 'Support/' | url }}" class="md-button md-button--primary">
-            Request access
-          </a>
-          <a href="{{ 'Training/' | url }}" class="md-button">
-            Explore training
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {# ================================================================
-     PLACEHOLDER — LLM Chat Widget
-     Pending approval to deploy an LLM on the homepage. When ready:
-     1. Uncomment the chat section below
-     2. Uncomment the chat.js script tag in the scripts block
-     3. Configure AGENT_URL and PASSKEY in chat.js
-     4. Add modal.css back to mkdocs.yml if needed
-     ================================================================
-
+  <!-- LLM Chat Widget -->
   <section class="mdx-features">
     <div class="md-grid md-typeset">
       <div class="mdx-features__heading mdx-fade">From hypothesis to discovery</div>
@@ -245,7 +211,7 @@
           </div>
         </div>
         <form class="mdx-chat__form" id="chat-form" autocomplete="off">
-          <input type="text" id="chat-input" placeholder="How many patients have Type 2 Diabetes?" disabled>
+          <input type="text" id="chat-input" placeholder="How many patients have pressure injuries?" disabled>
           <button type="submit" id="chat-send" disabled aria-label="Send">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -253,15 +219,34 @@
           </button>
         </form>
         <div class="mdx-chat__suggestions" id="chat-suggestions">
-          <button type="button" data-prompt="How many patients have Type 2 Diabetes?">Type 2 Diabetes prevalence</button>
-          <button type="button" data-prompt="What are the most common drugs prescribed for hypertension?">Hypertension drugs</button>
-          <button type="button" data-prompt="Build a cohort of patients over 65 with heart failure">Heart failure cohort</button>
+          <button type="button" data-prompt="How many patients have pressure injuries?">Pressure injury prevalence</button>
+          <button type="button" data-prompt="What are the most common nursing-sensitive diagnoses?">Nursing-sensitive diagnoses</button>
+          <button type="button" data-prompt="Build a cohort of patients with sepsis readmissions">Sepsis readmission cohort</button>
         </div>
       </div>
     </div>
   </section>
 
-  #}
+  <!-- Ready to start -->
+  <section class="mdx-cta mdx-fade">
+    <div class="md-grid md-typeset">
+      <div class="mdx-cta__inner">
+        <div class="mdx-cta__heading">Ready to explore your data?</div>
+        <p>
+          Request access to ATLAS or the database, then follow our training guides
+          to run your first nursing research query in minutes.
+        </p>
+        <div class="mdx-cta__buttons">
+          <a href="{{ 'Support/' | url }}" class="md-button md-button--primary">
+            Request access
+          </a>
+          <a href="{{ 'Training/' | url }}" class="md-button">
+            Explore training
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 {% endblock %}
 
@@ -284,8 +269,6 @@
       });
     });
   </script>
-  {# Chat widget script — uncomment when LLM is approved
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <script src="{{ 'assets/javascripts/chat.js' | url }}?v=6"></script>
-  #}
 {% endblock %}

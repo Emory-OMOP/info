@@ -1,7 +1,7 @@
 site_name: Emory OMOP
 site_url: https://emorydatasolutions.github.io/emory-omop/
 repo_url: https://github.com/EmoryDataSolutions/emory_omop_enterprise
-dev_addr: localhost:9000
+dev_addr: localhost:10000
 
 theme:
   name: material
