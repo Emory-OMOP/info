@@ -86,7 +86,50 @@
   height: 22rem;
 }
 
-/* Unmapped items table */
+/* Vocab tabs */
+.cvb-tabs {
+  margin-bottom: 2rem;
+}
+
+.cvb-tab-labels {
+  display: flex;
+  gap: 0;
+  border-bottom: .1rem solid var(--md-default-fg-color--lightest);
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+
+.cvb-tab-btn {
+  background: none;
+  border: none;
+  padding: .6rem 1.2rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  border-bottom: .15rem solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.cvb-tab-btn:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.cvb-tab-btn--active {
+  color: var(--md-accent-fg-color);
+  border-bottom-color: var(--md-accent-fg-color);
+}
+
+.cvb-tab-panel {
+  display: none;
+}
+
+.cvb-tab-panel--active {
+  display: block;
+}
+
+/* Items table */
 .cvb-table-wrap {
   overflow-x: auto;
   margin-bottom: 2rem;

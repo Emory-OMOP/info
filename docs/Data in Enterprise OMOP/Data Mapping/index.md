@@ -22,7 +22,7 @@ How source data flows from Epic and CDW into OMOP — the ELT pipeline, vocabula
 
     ---
 
-    Live dashboard showing mapping progress across all CVB vocabulary projects — coverage percentages, predicate distributions, and top unmapped items.
+    Live dashboard showing mapping progress across all CVB vocabulary projects — coverage percentages, predicate distributions, and top items by frequency.
 
     [:octicons-arrow-right-24: Mapping Coverage](Vocabulary%20Mapping%20Coverage/index.md)
 
