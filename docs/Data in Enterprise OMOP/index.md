@@ -34,6 +34,14 @@ Emory's OMOP Enterprise pipeline transforms clinical data from Epic and the Clin
 
     [:octicons-arrow-right-24: Observed Conventions](Observed%20Conventions/index.md)
 
+-   :material-brain:{ .lg .middle } **NLP Infrastructure** :material-progress-wrench:{ title="Draft" }
+
+    ---
+
+    Proposed span-based NLP schema extending the OMOP CDM — pipeline provenance, typed extractions, and `_DERIVED` tables for clean separation of NLP-derived data.
+
+    [:octicons-arrow-right-24: NLP Infrastructure](NLP%20Infrastructure/index.md)
+
 -   :material-tag-multiple:{ .lg .middle } **Releases**
 
     ---
