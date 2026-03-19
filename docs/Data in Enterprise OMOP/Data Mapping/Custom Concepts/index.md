@@ -41,6 +41,14 @@ Custom concepts:
 
     [:octicons-arrow-right-24: Contributing Vocabularies](contributing-vocabularies.md)
 
+-   :material-swap-horizontal:{ .lg .middle } **Network Study Bifurcation**
+
+    ---
+
+    How the ETL supports both local (CVB-enhanced) and OHDSI network study (Athena-only) concept resolution through compound targets and dual vocabulary schemas.
+
+    [:octicons-arrow-right-24: Network Study Bifurcation](network-study-bifurcation.md)
+
 </div>
 
 ## Current Coverage
