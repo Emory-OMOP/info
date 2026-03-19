@@ -20,7 +20,7 @@ title: "FUTURE-AI Alignment"
 
 Where [TRIPOD-LLM](tripod-llm-alignment.md) standardizes what researchers write in a paper, **FUTURE-AI** addresses a broader question: *how should healthcare AI tools be designed, developed, validated, deployed, and monitored to be trustworthy?*
 
-Published in *The BMJ* in February 2025, the FUTURE-AI framework was developed by 117 interdisciplinary experts from 50 countries over a two-year modified Delphi process (Lekadir et al., 2025). It provides **30 best practices** organized under six guiding principles — **F**airness, **U**niversality, **T**raceability, **R**obustness, **E**xplainability — plus 7 cross-cutting General recommendations.
+Published in *The BMJ* in February 2025, the FUTURE-AI framework was developed by 117 interdisciplinary experts from 50 countries over a two-year modified Delphi process (Lekadir et al., 2025). It provides **30 best practices** organized under six guiding principles — **F**airness, **U**niversality, **T**raceability, **U**sability, **R**obustness, **E**xplainability — plus 7 cross-cutting General recommendations.
 
 FUTURE-AI is not a publication checklist. It is a **lifecycle framework** that spans from initial design through post-deployment monitoring. This makes it directly relevant to how NLP infrastructure should be built — not just documented.
 
@@ -33,32 +33,13 @@ FUTURE-AI is not a publication checklist. It is a **lifecycle framework** that s
 | **Fairness** | Equal performance across patient groups; bias identification and mitigation | 3 |
 | **Universality** | Generalizability across settings, populations, and clinical workflows | 4 |
 | **Traceability** | Documentation, auditing, logging, and governance throughout the AI lifecycle | 6 |
+| **Usability** | User-centered design, human-AI interaction, oversight, training, and clinical utility evaluation | 5 |
 | **Robustness** | Resilience to real-world data variations, adversarial inputs, and distribution shifts | 3 |
 | **Explainability** | Clinically meaningful information about the logic behind AI decisions | 2 |
-| **General** | Cross-cutting: stakeholder engagement, privacy, risk mitigation, evaluation, regulation, ethics, societal impact | 7 |
 
 ---
 
 ## Mapping FUTURE-AI to the NLP infrastructure
-
-### Traceability
-
-The Traceability principle is the most directly aligned with the Enterprise OMOP NLP architecture. FUTURE-AI defines traceability as *"mechanisms for documenting and monitoring the complete trajectory of the AI tool, from development and validation to deployment and usage."*
-
-All six Traceability recommendations map to infrastructure tables:
-
-| FUTURE-AI Recommendation | Description | Infrastructure Coverage |
-|:---|:---|:---|
-| **Traceability 1**: Implement risk management | Analyse risks throughout the AI lifecycle; maintain a risk management file | `nlp_system` + `pipeline` registration provides the system-of-record for what is deployed. Risk documentation is a publication/governance concern, but the infrastructure ensures the *identity* of each system is unambiguous. |
-| **Traceability 2**: Provide documentation | Create technical documentation (model properties, hyperparameters, training data, evaluation criteria, audits) | `nlp_system` (name, version), `Component` (version, data artifacts), `pipeline_component` (config including hyperparameters). The infrastructure *is* the structured documentation. |
-| **Traceability 3**: Implement continuous quality control | Monitor AI inputs and outputs; provide uncertainty estimates | `note_span.probability` captures per-extraction confidence. `nlp_execution` records enable temporal monitoring. `_DERIVED` table separation enables quality comparison against discrete EHR data. |
-| **Traceability 4**: Implement periodic auditing and updating | Configurable system for periodic evaluation; detect data drift, concept drift, performance degradation | `nlp_execution` records with dates enable audit trails. Multiple executions of different pipeline versions against the same notes enable before/after comparison. |
-| **Traceability 5**: Implement AI logging | Log data accessed, AI predictions, clinical decisions, and issues encountered | `note_span_execution` links every output to its execution. `nlp_execution` captures when, which pipeline, which worker version. The full provenance chain from `_DERIVED` row back to `note` serves as the audit log. |
-| **Traceability 6**: Implement AI governance | Specify roles for risk management, auditing, maintenance, and supervision; assign accountability | Governance is an organizational concern, but the infrastructure provides the *substrate* — you cannot govern what you cannot trace. The normalized hierarchy (`nlp_system` → `pipeline` → `Component`) makes it possible to assign ownership per system and pipeline. |
-
-!!! success "Infrastructure advantage"
-
-    FUTURE-AI Traceability asks teams to *implement* logging, auditing, documentation, and quality control. The Enterprise OMOP NLP architecture provides the **schema** where all of this lives — queryable, structured, and attached to every extracted fact. Without this schema, traceability recommendations become aspirational prose in a governance document.
 
 ### Fairness
 
@@ -80,6 +61,39 @@ All six Traceability recommendations map to infrastructure tables:
 !!! success "Infrastructure advantage"
 
     FUTURE-AI Universality 2 explicitly recommends building on OMOP. The Enterprise OMOP NLP architecture is a native OMOP extension — concept mappings, CDM-compatible `_DERIVED` tables, and vocabulary-driven typed extractions. This is not retrofitted alignment; the infrastructure was designed from the ground up on the standard FUTURE-AI recommends.
+
+### Traceability
+
+The Traceability principle is the most directly aligned with the Enterprise OMOP NLP architecture. FUTURE-AI defines traceability as *"mechanisms for documenting and monitoring the complete trajectory of the AI tool, from development and validation to deployment and usage."*
+
+All six Traceability recommendations map to infrastructure tables:
+
+| FUTURE-AI Recommendation | Description | Infrastructure Coverage |
+|:---|:---|:---|
+| **Traceability 1**: Implement risk management | Analyse risks throughout the AI lifecycle; maintain a risk management file | `nlp_system` + `pipeline` registration provides the system-of-record for what is deployed. Risk documentation is a publication/governance concern, but the infrastructure ensures the *identity* of each system is unambiguous. |
+| **Traceability 2**: Provide documentation | Create technical documentation (model properties, hyperparameters, training data, evaluation criteria, audits) | `nlp_system` (name, version), `Component` (version, data artifacts), `pipeline_component` (config including hyperparameters). The infrastructure *is* the structured documentation. |
+| **Traceability 3**: Implement continuous quality control | Monitor AI inputs and outputs; provide uncertainty estimates | `note_span.probability` captures per-extraction confidence. `nlp_execution` records enable temporal monitoring. `_DERIVED` table separation enables quality comparison against discrete EHR data. |
+| **Traceability 4**: Implement periodic auditing and updating | Configurable system for periodic evaluation; detect data drift, concept drift, performance degradation | `nlp_execution` records with dates enable audit trails. Multiple executions of different pipeline versions against the same notes enable before/after comparison. |
+| **Traceability 5**: Implement AI logging | Log data accessed, AI predictions, clinical decisions, and issues encountered | `note_span_execution` links every output to its execution. `nlp_execution` captures when, which pipeline, which worker version. The full provenance chain from `_DERIVED` row back to `note` serves as the audit log. |
+| **Traceability 6**: Implement AI governance | Specify roles for risk management, auditing, maintenance, and supervision; assign accountability | Governance is an organizational concern, but the infrastructure provides the *substrate* — you cannot govern what you cannot trace. The normalized hierarchy (`nlp_system` → `pipeline` → `Component`) makes it possible to assign ownership per system and pipeline. |
+
+!!! success "Infrastructure advantage"
+
+    FUTURE-AI Traceability asks teams to *implement* logging, auditing, documentation, and quality control. The Enterprise OMOP NLP architecture provides the **schema** where all of this lives — queryable, structured, and attached to every extracted fact. Without this schema, traceability recommendations become aspirational prose in a governance document.
+
+### Usability
+
+| FUTURE-AI Recommendation | Description | Infrastructure Coverage |
+|:---|:---|:---|
+| **Usability 1**: Define user requirements | Involve clinical experts and end users from early stages to gather intended use and user requirements | Organizational/process concern. Infrastructure supports usability by producing outputs in standard OMOP CDM format — familiar to OHDSI researchers and compatible with existing analytic tools. |
+| **Usability 2**: Establish human-AI interactions and oversight | Create interfaces for effective operation and implement human-in-the-loop mechanisms for quality checks and overrides | `note_span.probability` enables confidence-based review workflows. `_DERIVED` table separation from discrete EHR data supports human comparison and override. The span-level model (offsets, source text) gives reviewers the context needed to evaluate and correct extractions. |
+| **Usability 3**: Provide training materials | Supply tutorials, manuals, examples, and hands-on sessions | Publication/documentation concern. The schema's self-describing hierarchy (`nlp_system` → `pipeline` → `Component`) reduces the documentation burden — the structure is the explanation. |
+| **Usability 4**: Evaluate user experience | Test usability in real-world clinical settings with diverse end users | Organizational concern. Infrastructure supports evaluation by providing queryable execution records and outputs that can be assessed against clinical workflows. |
+| **Usability 5**: Evaluate clinical utility | Demonstrate benefits compared to standard care; document safety | `_DERIVED` tables enable direct comparison of NLP-extracted data against discrete EHR data at the same institution, providing the substrate for clinical utility evaluation. |
+
+!!! success "Infrastructure advantage"
+
+    FUTURE-AI Usability emphasizes human-in-the-loop oversight and clinical validation. The Enterprise OMOP NLP architecture supports this through confidence scores (`note_span.probability`), span-level provenance for human review, and `_DERIVED` table separation that enables side-by-side comparison with discrete clinical data.
 
 ### Robustness
 
@@ -118,14 +132,14 @@ All six Traceability recommendations map to infrastructure tables:
 
 | FUTURE-AI Principle | Recommendations addressed by infrastructure | Recommendations requiring governance/publication |
 |:---|:---|:---|
-| **Traceability** (6) | All 6 — the infrastructure *is* the traceability layer | Risk documentation, governance roles |
+| **Fairness** (3) | 1 of 3 — demographic stratification via OMOP `person` joins | Bias source definition, fairness evaluation |
 | **Universality** (4) | 3 of 4 — OMOP standards, cross-site federation, local validation | Clinical setting definition |
+| **Traceability** (6) | All 6 — the infrastructure *is* the traceability layer | Risk documentation, governance roles |
+| **Usability** (5) | 2 of 5 — confidence-based review, span provenance for oversight, clinical utility comparison via `_DERIVED` tables | User requirements, training materials, UX evaluation |
 | **Robustness** (3) | 2 of 3 — repeatability analysis, variation detection | Training data representativeness |
 | **Explainability** (2) | 1 of 2 — span-based provenance provides intrinsic explainability | Explainability needs assessment |
-| **Fairness** (3) | 1 of 3 — demographic stratification via OMOP `person` joins | Bias source definition, fairness evaluation |
-| **General** (7) | 2 of 7 — data governance, regulatory compliance substrate | Stakeholder engagement, ethics, evaluation planning |
 
-**15 of 25 principle-level recommendations** (plus 2 of 7 general recommendations) are directly supported or enabled by the Enterprise OMOP NLP infrastructure. The remaining recommendations are governance, organizational, or publication concerns that require human processes — but the infrastructure provides the *substrate* that makes those processes auditable rather than aspirational.
+**15 of 23 principle-level recommendations** (plus 2 of 7 general recommendations) are directly supported or enabled by the Enterprise OMOP NLP infrastructure. The remaining recommendations are governance, organizational, or publication concerns that require human processes — but the infrastructure provides the *substrate* that makes those processes auditable rather than aspirational.
 
 ---
 
