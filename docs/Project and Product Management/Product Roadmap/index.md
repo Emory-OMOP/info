@@ -25,6 +25,7 @@ The product roadmap is a living document that evolves as priorities shift, new r
 
 For the most current status on individual work items, see the [GitHub project board](https://github.com/orgs/EmoryDataSolutions/projects) (core team access required).
 
+<!-- Detailed roadmap hidden pending finalization — restore when ready
 <div class="grid cards" markdown>
 
 -   :material-view-dashboard:{ .lg .middle } **Detailed Product Roadmap**
@@ -36,3 +37,4 @@ For the most current status on individual work items, see the [GitHub project bo
     [:octicons-arrow-right-24: View Detailed Roadmap](detailed-roadmap.md)
 
 </div>
+-->
