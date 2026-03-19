@@ -45,10 +45,10 @@
           <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="mdx-quicknav__dropdown-item">
             School of Medicine
           </a>
-          <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-quicknav__dropdown-item mdx-quicknav__dropdown-item--active">
+          <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-quicknav__dropdown-item">
             School of Nursing
           </a>
-          <a href="{{ 'Schools/Winship/' | url }}" class="mdx-quicknav__dropdown-item">
+          <a href="{{ 'Schools/Winship/' | url }}" class="mdx-quicknav__dropdown-item mdx-quicknav__dropdown-item--active">
             Winship Cancer Institute
           </a>
           <a href="{{ 'Schools/BrainHealth/' | url }}" class="mdx-quicknav__dropdown-item">
@@ -80,15 +80,15 @@
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div class="mdx-hero__content">
-          <img src="{{ 'assets/images/schools/NURS_shield_hz_294.png' | url }}"
-               alt="Nell Hodgson Woodruff School of Nursing"
+          <img src="{{ 'assets/images/schools/WINSHIP_shield_vt_294.png' | url }}"
+               alt="Emory Winship Cancer Institute"
                class="mdx-hero__school-logo">
           <div class="mdx-hero__headline">
-            Nursing Research, Powered by OMOP
+            Cancer Research, Powered by OMOP
           </div>
           <div class="mdx-hero__tagline">
             Millions of de-identified patient records, mapped to one global standard.<br>
-            Build cohorts. Run analyses. Advance nursing science.
+            Build cohorts. Run analyses. Accelerate oncology discovery.
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@
 
       <div class="mdx-features__heading mdx-fade">What you can do</div>
       <div class="mdx-features__subheading mdx-fade">
-        Whether you study falls, sepsis, pressure injuries, or readmissions &mdash;
+        Whether you study tumor biology, clinical trials, survivorship, or treatment outcomes &mdash;
         pick your tool, ask your question, get answers.
       </div>
 
@@ -119,7 +119,7 @@
             </span>
           </div>
           <div class="mdx-features__title">Build cohorts</div>
-          <p>Define patient populations around nursing-sensitive outcomes &mdash; falls, pressure injuries, catheter-associated infections &mdash; using visual cohort tools, no code required.</p>
+          <p>Define patient populations around cancer diagnoses, treatment regimens, biomarkers, and outcomes &mdash; using visual cohort tools, no code required.</p>
         </a>
 
         <a href="{{ 'Support/Access Requests/Databases/' | url }}" class="mdx-features__card" title="Query with code">
@@ -142,7 +142,7 @@
             </span>
           </div>
           <div class="mdx-features__title">Explore the data</div>
-          <p>Conditions, medications, vitals, procedures, and visits &mdash; standardized from Epic and Cerner into one common data model, ready for nursing research.</p>
+          <p>Conditions, drugs, measurements, procedures, and visits &mdash; standardized from Epic and Cerner into one common data model, ready for oncology research.</p>
         </a>
 
         <a href="{{ 'OMOP Primers/' | url }}" class="mdx-features__card" title="Join a global network">
@@ -162,7 +162,7 @@
   <!-- Why OMOP at Emory -->
   <section class="mdx-collab">
     <div class="md-grid md-typeset">
-      <div class="mdx-collab__heading mdx-fade">Why OMOP at the School of Nursing</div>
+      <div class="mdx-collab__heading mdx-fade">Why OMOP at Winship Cancer Institute</div>
       <div class="mdx-collab__image">
         <img src="{{ 'assets/images/ohdsi-network.png' | url }}" alt="OHDSI global network of 400+ institutions">
       </div>
@@ -173,14 +173,14 @@
         <p>
           The <strong>OMOP Common Data Model</strong> unifies records from
           <strong>Epic</strong> and <strong>Cerner</strong> into a single, research-ready
-          data lake. Study nursing-sensitive outcomes like falls, pressure injuries,
-          sepsis readmissions, and medication adherence &mdash; without wrestling
+          data lake. Study cancer incidence, treatment patterns, adverse events,
+          and survival outcomes &mdash; without wrestling
           disparate source systems.
         </p>
         <p>
           Because OMOP is the foundation of the <strong>OHDSI network</strong>,
           your cohort definitions and phenotypes are portable to
-          400+ institutions across 40+ countries. Nursing research at Emory
+          400+ institutions across 40+ countries. Oncology research at Emory
           becomes global evidence.
         </p>
       </div>
@@ -217,7 +217,7 @@
           </div>
         </div>
         <form class="mdx-chat__form" id="chat-form" autocomplete="off">
-          <input type="text" id="chat-input" placeholder="How many patients have pressure injuries?" disabled>
+          <input type="text" id="chat-input" placeholder="How many patients have lung cancer?" disabled>
           <button type="submit" id="chat-send" disabled aria-label="Send">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -225,9 +225,9 @@
           </button>
         </form>
         <div class="mdx-chat__suggestions" id="chat-suggestions">
-          <button type="button" data-prompt="How many patients have pressure injuries?">Pressure injury prevalence</button>
-          <button type="button" data-prompt="What are the most common nursing-sensitive diagnoses?">Nursing-sensitive diagnoses</button>
-          <button type="button" data-prompt="Build a cohort of patients with sepsis readmissions">Sepsis readmission cohort</button>
+          <button type="button" data-prompt="How many patients have lung cancer?">Lung cancer prevalence</button>
+          <button type="button" data-prompt="What are the most common chemotherapy regimens?">Chemotherapy regimens</button>
+          <button type="button" data-prompt="Build a cohort of patients with breast cancer and immunotherapy">Immunotherapy cohort</button>
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@
         <div class="mdx-cta__heading">Ready to explore your data?</div>
         <p>
           Request access to ATLAS or the database, then follow our training guides
-          to run your first nursing research query in minutes.
+          to run your first oncology research query in minutes.
         </p>
         <div class="mdx-cta__buttons">
           <a href="{{ 'Support/' | url }}" class="md-button md-button--primary">

@@ -1,0 +1,602 @@
+{%- extends "main.html" -%}
+
+{% block tabs %}
+  {{ super() }}
+
+  <style>
+    .md-header { display: none }
+    .md-tabs { display: none }
+    .md-main__inner { margin: 0 }
+    .md-content { display: none }
+    .md-typeset h1 { display: none }
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary { display: none }
+    }
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary { display: none }
+    }
+
+    /* NLP Landing — narrative sections */
+    .nlp-narrative {
+      padding: 5rem 0 4rem;
+      background: var(--md-default-bg-color);
+    }
+
+    .nlp-narrative__inner {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nlp-narrative__eyebrow {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--md-primary-fg-color);
+      margin-bottom: .75rem;
+    }
+
+    .nlp-narrative__heading {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    @media screen and (min-width: 60em) {
+      .nlp-narrative__heading {
+        font-size: 2.2rem;
+      }
+    }
+
+    .nlp-narrative__body p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--md-default-fg-color--light);
+      margin-bottom: 1.25rem;
+    }
+
+    .nlp-narrative__body strong {
+      color: var(--md-default-fg-color);
+    }
+
+    /* Pull quote */
+    .nlp-pullquote {
+      border-left: 4px solid var(--md-primary-fg-color);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--md-primary-fg-color--light);
+      border-radius: 0 .3rem .3rem 0;
+    }
+
+    [data-md-color-scheme="slate"] .nlp-pullquote {
+      background: hsla(220, 30%, 18%, 1);
+    }
+
+    .nlp-pullquote p {
+      font-size: 1.1rem !important;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--md-default-fg-color) !important;
+      margin: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    .nlp-pullquote cite {
+      display: block;
+      font-size: .8rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--md-default-fg-color--light);
+      margin-top: .75rem;
+    }
+
+    /* Stat callouts */
+    .nlp-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    @media screen and (max-width: 44em) {
+      .nlp-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .nlp-stat {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border: .05rem solid var(--md-default-fg-color--lightest);
+      border-radius: .3rem;
+    }
+
+    [data-md-color-scheme="slate"] .nlp-stat {
+      border-color: hsla(215, 30%, 40%, .3);
+      background: hsla(220, 15%, 16%, 1);
+    }
+
+    .nlp-stat__number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--md-primary-fg-color);
+      line-height: 1;
+      margin-bottom: .35rem;
+    }
+
+    .nlp-stat__label {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--md-default-fg-color--light);
+      line-height: 1.4;
+    }
+
+    /* Alternating bg */
+    .nlp-narrative--alt {
+      background: var(--md-default-fg-color--lightest);
+    }
+
+    [data-md-color-scheme="slate"] .nlp-narrative--alt {
+      background: hsla(230, 15%, 12%, 1);
+    }
+
+    /* Provenance chain visualization */
+    .nlp-chain {
+      font-family: var(--md-code-font-family, monospace);
+      font-size: .85rem;
+      line-height: 1.8;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      background: var(--md-code-bg-color);
+      border-radius: .3rem;
+      overflow-x: auto;
+      color: var(--md-default-fg-color);
+    }
+
+    .nlp-chain__dim {
+      color: var(--md-default-fg-color--lighter);
+    }
+
+    .nlp-chain__highlight {
+      color: var(--md-primary-fg-color);
+      font-weight: 700;
+    }
+
+    /* Divider */
+    .nlp-divider {
+      width: 4rem;
+      height: 3px;
+      background: var(--md-primary-fg-color);
+      border: none;
+      margin: 3rem auto;
+      opacity: .3;
+    }
+
+    /* Draft banner */
+    .nlp-draft-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: hsla(35, 90%, 55%, .95);
+      color: hsla(35, 80%, 15%, 1);
+      font-size: .75rem;
+      font-weight: 600;
+      text-align: center;
+      padding: .4rem 1rem;
+      letter-spacing: .02em;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    [data-md-color-scheme="slate"] .nlp-draft-banner {
+      background: hsla(35, 70%, 40%, .95);
+      color: hsla(35, 20%, 95%, 1);
+    }
+
+    /* Push quicknav down to make room for banner */
+    .nlp-draft-banner ~ .nlp-back-hint {
+      margin-top: 1.75rem;
+    }
+
+    /* Back chevron — bounces left at same rate as scroll-hint */
+    @keyframes mdx-bounce-left {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-50%) translateX(-.5rem); }
+    }
+
+    .nlp-back-hint {
+      position: fixed;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: mdx-bounce-left 2s ease-in-out infinite;
+      opacity: .6;
+      transition: opacity .3s;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 5;
+    }
+
+    .nlp-back-hint:hover {
+      opacity: 1;
+    }
+
+    .nlp-back-hint svg {
+      width: 3rem;
+      height: 3rem;
+      fill: hsla(0, 0%, 100%, 1);
+      filter: drop-shadow(0 0 .5rem hsla(0, 0%, 0%, .4));
+    }
+
+    .nlp-back-hint__label {
+      position: absolute;
+      left: calc(100% + .4rem);
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      padding: .3rem .6rem;
+      border-radius: .25rem;
+      background: hsla(0, 0%, 0%, .7);
+      color: #fff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+    }
+
+    .nlp-back-hint:hover .nlp-back-hint__label {
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 76.25em) {
+      .nlp-back-hint {
+        left: .75rem;
+      }
+      .nlp-back-hint svg {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+    }
+
+    @media screen and (max-width: 29.984375em) {
+      .nlp-back-hint {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- Draft banner -->
+  <div class="nlp-draft-banner">
+    DRAFT &mdash; Internal Review Only &middot; Not for distribution in wide release &middot;
+    See <a href="{{ 'Data in Enterprise OMOP/Releases/' | url }}" style="color: inherit; text-decoration: underline;">releases</a>
+    and <a href="{{ 'Project and Product Management/Product Roadmap/' | url }}" style="color: inherit; text-decoration: underline;">roadmap</a> for details
+  </div>
+
+  <!-- Back to Data section chevron -->
+  <a href="{{ 'Data in Enterprise OMOP/' | url }}" class="nlp-back-hint" aria-label="Back to Data in Enterprise OMOP">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+    </svg>
+    <span class="nlp-back-hint__label">Back to Data in Enterprise OMOP</span>
+  </a>
+
+  <!-- Hero -->
+  <section class="mdx-container">
+
+    <!-- Quick-nav icon bar -->
+    <nav class="mdx-quicknav" aria-label="Quick navigation">
+      <a href="{{ 'Data in Enterprise OMOP/' | url }}" class="mdx-quicknav__item" data-label="Data">
+        <span class="twemoji">{% include ".icons/material/database-import.svg" %}</span>
+      </a>
+      <a href="{{ 'OMOP Primers/' | url }}" class="mdx-quicknav__item" data-label="OMOP Primers">
+        <span class="twemoji">{% include ".icons/material/earth.svg" %}</span>
+      </a>
+      <a href="{{ 'Applications/' | url }}" class="mdx-quicknav__item" data-label="Applications">
+        <span class="twemoji">{% include ".icons/material/application-brackets-outline.svg" %}</span>
+      </a>
+      <a href="{{ 'Training/' | url }}" class="mdx-quicknav__item" data-label="Training">
+        <span class="twemoji">{% include ".icons/material/school-outline.svg" %}</span>
+      </a>
+      <a href="{{ 'Support/' | url }}" class="mdx-quicknav__item" data-label="Support">
+        <span class="twemoji">{% include ".icons/material/lifebuoy.svg" %}</span>
+      </a>
+      <a href="{{ 'blog/' | url }}" class="mdx-quicknav__item" data-label="News">
+        <span class="twemoji">{% include ".icons/material/newspaper-variant-outline.svg" %}</span>
+      </a>
+      <a href="{{ 'Contact Us/' | url }}" class="mdx-quicknav__item" data-label="Contact">
+        <span class="twemoji">{% include ".icons/material/email-outline.svg" %}</span>
+      </a>
+      <div class="mdx-quicknav__picker" id="school-picker">
+        <button type="button" class="mdx-quicknav__item" data-label="Schools" aria-expanded="false" id="school-picker-toggle">
+          <span class="twemoji">{% include ".icons/material/domain.svg" %}</span>
+        </button>
+        <div class="mdx-quicknav__dropdown" id="school-picker-dropdown">
+          <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="mdx-quicknav__dropdown-item mdx-quicknav__dropdown-item--active">
+            School of Medicine
+          </a>
+          {# Schools hidden pending leadership approval — restore when approved
+          <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-quicknav__dropdown-item">
+            School of Nursing
+          </a>
+          <a href="{{ 'Schools/Winship/' | url }}" class="mdx-quicknav__dropdown-item">
+            Winship Cancer Institute
+          </a>
+          <a href="{{ 'Schools/BrainHealth/' | url }}" class="mdx-quicknav__dropdown-item">
+            Goizueta Brain Health Institute
+          </a>
+          #}
+        </div>
+      </div>
+    </nav>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var picker = document.getElementById("school-picker");
+      var toggle = document.getElementById("school-picker-toggle");
+      if (!picker || !toggle) return;
+      toggle.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var open = picker.classList.toggle("mdx-quicknav__picker--open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+      document.addEventListener("click", function(e) {
+        if (!picker.contains(e.target)) {
+          picker.classList.remove("mdx-quicknav__picker--open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+    </script>
+
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__content">
+          <div class="mdx-hero__headline">
+            80% of clinical data never reaches your database.
+          </div>
+          <div class="mdx-hero__tagline">
+            It lives in physician notes, discharge summaries, and radiology reports.<br>
+            NLP can extract it &mdash; but can you trust what it found?
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#the-promise" class="mdx-scroll-hint" aria-label="Scroll to content">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Act 1: The Promise -->
+  <section class="nlp-narrative" id="the-promise">
+    <div class="nlp-narrative__inner mdx-fade">
+      <div class="nlp-narrative__eyebrow">The promise</div>
+      <h2 class="nlp-narrative__heading">
+        NLP turns free text into structured clinical data
+      </h2>
+      <div class="nlp-narrative__body">
+        <p>
+          A discharge summary reads: <em>"Patient presents with worsening shortness of breath, elevated troponin at 0.42 ng/mL, and a history of poorly controlled type 2 diabetes."</em>
+        </p>
+        <p>
+          An NLP pipeline reads that sentence and extracts three structured facts: a <strong>condition</strong> (dyspnea), a <strong>measurement</strong> (troponin 0.42 ng/mL), and a <strong>comorbidity</strong> (type 2 diabetes). These facts flow into research databases, power cohort definitions, and inform clinical decision support.
+        </p>
+        <p>
+          The field has advanced rapidly. Rule-based systems, statistical NER, transformer models, and now large language models can all perform clinical extraction with increasing accuracy. Institutions across the OHDSI network are deploying NLP pipelines against millions of clinical notes.
+        </p>
+        <p>
+          But there is a problem growing quietly beneath the surface.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="nlp-divider">
+
+  <!-- Act 2: The Reporting Crisis -->
+  <section class="nlp-narrative">
+    <div class="nlp-narrative__inner mdx-fade">
+      <div class="nlp-narrative__eyebrow">The reporting crisis</div>
+      <h2 class="nlp-narrative__heading">
+        Most NLP studies don't tell you how they work
+      </h2>
+      <div class="nlp-narrative__body">
+        <p>
+          In 2023, <strong>Sunyang Fu and colleagues at Mayo Clinic</strong> published a landmark scoping review examining how NLP-assisted observational studies report their methods. They reviewed 50 studies published between 2009 and 2021.
+        </p>
+        <p>
+          What they found was alarming.
+        </p>
+      </div>
+
+      <div class="nlp-stats mdx-fade">
+        <div class="nlp-stat">
+          <div class="nlp-stat__number">58%</div>
+          <div class="nlp-stat__label">failed to report<br>model definitions</div>
+        </div>
+        <div class="nlp-stat">
+          <div class="nlp-stat__number">74%</div>
+          <div class="nlp-stat__label">omitted normalization<br>techniques</div>
+        </div>
+        <div class="nlp-stat">
+          <div class="nlp-stat__number">14%</div>
+          <div class="nlp-stat__label">provided no NLP<br>evaluation at all</div>
+        </div>
+      </div>
+
+      <div class="nlp-narrative__body mdx-fade">
+        <p>
+          Only <strong>12% of studies reported all three essential definitions</strong>: the model used, the normalization vocabulary, and the context parameters (negation, temporality, experiencer). The rest left readers with no way to reproduce, validate, or even understand the NLP that generated the clinical data they were analyzing.
+        </p>
+
+        <div class="nlp-pullquote">
+          <p>
+            "The absence of detailed reporting guidelines may create ambiguity in the use of NLP-derived content, knowledge gaps in the current research reporting practices, and reproducibility challenges."
+          </p>
+          <cite>
+            &mdash; Fu et al., <em>Clinical and Translational Science</em>, 2023
+          </cite>
+        </div>
+
+        <p style="font-size: .85rem; margin-top: -.5rem;">
+          <a href="https://doi.org/10.1111/cts.13463" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color); font-weight: 600;">Read the full paper</a>
+          &nbsp;&middot;&nbsp;
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10014687/figure/cts13463-fig-0006/" target="_blank" rel="noopener" style="color: var(--md-primary-fg-color); font-weight: 600;">See Figure 6: Reporting gap breakdown</a>
+        </p>
+
+        <p>
+          This isn't a minor documentation gap. When a researcher builds a cohort using NLP-extracted conditions, they are making clinical decisions based on outputs from a system whose configuration, training data, confidence thresholds, and versioning are <strong>invisible</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="nlp-divider">
+
+  <!-- Act 3: The LLM Era -->
+  <section class="nlp-narrative nlp-narrative--alt">
+    <div class="nlp-narrative__inner mdx-fade">
+      <div class="nlp-narrative__eyebrow">The LLM era</div>
+      <h2 class="nlp-narrative__heading">
+        Large language models made the problem bigger, not smaller
+      </h2>
+      <div class="nlp-narrative__body">
+        <p>
+          The arrival of GPT-4, Claude, and domain-specific clinical LLMs has supercharged NLP capabilities. Extraction tasks that once required custom-trained models now work with a prompt. The barrier to deploying NLP against clinical notes has never been lower.
+        </p>
+        <p>
+          But the reporting problem has <strong>gotten worse</strong>. When the model is a black-box API, the provenance chain collapses entirely. What prompt was used? What version of the model? What temperature? Was the output post-processed? How was the concept mapped? These details rarely survive past the developer who wrote the script.
+        </p>
+        <p>
+          The community has noticed. In January 2025, <strong>TRIPOD-LLM</strong> was published in <em>Nature Medicine</em> &mdash; a 19-item, 50-subitem checklist specifically for reporting studies that use large language models in healthcare. It addresses prompt engineering, human oversight, and task-specific performance &mdash; an acknowledgment that existing reporting frameworks were never designed for this paradigm.
+        </p>
+        <p>
+          But checklists solve the <strong>publication</strong> problem, not the <strong>production</strong> problem. A TRIPOD-LLM–compliant paper still doesn't help a downstream researcher who joins your NLP-extracted conditions to their cohort six months later and needs to know: <em>which pipeline, which version, which confidence threshold, which execution date?</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="nlp-divider">
+
+  <!-- Act 4: The Trust Question -->
+  <section class="nlp-narrative">
+    <div class="nlp-narrative__inner mdx-fade">
+      <div class="nlp-narrative__eyebrow">The trust question</div>
+      <h2 class="nlp-narrative__heading">
+        If you can't trace it, you can't trust it
+      </h2>
+      <div class="nlp-narrative__body">
+        <p>
+          Imagine two rows in a <code>condition_occurrence</code> table. Both say the patient has type 2 diabetes. One came from an ICD-10 code entered by a physician during an encounter. The other was extracted from a radiology report by an NLP pipeline you've never heard of, running a model version that may no longer exist, with a confidence score that was rounded before storage.
+        </p>
+        <p>
+          <strong>These two rows look identical.</strong> They sit in the same table, share the same schema, and will both be included in your cohort query. But they have fundamentally different provenance, fundamentally different confidence levels, and fundamentally different implications for your research.
+        </p>
+        <p>
+          This is the core problem: <strong>NLP-derived data is structurally indistinguishable from discrete clinical data once it lands in the CDM.</strong> And the metadata needed to distinguish them &mdash; the pipeline, the model, the execution, the confidence &mdash; has no standard place to live.
+        </p>
+
+        <div class="nlp-pullquote">
+          <p>
+            The question isn't whether NLP works. It's whether the people who consume NLP outputs have the metadata they need to decide if those outputs are appropriate for their specific research question.
+          </p>
+        </div>
+
+        <p>
+          This is why <strong>NLP methods centralization</strong> matters. Not centralization of which model you use &mdash; use any model, any framework, any LLM. But centralization of <strong>how you record what happened</strong>. Open, structured, queryable metadata that follows the data from extraction through to the research table.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="nlp-divider">
+
+  <!-- Act 5: The Standard -->
+  <section class="nlp-narrative nlp-narrative--alt">
+    <div class="nlp-narrative__inner mdx-fade">
+      <div class="nlp-narrative__eyebrow">The standard</div>
+      <h2 class="nlp-narrative__heading">
+        Every NLP-derived observation should be fully traceable
+      </h2>
+      <div class="nlp-narrative__body">
+        <p>
+          At Emory, we are building an NLP infrastructure for OMOP that treats metadata as a <strong>first-class citizen</strong>. Every extracted fact carries a provenance chain from the research table back to the original note:
+        </p>
+      </div>
+
+      <div class="nlp-chain mdx-fade">
+        <span class="nlp-chain__highlight">measurement_DERIVED</span> row<br>
+        <span class="nlp-chain__dim">&nbsp;&nbsp;&rarr;</span> note_nlp_modifier <span class="nlp-chain__dim">(what attributes were applied)</span><br>
+        <span class="nlp-chain__dim">&nbsp;&nbsp;&nbsp;&nbsp;&rarr;</span> note_span <span class="nlp-chain__dim">(exact text, offsets, confidence)</span><br>
+        <span class="nlp-chain__dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;</span> nlp_execution <span class="nlp-chain__dim">(when, which pipeline)</span><br>
+        <span class="nlp-chain__dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;</span> pipeline + components <span class="nlp-chain__dim">(what config)</span><br>
+        <span class="nlp-chain__dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;</span> <span class="nlp-chain__highlight">nlp_system</span> <span class="nlp-chain__dim">(which system, what version)</span><br>
+        <span class="nlp-chain__dim">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;</span> <span class="nlp-chain__highlight">note</span> <span class="nlp-chain__dim">(the original clinical text)</span>
+      </div>
+
+      <div class="nlp-narrative__body mdx-fade">
+        <p>
+          NLP-extracted data lands in <strong><code>_DERIVED</code> suffix tables</strong> &mdash; <code>condition_DERIVED</code>, <code>measurement_DERIVED</code>, <code>drug_DERIVED</code> &mdash; that mirror the OMOP schema but are <strong>structurally separated</strong> from discrete clinical data. Researchers choose when and how to join them.
+        </p>
+        <p>
+          The infrastructure is model-agnostic. MedSpaCy, BioBERT, GPT-4, a custom LSTM &mdash; it doesn't matter. What matters is that the system, the pipeline, the components, the execution, and the confidence are <strong>all recorded in a standard, queryable schema</strong>.
+        </p>
+        <p>
+          This is what moves NLP from "it works on my laptop" to "I can defend this in a methods section, and a downstream researcher can audit it two years from now."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mdx-cta mdx-fade">
+    <div class="md-grid md-typeset">
+      <div class="mdx-cta__inner">
+        <div class="mdx-cta__heading">Read the full architecture</div>
+        <p>
+          Our NOTE and NLP Infrastructure whitepaper describes the 4-layer, 13-table schema
+          that makes this possible &mdash; from pipeline registration through <code>_DERIVED</code> tables.
+        </p>
+        <div class="mdx-cta__buttons">
+          <a href="{{ 'Data in Enterprise OMOP/NLP Infrastructure/architecture/' | url }}" class="md-button md-button--primary">
+            Architecture
+          </a>
+          <a href="{{ 'Data in Enterprise OMOP/NLP Infrastructure/entity-relationship-diagram/' | url }}" class="md-button">
+            Entity Relationship Diagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("mdx-fade--visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll(".mdx-fade").forEach(function(el) {
+        observer.observe(el);
+      });
+    });
+  </script>
+{% endblock %}
