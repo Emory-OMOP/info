@@ -26,6 +26,14 @@ How the Emory OMOP team plans, prioritizes, and delivers work — from high-leve
 
     [:octicons-arrow-right-24: Framework overview](DevOps%20Philosophy/index.md){ .md-button }
 
+-   :material-robot-outline:{ .lg .middle } **LLM Use Disclosure**
+
+    ---
+
+    Transparency statement on how the team uses large language models — what they touch, what they don't, and how we maintain boundaries around patient data and Emory infrastructure.
+
+    [:octicons-arrow-right-24: View disclosure](LLM%20Use%20Disclosure/index.md){ .md-button }
+
 </div>
 
 !!! question "Want to request a feature or report a bug?"
