@@ -156,11 +156,14 @@ These tables store the actual NLP outputs. Some metadata from this layer is push
     | Column | Type | Description |
     |--------|------|-------------|
     | `note_span_id` | int (PK) | Unique identifier for the span |
-    | `note_id` | int (FK) | The source note |
+    | `source_primary_key_source` | varchar | Fully qualified source path identifying the source system and column (e.g., `clarity.dbo.hno_notes.note_csn_id`) |
+    | `source_primary_key` | varchar | The note identifier in that source system |
     | `span_start` | int | Character offset of span start (0-indexed) |
     | `span_end` | int | Character offset of span end (exclusive) |
     | `span_text` | varchar | The extracted text |
     | `probability` | double | Confidence score from the NLP model |
+
+    NLP practitioners submit spans referencing notes by **source system identifiers**, not OMOP `note_id`. Resolution to OMOP IDs happens downstream via `note_mapping`, following the same `_source_primary_key_source` + `_source_primary_key` pattern used across the Enterprise OMOP pipeline (e.g., `visit_occurrence_mapping`, `care_site_mapping`).
 
     Character offsets enable precise text localization, which is critical for annotation review, model debugging, and adjudication workflows.
 
@@ -208,6 +211,18 @@ These tables store the actual NLP outputs. Some metadata from this layer is push
     | `target_note_span_id` | int (FK) | The target span |
     | `label_concept_id` | int (FK) | OMOP concept describing the relationship type |
     | `probability` | double | Confidence score for the relationship |
+
+???+ example "`note_mapping` — Source-to-OMOP note resolution"
+
+    Maps source system note identifiers to OMOP `note_id`. This is the bridge that allows `note_span` rows — which reference notes by source system keys — to be resolved to OMOP note table IDs downstream in dbt. Analogous to `visit_occurrence_mapping` and `care_site_mapping` in the existing Enterprise OMOP pipeline.
+
+    | Column | Type | Description |
+    |--------|------|-------------|
+    | `note_id` | int (FK) | OMOP `note` table ID |
+    | `source_primary_key_source` | varchar | Source system identifier (matches `note_span.source_primary_key_source`) |
+    | `source_primary_key` | varchar | Note ID in source system (matches `note_span.source_primary_key`) |
+
+    This table is populated by the ETL pipeline (not the NLP service) and is maintained as a reference for downstream dbt transformations.
 
 ---
 
@@ -280,11 +295,12 @@ Every NLP-derived observation can be traced back through the full chain:
 measurement_DERIVED row
   → note_nlp_modifier (what modifier attributes were applied)
     → note_span (exact text, character offsets, confidence)
+      → note_mapping (resolves source_primary_key → OMOP note_id)
+        → note (the original clinical text)
       → note_span_execution (which execution produced this span)
         → nlp_execution (when, which pipeline)
           → pipeline + pipeline_component (which components, what config)
             → nlp_system (which system, what version)
-              → note (the original clinical text)
 ```
 
 | Layer | Concern | Audience |
@@ -328,9 +344,13 @@ For each NLP run:
 
 1. Create an `nlp_execution` record capturing the system, pipeline, worker version, and date
 2. Process notes through the pipeline, producing span-level annotations
-3. Write `note_span` rows with character offsets, extracted text, and confidence scores
+3. Write `note_span` rows with `source_primary_key_source` and `source_primary_key` identifying the source note, along with character offsets, extracted text, and confidence scores
 4. Write typed extractions to `note_span_concept`, `nlp_date`, `nlp_quantity`, and `note_span_relationship` as appropriate
 5. Link spans to executions via `note_span_execution`
+
+!!! note "Source key pattern"
+
+    The bronze ingestion layer (FastAPI service) accepts source system identifiers rather than OMOP `note_id` values. NLP practitioners reference notes using `source_primary_key_source` (the fully qualified source path, e.g., `clarity.dbo.hno_notes.note_csn_id`) and `source_primary_key` (the value in that source column). Resolution from source keys to OMOP `note_id` is handled downstream by dbt via the `note_mapping` table. This follows the existing Emory `_source_primary_key_source` + `_source_primary_key` pattern used for `visit_occurrence_mapping`, `care_site_mapping`, and other identity resolution tables in the Enterprise OMOP pipeline.
 
 ### Translation to `_DERIVED` Tables
 
