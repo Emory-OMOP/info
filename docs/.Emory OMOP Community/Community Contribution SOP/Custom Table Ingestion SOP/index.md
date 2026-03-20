@@ -30,7 +30,7 @@ We encourage you to use the tools and the communities that are readily at your d
     - OHDSI Workgroups (data type and disease specific)
         - Teams spaces and Workgroup calls are a great place for newcomers to ask questions
     - [General channel](https://teams.microsoft.com/l/channel/19%3AtGpixXm22J177ODEAB2sQ_OHDEG5QzQmR7tOZLGmnEE1%40thread.tacv2/General?groupId=1daa5866-d1b0-4677-8190-37516c91ca06&tenantId=e004fb9c-b0a4-424f-bcd0-322606d5df38) in the enterprise OMOP MS Teams space.
-    - Head to Jira, and filter tickets by the "Feature" epic (grouper in Jira) to see what other people are working on, and what is in the pipeline.
+    - Check the [Feature Request Form](https://forms.cloud.microsoft/r/BuziYrfaa4) to submit new requests, or reach out on the Teams channel to see what is in the pipeline.
 
 ## Where to go when you're ready to use this SOP
 
@@ -40,4 +40,4 @@ We encourage you to use the tools and the communities that are readily at your d
 3) attend the next Enterprise OMOP Community Meeting to discuss the request with the team and with other users
     - this is a great time to ask questions about the data, and to get feedback from the community on your request
     - please note that the team will try and review your request before the meeting, but the more leed time you give us, the better we can prepare for the meeting
-4) by completing 1 and 2, you will have created a Jira ticket for your request. The team will review the request and get back to you with any questions or comments if you do not otherwise reach out to the team in some manner (such as step 3, above).
+4) by completing 1 and 2, you will have submitted a request for the team to review. The team will get back to you with any questions or comments if you do not otherwise reach out to the team in some manner (such as step 3, above).

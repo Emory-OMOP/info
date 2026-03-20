@@ -20,7 +20,7 @@ The following workflows are recommended for the most expedient support.
 
     Include steps to reproduce, relevant screenshots, and any error messages for the fastest resolution.
 
-    [:octicons-arrow-right-24: Bug Report Form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/203){ .md-button }
+    [:octicons-arrow-right-24: Bug Report Form](https://forms.cloud.microsoft/r/0ntP9uz6mf){ .md-button }
 
 -   :octicons-sparkles-fill-16:{ .lg .middle } **Request a Feature**
 
@@ -28,7 +28,7 @@ The following workflows are recommended for the most expedient support.
 
     Describe the feature, the problem it solves, and any relevant use cases or examples.
 
-    [:octicons-arrow-right-24: Feature Request Form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/204){ .md-button }
+    [:octicons-arrow-right-24: Feature Request Form](https://forms.cloud.microsoft/r/BuziYrfaa4){ .md-button }
 
 </div>
 
