@@ -1398,22 +1398,7 @@ html { scroll-behavior: smooth; }
 }
 
 .rm-timeline::before {
-  content: "";
-  position: absolute;
-  left: 1.25rem;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--md-primary-fg-color);
-  opacity: .18;
-  border-radius: 2px;
-}
-
-@media (min-width: 60em) {
-  .rm-timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  display: none;
 }
 
 /* Quarter header */
@@ -1634,4 +1619,166 @@ html { scroll-behavior: smooth; }
   align-items: center;
   gap: .3rem;
   font-size: .78rem;
+}
+
+/* ==========================================================================
+   Product Roadmap — Harvey Balls
+   ========================================================================== */
+
+/* Harvey ball legend */
+.hb-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: center;
+  margin: .75rem 0 1.5rem;
+}
+
+.hb-legend__item {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .78rem;
+}
+
+/* Harvey ball — CSS-drawn circles via conic-gradient */
+.hb-ball {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid var(--md-primary-fg-color);
+  background: transparent;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.hb-ball--100 {
+  background: var(--md-primary-fg-color);
+}
+
+.hb-ball--75 {
+  background: conic-gradient(
+    var(--md-primary-fg-color) 0deg 270deg,
+    transparent 270deg 360deg
+  );
+}
+
+.hb-ball--50 {
+  background: conic-gradient(
+    var(--md-primary-fg-color) 0deg 180deg,
+    transparent 180deg 360deg
+  );
+}
+
+.hb-ball--25 {
+  background: conic-gradient(
+    var(--md-primary-fg-color) 0deg 90deg,
+    transparent 90deg 360deg
+  );
+}
+
+.hb-ball--0 {
+  background: transparent;
+}
+
+/* Large balls inside cards */
+.hb-ball--inline {
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-right: .35rem;
+}
+
+/* Smaller balls inside tables */
+.rm-maturity .hb-ball {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* Smaller balls in legend */
+.hb-legend .hb-ball {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] .hb-ball {
+  border-color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .hb-ball--100 {
+  background: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .hb-ball--75 {
+  background: conic-gradient(
+    var(--md-accent-fg-color) 0deg 270deg,
+    transparent 270deg 360deg
+  );
+}
+
+[data-md-color-scheme="slate"] .hb-ball--50 {
+  background: conic-gradient(
+    var(--md-accent-fg-color) 0deg 180deg,
+    transparent 180deg 360deg
+  );
+}
+
+[data-md-color-scheme="slate"] .hb-ball--25 {
+  background: conic-gradient(
+    var(--md-accent-fg-color) 0deg 90deg,
+    transparent 90deg 360deg
+  );
+}
+
+/* Priority bubble (top-right of card) */
+.rm-priority {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: hsla(0, 0%, 50%, .15);
+  color: var(--md-default-fg-color--light);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+[data-md-color-scheme="slate"] .rm-priority {
+  background: hsla(0, 0%, 100%, .1);
+}
+
+/* Priority bubbles in legend render inline, not absolute */
+.rm-legend .rm-priority {
+  position: static;
+  display: inline-flex;
+  margin-right: .15rem;
+}
+
+/* Sub-feature list within a card (e.g., v1.1 breakdown) */
+.rm-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .75rem;
+  margin-top: .5rem;
+  padding-top: .5rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.hb-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .rm-card__features {
+  border-top-color: hsla(215, 30%, 40%, .2);
 }

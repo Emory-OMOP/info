@@ -10,31 +10,25 @@ The product roadmap is a living document that evolves as priorities shift, new r
 
 <div class="grid cards" markdown>
 
--   :material-map-marker-path:{ .lg .middle } **View the Roadmap**
+-   :material-view-dashboard:{ .lg .middle } **Release Roadmap**
 
     ---
 
-    Interactive diagram on Lucidchart — zoom, pan, and comment directly on planned features and timelines.
+    Release cadence, harvey ball progress tracking, and data product maturity across all OMOP domains. Updated monthly.
 
-    [:octicons-arrow-right-24: Open in Lucidchart](https://lucid.app/lucidchart/9ef23f4a-24e6-4c76-8786-a4cf85dc60bb/edit?viewport_loc=-5366%2C-2794%2C12531%2C7341%2Cz5T_mG4p5M5x&invitationId=inv_4b20ef2f-d941-4267-a2f9-9c2f1a090a9d){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: View Release Roadmap](detailed-roadmap.md){ .md-button .md-button--primary }
+
+-   :material-map-marker-path:{ .lg .middle } **Product Offerings**
+
+    ---
+
+    Interactive diagram on Lucidchart — zoom, pan, and comment directly on current product offerings.
+
+    [:octicons-arrow-right-24: Open in Lucidchart](https://lucid.app/lucidchart/9ef23f4a-24e6-4c76-8786-a4cf85dc60bb/edit?viewport_loc=-5366%2C-2794%2C12531%2C7341%2Cz5T_mG4p5M5x&invitationId=inv_4b20ef2f-d941-4267-a2f9-9c2f1a090a9d)
 
 </div>
 
 !!! info "Emory login required"
-    The Lucidchart roadmap requires an Emory account. Comments and suggestions are welcome directly on the diagram.
+    The Lucidchart diagram requires an Emory account. Comments and suggestions are welcome directly on the diagram.
 
 For the most current status on individual work items, see the [GitHub project board](https://github.com/orgs/EmoryDataSolutions/projects) (core team access required).
-
-<!-- Detailed roadmap hidden pending finalization — restore when ready
-<div class="grid cards" markdown>
-
--   :material-view-dashboard:{ .lg .middle } **Detailed Product Roadmap**
-
-    ---
-
-    Interactive timeline of shipped, in-progress, and planned data products with quarterly milestones and maturity status across all OMOP domains.
-
-    [:octicons-arrow-right-24: View Detailed Roadmap](detailed-roadmap.md)
-
-</div>
--->
