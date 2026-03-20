@@ -29,7 +29,7 @@ Questions, ideas, or need help getting started? Here's how to reach the Emory OM
 
     Found something broken? Submit a bug report with steps to reproduce and we'll investigate.
 
-    [:octicons-arrow-right-24: Bug report form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/203){ .md-button }
+    [:octicons-arrow-right-24: Bug report form](https://forms.cloud.microsoft/r/0ntP9uz6mf){ .md-button }
 
 -   :octicons-sparkles-fill-16:{ .lg .middle } **Request a Feature**
 
@@ -37,7 +37,7 @@ Questions, ideas, or need help getting started? Here's how to reach the Emory OM
 
     Have an idea for a new tool, dataset, or improvement? We'd like to hear it.
 
-    [:octicons-arrow-right-24: Feature request form](https://emoryrhsit.atlassian.net/jira/software/projects/OMOPRP/form/204){ .md-button }
+    [:octicons-arrow-right-24: Feature request form](https://forms.cloud.microsoft/r/BuziYrfaa4){ .md-button }
 
 -   :material-key-variant:{ .lg .middle } **Request Access**
 

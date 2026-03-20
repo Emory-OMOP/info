@@ -30,11 +30,13 @@ A good mapping request helps the team prioritize and act quickly. Include:
 
 <div class="grid cards" markdown>
 
--   :material-jira:{ .lg .middle } **Jira Feature Request**
+-   :material-form-select:{ .lg .middle } **Feature Request Form**
 
     ---
 
-    Open a feature request in the OMOP Enterprise Jira project. Use the "Vocabulary Mapping" request type and include the details above.
+    Submit a feature request through the OMOP Enterprise intake form. Include the details above and select "Vocabularies" as the Project Area.
+
+    [:octicons-arrow-right-24: Feature Request Form](https://forms.cloud.microsoft/r/BuziYrfaa4){ .md-button }
 
 -   :material-microsoft-teams:{ .lg .middle } **Teams Channel**
 
