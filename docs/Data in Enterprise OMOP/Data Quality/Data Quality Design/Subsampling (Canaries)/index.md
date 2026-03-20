@@ -1,12 +1,16 @@
-## Subsampling
+---
+hide:
+  - footer
+title: Subsampling ("Canaries")
+---
 
-### Purpose
+# Subsampling ("Canaries")
 
 Subsampling selects a small, fixed set of patients — typically 40 — who are tracked longitudinally across every pipeline run. The same individuals appear in every snapshot, every reload, every environment test. This is not test data. It is a **variance detection mechanism**.
 
-When the pipeline transforms the same 40 patients and produces different output than the last run, something changed. That change must be found and explained. Subsampling turns invisible pipeline drift into a visible, auditable signal.
+Like canaries in a coal mine, these patients serve as early-warning sentinels. When the pipeline transforms the same 40 patients and produces different output than the last run, something changed. That change must be found and explained. Subsampling turns invisible pipeline drift into a visible, auditable signal.
 
-### Design principles
+## Design principles
 
 **Immutability.** A subsample is frozen at creation. The same 40 person_ids are used indefinitely. Regenerating a subsample breaks longitudinal comparability and is treated as a major event requiring documented justification.
 
@@ -23,7 +27,7 @@ When the pipeline transforms the same 40 patients and produces different output 
 
 Each cause has different implications. The subsample makes these visible before they reach production.
 
-### Architecture
+## Architecture
 
 The subsampling system spans two layers:
 
@@ -35,7 +39,7 @@ The subsampling system spans two layers:
 
 **Downstream projects** (CDW, Epic, Enterprise, Identity, Ingest, BrainHealth, Winship, Nursing) consume the subsample via `--target subsample --vars '{"subsample": "omop_subsampling.person_subsample"}'`. The `cohort_person_filter` or equivalent model filters all clinical data to just the 40 patients. Every table in the pipeline is rebuilt for only those individuals.
 
-### Target-based routing
+## Target-based routing
 
 Each dbt project supports multiple targets that control where output lands:
 
@@ -55,14 +59,14 @@ The `subsample` target:
 - Materializes reference tables (vocab, provider, care_site, location) as views instead of tables
 - Filters clinical data through the subsample patient list
 
-### What NOT to do
+## What NOT to do
 
 - **Never regenerate a subsample** without explicit direction and documented reason
 - **Never delete subsample tables** — they are permanent reference data
 - **Never assume variance is acceptable** — every difference between subsample runs must be investigated
 - **Never use subsamples as disposable test data** — they are longitudinal tracking cohorts
 
-### Subsample tables in `omop_subsampling`
+## Subsample tables in `omop_subsampling`
 
 Permanent (never delete):
 
