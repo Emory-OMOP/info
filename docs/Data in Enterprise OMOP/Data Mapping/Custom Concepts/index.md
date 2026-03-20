@@ -21,6 +21,28 @@ Custom concepts:
 - Are documented and versioned alongside each product release
 - Are built through the **Custom Vocabulary Builder (CVB)**, an automated pipeline that produces OMOP-compatible vocabulary deltas
 
+## Architecture
+
+<div class="grid cards" markdown>
+
+-   :material-strategy:{ .lg .middle } **Custom Vocabulary Strategy**
+
+    ---
+
+    Why Emory adopts 2-billionaire Standard concepts, how STCM and CVB complement each other, and our early adoption of vocabulary metadata tables.
+
+    [:octicons-arrow-right-24: Vocabulary Strategy](vocabulary-strategy.md)
+
+-   :material-swap-horizontal:{ .lg .middle } **Network Study Bifurcation**
+
+    ---
+
+    How the ETL supports both local (CVB-enhanced) and OHDSI network study (Athena-only) concept resolution through compound targets and dual vocabulary schemas.
+
+    [:octicons-arrow-right-24: Network Study Bifurcation](network-study-bifurcation.md)
+
+</div>
+
 ## How to Get Involved
 
 <div class="grid cards" markdown>
