@@ -243,7 +243,7 @@ The standard assertion categories are:
 | **Context** | ConText algorithm (Harkema et al.) | The algorithm that detects assertions |
 | **Modifiers** | medspaCy, cTAKES, OMOP `term_modifiers` | Implementation-level term |
 
-This table was previously named `note_span_assertion`. The rename to `note_span_assertion` reflects its primary role: capturing unary assertions about spans (negation, temporality, experiencer, certainty) via `label_concept_id`, with `target_note_span_id` = NULL for unary assertions. The table can also capture binary inter-span relationships when `target_note_span_id` is populated — but the dominant use case is assertion, and the name should reflect that.
+This table was previously named `note_span_relationship`. The rename to `note_span_assertion` reflects its primary role: capturing unary assertions about spans (negation, temporality, experiencer, certainty) via `label_concept_id`, with `target_note_span_id` = NULL for unary assertions. The table can also capture binary inter-span relationships when `target_note_span_id` is populated — but the dominant use case is assertion, and the name should reflect that.
 
 ---
 
@@ -259,7 +259,7 @@ This table serves as the **bridge** between the span-based NLP output model and 
     |--------|------|-------------|
     | `note_nlp_modifier_id` | int (PK) | Unique identifier |
     | `note_span_id` | int (FK) | The source span |
-    | `note_nlp_modifier_field_concept_id` | int (FK) | What kind of modifier (e.g., negation, temporality, severity) |
+    | `note_nlp_modifier_field_concept_id` | int (FK) | The target CDM field this modifier populates (e.g., `condition_start_date`, `condition_concept_id`) |
     | `note_nlp_modifier_date` | date | Date value, if the modifier is temporal |
     | `note_nlp_modifier_string` | varchar | String value, if the modifier is textual |
     | `note_nlp_modifier_concept_id` | int (FK) | Concept value, if the modifier maps to a standard concept |
@@ -298,11 +298,23 @@ NLP-extracted observations land in tables suffixed with `_DERIVED`, which mirror
 
     *— Enterprise OMOP Implementation Team*
 
+### Emory Extended Columns
+
+Beyond the standard OMOP 5.4 columns, `_DERIVED` tables include Emory-specific columns for direct provenance linkage:
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `note_span_id` | int (FK) | Direct link to the source span in `note_span` |
+| `execution_id` | int (FK) | Direct link to the NLP execution in `nlp_execution` |
+| `_source_primary_key` | varchar | Caret-delimited `note_nlp_modifier_id` values that produced this row (e.g., `1000^1001`) |
+| `_source_primary_key_source` | varchar | Fixed value: `note_nlp_modifier` |
+| `condition_type_concept_id` | int (FK) | Set to the *NLP-Derived* concept to mark provenance (applies similarly as `*_type_concept_id` in other `_DERIVED` tables) |
+
 ### Backward Compatibility
 
-The `_DERIVED` tables share the same column structure as their standard CDM counterparts:
+The `_DERIVED` tables include all columns from their standard CDM counterparts, plus the Emory extended columns described above:
 
-- Existing OHDSI tools (ATLAS, CohortDiagnostics, FeatureExtraction) can target `_DERIVED` tables with minimal configuration changes
+- Existing OHDSI tools (ATLAS, CohortDiagnostics, FeatureExtraction) can target `_DERIVED` tables with minimal configuration changes — OHDSI tools ignore unknown columns, so the extra provenance columns do not break compatibility
 - A `UNION ALL` view can combine standard and derived tables when a researcher decides NLP-derived data meets their quality threshold
 - The standard CDM tables remain untouched — no schema modifications required
 
@@ -339,7 +351,7 @@ measurement_DERIVED row
 |------------|---------------------|----------------------|
 | Pipeline provenance | Single `nlp_system` string field | Full normalized hierarchy (system, pipeline, component, execution) |
 | Span representation | `offset` + `snippet` (substring) | `span_start` / `span_end` character offsets + `span_text` |
-| Confidence scores | Not supported | `probability` on spans and relationships |
+| Confidence scores | Not supported | `probability` on spans and assertions |
 | Typed extractions | Not supported | Dedicated `nlp_date`, `nlp_quantity` tables |
 | Contextual assertions and inter-span relationships | Not supported | `note_span_assertion` with typed labels |
 | Separation from discrete data | NLP data lands in standard CDM tables | `_DERIVED` suffix tables with explicit provenance |
@@ -377,9 +389,11 @@ For each NLP run:
 
 The translation from span-based output to CDM-compatible rows is a distinct ETL step:
 
-1. **Generate `note_nlp_modifier` rows** from span annotations — decomposing each span into its modifier attributes (concept, date, string, number)
-2. **Map modifiers to CDM domain tables** — for each span with a mapped concept, determine the target domain (measurement, condition, drug, etc.) based on the concept's `domain_id` in the OMOP vocabulary
-3. **Write `_DERIVED` rows** with appropriate linkage back to `note_nlp_modifier` for provenance
+1. **Filter negated spans** — spans with a negation assertion in `note_span_assertion` do not produce modifier rows. They are retained in Layer 2 for auditability but excluded from downstream translation
+2. **Generate `note_nlp_modifier` rows** from non-negated span annotations — decomposing each span into its modifier attributes (concept, date, string, number)
+3. **Collapse modifiers to `_DERIVED` rows** — multiple modifiers for the same span + execution merge into a single `_DERIVED` row (e.g., a condition span with separate date and concept modifiers produces one `condition_DERIVED` row)
+4. **Map modifiers to CDM domain tables** — for each span with a mapped concept, determine the target domain (measurement, condition, drug, etc.) based on the concept's `domain_id` in the OMOP vocabulary
+5. **Write `_DERIVED` rows** with appropriate linkage back to `note_nlp_modifier` for provenance
 
 ### Confidence Thresholds
 
