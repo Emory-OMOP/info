@@ -321,17 +321,21 @@
           <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" class="mdx-quicknav__dropdown-item mdx-quicknav__dropdown-item--active">
             School of Medicine
           </a>
-          {# Schools hidden pending leadership approval — restore when approved
-          <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-quicknav__dropdown-item">
+          {% if config.extra.schools.nursing %}
+          <a href="{{ 'Divisions/Nursing/' | url }}" class="mdx-quicknav__dropdown-item">
             School of Nursing
           </a>
-          <a href="{{ 'Schools/Winship/' | url }}" class="mdx-quicknav__dropdown-item">
+          {% endif %}
+          {% if config.extra.schools.winship %}
+          <a href="{{ 'Divisions/Winship/' | url }}" class="mdx-quicknav__dropdown-item">
             Winship Cancer Institute
           </a>
-          <a href="{{ 'Schools/BrainHealth/' | url }}" class="mdx-quicknav__dropdown-item">
+          {% endif %}
+          {% if config.extra.schools.brainhealth %}
+          <a href="{{ 'Divisions/BrainHealth/' | url }}" class="mdx-quicknav__dropdown-item">
             Goizueta Brain Health Institute
           </a>
-          #}
+          {% endif %}
         </div>
       </div>
     </nav>

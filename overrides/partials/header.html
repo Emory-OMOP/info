@@ -23,20 +23,24 @@
           <img src="{{ 'assets/images/schools/SOM_shield_hz_rv.png' | url }}" alt="School of Medicine" class="mdx-school-selector__thumb">
           <span>School of Medicine</span>
         </a>
-        {# Schools hidden pending leadership approval — restore when approved
-        <a href="{{ 'Schools/Nursing/' | url }}" class="mdx-school-selector__item">
+        {% if config.extra.schools.nursing %}
+        <a href="{{ 'Divisions/Nursing/' | url }}" class="mdx-school-selector__item">
           <img src="{{ 'assets/images/schools/NURS_shield_hz_rv.png' | url }}" alt="School of Nursing" class="mdx-school-selector__thumb">
           <span>Nell Hodgson Woodruff School of Nursing</span>
         </a>
-        <a href="{{ 'Schools/Winship/' | url }}" class="mdx-school-selector__item">
+        {% endif %}
+        {% if config.extra.schools.winship %}
+        <a href="{{ 'Divisions/Winship/' | url }}" class="mdx-school-selector__item">
           <img src="{{ 'assets/images/schools/WINSHIP_shield_hz_rv.png' | url }}" alt="Winship Cancer Institute" class="mdx-school-selector__thumb">
           <span>Winship Cancer Institute</span>
         </a>
-        <a href="{{ 'Schools/BrainHealth/' | url }}" class="mdx-school-selector__item">
+        {% endif %}
+        {% if config.extra.schools.brainhealth %}
+        <a href="{{ 'Divisions/BrainHealth/' | url }}" class="mdx-school-selector__item">
           <img src="{{ 'assets/images/schools/GBI_shield_hz_rv.png' | url }}" alt="Goizueta Brain Health Institute" class="mdx-school-selector__thumb">
           <span>Goizueta Brain Health Institute</span>
         </a>
-        #}
+        {% endif %}
       </div>
     </div>
 
