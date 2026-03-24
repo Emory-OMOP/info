@@ -187,6 +187,7 @@
     </div>
   </section>
 
+  {% if config.extra.chat.nursing %}
   <!-- LLM Chat Widget -->
   <section class="mdx-features">
     <div class="md-grid md-typeset">
@@ -232,6 +233,7 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
   <!-- Ready to start -->
   <section class="mdx-cta mdx-fade">
@@ -275,6 +277,8 @@
       });
     });
   </script>
+  {% if config.extra.chat.nursing %}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <script src="{{ 'assets/javascripts/chat.js' | url }}?v=6"></script>
+  {% endif %}
 {% endblock %}

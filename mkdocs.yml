@@ -133,5 +133,10 @@ extra:
     nursing: false
     winship: false
     brainhealth: false
+  chat:
+    homepage: false
+    nursing: false
+    winship: false
+    brainhealth: false
 
 copyright: Copyright &copy; 2026 Emory University

@@ -10,10 +10,11 @@ emory-omop/
 │   ├── Applications/            ← ATLAS, R, SQL tooling guides
 │   ├── Data in Enterprise OMOP/ ← Data mapping, quality, releases, conventions
 │   ├── OMOP Primers/            ← CDM table reference guides
+│   ├── Divisions/               ← Division landing pages (Nursing, Winship, Brain Health)
 │   ├── Training/                ← Emory-specific and external training resources
 │   ├── blog/                    ← News & Opportunities blog (posts, authors)
 │   └── ...
-├── overrides/                   ← MkDocs theme overrides (homepage)
+├── overrides/                   ← MkDocs theme overrides (homepage, division pages)
 ├── scripts/                     ← Automation scripts
 │   ├── update_dqd_summary.py    ← Data Quality release pipeline
 │   ├── dqd_history/             ← DQD JSON results per release
@@ -37,6 +38,57 @@ uv run mkdocs serve
 # Build static site
 uv run mkdocs build
 ```
+
+## Site configuration
+
+### Division toggles
+
+Each division (school or institute) landing page can be shown or hidden via flags in `mkdocs.yml`:
+
+```yaml
+extra:
+  schools:
+    nursing: false       # Nell Hodgson Woodruff School of Nursing
+    winship: true        # Winship Cancer Institute
+    brainhealth: true    # Goizueta Brain Health Institute
+```
+
+Set to `true` to show, `false` to hide. This controls visibility in:
+- The homepage school picker dropdown
+- The header school selector (on inner pages)
+- The Divisions index page (grid cards)
+- Each division's own school picker dropdown
+- The NLP landing page school picker
+
+School of Medicine is always visible.
+
+### Division pages
+
+Each division has a landing page at `docs/Divisions/<name>/index.md` that references a custom template in `overrides/`:
+
+| Division | Docs page | Template |
+|----------|-----------|----------|
+| Divisions index | `docs/Divisions/index.md` | `overrides/school-index.html` |
+| Nursing | `docs/Divisions/Nursing/index.md` | `overrides/school-nursing.html` |
+| Winship | `docs/Divisions/Winship/index.md` | `overrides/school-winship.html` |
+| Brain Health | `docs/Divisions/BrainHealth/index.md` | `overrides/school-brainhealth.html` |
+
+### Chat widget toggles
+
+The LLM chat widget on each landing page is controlled via flags in `mkdocs.yml`:
+
+```yaml
+extra:
+  chat:
+    homepage: false      # School of Medicine homepage
+    nursing: false       # Nell Hodgson Woodruff School of Nursing
+    winship: true        # Winship Cancer Institute
+    brainhealth: true    # Goizueta Brain Health Institute
+```
+
+Set to `true` to show, `false` to hide. When `false`, the chat HTML and scripts are completely excluded from the build — no client-side trace.
+
+Before enabling chat on a new page, ensure `AGENT_URL` and `PASSKEY` are configured in `docs/assets/javascripts/chat.js`.
 
 ## Scripts
 
