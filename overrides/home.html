@@ -220,15 +220,8 @@
     </div>
   </section>
 
-  {# ================================================================
-     PLACEHOLDER — LLM Chat Widget
-     Pending approval to deploy an LLM on the homepage. When ready:
-     1. Uncomment the chat section below
-     2. Uncomment the chat.js script tag in the scripts block
-     3. Configure AGENT_URL and PASSKEY in chat.js
-     4. Add modal.css back to mkdocs.yml if needed
-     ================================================================
-
+  {% if config.extra.chat.homepage %}
+  <!-- LLM Chat Widget -->
   <section class="mdx-features">
     <div class="md-grid md-typeset">
       <div class="mdx-features__heading mdx-fade">From hypothesis to discovery</div>
@@ -273,8 +266,7 @@
       </div>
     </div>
   </section>
-
-  #}
+  {% endif %}
 
 {% endblock %}
 
@@ -297,8 +289,8 @@
       });
     });
   </script>
-  {# Chat widget script — uncomment when LLM is approved
+  {% if config.extra.chat.homepage %}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <script src="{{ 'assets/javascripts/chat.js' | url }}?v=6"></script>
-  #}
+  {% endif %}
 {% endblock %}
