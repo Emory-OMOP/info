@@ -64,7 +64,7 @@ The architecture flows through four layers, from the OMOP `note` table to `_DERI
   note ───▶  Model ────────▶ pipeline            note_span_concept   death_DERIVED
              Train           Component            nlp_date            condition_DERIVED
                               pipeline_component  nlp_quantity        drug_DERIVED
-                              nlp_execution       note_span_relat.    procedure_DERIVED
+                              nlp_execution       note_span_assert.    procedure_DERIVED
                               note_span_execution note_nlp_modifier   observation_DERIVED
 ```
 
@@ -201,16 +201,16 @@ These tables store the actual NLP outputs. Some metadata from this layer is push
     | `magnitude_base_units_range_low` | double | Lower bound (for range expressions) |
     | `magnitude_base_units_range_high` | double | Upper bound (for range expressions) |
 
-??? example "`note_span_relationship` — Inter-span relationships"
+??? example "`note_span_assertion` — Contextual assertions and inter-span relationships"
 
-    Captures relationships between spans (e.g., a medication span "metformin" related to a dosage span "500mg", or a condition negated by a negation cue).
+    Captures contextual assertions about spans — negation, experiencer, temporality, certainty — as well as binary inter-span relationships (e.g., a medication span "metformin" related to a dosage span "500mg").
 
     | Column | Type | Description |
     |--------|------|-------------|
     | `source_note_span_id` | int (FK) | The source span |
-    | `target_note_span_id` | int (FK) | The target span |
-    | `label_concept_id` | int (FK) | OMOP concept describing the relationship type |
-    | `probability` | double | Confidence score for the relationship |
+    | `target_note_span_id` | int (FK) | The target span; NULL for unary assertions (e.g., negation of a single span) |
+    | `label_concept_id` | int (FK) | OMOP concept describing the assertion type (negation, experiencer, temporality, certainty) or relationship type |
+    | `probability` | double | Confidence score for the assertion or relationship |
 
 ???+ example "`note_mapping` — Source-to-OMOP note resolution"
 
@@ -223,6 +223,27 @@ These tables store the actual NLP outputs. Some metadata from this layer is push
     | `source_primary_key` | varchar | Note ID in source system (matches `note_span.source_primary_key`) |
 
     This table is populated by the ETL pipeline (not the NLP service) and is maintained as a reference for downstream dbt transformations.
+
+### Terminology: Why `note_span_assertion`
+
+The term **assertion** is the standard designation in clinical NLP for contextual attributes of extracted entity spans. It originates from the [i2b2/VA 2010 shared task](https://pmc.ncbi.nlm.nih.gov/articles/PMC3168320/) on "concepts, **assertions**, and relations in clinical text" (Uzuner et al., 2011), which established the canonical annotation categories: present/absent (negation), experiencer (patient vs. family), and hypothetical/conditional (certainty). This terminology was continued by the [n2c2](https://n2c2.dbmi.hms.harvard.edu/) Track 1 context classification tasks.
+
+The [ConText algorithm](https://pmc.ncbi.nlm.nih.gov/articles/PMC2757457/) (Harkema et al., 2009) is the foundational method for detecting these assertions automatically. Its successors — NegEx, pyConText, and medspaCy's `ConTextComponent` — remain the dominant approach in production clinical NLP systems.
+
+The standard assertion categories are:
+
+- **Negation** — whether a finding is present or absent (e.g., "denies chest pain")
+- **Experiencer** — whether the finding pertains to the patient or someone else (e.g., "family history of diabetes")
+- **Temporality** — whether the finding is current, historical, or hypothetical (e.g., "prior MI")
+- **Certainty** — the confidence level: definite, possible, conditional (e.g., "possible pneumonia")
+
+| Term | Used by | Scope |
+|------|---------|-------|
+| **Assertion** | i2b2, n2c2, academic publications | The annotation task and the concept itself |
+| **Context** | ConText algorithm (Harkema et al.) | The algorithm that detects assertions |
+| **Modifiers** | medspaCy, cTAKES, OMOP `term_modifiers` | Implementation-level term |
+
+This table was previously named `note_span_relationship`. The rename to `note_span_assertion` reflects its primary role: capturing unary assertions about spans (negation, temporality, experiencer, certainty) via `label_concept_id`, with `target_note_span_id` = NULL for unary assertions. The table can also capture binary inter-span relationships when `target_note_span_id` is populated — but the dominant use case is assertion, and the name should reflect that.
 
 ---
 
@@ -238,7 +259,7 @@ This table serves as the **bridge** between the span-based NLP output model and 
     |--------|------|-------------|
     | `note_nlp_modifier_id` | int (PK) | Unique identifier |
     | `note_span_id` | int (FK) | The source span |
-    | `note_nlp_modifier_field_concept_id` | int (FK) | What kind of modifier (e.g., negation, temporality, severity) |
+    | `note_nlp_modifier_field_concept_id` | int (FK) | The target CDM field this modifier populates (e.g., `condition_start_date`, `condition_concept_id`) |
     | `note_nlp_modifier_date` | date | Date value, if the modifier is temporal |
     | `note_nlp_modifier_string` | varchar | String value, if the modifier is textual |
     | `note_nlp_modifier_concept_id` | int (FK) | Concept value, if the modifier maps to a standard concept |
@@ -277,11 +298,23 @@ NLP-extracted observations land in tables suffixed with `_DERIVED`, which mirror
 
     *— Enterprise OMOP Implementation Team*
 
+### Emory Extended Columns
+
+Beyond the standard OMOP 5.4 columns, `_DERIVED` tables include Emory-specific columns for direct provenance linkage:
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `note_span_id` | int (FK) | Direct link to the source span in `note_span` |
+| `execution_id` | int (FK) | Direct link to the NLP execution in `nlp_execution` |
+| `_source_primary_key` | varchar | Caret-delimited `note_nlp_modifier_id` values that produced this row (e.g., `1000^1001`) |
+| `_source_primary_key_source` | varchar | Fixed value: `note_nlp_modifier` |
+| `condition_type_concept_id` | int (FK) | Set to the *NLP-Derived* concept to mark provenance (applies similarly as `*_type_concept_id` in other `_DERIVED` tables) |
+
 ### Backward Compatibility
 
-The `_DERIVED` tables share the same column structure as their standard CDM counterparts:
+The `_DERIVED` tables include all columns from their standard CDM counterparts, plus the Emory extended columns described above:
 
-- Existing OHDSI tools (ATLAS, CohortDiagnostics, FeatureExtraction) can target `_DERIVED` tables with minimal configuration changes
+- Existing OHDSI tools (ATLAS, CohortDiagnostics, FeatureExtraction) can target `_DERIVED` tables with minimal configuration changes — OHDSI tools ignore unknown columns, so the extra provenance columns do not break compatibility
 - A `UNION ALL` view can combine standard and derived tables when a researcher decides NLP-derived data meets their quality threshold
 - The standard CDM tables remain untouched — no schema modifications required
 
@@ -318,9 +351,9 @@ measurement_DERIVED row
 |------------|---------------------|----------------------|
 | Pipeline provenance | Single `nlp_system` string field | Full normalized hierarchy (system, pipeline, component, execution) |
 | Span representation | `offset` + `snippet` (substring) | `span_start` / `span_end` character offsets + `span_text` |
-| Confidence scores | Not supported | `probability` on spans and relationships |
+| Confidence scores | Not supported | `probability` on spans and assertions |
 | Typed extractions | Not supported | Dedicated `nlp_date`, `nlp_quantity` tables |
-| Inter-span relationships | Not supported | `note_span_relationship` with typed labels |
+| Contextual assertions and inter-span relationships | Not supported | `note_span_assertion` with typed labels |
 | Separation from discrete data | NLP data lands in standard CDM tables | `_DERIVED` suffix tables with explicit provenance |
 | Modifier representation | Free-text `term_modifiers` string | Structured `note_nlp_modifier` with typed fields |
 
@@ -345,7 +378,7 @@ For each NLP run:
 1. Create an `nlp_execution` record capturing the system, pipeline, worker version, and date
 2. Process notes through the pipeline, producing span-level annotations
 3. Write `note_span` rows with `source_primary_key_source` and `source_primary_key` identifying the source note, along with character offsets, extracted text, and confidence scores
-4. Write typed extractions to `note_span_concept`, `nlp_date`, `nlp_quantity`, and `note_span_relationship` as appropriate
+4. Write typed extractions to `note_span_concept`, `nlp_date`, `nlp_quantity`, and `note_span_assertion` as appropriate
 5. Link spans to executions via `note_span_execution`
 
 !!! note "Source key pattern"
@@ -356,9 +389,11 @@ For each NLP run:
 
 The translation from span-based output to CDM-compatible rows is a distinct ETL step:
 
-1. **Generate `note_nlp_modifier` rows** from span annotations — decomposing each span into its modifier attributes (concept, date, string, number)
-2. **Map modifiers to CDM domain tables** — for each span with a mapped concept, determine the target domain (measurement, condition, drug, etc.) based on the concept's `domain_id` in the OMOP vocabulary
-3. **Write `_DERIVED` rows** with appropriate linkage back to `note_nlp_modifier` for provenance
+1. **Filter negated spans** — spans with a negation assertion in `note_span_assertion` do not produce modifier rows. They are retained in Layer 2 for auditability but excluded from downstream translation
+2. **Generate `note_nlp_modifier` rows** from non-negated span annotations — decomposing each span into its modifier attributes (concept, date, string, number)
+3. **Collapse modifiers to `_DERIVED` rows** — multiple modifiers for the same span + execution merge into a single `_DERIVED` row (e.g., a condition span with separate date and concept modifiers produces one `condition_DERIVED` row)
+4. **Map modifiers to CDM domain tables** — for each span with a mapped concept, determine the target domain (measurement, condition, drug, etc.) based on the concept's `domain_id` in the OMOP vocabulary
+5. **Write `_DERIVED` rows** with appropriate linkage back to `note_nlp_modifier` for provenance
 
 ### Confidence Thresholds
 
@@ -375,7 +410,7 @@ The translation from span-based output to CDM-compatible rows is a distinct ETL 
 | Zone | Tables | Schema Recommendation |
 |------|--------|-----------------------|
 | NLP Operations | nlp_system, pipeline, Component, pipeline_component, nlp_execution, note_span_execution | Dedicated `nlp_ops` schema |
-| NLP Output | note_span, note_span_concept, nlp_date, nlp_quantity, note_span_relationship, note_nlp_modifier | Dedicated `nlp_output` schema |
+| NLP Output | note_span, note_span_concept, nlp_date, nlp_quantity, note_span_assertion, note_nlp_modifier | Dedicated `nlp_output` schema |
 | CDM Extended | measurement_DERIVED, death_DERIVED, condition_DERIVED, drug_DERIVED, procedure_DERIVED, observation_DERIVED | Same schema as CDM (or `cdm_derived` schema) |
 
 ---
@@ -396,8 +431,14 @@ The translation from span-based output to CDM-compatible rows is a distinct ETL 
 This architecture integrates work from three sources:
 
 - **IOMED NLP** — NLP process metadata tables (`nlp_system`, `pipeline`, `Component`, `pipeline_component`, `nlp_execution`, `note_span_execution`)
-- **OHDSI NLP Working Group** — Span-based annotation model and typed extraction tables (`note_span`, `note_span_concept`, `nlp_date`, `nlp_quantity`, `note_span_relationship`)
+- **OHDSI NLP Working Group** — Span-based annotation model and typed extraction tables (`note_span`, `note_span_concept`, `nlp_date`, `nlp_quantity`, `note_span_assertion`)
 - **Emory Enterprise OMOP Team** — `_DERIVED` table pattern, `note_nlp_modifier` intermediate translation layer, operational deployment guidance, and column modifications
+
+### References
+
+- Uzuner Ö, South BR, Shen S, DuVall SL. 2010 i2b2/VA challenge on concepts, assertions, and relations in clinical text. *Journal of the American Medical Informatics Association*. 2011;18(5):552–556. [PMC3168320](https://pmc.ncbi.nlm.nih.gov/articles/PMC3168320/)
+- Harkema H, Dowling JN, Thornblade T, Chapman WW. ConText: an algorithm for determining negation, experiencer, and temporal status from clinical reports. *Journal of Biomedical Informatics*. 2009;42(5):839–851. [PMC2757457](https://pmc.ncbi.nlm.nih.gov/articles/PMC2757457/)
+- n2c2 NLP Clinical Challenges — successor to i2b2, continuing shared tasks on clinical NLP including context classification. [n2c2.dbmi.hms.harvard.edu](https://n2c2.dbmi.hms.harvard.edu/)
 
 ---
 
@@ -412,6 +453,7 @@ This architecture integrates work from three sources:
 
 ## Related Pages
 
+- [:octicons-arrow-right-24: NLP Glossary](glossary.md) — Terminology reference for clinical NLP concepts
 - [:octicons-arrow-right-24: Note NLP (OMOP Primer)](../../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Notes/Note%20NLP/index.md) — Standard `note_nlp` table reference
 - [:octicons-arrow-right-24: Data Mapping](../Data%20Mapping/index.md) — How source data flows into OMOP
 - [:octicons-arrow-right-24: Data Quality Design](../Data%20Quality/Data%20Quality%20Design/index.md) — DataOps framework for pipeline quality

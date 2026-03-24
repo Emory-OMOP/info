@@ -33,7 +33,7 @@ The entity relationship diagram visualizes the full NLP infrastructure schema ac
 The ERD covers:
 
 - **Layer 1 — Process Metadata**: `nlp_system`, `pipeline`, `Component`, `pipeline_component`, `nlp_execution`, `note_span_execution`
-- **Layer 2 — NLP Output**: `note_span`, `note_span_concept`, `nlp_date`, `nlp_quantity`, `note_span_relationship`
+- **Layer 2 — NLP Output**: `note_span`, `note_span_concept`, `nlp_date`, `nlp_quantity`, `note_span_assertion`
 - **Layer 3 — Intermediate Translation**: `note_nlp_modifier`
 - **Layer 4 — `_DERIVED` Tables**: `measurement_DERIVED`, `condition_DERIVED`, `drug_DERIVED`, `procedure_DERIVED`, `observation_DERIVED`, `death_DERIVED`
 

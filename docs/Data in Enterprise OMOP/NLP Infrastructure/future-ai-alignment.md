@@ -108,7 +108,7 @@ All six Traceability recommendations map to infrastructure tables:
 | FUTURE-AI Recommendation | Description | Infrastructure Coverage |
 |:---|:---|:---|
 | **Explainability 1**: Define explainability needs | Establish whether and what type of explainability is required | Publication/governance concern. |
-| **Explainability 2**: Evaluate explainability | Assess whether explanations are meaningful, correct, and beneficial | `note_span` with character offsets (`span_start`, `span_end`) and `span_text` provides intrinsic explainability — every extraction is grounded in the exact source text. `note_span_relationship` captures inter-span reasoning (e.g., negation, temporal links). |
+| **Explainability 2**: Evaluate explainability | Assess whether explanations are meaningful, correct, and beneficial | `note_span` with character offsets (`span_start`, `span_end`) and `span_text` provides intrinsic explainability — every extraction is grounded in the exact source text. `note_span_assertion` captures inter-span reasoning (e.g., negation, temporal links). |
 
 !!! success "Infrastructure advantage"
 
