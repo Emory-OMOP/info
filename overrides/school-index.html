@@ -1,0 +1,85 @@
+{%- extends "main.html" -%}
+
+{% block tabs %}
+  {{ super() }}
+
+  <style>
+    .md-header { display: none }
+    .md-tabs { display: none }
+    .md-main__inner { margin: 0 }
+    .md-content { display: none }
+    .md-typeset h1 { display: none }
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary { display: none }
+    }
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary { display: none }
+    }
+  </style>
+
+  <!-- Hero -->
+  <section class="mdx-container mdx-container--school">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero" style="padding: 3rem 0 1rem;">
+        <div class="mdx-hero__content">
+          <div class="mdx-hero__headline">Divisions</div>
+          <div class="mdx-hero__tagline">
+            Each division has its own OMOP landing page with a tailored chat assistant and curated resources.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section style="background: #fff; padding: 2rem 0 4rem;">
+    <div class="md-grid md-typeset">
+      <div class="grid cards" markdown>
+        <ul>
+
+          <li>
+            <p><span class="twemoji lg middle">{% include ".icons/material/medical-bag.svg" %}</span> <strong>School of Medicine</strong></p>
+            <hr>
+            <p>The primary Emory OMOP hub — full access to cohort tools, data documentation, training, and support across all clinical domains.</p>
+            <p><a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}">→ School of Medicine</a></p>
+          </li>
+
+          {% if config.extra.schools.nursing %}
+          <li>
+            <p><span class="twemoji lg middle">{% include ".icons/material/heart-pulse.svg" %}</span> <strong>Nell Hodgson Woodruff School of Nursing</strong></p>
+            <hr>
+            <p>Nursing-focused OMOP resources — patient populations, care outcomes, and clinical research powered by standardized data.</p>
+            <p><a href="{{ 'Divisions/Nursing/' | url }}">→ School of Nursing</a></p>
+          </li>
+          {% endif %}
+
+          {% if config.extra.schools.winship %}
+          <li>
+            <p><span class="twemoji lg middle">{% include ".icons/material/ribbon.svg" %}</span> <strong>Winship Cancer Institute</strong></p>
+            <hr>
+            <p>Oncology research powered by OMOP — build cancer cohorts, explore treatment patterns, and run analyses across tumor types.</p>
+            <p><a href="{{ 'Divisions/Winship/' | url }}">→ Winship Cancer Institute</a></p>
+          </li>
+          {% endif %}
+
+          {% if config.extra.schools.brainhealth %}
+          <li>
+            <p><span class="twemoji lg middle">{% include ".icons/material/brain.svg" %}</span> <strong>Goizueta Brain Health Institute</strong></p>
+            <hr>
+            <p>Neuroscience research powered by OMOP — study Alzheimer's, Parkinson's, epilepsy, and stroke with standardized clinical data.</p>
+            <p><a href="{{ 'Divisions/BrainHealth/' | url }}">→ Goizueta Brain Health Institute</a></p>
+          </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}

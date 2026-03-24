@@ -125,8 +125,13 @@ markdown_extensions:
       custom_checkbox: true
   - footnotes
 
-# Disable the Made with Material for MkDocs notice
+# Site-wide settings
 extra:
-  generator: false                    
+  # Disable the Made with Material for MkDocs notice
+  generator: false
+  schools:
+    nursing: false
+    winship: false
+    brainhealth: false
 
 copyright: Copyright &copy; 2026 Emory University
