@@ -87,6 +87,9 @@ These tables describe the NLP infrastructure itself. They are **not forwarded to
     | `nlp_system_id` | int (PK) | Unique identifier for the NLP system |
     | `name` | varchar | Human-readable name of the system |
     | `version` | int | Version number |
+    | `source` | varchar | Source platform or registry (e.g., `github`, `huggingface`, `pypi`, `docker`, `s3`) |
+    | `source_uri` | varchar | Full addressable location (e.g., `github.com/EmoryDataSolutions/emory_omop_internal_nlp`) |
+    | `source_version` | varchar | Machine-verifiable version (git SHA, HF commit, Docker tag, PyPI version) |
 
 ???+ example "`pipeline` — Pipeline configuration"
 
@@ -98,6 +101,9 @@ These tables describe the NLP infrastructure itself. They are **not forwarded to
     | `pipeline_name` | varchar | Descriptive name |
     | `programming_language` | varchar | Implementation language (e.g., Python, Java) |
     | `active` | varchar | Whether the pipeline is currently active |
+    | `source` | varchar | Source platform or registry (e.g., `github`, `huggingface`, `pypi`, `docker`, `s3`) |
+    | `source_uri` | varchar | Full addressable location (e.g., `github.com/EmoryDataSolutions/emory_omop_internal_nlp`) |
+    | `source_version` | varchar | Machine-verifiable version (git SHA, HF commit, Docker tag, PyPI version) |
 
 ???+ example "`Component` — Pipeline components"
 
@@ -110,6 +116,19 @@ These tables describe the NLP infrastructure itself. They are **not forwarded to
     | `version` | varchar | Component version string |
     | `data` | varchar | Reference to model artifacts or data dependencies |
     | `is_pipe` | varchar | Whether this component is itself a sub-pipeline |
+    | `source` | varchar | Source platform or registry (e.g., `github`, `huggingface`, `pypi`, `docker`, `s3`) |
+    | `source_uri` | varchar | Full addressable location (e.g., `github.com/EmoryDataSolutions/emory_omop_internal_nlp`) |
+    | `source_version` | varchar | Machine-verifiable version (git SHA, HF commit, Docker tag, PyPI version) |
+
+!!! info "Source provenance"
+
+    Source provenance applies at all three levels because systems, pipelines, and components may originate from different repositories or registries. For example, an NLP system may live in a GitHub repo, while one of its components is a HuggingFace model and another is a PyPI package. The `source` / `source_uri` / `source_version` triple provides machine-verifiable provenance regardless of where the artifact lives.
+
+    | Level | source | source_uri | source_version |
+    |-------|--------|-----------|----------------|
+    | nlp_system | github | github.com/EmoryDataSolutions/emory_omop_internal_nlp | 83b3464 |
+    | component (medspacy) | pypi | medspacy | 1.2.0 |
+    | component (BERT) | huggingface | emilyalsentzer/Bio_ClinicalBERT | a2ab630 |
 
 ??? example "`pipeline_component` — Pipeline-component linkage"
 

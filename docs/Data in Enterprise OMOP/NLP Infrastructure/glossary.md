@@ -29,6 +29,7 @@ title: "Glossary"
 | **Experiencer** | An assertion about who has the finding — patient or someone else (e.g., family member). | ConText (Harkema et al.) |
 | **Temporality** | An assertion about when a finding occurred — current, historical, or hypothetical. | ConText (Harkema et al.) |
 | **Certainty** | An assertion about the confidence level — definite, possible, conditional, hypothetical. | i2b2 assertion categories |
+| **Source Provenance** | The `source` / `source_uri` / `source_version` triple that records where an NLP system, pipeline, or component originates — platform (e.g., GitHub, PyPI, HuggingFace), addressable location, and machine-verifiable version (git SHA, package version, Docker tag). | Emory Enterprise OMOP |
 | **`_DERIVED` table** | An OMOP CDM table suffixed with `_DERIVED` that contains NLP-extracted data, structurally separated from discrete EHR data. | Emory Enterprise OMOP |
 
 ---
