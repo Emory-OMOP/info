@@ -463,8 +463,84 @@ This architecture integrates work from three sources:
 
 ## Future Directions
 
-- **Annotation adjudication tables** — Schema support for multi-annotator review, inter-annotator agreement, and gold-standard corpus management
-- **Model performance metadata** — Linking execution records to evaluation metrics (precision, recall, F1) from validation runs
+### Annotation Review and Validation Framework
+
+NLP pipeline output is high-recall, variable-precision. Every extraction is a candidate, not a fact. The architecture must support human review, annotation adjudication, and gold-standard corpus management to close the quality loop.
+
+The Brain Health NLP pilot (v1.1) demonstrated this directly: a "family" assertion on an EEG note was flagged by the ConText algorithm, but human review using the `note_span_snippet` context window revealed a false positive — the patient's seizure activity interfered with interactions with a family member present during monitoring, not a family history of the condition.
+
+#### Proposed Schema: `nlp_annotation_review`
+
+A review table capturing human judgments on NLP-extracted spans:
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `review_id` | int (PK) | Unique identifier for the review |
+| `note_span_id` | int (FK) | The span being reviewed |
+| `nlp_execution_id` | int (FK) | The execution that produced the span (ties review to a specific pipeline version) |
+| `reviewer_id` | varchar | Identifier for the human reviewer |
+| `reviewer_role` | varchar | Role of the reviewer (e.g., "clinician", "annotator", "domain_expert") |
+| `review_date` | timestamptz | When the review was performed |
+| `original_label` | varchar | The NLP pipeline's `concept_source_value` for the span |
+| `original_assertion` | varchar | The NLP pipeline's assertion (e.g., "negation", "possible", "family") |
+| `reviewer_judgment` | varchar | Human verdict: `correct`, `incorrect`, `uncertain`, `partial` |
+| `corrected_assertion` | varchar | If `incorrect`, what the assertion should be (e.g., "family" → NULL for affirmed) |
+| `corrected_label` | varchar | If `incorrect`, what the entity label should be |
+| `review_notes` | varchar | Free-text annotation from the reviewer |
+
+#### Design Principles
+
+1. **Non-destructive**: Reviews do not modify NLP output. The original spans, assertions, and `_derived` rows remain unchanged. The review table is an overlay that records human judgments alongside machine output.
+
+2. **Execution-linked**: Each review references an `nlp_execution_id`, so when a pipeline is re-run with updated rules, prior reviews can be compared against new output to measure improvement.
+
+3. **Multi-annotator support**: Multiple reviewers can review the same span. Inter-annotator agreement can be computed by grouping reviews by `note_span_id` and comparing `reviewer_judgment` across reviewers.
+
+4. **Gold-standard corpus**: Spans with `reviewer_judgment = 'correct'` or reviewer-corrected labels form a gold-standard corpus for future model evaluation. This corpus grows organically as researchers validate `_derived` table output.
+
+#### Workflow
+
+```
+Researcher queries _derived table
+  → Finds unexpected or questionable result
+  → Joins to note_span_snippet for context window
+  → Records judgment in nlp_annotation_review
+    → Aggregated reviews inform pipeline rule improvements
+    → Reviewed spans become gold-standard evaluation data
+```
+
+#### Validation Metrics
+
+Once `nlp_annotation_review` is populated, standard NLP evaluation metrics can be computed per entity category, per assertion type, and per pipeline version:
+
+| Metric | Computed from |
+|--------|--------------|
+| **Precision** | `correct / (correct + incorrect)` per category |
+| **Recall** | Requires a separate gold-standard annotation pass (entities the NLP missed) |
+| **F1** | Harmonic mean of precision and recall |
+| **Inter-annotator agreement** | Cohen's kappa or Fleiss' kappa across reviewer pairs |
+| **Assertion accuracy** | `correct assertion / total reviewed` per assertion type |
+
+These metrics link back to the NLP process metadata (Layer 1) via `nlp_execution_id`, enabling longitudinal tracking of pipeline quality across versions.
+
+### Model Performance Metadata
+
+Linking execution records to evaluation metrics (precision, recall, F1) from validation runs. This extends `nlp_annotation_review` with aggregate performance tables:
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `evaluation_id` | int (PK) | Unique identifier |
+| `nlp_execution_id` | int (FK) | The execution being evaluated |
+| `entity_category` | varchar | The category evaluated (e.g., "cerebral_atrophy") |
+| `assertion_type` | varchar | The assertion type evaluated (e.g., "negation", "possible") |
+| `precision` | double | Precision score |
+| `recall` | double | Recall score (if gold-standard available) |
+| `f1` | double | F1 score |
+| `n_reviewed` | int | Number of spans reviewed |
+| `evaluation_date` | timestamptz | When the evaluation was computed |
+
+### Additional Future Directions
+
 - **OMOP CDM proposal** — Submitting the `_DERIVED` table pattern and span-based model as a formal OMOP CDM extension
 - **Cross-site federation** — Validating the schema for federated NLP analyses across OHDSI network sites
 
