@@ -6,7 +6,7 @@ title: "Release Notes — v1.1.0"
 
 # v1.1.0 — March 2026
 
-*NLP Infrastructure | Brain Health Pilot | 2,488 notes | 9,411 spans | 850 patients*
+*NLP Infrastructure | Brain Health Pilot | CDM v5.4 | Vocabulary v5.0 (Feb 2025)*
 
 ## What's New for Researchers
 
