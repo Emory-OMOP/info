@@ -16,19 +16,27 @@ Emory Enterprise OMOP uses [Semantic Versioning 2.0](https://semver.org/) — **
 
 <div class="grid cards" markdown>
 
--   :material-rocket-launch:{ .lg .middle } **v1.0.0** — March 2026
+-   :material-rocket-launch:{ .lg .middle } **v1.1.0** — March 2026
 
     ---
 
-    Patient identity stabilization, HIPAA-compliant de-identification, cross-project subsampling infrastructure, and vocabulary updates.
+    NLP infrastructure, Brain Health note pilot (2,488 notes, 9,411 spans, 850 patients), medspaCy pipeline with assertion detection, context snippets, and annotation review framework.
 
-    [:octicons-arrow-right-24: Release notes](v1.0.0/index.md){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Release notes](v1.x/v1.1.0/index.md){ .md-button .md-button--primary }
 
 </div>
 
 ## Previous Releases
 
 <div class="grid cards" markdown>
+
+-   :material-package-variant:{ .lg .middle } **v1.x** — 2026
+
+    ---
+
+    Major release series — patient identity stabilization, NLP infrastructure, Brain Health note processing, and expanded data coverage.
+
+    [:octicons-arrow-right-24: v1.x release notes](v1.x/index.md){ .md-button }
 
 -   :material-package-variant:{ .lg .middle } **v0.2.x** — April–August 2025
 
