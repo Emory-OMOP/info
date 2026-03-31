@@ -12,7 +12,7 @@ title: "Release Notes — v1.1.0"
 
 ### Clinical Notes in OMOP
 
-For the first time, Emory Enterprise OMOP includes **structured NLP output from clinical notes**. The standard OMOP `note_nlp` table's flat design was insufficient for modern NLP workflows, so we developed a [4-layer span-based architecture](../../NLP%20Infrastructure/architecture.md) that captures full pipeline provenance, assertion context, and clear separation from discrete EHR data.
+For the first time, Emory Enterprise OMOP includes **structured NLP output from clinical notes**. The standard OMOP `note_nlp` table's flat design was insufficient for modern NLP workflows, so we developed a [4-layer span-based architecture](../../../NLP%20Infrastructure/architecture.md) that captures full pipeline provenance, assertion context, and clear separation from discrete EHR data.
 
 **What this means for you:**
 
@@ -66,11 +66,11 @@ Layer 3: Intermediate Translation (note_nlp_modifier)
 Layer 4: _derived Tables (condition_occurrence_derived, observation_derived, etc.)
 ```
 
-Full architecture specification: [:octicons-arrow-right-24: NLP Infrastructure](../../NLP%20Infrastructure/architecture.md)
+Full architecture specification: [:octicons-arrow-right-24: NLP Infrastructure](../../../NLP%20Infrastructure/architecture.md)
 
 ### Key Design Decisions
 
-- **`note_span_assertion`** replaces the original `note_span_relationship` — named after the [i2b2 assertion classification](https://pmc.ncbi.nlm.nih.gov/articles/PMC3168320/) standard. See [Glossary](../../NLP%20Infrastructure/glossary.md).
+- **`note_span_assertion`** replaces the original `note_span_relationship` — named after the [i2b2 assertion classification](https://pmc.ncbi.nlm.nih.gov/articles/PMC3168320/) standard. See [Glossary](../../../NLP%20Infrastructure/glossary.md).
 - **`concept_code` + `vocabulary_id`** on `note_span_concept` instead of `concept_id` — NLP implementers provide vocabulary codes they know (SNOMED, RxNorm, LOINC); dbt resolves to OMOP `concept_id` downstream via vocabulary join
 - **`domain_hint`** for unmapped concepts — when no vocabulary mapping exists, NLP implementers provide a domain hint so findings still route to the correct `_derived` table
 - **Source provenance** (`source`, `source_uri`, `source_version`) on `nlp_system`, `pipeline`, and `component` — supports GitHub, HuggingFace, PyPI, Docker, and S3 artifact references
@@ -152,6 +152,6 @@ The NLP ingestion boundary is a [FastAPI service](https://github.com/EmoryDataSo
 
 ## Related Pages
 
-- [:octicons-arrow-right-24: NLP Architecture](../../NLP%20Infrastructure/architecture.md) — 4-layer schema specification
-- [:octicons-arrow-right-24: NLP Glossary](../../NLP%20Infrastructure/glossary.md) — Clinical NLP terminology reference
-- [:octicons-arrow-right-24: Entity Relationship Diagram](../../NLP%20Infrastructure/entity-relationship-diagram.md) — Visual schema reference
+- [:octicons-arrow-right-24: NLP Architecture](../../../NLP%20Infrastructure/architecture.md) — 4-layer schema specification
+- [:octicons-arrow-right-24: NLP Glossary](../../../NLP%20Infrastructure/glossary.md) — Clinical NLP terminology reference
+- [:octicons-arrow-right-24: Entity Relationship Diagram](../../../NLP%20Infrastructure/entity-relationship-diagram.md) — Visual schema reference
