@@ -1,0 +1,4 @@
+ignore: 404.md
+nav:
+  - index.md
+  - "*"
