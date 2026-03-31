@@ -18,7 +18,7 @@ The following workflows are recommended for the most expedient support.
 
     ---
 
-    Include steps to reproduce, relevant screenshots, and any error messages for the fastest resolution.
+    Include steps to reproduce, relevant screenshots, and any error messages for the fastest resolution. If you encountered a broken link, please copy the URL from your browser's address bar and include it in your report.
 
     [:octicons-arrow-right-24: Bug Report Form](https://forms.cloud.microsoft/r/0ntP9uz6mf){ .md-button }
 

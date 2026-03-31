@@ -27,7 +27,7 @@ Questions, ideas, or need help getting started? Here's how to reach the Emory OM
 
     ---
 
-    Found something broken? Submit a bug report with steps to reproduce and we'll investigate.
+    Found something broken? Submit a bug report with steps to reproduce and we'll investigate. If you encountered a broken link, please copy the URL from your browser's address bar and include it in your report.
 
     [:octicons-arrow-right-24: Bug report form](https://forms.cloud.microsoft/r/0ntP9uz6mf){ .md-button }
 
