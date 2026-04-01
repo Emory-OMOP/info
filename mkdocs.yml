@@ -1,5 +1,5 @@
 site_name: Emory OMOP
-site_url: https://emorydatasolutions.github.io/emory-omop/
+site_url: https://emory-omop.github.io/info/
 repo_url: https://github.com/EmoryDataSolutions/emory_omop_enterprise
 dev_addr: localhost:10000
 
