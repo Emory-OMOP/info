@@ -6,7 +6,7 @@ title: Patient Identity Stabilization
 
 # Patient Identity Stabilization
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 ## What this is, in plain English
 

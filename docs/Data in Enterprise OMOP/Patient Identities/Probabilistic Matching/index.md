@@ -6,7 +6,7 @@ title: Probabilistic Matching
 
 # Probabilistic Matching
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 !!! note "Scope"
     This page describes the methodology used by the **Emory OMOP team** for the Patient Identity Stabilization pipeline. It is not a standard adopted across Emory Healthcare more broadly — other identity-resolution efforts at Emory operate independently. The methodology is published here for the OHDSI / informatics community, where the math and decisions may be useful to teams running similar pipelines.

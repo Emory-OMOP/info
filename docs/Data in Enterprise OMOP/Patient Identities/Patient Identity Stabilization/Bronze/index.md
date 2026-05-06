@@ -6,7 +6,7 @@ title: Bronze
 
 # Bronze
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 Bronze is the operational intake layer. It has two responsibilities:
 
