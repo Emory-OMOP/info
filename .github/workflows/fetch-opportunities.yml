@@ -37,7 +37,7 @@ jobs:
       - name: Create PR with new drafts
         if: steps.check.outputs.has_drafts == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTO_PR_PAT }}
         run: |
           BRANCH="auto/opportunities-$(date +%Y-%m-%d)"
           git config user.name "github-actions[bot]"
