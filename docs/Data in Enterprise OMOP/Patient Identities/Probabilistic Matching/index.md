@@ -355,16 +355,17 @@ The actual SQL for `m`/`u` computation, the empirical Emory values, and the #347
 
 ## References
 
-- Newcombe HB, Kennedy JM, Axford SJ, James AP. Automatic Linkage of Vital Records. *Science*. 1959;130(3381):954-959.
-- Fellegi IP, Sunter AB. A Theory for Record Linkage. *Journal of the American Statistical Association*. 1969;64(328):1183-1210.
-- Winkler WE. Using the EM Algorithm for Weight Computation in the Fellegi-Sunter Model of Record Linkage. US Census Bureau. 1988.
-- Jaro MA. Advances in Record-Linkage Methodology as Applied to Matching the 1985 Census of Tampa, Florida. *Journal of the American Statistical Association*. 1989;84(406):414-420.
-- Winkler WE. Improved Decision Rules in the Fellegi-Sunter Model of Record Linkage. Census Bureau Research Report RR93-12. 1993.
-- Larsen MD, Rubin DB. Iterative Automated Record Linkage Using Mixture Models. *Journal of the American Statistical Association*. 2001;96(453):32-41.
-- Grannis SJ, Overhage JM, Hui S, McDonald CJ. Analysis of a probabilistic record linkage technique without human review. *AMIA Annual Symposium Proceedings*. 2003:259-263.
-- Dusetzina SB, Tyree S, Meyer AM, et al. Linking Data for Health Services Research: A Framework and Instructional Guide. AHRQ Publication No. 14-EHC033-EF. 2014.
-- Aldridge RW, Shaji K, Hayward AC, Abubakar I. Accuracy of Probabilistic Linkage Using the Enhanced Matching System for Public Health and Epidemiological Studies. *PLoS ONE*. 2015;10(8):e0136179.
-- US Census Bureau. Record Linkage & Machine Learning. <https://www.census.gov/topics/research/record-linkage.html>
+References were verified against Semantic Scholar and Dimensions.ai (citation databases) on 2026-05-06. Each entry includes a DOI where one exists; PubMed ID where no DOI is assigned; gray-literature items (US Census Bureau Statistical Research Division reports, AHRQ government reports) are cited by their authoritative publication identifier.
+
+- Newcombe HB, Kennedy JM, Axford SJ, James AP. Automatic Linkage of Vital Records. *Science*. 1959;130(3381):954-959. doi:[10.1126/science.130.3381.954](https://doi.org/10.1126/science.130.3381.954)
+- Fellegi IP, Sunter AB. A Theory for Record Linkage. *Journal of the American Statistical Association*. 1969;64(328):1183-1210. doi:[10.1080/01621459.1969.10501049](https://doi.org/10.1080/01621459.1969.10501049)
+- Winkler WE. Using the EM Algorithm for Weight Computation in the Fellegi-Sunter Model of Record Linkage. *US Census Bureau Statistical Research Division*. 1988. *(No DOI; gray literature.)*
+- Jaro MA. Advances in Record-Linkage Methodology as Applied to Matching the 1985 Census of Tampa, Florida. *Journal of the American Statistical Association*. 1989;84(406):414-420. doi:[10.1080/01621459.1989.10478785](https://doi.org/10.1080/01621459.1989.10478785)
+- Winkler WE. Improved Decision Rules in the Fellegi-Sunter Model of Record Linkage. *US Census Bureau Statistical Research Division Report* RR93-12. 1993. *(No DOI; gray literature.)*
+- Larsen MD, Rubin DB. Iterative Automated Record Linkage Using Mixture Models. *Journal of the American Statistical Association*. 2001;96(453):32-41. doi:[10.1198/016214501750332956](https://doi.org/10.1198/016214501750332956)
+- Grannis SJ, Overhage JM, Hui S, McDonald CJ. Analysis of a probabilistic record linkage technique without human review. *AMIA Annual Symposium Proceedings*. 2003:259-263. PMID: [14728174](https://pubmed.ncbi.nlm.nih.gov/14728174/) *(No DOI assigned.)*
+- Dusetzina SB, Tyree S, Meyer AM, et al. Linking Data for Health Services Research: A Framework and Instructional Guide. *AHRQ Publication No. 14-EHC033-EF*. 2014. *(No DOI; AHRQ government report.)*
+- Aldridge RW, Shaji K, Hayward AC, Abubakar I. Accuracy of Probabilistic Linkage Using the Enhanced Matching System for Public Health and Epidemiological Studies. *PLoS ONE*. 2015;10(8):e0136179. doi:[10.1371/journal.pone.0136179](https://doi.org/10.1371/journal.pone.0136179)
 
 ---
 
