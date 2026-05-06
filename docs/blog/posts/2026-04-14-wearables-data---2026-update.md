@@ -1,14 +1,19 @@
 ---
 date: 2026-04-14
-draft: true
 categories:
   - OHDSI
 tags:
   - ohdsi
   - community
+authors:
+  - dsmith
 ---
 
 # Wearables data - 2026 update?
+
+Wearables data in OMOP remains an open question without strong community conventions. Worth monitoring as more cohorts incorporate continuous-monitoring streams.
+
+<!-- more -->
 
 **Source**: [OHDSI Forums](https://forums.ohdsi.org/t/wearables-data-2026-update/25224)
 **Matched keywords**: OHDSI

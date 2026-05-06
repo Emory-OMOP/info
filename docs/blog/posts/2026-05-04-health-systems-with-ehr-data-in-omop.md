@@ -1,14 +1,19 @@
 ---
 date: 2026-05-04
-draft: true
 categories:
   - OHDSI
 tags:
   - ohdsi
   - community
+authors:
+  - dsmith
 ---
 
 # Health systems with EHR data in OMOP
+
+A community-maintained list of organizations with OMOP CDM instances. If Emory isn't already on the list, this is a low-effort way to make our presence visible to potential collaborators.
+
+<!-- more -->
 
 **Source**: [OHDSI Forums](https://forums.ohdsi.org/t/health-systems-with-ehr-data-in-omop/25318)
 **Matched keywords**: OMOP
