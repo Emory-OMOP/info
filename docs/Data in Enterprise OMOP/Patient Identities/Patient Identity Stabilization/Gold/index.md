@@ -6,7 +6,7 @@ title: Gold
 
 # Gold
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 Gold (`emory_identity_gold`) is the analyst-facing surface of the identity pipeline. Everything upstream — Bronze, Silver, Clustering — exists to make these tables reliable. If you're looking up a patient, listing identifiers, or following a merge, this is the schema you want.
 

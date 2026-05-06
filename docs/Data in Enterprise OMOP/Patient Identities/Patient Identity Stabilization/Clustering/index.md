@@ -6,7 +6,7 @@ title: Clustering
 
 # Clustering
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 Clustering (`emory_identity_clustering`) is where the graph is collapsed into people. The Python script `py/run_connected_components.py` reads Silver's edges, runs a connected-components analysis, and assigns each component a stable `person_id`.
 

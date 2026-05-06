@@ -6,7 +6,7 @@ title: Silver
 
 # Silver
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 Silver (`emory_identity_silver`) is where the identity graph lives. It captures every identifier event ever observed as an append-only history, and on top of that builds current-state derivations that say *which identifiers belong to which patient anchor right now*.
 

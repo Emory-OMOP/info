@@ -6,7 +6,7 @@ title: Query Patterns
 
 # Query Patterns
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 Common patterns for querying `emory_identity_gold`. All examples target Athena / Trino SQL.
 

@@ -6,7 +6,7 @@ title: Pipeline Overview
 
 # Pipeline Overview
 
-*Released in v1.0.0 — snapshot 2026-03-31*
+*Released in v1.0.0 — snapshot 2026-01-31*
 
 The full Bronze → Silver → Clustering → Gold pipeline that builds Emory's canonical patient identity graph. Each layer owns a distinct concern and lives in its own database schema.
 
