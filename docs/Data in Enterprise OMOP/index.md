@@ -26,6 +26,14 @@ Emory's OMOP Enterprise pipeline transforms clinical data from Epic and the Clin
 
     [:octicons-arrow-right-24: Data Quality](Data%20Quality/index.md)
 
+-   :material-account-network:{ .lg .middle } **Patient Identities**
+
+    ---
+
+    How identifiers from Epic and the legacy Cerner CDW are reconciled into a single canonical `person_id`, plus de-identification practices for external sharing.
+
+    [:octicons-arrow-right-24: Patient Identities](Patient%20Identities/index.md)
+
 -   :material-book-check:{ .lg .middle } **Observed Conventions**
 
     ---
