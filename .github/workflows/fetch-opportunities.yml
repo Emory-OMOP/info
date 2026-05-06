@@ -44,7 +44,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git checkout -b "$BRANCH"
-          git add scripts/blog_drafts/ scripts/feed_state.json
+          git add -f scripts/blog_drafts/ scripts/feed_state.json
           git commit -m "Add ${{ steps.check.outputs.count }} new funding opportunity draft(s)"
           git push origin "$BRANCH"
 
