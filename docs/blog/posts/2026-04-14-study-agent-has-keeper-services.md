@@ -1,14 +1,19 @@
 ---
 date: 2026-04-14
-draft: true
 categories:
   - OHDSI
 tags:
   - ohdsi
   - community
+authors:
+  - dsmith
 ---
 
 # Study Agent has keeper services!
+
+OHDSI's Study Agent continues toward agentic workflows for OMOP analytics, mirroring the direction of Emory's own OHDSI Agent. Worth tracking how Strategus integration progresses.
+
+<!-- more -->
 
 **Source**: [OHDSI Forums](https://forums.ohdsi.org/t/study-agent-has-keeper-services/25227)
 **Matched keywords**: OHDSI

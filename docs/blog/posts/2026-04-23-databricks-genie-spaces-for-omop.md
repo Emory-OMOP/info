@@ -1,14 +1,19 @@
 ---
 date: 2026-04-23
-draft: true
 categories:
   - OHDSI
 tags:
   - ohdsi
   - community
+authors:
+  - dsmith
 ---
 
 # Databricks Genie Spaces for OMOP
+
+Databricks' Genie agentic interface applied to OMOP — relevant if you're using a Lakehouse-based deployment. Emory's OMOP runs on AWS Athena, but the patterns can inform broader agentic-tooling design.
+
+<!-- more -->
 
 **Source**: [OHDSI Forums](https://forums.ohdsi.org/t/databricks-genie-spaces-for-omop/25275)
 **Matched keywords**: OMOP, OHDSI
