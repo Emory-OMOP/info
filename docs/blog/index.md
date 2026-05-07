@@ -21,7 +21,7 @@ Funding opportunities, OHDSI network updates, real-world evidence developments, 
 
     NIH RFAs, PCORI, foundation grants, and award announcements.
 
-    *Apr 1, 2026* — [PCORI Broad Pragmatic Studies — Cycle 2, 2026](posts/2026-04-01-pcori-broad-pragmatic-studies-cycle-2.md) · LOI Apr 1, App Apr 28
+    *May 6, 2026* — [PCORI Broad Pragmatic Studies — Cycle 3, 2026](posts/2026-05-06-broad-pragmatic-studies-pcori-funding-announcement----cycle-3-2026.md)
 
     [:octicons-arrow-right-24: All Funding posts](category/funding/)
 
@@ -71,7 +71,7 @@ Funding opportunities, OHDSI network updates, real-world evidence developments, 
 
     Network studies, symposium news, community tools, and workgroup updates.
 
-    *Mar 5, 2026* — [OHDSI Community Roundup — March 2026](posts/2026-03-05-ohdsi-community-roundup-march-2026.md)
+    *Apr 9, 2026* — [Release of Phenelope - LLM Concept Set Builder](posts/2026-04-09-release-of-phenelope---llm-concept-set-builder.md)
 
     [:octicons-arrow-right-24: All OHDSI posts](category/ohdsi/)
 

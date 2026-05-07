@@ -17,7 +17,8 @@ Monday 8am ET  →  fetch workflow opens an auto-PR with raw drafts
         |
         v
 Human + LLM    →  review drafts, draft a curation session YAML
-                  (which to publish with intros, which to delete)
+                  (which to publish with intros, which to delete,
+                  which featured-grid cards to refresh)
         |
         v
 Human review   →  edit YAML, verify no fabricated facts in intros
@@ -26,10 +27,11 @@ Human review   →  edit YAML, verify no fabricated facts in intros
 Apply          →  uv run scripts/curate_blog_posts.py apply <session.yml>
         |
         v
-Human review   →  mkdocs serve, eyeball the rendered posts
+Human review   →  mkdocs serve, eyeball the rendered posts + grid
         |
         v
-Open PR        →  curation PR with the published posts + draft cleanup
+Open PR        →  curation PR with the published posts + grid refresh
+                  + draft cleanup
         |
         v
 Merge          →  squash + delete branch; site rebuilds
@@ -39,20 +41,19 @@ Merge          →  squash + delete branch; site rebuilds
 
 ### 1. The auto-PR opens
 
-A scheduled workflow run drops new drafts into `scripts/blog_drafts/` and opens a PR. **Merge this auto-PR first** so the drafts land on `main` for curation. (You can do this immediately — the drafts won't render on the site until they're moved to `docs/blog/posts/`.)
+A scheduled workflow run drops new drafts into `scripts/blog_drafts/` and opens a PR. **Merge this auto-PR first** so the drafts land on `main` for curation. (The drafts won't render on the site until they're moved to `docs/blog/posts/`.)
 
 ### 2. Start an LLM-assisted curation session
 
 Open a session with an LLM assistant of your choice (any tool-augmented LLM that can read the repo works; for chat-only LLMs, paste the relevant content into the conversation).
 
-Paste the starter prompt from [`CURATION_PROMPT.md`](CURATION_PROMPT.md) at the start of the session. It tells the LLM:
+Paste the starter prompt from [`CURATION_PROMPT.md`](CURATION_PROMPT.md). It tells the LLM:
 
 - The relevance criteria (what's worth publishing, what to skip)
 - The editorial voice constraints (1–2 sentence intros, no fabricated facts, Emory-specific framing where it fits)
-- The output format (a YAML session file)
+- The featured-grid review rule (after publish/delete decisions, propose grid refreshes for any category that received a new post)
+- The output format (a YAML session file with `publish:`, `delete:`, and `featured_grid:` sections)
 - Explicit "wait for human approval before applying" instructions
-
-The LLM will propose a YAML session file with `publish:` (slug + intro per item) and `delete:` (slugs only) entries.
 
 ### 3. Human review of the proposal
 
@@ -61,6 +62,7 @@ This is the most important checkpoint. Review the LLM's proposed YAML:
 - **Selections**: agree with which drafts are being published vs deleted? Add or remove items.
 - **Editorial intros**: each one should be honest and substantive. Watch for fabricated facts (LLMs sometimes invent details). Strip or rewrite anything that overstates.
 - **Voice**: 1–2 sentences each. Emory-specific framing where it actually fits — don't force a connection that isn't there.
+- **Featured-grid picks**: for each category that received a new post, does the LLM's pick actually represent the category well? Don't refresh a card to a less-representative post just because something newer landed.
 
 Save the reviewed YAML to a temp path (e.g., `/tmp/curation-2026-05-12.yml`).
 
@@ -78,19 +80,22 @@ uv run scripts/curate_blog_posts.py apply /tmp/curation-2026-05-12.yml
 
 The script:
 
-- Copies each `publish` entry to `docs/blog/posts/`, removing `draft: true`, adding `authors: - dsmith`, inserting the editorial intro after the H1, and adding `<!-- more -->` for the excerpt break.
+- Copies each `publish` entry to `docs/blog/posts/`, removes `draft: true`, adds `authors: - dsmith`, inserts the editorial intro after the H1, and adds `<!-- more -->` excerpt break.
 - Removes each published or deleted entry from `scripts/blog_drafts/`.
-- Leaves `promoted: true` and `pin: true` flags untouched — those are featured-grid decisions, made manually below.
+- For each `featured_grid:` entry, reads the target post's date and H1 and replaces the matching `*<date>* — [<title>](posts/<slug>)` line under the corresponding category card on `docs/blog/index.md`. Other cards are left alone.
+- Leaves `promoted: true` and `pin: true` flags untouched — those are individual-post features, separate from the grid.
 
-### 5. Featured grid (optional)
+### 5. Pinned post (optional)
 
-For posts that deserve homepage promotion, manually add `promoted: true` (and optionally `pin: true`) to the post's frontmatter, and update the Featured grid in `docs/blog/index.md` to point at the new post. Limit yourself to one or two new featured posts per cycle — the grid is meant to highlight what's most timely.
+For one-off site-wide announcements (not regular weekly posts), add `pin: true` to the post's frontmatter and update the `!!! tip "Pinned — <date>"` block at the top of `docs/blog/index.md`. Keep no more than one pin at a time.
 
 ### 6. Local preview
 
-`uv run mkdocs serve`
+```
+uv run mkdocs serve
+```
 
-Eyeball each new post at `/blog/posts/<slug>/`. Confirm the editorial intro renders, the source link works, and the excerpt (`<!-- more -->`) cut point is sensible.
+Eyeball each new post at `/blog/posts/<slug>/`. Confirm the editorial intro renders, the source link works, the excerpt cut is sensible, AND the Browse-by-Category grid on the blog landing reflects your refreshes.
 
 ### 7. Open the curation PR
 
@@ -107,12 +112,13 @@ Squash + delete branch on merge. Site rebuilds; new posts are live.
 | Selection list | Are these actually worth surfacing? Anything missed? |
 | Editorial intros | Honest? Fact-checked? No fabricated deadlines, names, affiliations? |
 | Tone | 1–2 sentences each. Emory framing where it fits, not forced. |
-| Featured grid | Which (if any) deserve promotion? Don't over-promote. |
+| Featured-grid picks | Does each refresh actually represent the category, or is it just newest-by-date? |
+| Pinning | Is this announcement worth taking the single pin slot? |
 | Final render | mkdocs serve looks right. No broken links. |
 
 ## Older draft backlog
 
-`scripts/blog_drafts/` may contain older un-curated drafts from prior fetch attempts. Those are a separate triage backlog — clean them up periodically when convenient. The curator script's `delete:` list handles any drafts you point it at, so a backlog cleanup is just a YAML with a long `delete:` and an empty `publish:`.
+`scripts/blog_drafts/` may contain older un-curated drafts from prior fetch attempts. Those are a separate triage backlog — clean them up periodically when convenient. The curator script's `delete:` list handles any drafts you point it at, so a backlog cleanup is just a YAML with a long `delete:` and an empty `publish:` (and no `featured_grid:`).
 
 ## See also
 
