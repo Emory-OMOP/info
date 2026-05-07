@@ -21,7 +21,7 @@ Funding opportunities, OHDSI network updates, real-world evidence developments, 
 
     NIH RFAs, PCORI, foundation grants, and award announcements.
 
-    *May 6, 2026* — [Broad Pragmatic Studies PCORI Funding Announcement -- Cycle 3 2026](posts/2026-05-06-broad-pragmatic-studies-pcori-funding-announcement----cycle-3-2026.md)
+    *May 6, 2026* — [PCORI Broad Pragmatic Studies — Cycle 3, 2026](posts/2026-05-06-broad-pragmatic-studies-pcori-funding-announcement----cycle-3-2026.md)
 
     [:octicons-arrow-right-24: All Funding posts](category/funding/)
 
