@@ -54,6 +54,8 @@ jobs:
           ## New Drafts
 
           This PR contains **${{ steps.check.outputs.count }}** new funding opportunity draft(s) fetched from NIH Guide, OHDSI Forums, and PCORI.
+          
+          Curation is a human + LLM-assisted workflow — see [`scripts/CURATION.md`](../blob/main/scripts/CURATION.md) for the cycle and [`scripts/CURATION_PROMPT.md`](../blob/main/scripts/CURATION_PROMPT.md) for the LLM starter prompt.
 
           ### Review workflow
 
