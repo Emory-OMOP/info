@@ -323,7 +323,12 @@ def apply_session(session_path: Path, dry_run: bool = False) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    apply_p = sub.add_parser("apply", help="Apply a curation session YAML.")
+    apply_p = sub.add_parser(
+        "apply",
+        help="Apply a curation session YAML.",
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     apply_p.add_argument("session", type=Path, help="Path to the session YAML file.")
     apply_p.add_argument("--dry-run", action="store_true", help="Print what would happen, don't change files.")
     args = ap.parse_args()
