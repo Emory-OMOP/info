@@ -1,14 +1,19 @@
 ---
 date: 2026-04-09
-draft: true
 categories:
   - OHDSI
 tags:
   - ohdsi
   - community
+authors:
+  - dsmith
 ---
 
 # Release of Phenelope - LLM Concept Set Builder
+
+Phenelope joins a growing wave of LLM-assisted vocabulary tooling — Emory's OHDSI Agent work has been investigating LLM workflows for concept-set construction, and Phenelope's open-source release is one to watch for both feature ideas and integration potential.
+
+<!-- more -->
 
 **Source**: [OHDSI Forums](https://forums.ohdsi.org/t/release-of-phenelope-llm-concept-set-builder/25204)
 **Matched keywords**: OHDSI

@@ -1,14 +1,19 @@
 ---
 date: 2026-05-06
-draft: true
 categories:
   - Funding
 tags:
   - nih
   - funded-project
+authors:
+  - dsmith
 ---
 
 # Funded: MOSAAIC Cognitive Assessment Reading Center Administrative Supplement
+
+Cognitive assessment reading-center infrastructure that may intersect with Emory's Brain Health work on cognitive imaging and assessment standardization.
+
+<!-- more -->
 
 **Source**: [NIH Reporter](https://reporter.nih.gov/project-details/11361396)
 **Matched keywords**: observational study

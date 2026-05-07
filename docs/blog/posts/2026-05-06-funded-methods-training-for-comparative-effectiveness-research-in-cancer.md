@@ -1,14 +1,19 @@
 ---
 date: 2026-05-06
-draft: true
 categories:
   - Funding
 tags:
   - nih
   - funded-project
+authors:
+  - dsmith
 ---
 
 # Funded: Methods Training for Comparative Effectiveness Research in Cancer
+
+An R25 for training in comparative effectiveness research methods in cancer — directly relevant for Winship investigators planning OMOP-based CER. Worth flagging for trainees and early-career faculty.
+
+<!-- more -->
 
 **Source**: [NIH Reporter](https://reporter.nih.gov/project-details/11184333)
 **Matched keywords**: comparative effectiveness

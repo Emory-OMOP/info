@@ -1,14 +1,19 @@
 ---
 date: 2026-05-06
-draft: true
 categories:
   - Funding
 tags:
   - nih
   - funded-project
+authors:
+  - dsmith
 ---
 
 # Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation
+
+A Yale R01 leveraging real-world evidence for hypertension treatment-escalation decisions. Methods/topic combination that Emory's RWE infrastructure supports — useful reference for future Emory proposals in cardiovascular CER.
+
+<!-- more -->
 
 **Source**: [NIH Reporter](https://reporter.nih.gov/project-details/11128834)
 **Matched keywords**: real-world evidence
