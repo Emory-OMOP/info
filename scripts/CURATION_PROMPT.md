@@ -2,7 +2,7 @@
 
 Paste the contents below into your LLM assistant at the start of a curation cycle. The prompt gives the LLM the relevance criteria, editorial voice constraints, output format, and human-checkpoint instructions.
 
-The LLM should be able to read the repo (`scripts/blog_drafts/*.md`, `docs/blog/posts/*.md`). For chat-only LLMs that can't read files directly, also paste the contents of the new drafts into the conversation.
+The LLM should be able to read the repo (`scripts/blog_drafts/*.md`, `docs/blog/posts/*.md`, `docs/blog/index.md`). For chat-only LLMs that can't read files directly, also paste the contents of the new drafts into the conversation.
 
 ---
 
@@ -34,14 +34,22 @@ publish:
 delete:
   - 2026-04-13-weekly-ohdsi-digest---april-13-2026.md
   - 2026-05-05-dow-lupus-idea-award.md
+
+featured_grid:
+  Funding:
+    slug: 2026-05-06-broad-pragmatic-studies-pcori-funding-announcement----cycle-3-2026.md
+  OHDSI:
+    slug: 2026-04-09-release-of-phenelope---llm-concept-set-builder.md
 ```
 
-### Selection criteria
+All three sections are optional. Include `featured_grid:` only for categories that received a new post in this cycle AND where the new post is a better representative than what's currently featured.
+
+### Selection criteria (publish vs delete)
 
 **Publish if** the draft is one or more of:
 
 - An OHDSI community discussion that touches OMOP infrastructure, agentic tooling, vocabulary changes, methods development, or an Emory-relevant theme (Brain Health, Winship oncology, identity stabilization, NLP, RWE).
-- A funding opportunity (PCORI, NIH RFA, AHRQ, foundation) Emory researchers are likely to apply to. Bias toward the broad mechanisms (R01, R25, P-series, PCORI Cycle 3 announcements) and away from very narrow eligibility programs.
+- A funding opportunity (PCORI, NIH RFA, AHRQ, foundation) Emory researchers are likely to apply to. Bias toward broad mechanisms (R01, R25, P-series, PCORI Cycle announcements) and away from very narrow eligibility programs.
 - A funded grant (NIH Reporter) in an area Emory has investigators in (cardiovascular CER, cancer CER, brain health / cognitive aging, pragmatic studies, RWE methods).
 - A paper, tool release, or community announcement that would be useful for an Emory OMOP analyst or trainee to know about.
 
@@ -52,9 +60,9 @@ delete:
 - A funding opportunity with eligibility Emory clearly doesn't meet (specific institutional criteria, geographic restrictions outside the Southeast, etc.)
 - A PubMed paper on a narrow clinical topic outside Emory's research portfolio
 - A job posting at another institution
-- DoD CDMRP opportunities are typically narrow eligibility — default to delete unless the topic is one Emory has active investigators in (e.g., TBI, lupus if Emory has rheumatology programs, etc.)
+- DoD CDMRP opportunities are typically narrow eligibility — default to delete unless the topic is one Emory has active investigators in (e.g., TBI, lupus if Emory has rheumatology programs)
 
-When in doubt, default to publishing (the human can delete during review). When fabricating editorial intros risks, default to deleting (the human can resurrect).
+When in doubt, default to publishing (the human can delete during review). When fabricating editorial intros risks, default to deleting.
 
 ### Editorial intro voice
 
@@ -72,20 +80,31 @@ For each `publish` item, write a 1–2 sentence intro that sits between the H1 a
 - **Don't force a connection that isn't there.** A clean "FYI to OHDSI community" framing is better than a contrived Emory tie-in.
 - **Don't repeat what the draft already says.** The auto-generated card already names the source and matched keywords. The intro adds context, not summary.
 
+### Featured-grid review
+
+After proposing publish/delete entries, look at the Browse by Category grid on `docs/blog/index.md`. Each card displays one representative post per category — date, title, link.
+
+For each category that received at least one new published post in this cycle, decide whether the new post is a better representative than what's currently featured. **Refresh only when the new post is genuinely more representative — don't refresh just because something newer landed.** Categories that didn't receive a new post are left alone (no `featured_grid:` entry for them).
+
+The script will read the target post's frontmatter date and H1 and replace the corresponding line under the category card. You only need to provide `slug`.
+
+Available categories: `Funding`, `OHDSI`, `Real-World Evidence`, `Vocabulary`, `Data Quality`, `Infrastructure`, `Community`.
+
 ### Process — what to do step-by-step
 
 1. **List the drafts.** Use `ls -lt scripts/blog_drafts/*.md` (or equivalent). Identify the new batch (typically the most recent week's worth).
-2. **Read the recent ones.** Skim each draft's H1 + first paragraph. You don't need to read every word — the title and source are usually enough to judge relevance.
+2. **Read the recent ones.** Skim each draft's H1 + first paragraph. You don't need to read every word — title and source are usually enough to judge relevance.
 3. **Group by source category.** OHDSI Forums, OHDSI Weekly Digests, NIH Funded grants, NIH/DoD/PCORI funding opportunities, PubMed papers, jobs.
-4. **Propose a YAML.** Write it to the path the human gave you. Include both `publish:` (with intros) and `delete:` (slugs only).
-5. **Stop and wait for human review.** Do NOT run `curate_blog_posts.py` yet. The human will edit the YAML, verify no fabricated facts crept in, and decide whether to apply.
-6. **After human approves**: run `uv run scripts/curate_blog_posts.py apply <session.yml> --dry-run` to preview, then without `--dry-run` to apply, then help the human commit and open a PR.
+4. **Read the current grid.** `cat docs/blog/index.md` (or read the file). Note what's currently featured per category and the date of each.
+5. **Propose a YAML.** Write it to the path the human gave you. Include `publish:` (with intros), `delete:` (slugs only), and `featured_grid:` (only for categories warranting a refresh).
+6. **Stop and wait for human review.** Do NOT run `curate_blog_posts.py` yet. The human will edit the YAML, verify no fabricated facts crept in, and decide whether to apply.
+7. **After human approves**: run `uv run scripts/curate_blog_posts.py apply <session.yml> --dry-run` to preview, then without `--dry-run` to apply, then help the human commit and open a PR.
 
 ### What you don't decide
 
-- `promoted: true` / `pin: true` — Featured-grid placement is a manual human decision per cycle.
+- `promoted: true` / `pin: true` on individual posts — these are separate-from-grid decisions about per-post features.
+- The pinned-announcement block at the top of `docs/blog/index.md` — only updated for major site-wide announcements.
 - Older un-curated drafts from prior fetch attempts — leave alone unless the human specifically asks you to triage the backlog.
-- The Featured grid in `docs/blog/index.md` — the human updates that manually if they're promoting a new post.
 
 ### Reminder
 
