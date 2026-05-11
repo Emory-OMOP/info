@@ -293,7 +293,31 @@
       "source": "PubMed",
       "date": "2026-05-05",
       "file": "2026-05-05-effectiveness-and-tolerability-of-topical-amitriptyline-10-plus-lidocaine-2-gel-.md"
+    },
+    "e23dac1ce6a8e395": {
+      "title": "Looking for participants with experience in OMOP vocabulary mapping",
+      "source": "OHDSI Forums",
+      "date": "2026-05-11",
+      "file": "2026-05-11-looking-for-participants-with-experience-in-omop-vocabulary-mapping.md"
+    },
+    "0fd6eccc9482d4d9": {
+      "title": "How best should I map values that are the result of composite scores for a particular condition?",
+      "source": "OHDSI Forums",
+      "date": "2026-05-07",
+      "file": "2026-05-07-how-best-should-i-map-values-that-are-the-result-of-composite-scores-for-a-parti.md"
+    },
+    "0424b4924afdfd1e": {
+      "title": "Effectiveness, Safety and Patient-Reported Outcomes of Bulevirtide Therapy in Chronic Hepatitis Delta: Real-World Evidence From a Prospective Observational Study",
+      "source": "PubMed",
+      "date": "2026-06-01",
+      "file": "2026-06-01-effectiveness-safety-and-patient-reported-outcomes-of-bulevirtide-therapy-in-chr.md"
+    },
+    "d2dd03796f221d3c": {
+      "title": "Safety and Effectiveness of Adalimumab for the Treatment of Pyoderma Gangrenosum: A 52-Week Real-World Prospective Observational Study",
+      "source": "PubMed",
+      "date": "2026-05-10",
+      "file": "2026-05-10-safety-and-effectiveness-of-adalimumab-for-the-treatment-of-pyoderma-gangrenosum.md"
     }
   },
-  "last_fetch": "2026-05-06T22:43:42.223346+00:00"
+  "last_fetch": "2026-05-11T14:47:03.106478+00:00"
 }
