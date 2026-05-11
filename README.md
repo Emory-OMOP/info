@@ -127,4 +127,8 @@ The News & Opportunities blog surfaces funding opportunities, OHDSI updates, and
 | [emory_omop_enterprise](https://github.com/EmoryDataSolutions/emory_omop_enterprise) | ETL pipeline, DBT project, and project management |
 | e_omop_dqd | OHDSI Data Quality Dashboard (DQD result generation) |
 
+<<<<<<< HEAD
 <!-- worktree smoke test marker: test-branch-1 -->
+=======
+<!-- worktree smoke test marker: test-branch-2 -->
+>>>>>>> origin/main
