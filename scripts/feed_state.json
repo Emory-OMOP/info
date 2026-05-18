@@ -293,7 +293,115 @@
       "source": "PubMed",
       "date": "2026-05-05",
       "file": "2026-05-05-effectiveness-and-tolerability-of-topical-amitriptyline-10-plus-lidocaine-2-gel-.md"
+    },
+    "94b9d4081b0f70e6": {
+      "title": "Challenges Mapping Oncology Billing and Claims Data into the OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-05-14",
+      "file": "2026-05-14-challenges-mapping-oncology-billing-and-claims-data-into-the-omop-cdm.md"
+    },
+    "5b3b8187b740e000": {
+      "title": "Oncology ETL OnRamp is OUT",
+      "source": "OHDSI Forums",
+      "date": "2026-05-13",
+      "file": "2026-05-13-oncology-etl-onramp-is-out.md"
+    },
+    "ebc29a780e8942a9": {
+      "title": "Share Your LLM Research: June 2, 9 & 16 Community Calls",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-share-your-llm-research-june-2-9-16-community-calls.md"
+    },
+    "4bd58e7351e166c3": {
+      "title": "Introducing the LLM mapping classificator",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-introducing-the-llm-mapping-classificator.md"
+    },
+    "00aedc7112bf6dff": {
+      "title": "Introducing Alathea - a tool that tracks changes in cohorts due to vocabulary update",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-introducing-alathea---a-tool-that-tracks-changes-in-cohorts-due-to-vocabulary-up.md"
+    },
+    "9b7abb3d06af3124": {
+      "title": "How do we upgrade Postgres in OMOP? - Getting errors in WebAPI",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-how-do-we-upgrade-postgres-in-omop---getting-errors-in-webapi.md"
+    },
+    "d5bb4b2d248588d5": {
+      "title": "Weekly OHDSI Digest - May 11, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-05-11",
+      "file": "2026-05-11-weekly-ohdsi-digest---may-11-2026.md"
+    },
+    "e23dac1ce6a8e395": {
+      "title": "Looking for participants with experience in OMOP vocabulary mapping",
+      "source": "OHDSI Forums",
+      "date": "2026-05-11",
+      "file": "2026-05-11-looking-for-participants-with-experience-in-omop-vocabulary-mapping.md"
+    },
+    "0fd6eccc9482d4d9": {
+      "title": "How best should I map values that are the result of composite scores for a particular condition?",
+      "source": "OHDSI Forums",
+      "date": "2026-05-07",
+      "file": "2026-05-07-how-best-should-i-map-values-that-are-the-result-of-composite-scores-for-a-parti.md"
+    },
+    "764c2cba5dc99777": {
+      "title": "INCLUDE Project: Clinical Trials Phased Awards for Down syndrome Research (R61/R33 Clinical Trial Required)",
+      "source": "Grants.gov",
+      "date": "2026-05-13",
+      "file": "2026-05-13-include-project-clinical-trials-phased-awards-for-down-syndrome-research-r61r33-.md"
+    },
+    "ed62a0ae012e6b6c": {
+      "title": "INCLUDE Project: Transformative Research Awards for Down syndrome (R01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-05-12",
+      "file": "2026-05-12-include-project-transformative-research-awards-for-down-syndrome-r01-clinical-tr.md"
+    },
+    "2da9f7effba02d78": {
+      "title": "INCLUDE Project: Exploratory/Developmental Research Awards for Down syndrome (R21 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-05-12",
+      "file": "2026-05-12-include-project-exploratorydevelopmental-research-awards-for-down-syndrome-r21-c.md"
+    },
+    "fdb575e9b2827cd6": {
+      "title": "Limited Competition: Intellectual and Developmental Disabilities Research Centers 2027 (P50 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-05-15",
+      "file": "2026-05-15-limited-competition-intellectual-and-developmental-disabilities-research-centers.md"
+    },
+    "4e9421a76299bd6b": {
+      "title": "Maximizing Investigators&rsquo; Research Award (MIRA) for Early Stage Investigators (ESI)",
+      "source": "Grants.gov",
+      "date": "2026-05-12",
+      "file": "2026-05-12-maximizing-investigatorsrsquo-research-award-mira-for-early-stage-investigators-.md"
+    },
+    "4a7f6057d21fb62b": {
+      "title": "Coronary Computed Tomographic Angiography Versus Functional Testing in Patients With Newly Diagnosed Type 2 Diabetes and Suspected Coronary Artery Disease: Real-world Evidence from the Nationwide Cohort",
+      "source": "PubMed",
+      "date": "2026-03-16",
+      "file": "2026-03-16-coronary-computed-tomographic-angiography-versus-functional-testing-in-patients-.md"
+    },
+    "67d4b99d1ff68a6d": {
+      "title": "Is Switching Biologics in CRSwNP Promising? Real-World Evidence for Clinical Outcome Measures in Comparison",
+      "source": "PubMed",
+      "date": "2026-05-16",
+      "file": "2026-05-16-is-switching-biologics-in-crswnp-promising-real-world-evidence-for-clinical-outc.md"
+    },
+    "065c49a530dd9144": {
+      "title": "Comparative Effectiveness and Safety of Rituximab Versus Ocrelizumab in Relapsing-Remitting Multiple Sclerosis: A Finnish Population-Based Matched Cohort Study",
+      "source": "PubMed",
+      "date": "2026-05-01",
+      "file": "2026-05-01-comparative-effectiveness-and-safety-of-rituximab-versus-ocrelizumab-in-relapsin.md"
+    },
+    "a07d72de732dc0ca": {
+      "title": "Assessing the Efficacy of Cannabinoid Compositions for Treating 3 Classes of Chronic Pain: A Real-World Evidence Study",
+      "source": "PubMed",
+      "date": "2026-05-15",
+      "file": "2026-05-15-assessing-the-efficacy-of-cannabinoid-compositions-for-treating-3-classes-of-chr.md"
     }
   },
-  "last_fetch": "2026-05-06T22:43:42.223346+00:00"
+  "last_fetch": "2026-05-18T15:29:21.710322+00:00"
 }
