@@ -293,7 +293,205 @@
       "source": "PubMed",
       "date": "2026-05-05",
       "file": "2026-05-05-effectiveness-and-tolerability-of-topical-amitriptyline-10-plus-lidocaine-2-gel-.md"
+    },
+    "412f92583364cc6f": {
+      "title": "Weekly OHDSI Digest - June 1, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-01",
+      "file": "2026-06-01-weekly-ohdsi-digest---june-1-2026.md"
+    },
+    "45a9539d45fe2fc8": {
+      "title": "5 days left to upload your submission for the Global Symposium showcase!",
+      "source": "OHDSI Forums",
+      "date": "2026-06-01",
+      "file": "2026-06-01-5-days-left-to-upload-your-submission-for-the-global-symposium-showcase.md"
+    },
+    "7dddd1933d259ed9": {
+      "title": "Introduction Erik Koning",
+      "source": "OHDSI Forums",
+      "date": "2026-05-31",
+      "file": "2026-05-31-introduction-erik-koning.md"
+    },
+    "3ed9fdb9e3d23d53": {
+      "title": "One week left to upload your brief report for the Global Symposium Collaborator Showcase!",
+      "source": "OHDSI Forums",
+      "date": "2026-05-29",
+      "file": "2026-05-29-one-week-left-to-upload-your-brief-report-for-the-global-symposium-collaborator-.md"
+    },
+    "a2b01606e7b53aac": {
+      "title": "Question About Cocktail-Type Biomarker Concepts in OMOP Genomic Vocabulary",
+      "source": "OHDSI Forums",
+      "date": "2026-05-26",
+      "file": "2026-05-26-question-about-cocktail-type-biomarker-concepts-in-omop-genomic-vocabulary.md"
+    },
+    "ce0c9c9748441b6f": {
+      "title": "Introducing OHDSI Canada",
+      "source": "OHDSI Forums",
+      "date": "2026-05-26",
+      "file": "2026-05-26-introducing-ohdsi-canada.md"
+    },
+    "c2265cfac3d970a3": {
+      "title": "Weekly OHDSI Digest - May 25, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-05-26",
+      "file": "2026-05-26-weekly-ohdsi-digest---may-25-2026.md"
+    },
+    "02cc29ada6ab3302": {
+      "title": "PEPTIDE_LOCAL: proposed OMOP vocabulary for 12 therapeutic peptides without NDC/RxNorm \u2014 request for community feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-05-26",
+      "file": "2026-05-26-peptide-local-proposed-omop-vocabulary-for-12-therapeutic-peptides-without-ndcrx.md"
+    },
+    "c4ed1161a84b9638": {
+      "title": "Regarding regional Node concepts in the Cancer Modifier Vocabulary",
+      "source": "OHDSI Forums",
+      "date": "2026-05-26",
+      "file": "2026-05-26-regarding-regional-node-concepts-in-the-cancer-modifier-vocabulary.md"
+    },
+    "ba4634a6867d5269": {
+      "title": "Adding PRS and variant-carrier status as features in PatientLevelPrediction \u2014 encoding, leakage, and cross-ancestry calibration",
+      "source": "OHDSI Forums",
+      "date": "2026-05-25",
+      "file": "2026-05-25-adding-prs-and-variant-carrier-status-as-features-in-patientlevelprediction-enco.md"
+    },
+    "b35366253a89aa30": {
+      "title": "Representing germline & somatic variants in OMOP \u2014 who's actively using the Genomic CDM extension?",
+      "source": "OHDSI Forums",
+      "date": "2026-05-25",
+      "file": "2026-05-25-representing-germline-somatic-variants-in-omop-whos-actively-using-the-genomic-c.md"
+    },
+    "037d5e70da189a2c": {
+      "title": "Weekly OHDSI Digest - May 18, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-05-18",
+      "file": "2026-05-18-weekly-ohdsi-digest---may-18-2026.md"
+    },
+    "94b9d4081b0f70e6": {
+      "title": "Challenges Mapping Oncology Billing and Claims Data into the OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-05-14",
+      "file": "2026-05-14-challenges-mapping-oncology-billing-and-claims-data-into-the-omop-cdm.md"
+    },
+    "5b3b8187b740e000": {
+      "title": "Oncology ETL OnRamp is OUT",
+      "source": "OHDSI Forums",
+      "date": "2026-05-13",
+      "file": "2026-05-13-oncology-etl-onramp-is-out.md"
+    },
+    "ebc29a780e8942a9": {
+      "title": "Share Your LLM Research: June 2, 9 & 16 Community Calls",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-share-your-llm-research-june-2-9-16-community-calls.md"
+    },
+    "4bd58e7351e166c3": {
+      "title": "Introducing the LLM mapping classificator",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-introducing-the-llm-mapping-classificator.md"
+    },
+    "00aedc7112bf6dff": {
+      "title": "Introducing Alathea - a tool that tracks changes in cohorts due to vocabulary update",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-introducing-alathea---a-tool-that-tracks-changes-in-cohorts-due-to-vocabulary-up.md"
+    },
+    "9b7abb3d06af3124": {
+      "title": "How do we upgrade Postgres in OMOP? - Getting errors in WebAPI",
+      "source": "OHDSI Forums",
+      "date": "2026-05-12",
+      "file": "2026-05-12-how-do-we-upgrade-postgres-in-omop---getting-errors-in-webapi.md"
+    },
+    "d5bb4b2d248588d5": {
+      "title": "Weekly OHDSI Digest - May 11, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-05-11",
+      "file": "2026-05-11-weekly-ohdsi-digest---may-11-2026.md"
+    },
+    "e23dac1ce6a8e395": {
+      "title": "Looking for participants with experience in OMOP vocabulary mapping",
+      "source": "OHDSI Forums",
+      "date": "2026-05-11",
+      "file": "2026-05-11-looking-for-participants-with-experience-in-omop-vocabulary-mapping.md"
+    },
+    "0fd6eccc9482d4d9": {
+      "title": "How best should I map values that are the result of composite scores for a particular condition?",
+      "source": "OHDSI Forums",
+      "date": "2026-05-07",
+      "file": "2026-05-07-how-best-should-i-map-values-that-are-the-result-of-composite-scores-for-a-parti.md"
+    },
+    "764c2cba5dc99777": {
+      "title": "INCLUDE Project: Clinical Trials Phased Awards for Down syndrome Research (R61/R33 Clinical Trial Required)",
+      "source": "Grants.gov",
+      "date": "2026-05-13",
+      "file": "2026-05-13-include-project-clinical-trials-phased-awards-for-down-syndrome-research-r61r33-.md"
+    },
+    "ed62a0ae012e6b6c": {
+      "title": "INCLUDE Project: Transformative Research Awards for Down syndrome (R01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-05-12",
+      "file": "2026-05-12-include-project-transformative-research-awards-for-down-syndrome-r01-clinical-tr.md"
+    },
+    "2da9f7effba02d78": {
+      "title": "INCLUDE Project: Exploratory/Developmental Research Awards for Down syndrome (R21 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-05-12",
+      "file": "2026-05-12-include-project-exploratorydevelopmental-research-awards-for-down-syndrome-r21-c.md"
+    },
+    "fdb575e9b2827cd6": {
+      "title": "Limited Competition: Intellectual and Developmental Disabilities Research Centers 2027 (P50 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-05-15",
+      "file": "2026-05-15-limited-competition-intellectual-and-developmental-disabilities-research-centers.md"
+    },
+    "6497303e93124682": {
+      "title": "Single Source: HeartShare 2.0: Refining Heart Failure Subtypes and Treatment Targets for Personalized Clinical Trials - Data Translation Center (U54 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-05-19",
+      "file": "2026-05-19-single-source-heartshare-20-refining-heart-failure-subtypes-and-treatment-target.md"
+    },
+    "3ba2f1d294aa0203": {
+      "title": "HeartShare 2.0: Refining Heart Failure Subtypes and Treatment Targets for Personalized Clinical Trials - Clinical Trial Center and Clinical Centers (U01 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-05-19",
+      "file": "2026-05-19-heartshare-20-refining-heart-failure-subtypes-and-treatment-targets-for-personal.md"
+    },
+    "4e9421a76299bd6b": {
+      "title": "Maximizing Investigators&rsquo; Research Award (MIRA) for Early Stage Investigators (ESI)",
+      "source": "Grants.gov",
+      "date": "2026-05-12",
+      "file": "2026-05-12-maximizing-investigatorsrsquo-research-award-mira-for-early-stage-investigators-.md"
+    },
+    "7e0cc9e099116fa0": {
+      "title": "Engagement Award: Capacity Building -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-01",
+      "file": "2026-06-01-engagement-award-capacity-building----fall-2026-cycle.md"
+    },
+    "65e542c0d833a060": {
+      "title": "Engagement Award: Convening Support -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-01",
+      "file": "2026-06-01-engagement-award-convening-support----fall-2026-cycle.md"
+    },
+    "2d71c9d6a4e251b4": {
+      "title": "Engagement Award: Dissemination Initiative -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-01",
+      "file": "2026-06-01-engagement-award-dissemination-initiative----fall-2026-cycle.md"
+    },
+    "c1fa01aaa9142ab3": {
+      "title": "Engagement Award: Building Capacity for Small Organizations To Engage in Patient-Centered Comparative Clinical Effectiveness Research (CER) -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-01",
+      "file": "2026-06-01-engagement-award-building-capacity-for-small-organizations-to-engage-in-patient-.md"
+    },
+    "8a284860ee223fd5": {
+      "title": "Associations between oral migraine preventive regimens and CGRP monoclonal antibody initiation: real-world evidence from a resource-limited setting",
+      "source": "PubMed",
+      "date": "2026-06-01",
+      "file": "2026-06-01-associations-between-oral-migraine-preventive-regimens-and-cgrp-monoclonal-antib.md"
     }
   },
-  "last_fetch": "2026-05-06T22:43:42.223346+00:00"
+  "last_fetch": "2026-06-01T17:36:02.808847+00:00"
 }
