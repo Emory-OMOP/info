@@ -1,15 +1,23 @@
 ---
 date: 2021-12-08
-draft: true
 categories:
   - Funding
 tags:
   - grants-gov
   - funding
   - federal
+authors:
+  - dsmith
 ---
 
 # AHRQ Mentored Career Enhancement Awards for Established Investigators in Patient-Centered Outcome Research (K18)
+
+AHRQ's K18 mentored career-enhancement mechanism funds established
+investigators retooling toward patient-centered outcomes research —
+relevant for mid-career Emory faculty moving into comparative-effectiveness
+and pharmacoepidemiology work on our OMOP data.
+
+<!-- more -->
 
 **Source**: [Grants.gov](https://www.grants.gov/search-results-detail/335143)
 **Matched keywords**: "pharmacoepidemiology" OR "comparative effectiveness research"
