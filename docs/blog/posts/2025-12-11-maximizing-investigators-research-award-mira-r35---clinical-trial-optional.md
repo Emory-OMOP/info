@@ -1,15 +1,24 @@
 ---
 date: 2025-12-11
-draft: true
 categories:
   - Funding
 tags:
   - grants-gov
   - funding
   - federal
+authors:
+  - dsmith
 ---
 
 # Maximizing Investigators' Research Award (MIRA) (R35 - Clinical Trial Optional)
+
+NIH's MIRA (R35) funds a PI's overall research program rather than a single
+project, trading frequent re-application for stable, flexible support. This
+is the general clinical-trial-optional track for established investigators —
+distinct from the Early Stage Investigator MIRA already posted — and fits
+Emory faculty in pharmacoepidemiology and comparative-effectiveness research.
+
+<!-- more -->
 
 **Source**: [Grants.gov](https://www.grants.gov/search-results-detail/359862)
 **Matched keywords**: "pharmacoepidemiology" OR "comparative effectiveness research"
