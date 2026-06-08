@@ -213,9 +213,9 @@ title: Detailed Product Roadmap
       <span class="hb-ball hb-ball--inline hb-ball--25"></span>
       <h3 class="rm-card__title">CASSIDY Phenotype</h3>
     </div>
-    <p class="rm-card__desc">Diabetes surveillance computable phenotype for the CASSIDY Network (CHOA + Emory). Just initialized — project scaffolding in place (#388). Multi-stage pipeline planned: identification, classification, complication staging (§4.1–4.4), multi-year index 2018–2025.</p>
+    <p class="rm-card__desc">Diabetes surveillance computable phenotype for the CASSIDY Network (CHOA + Emory). Just initialized — project scaffolding in place (#388); currently awaiting CHOA data before the build can proceed. Multi-stage pipeline planned: identification, classification, complication staging (§4.1–4.4), multi-year index 2018–2025.</p>
     <span class="rm-tag">Pediatrics</span>
-    <span class="rm-tag">Just initialized</span>
+    <span class="rm-tag">Awaiting CHOA data</span>
   </div>
 
   <div class="rm-card">
