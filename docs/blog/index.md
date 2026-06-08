@@ -71,7 +71,7 @@ Funding opportunities, OHDSI network updates, real-world evidence developments, 
 
     Network studies, symposium news, community tools, and workgroup updates.
 
-    *Apr 9, 2026* — [Release of Phenelope - LLM Concept Set Builder](posts/2026-04-09-release-of-phenelope---llm-concept-set-builder.md)
+    *May 13, 2026* — [Oncology ETL OnRamp is OUT](posts/2026-05-13-oncology-etl-onramp-is-out.md)
 
     [:octicons-arrow-right-24: All OHDSI posts](category/ohdsi/)
 
@@ -81,7 +81,7 @@ Funding opportunities, OHDSI network updates, real-world evidence developments, 
 
     RWE methods, regulatory developments, and policy changes.
 
-    *Mar 5, 2026* — [AI Triage in Primary Care: Building Safer Real-World Evidence](posts/2026-03-05-ai-triage-primary-care-rwe.md)
+    *Jun 6, 2026* — [An Expert Consensus-Based Review of Considerations for Developing a Quality Management System Framework for Studies Utilising Secondary Data for Real-World Evidence Generation](posts/2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md)
 
     [:octicons-arrow-right-24: All Real-World Evidence posts](category/real-world-evidence/)
 
