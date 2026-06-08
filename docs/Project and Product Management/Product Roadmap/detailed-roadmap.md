@@ -6,7 +6,7 @@ title: Detailed Product Roadmap
 
 # Release Roadmap
 
-*Last updated: March 2026* · *Monthly harvey ball updates*
+*Last updated: June 2026* · *Monthly harvey ball updates*
 
 **Data freshness**: Epic data refreshes quarterly. CDW last refreshed March 2025 (no longer receiving updates).
 
@@ -38,8 +38,8 @@ title: Detailed Product Roadmap
 
 <div class="rm-quarter">
   <div class="rm-quarter__badge">v1.0</div>
-  <h2 class="rm-quarter__title">Shipped — v1.0.0</h2>
-  <p class="rm-quarter__subtitle">March 2026 &middot; 271 commits &middot; 3 contributors &middot; CDM v5.4 &middot; Vocabulary v5.0</p>
+  <h2 class="rm-quarter__title">Shipped</h2>
+  <p class="rm-quarter__subtitle">v1.0.0 (March 2026) + delivered through CQ2 &middot; CDM v5.4 &middot; Vocabulary v5.0</p>
 </div>
 
 <div class="rm-items">
@@ -51,6 +51,36 @@ title: Detailed Product Roadmap
     </div>
     <p class="rm-card__desc">Foundational cross-source identity management across legacy Cerner and modern Epic EHR systems. Stable <code>person_id</code> across data loads via Medallion architecture (Bronze/Silver/Clustering/Gold) with graph-based clustering. Near-100% Epic PAT_ID coverage (742K/742K matched).</p>
     <span class="rm-tag">80+ commits</span>
+  </div>
+
+  <div class="rm-card">
+    <div class="rm-card__header">
+      <span class="rm-chip rm-chip--shipped">SHIPPED</span>
+      <span class="hb-ball hb-ball--inline hb-ball--100"></span>
+      <h3 class="rm-card__title">Patient Identity Stabilization v1.1–v1.2</h3>
+    </div>
+    <p class="rm-card__desc">Continued evolution of the foundational identity layer. Identity-gold passthroughs propagated to Brain Health, Nursing, and Winship (#447 / #448 / #449); Bootstrap / Stabilization project split (#437); registry-driven snapshot rotation via <code>etl_batch_registry</code> (#473); N-person merge fix plus analyst evidence pipeline (#349 / #358); Winship v1.1.1 hotfix (#441).</p>
+    <span class="rm-tag">Identity</span>
+  </div>
+
+  <div class="rm-card">
+    <div class="rm-card__header">
+      <span class="rm-chip rm-chip--shipped">SHIPPED</span>
+      <span class="hb-ball hb-ball--inline hb-ball--100"></span>
+      <h3 class="rm-card__title">Brain Health v1.0</h3>
+    </div>
+    <p class="rm-card__desc">First project-specific OMOP deployment for the Personalized Brain Health Initiative (Goizueta ADRC). BrainHealthEnterprise dbt models and subsample infrastructure (#399), identity-gold passthroughs (#449). Serves 34 researchers across 12 departments (SOM, SON, RSPH). Ongoing clinical-notes ingestion is tracked under the Notes &amp; NLP card.</p>
+    <span class="rm-tag">Brain Health</span>
+  </div>
+
+  <div class="rm-card">
+    <div class="rm-card__header">
+      <span class="rm-chip rm-chip--shipped">SHIPPED</span>
+      <span class="hb-ball hb-ball--inline hb-ball--100"></span>
+      <h3 class="rm-card__title">Vocabulary — Full Athena Coverage</h3>
+    </div>
+    <p class="rm-card__desc">All OMOP vocabulary tables now refresh through a single dbt run (#435, #436): <code>concept</code>, <code>concept_relationship</code>, <code>concept_ancestor</code>, <code>concept_class</code>, <code>domain</code>, <code>relationship</code>, <code>vocabulary</code>, <code>concept_synonym</code>, and <code>drug_strength</code>.</p>
+    <span class="rm-tag">Vocabulary</span>
   </div>
 
   <div class="rm-card">
@@ -125,80 +155,21 @@ title: Detailed Product Roadmap
 </div>
 
 <!-- ════════════════════════════════════════════════ -->
-<!-- CQ1 2026 — IN PROGRESS                           -->
-<!-- ════════════════════════════════════════════════ -->
-
-<div class="rm-quarter">
-  <div class="rm-quarter__badge">CQ1</div>
-  <h2 class="rm-quarter__title">CQ1 2026 (Calendar Quarter 1)</h2>
-  <p class="rm-quarter__subtitle">January &ndash; March &middot; Brain Health, FALCON-Bladder, CIRCLE, SON Prototype</p>
-</div>
-
-<div class="rm-items">
-  <div class="rm-card">
-    <span class="rm-priority">H</span>
-    <div class="rm-card__header">
-      <span class="rm-chip rm-chip--active">ACTIVE</span>
-      <span class="hb-ball hb-ball--inline hb-ball--75"></span>
-      <h3 class="rm-card__title">Brain Health v1.0</h3>
-    </div>
-    <p class="rm-card__desc">First project-specific OMOP deployment for the Personalized Brain Health Initiative (Goizueta ADRC). BrainHealthEnterprise dbt models and subsample infrastructure. Serves 34 researchers across 12 departments (SOM, SON, RSPH).</p>
-    <span class="rm-tag">Brain Health</span>
-    <span class="rm-tag">~Mar 20–21</span>
-  </div>
-
-  <div class="rm-card">
-    <span class="rm-priority">H</span>
-    <div class="rm-card__header">
-      <span class="rm-chip rm-chip--active">ACTIVE</span>
-      <span class="hb-ball hb-ball--inline hb-ball--25"></span>
-      <h3 class="rm-card__title">FALCON-Bladder Data Readiness</h3>
-    </div>
-    <p class="rm-card__desc">Data readiness assessment for FALCON-Bladder restart. Execute 3 SQL scripts (general concepts, genomic concepts, episode concepts) against Emory OMOP, generate CSV outputs, submit to study coordinators. First monthly meeting March 24.</p>
-    <span class="rm-tag">OHDSI Oncology</span>
-    <span class="rm-tag">Due Apr 15</span>
-  </div>
-
-  <div class="rm-card">
-    <span class="rm-priority">H</span>
-    <div class="rm-card__header">
-      <span class="rm-chip rm-chip--active">ACTIVE</span>
-      <span class="hb-ball hb-ball--inline hb-ball--25"></span>
-      <h3 class="rm-card__title">ARPA-H CIRCLE AP1 Solution Summary</h3>
-    </div>
-    <p class="rm-card__desc">AP1 = single-award data platform role for ARPA-H critical illness digital twin program. Solution summary due March 30; full proposal May 28 if encouraged. Consumes the OMOP-on-FHIR Streaming MVP. ~$2M/3yr.</p>
-    <span class="rm-tag">Grants</span>
-    <span class="rm-tag">Due Mar 30</span>
-  </div>
-
-  <div class="rm-card">
-    <span class="rm-priority">M</span>
-    <div class="rm-card__header">
-      <span class="rm-chip rm-chip--active">ACTIVE</span>
-      <span class="hb-ball hb-ball--inline hb-ball--50"></span>
-      <h3 class="rm-card__title">School of Nursing — Prototype</h3>
-    </div>
-    <p class="rm-card__desc">1M patient subsample created for SON experimentation against MVP — milestone achieved. Nursing cohort definitions in development.</p>
-    <span class="rm-tag">Research Teams</span>
-    <span class="rm-tag">Milestone ✓</span>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════════ -->
-<!-- CQ2 2026                                         -->
+<!-- CQ2 2026 — CURRENT QUARTER                        -->
 <!-- ════════════════════════════════════════════════ -->
 
 <div class="rm-quarter">
   <div class="rm-quarter__badge">CQ2</div>
-  <h2 class="rm-quarter__title">CQ2 2026 (Calendar Quarter 2)</h2>
-  <p class="rm-quarter__subtitle">April &ndash; June &middot; v1.1 Notes &amp; NLP, CASSIDY, SON Export, Winship R01 Decision</p>
+  <h2 class="rm-quarter__title">CQ2 2026 (Calendar Quarter 2) — Current</h2>
+  <p class="rm-quarter__subtitle">April &ndash; June &middot; v1.1 Notes &amp; NLP, FALCON-Bladder, SON Export, CASSIDY, Winship R01</p>
 </div>
 
 <div class="rm-items">
   <div class="rm-card rm-card--full">
     <span class="rm-priority">H</span>
     <div class="rm-card__header">
-      <span class="rm-chip rm-chip--planned">PLANNED</span>
+      <span class="rm-chip rm-chip--active">ACTIVE</span>
+      <span class="hb-ball hb-ball--inline hb-ball--25"></span>
       <h3 class="rm-card__title">v1.1 — Notes, NLP &amp; Governance Infrastructure</h3>
     </div>
     <p class="rm-card__desc">Clinical notes access with governance, NLP extraction pipeline, and shared API platform enabling standard LLM/NLP pipelines across the institution. Brain Health is the first consumer. Includes CDW notes archival from Cerner sunsetting (BMI intermediate storage). BMI HPC cluster POC informs production requirements.</p>
@@ -214,39 +185,44 @@ title: Detailed Product Roadmap
   <div class="rm-card">
     <span class="rm-priority">H</span>
     <div class="rm-card__header">
-      <span class="rm-chip rm-chip--planned">PLANNED</span>
-      <h3 class="rm-card__title">CASSIDY Phenotype</h3>
+      <span class="rm-chip rm-chip--active">ACTIVE</span>
+      <span class="hb-ball hb-ball--inline hb-ball--50"></span>
+      <h3 class="rm-card__title">FALCON-Bladder Data Readiness</h3>
     </div>
-    <p class="rm-card__desc">Diabetes surveillance computable phenotype for the CASSIDY Network (CHOA + Emory). Multi-stage pipeline: identification, classification, complication staging (§4.1–4.4), multi-year index 2018–2025.</p>
-    <span class="rm-tag">Pediatrics</span>
-    <span class="rm-tag">Beginning CQ2</span>
+    <p class="rm-card__desc">Data readiness assessment for the FALCON-Bladder restart. Execute 3 SQL scripts (general concepts, genomic concepts, episode concepts) against Emory OMOP, generate CSV outputs, and submit to study coordinators. Readiness work is in progress; original April 15 target has passed and the timeline has been extended.</p>
+    <span class="rm-tag">OHDSI Oncology</span>
+    <span class="rm-tag">Timeline extended</span>
+  </div>
+
+  <div class="rm-card">
+    <span class="rm-priority">H</span>
+    <div class="rm-card__header">
+      <span class="rm-chip rm-chip--active">ACTIVE</span>
+      <span class="hb-ball hb-ball--inline hb-ball--50"></span>
+      <h3 class="rm-card__title">School of Nursing — Export</h3>
+    </div>
+    <p class="rm-card__desc">Deliver a data export to the School of Nursing for independent research use. Prototype and 1M-patient subsample complete (CQ1 milestone); the export itself is still pending.</p>
+    <span class="rm-tag">Research Teams</span>
+    <span class="rm-tag">Export pending</span>
   </div>
 
   <div class="rm-card">
     <span class="rm-priority">H</span>
     <div class="rm-card__header">
       <span class="rm-chip rm-chip--planned">PLANNED</span>
-      <h3 class="rm-card__title">School of Nursing — Export</h3>
+      <span class="hb-ball hb-ball--inline hb-ball--25"></span>
+      <h3 class="rm-card__title">CASSIDY Phenotype</h3>
     </div>
-    <p class="rm-card__desc">Deliver data export to School of Nursing for independent research use. Prototype and 1M patient subsample already created (CQ1 milestone).</p>
-    <span class="rm-tag">Research Teams</span>
-    <span class="rm-tag">Early CQ2</span>
+    <p class="rm-card__desc">Diabetes surveillance computable phenotype for the CASSIDY Network (CHOA + Emory). Just initialized — project scaffolding in place (#388). Multi-stage pipeline planned: identification, classification, complication staging (§4.1–4.4), multi-year index 2018–2025.</p>
+    <span class="rm-tag">Pediatrics</span>
+    <span class="rm-tag">Just initialized</span>
   </div>
 
   <div class="rm-card">
     <span class="rm-priority">M</span>
     <div class="rm-card__header">
       <span class="rm-chip rm-chip--planned">PLANNED</span>
-      <h3 class="rm-card__title">OMOP-on-FHIR Streaming MVP</h3>
-    </div>
-    <p class="rm-card__desc">Prototype to experimentally validate OMOP as a real-time streaming storage target. FHIR-to-OMOP architecture (Kafka + DuckDB vocabulary resolution + hot/cold OMOP stores). Feeds ARPA-H CIRCLE AP1 if funded.</p>
-    <span class="rm-tag">Streaming</span>
-  </div>
-
-  <div class="rm-card">
-    <span class="rm-priority">M</span>
-    <div class="rm-card__header">
-      <span class="rm-chip rm-chip--planned">PLANNED</span>
+      <span class="hb-ball hb-ball--inline hb-ball--25"></span>
       <h3 class="rm-card__title">CVB Flowsheet Expansion</h3>
     </div>
     <p class="rm-card__desc">~38K remaining unmappable flowsheet items routing through CVB pipeline for expanded measurement coverage.</p>
@@ -257,11 +233,12 @@ title: Detailed Product Roadmap
     <span class="rm-priority">M</span>
     <div class="rm-card__header">
       <span class="rm-chip rm-chip--planned">PLANNED</span>
+      <span class="hb-ball hb-ball--inline hb-ball--50"></span>
       <h3 class="rm-card__title">Winship Oncology R01</h3>
     </div>
-    <p class="rm-card__desc">Clinical trial matching LLM incorporating OMOP. R01 submitted — decision expected May 2026.</p>
+    <p class="rm-card__desc">Clinical trial matching LLM incorporating OMOP. R01 received a good rating; resubmitting — decision expected ~August 2026.</p>
     <span class="rm-tag">Grants</span>
-    <span class="rm-tag">Decision May '26</span>
+    <span class="rm-tag">Decision ~Aug '26</span>
   </div>
 </div>
 
@@ -402,10 +379,10 @@ title: Detailed Product Roadmap
     <tr><td>Providers</td><td>PROVIDER</td><td style="text-align:center"><span class="hb-ball hb-ball--100"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--100"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--100"></span></td><td>Specialty mapping improving</td></tr>
     <tr><td>Social Hx</td><td>OBSERVATION</td><td style="text-align:center"><span class="hb-ball hb-ball--75"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--75"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--75"></span></td><td>Smoking, alcohol; SDOH expansion planned</td></tr>
     <tr><td>Notes</td><td>NOTE</td><td style="text-align:center"><span class="hb-ball hb-ball--25"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--25"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--25"></span></td><td>v1.1 target</td></tr>
-    <tr><td>NLP</td><td>NOTE_NLP</td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td>CQ2 2026</td></tr>
+    <tr><td>NLP</td><td>NOTE_NLP</td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td>CH2 2026</td></tr>
     <tr><td>Device</td><td>DEVICE_EXPOSURE</td><td style="text-align:center"><span class="hb-ball hb-ball--100"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--100"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--100"></span></td><td></td></tr>
-    <tr><td>Imaging</td><td>—</td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td>CQ4 2026</td></tr>
-    <tr><td>Waveforms</td><td>—</td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td>CQ4 2026</td></tr>
+    <tr><td>Imaging</td><td>—</td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td>2027 horizon</td></tr>
+    <tr><td>Waveforms</td><td>—</td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td style="text-align:center"><span class="hb-ball hb-ball--0"></span></td><td>2027 horizon</td></tr>
   </tbody>
 </table>
 </div>
