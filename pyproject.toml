@@ -14,3 +14,9 @@ dependencies = [
 [build-system]
 requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
+
+# This is a docs site, not an importable Python package. Tell setuptools there
+# are no packages/modules to discover so an editable build does not trip over
+# the flat-layout dirs (overrides/, supporting/).
+[tool.setuptools]
+py-modules = []
