@@ -503,7 +503,199 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "871037bda623463f": {
+      "title": "Flat OMOP, would love your opinions",
+      "source": "OHDSI Forums",
+      "date": "2026-06-29",
+      "file": "2026-06-29-flat-omop-would-love-your-opinions.md"
+    },
+    "f194379d5a7014b7": {
+      "title": "Atlas WG Community call changes for July and August",
+      "source": "OHDSI Forums",
+      "date": "2026-06-29",
+      "file": "2026-06-29-atlas-wg-community-call-changes-for-july-and-august.md"
+    },
+    "6e07a81e882e11d1": {
+      "title": "Request for SynPUF datasets (SynPUF_1K and SynPUF_5%)",
+      "source": "OHDSI Forums",
+      "date": "2026-06-26",
+      "file": "2026-06-26-request-for-synpuf-datasets-synpuf-1k-and-synpuf-5.md"
+    },
+    "ece8ba08a1c4cd1e": {
+      "title": "T1DX vocabulary as a complex community contribution - request for community feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-06-25",
+      "file": "2026-06-25-t1dx-vocabulary-as-a-complex-community-contribution---request-for-community-feed.md"
+    },
+    "4cdef8933a103a60": {
+      "title": "Medical Imaging, esp DICOM, ETL conventions",
+      "source": "OHDSI Forums",
+      "date": "2026-06-23",
+      "file": "2026-06-23-medical-imaging-esp-dicom-etl-conventions.md"
+    },
+    "bbf7408342f05d31": {
+      "title": "Community Survey: Does data standardization still matter in the era of foundation models?",
+      "source": "OHDSI Forums",
+      "date": "2026-06-23",
+      "file": "2026-06-23-community-survey-does-data-standardization-still-matter-in-the-era-of-foundation.md"
+    },
+    "36f65c514800ae83": {
+      "title": "Weekly OHDSI Digest - June 22, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-22",
+      "file": "2026-06-22-weekly-ohdsi-digest---june-22-2026.md"
+    },
+    "ff5334ef755e1a41": {
+      "title": "Help wanted - developers for HADES shiny viewer",
+      "source": "OHDSI Forums",
+      "date": "2026-06-22",
+      "file": "2026-06-22-help-wanted---developers-for-hades-shiny-viewer.md"
+    },
+    "0acdc5b471230616": {
+      "title": "HADES AI support - seeking input",
+      "source": "OHDSI Forums",
+      "date": "2026-06-22",
+      "file": "2026-06-22-hades-ai-support---seeking-input.md"
+    },
+    "705ac7c0ffaa1221": {
+      "title": "Seeking guidance on OMOP CDM data access for LVAD cohort feasibility",
+      "source": "OHDSI Forums",
+      "date": "2026-06-21",
+      "file": "2026-06-21-seeking-guidance-on-omop-cdm-data-access-for-lvad-cohort-feasibility.md"
+    },
+    "a07cc4cb2c09a19d": {
+      "title": "PSDL Inspector (MIT): authoring + governance layer for OMOP phenotypes and SQL preflight \u2014 looking for feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-06-20",
+      "file": "2026-06-20-psdl-inspector-mit-authoring-governance-layer-for-omop-phenotypes-and-sql-prefli.md"
+    },
+    "dda850aefcc38cea": {
+      "title": "Exploring Malloy + OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-exploring-malloy-omop.md"
+    },
+    "dc9184a57389a644": {
+      "title": "Handling missing DRUG_STRENGTH rows in dose calculation",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-handling-missing-drug-strength-rows-in-dose-calculation.md"
+    },
+    "f937fff438855c1d": {
+      "title": "Mapping microbiology laboratory data and AST results to OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-mapping-microbiology-laboratory-data-and-ast-results-to-omop-cdm.md"
+    },
+    "166b7606573c4957": {
+      "title": "Become an exhibitor at the Global Symposium!",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-become-an-exhibitor-at-the-global-symposium.md"
+    },
+    "76b92eb02a1949b9": {
+      "title": "Present a poster for your Chapter or Node at the Global Symposium in October!",
+      "source": "OHDSI Forums",
+      "date": "2026-06-15",
+      "file": "2026-06-15-present-a-poster-for-your-chapter-or-node-at-the-global-symposium-in-october.md"
+    },
+    "cac112fc47fa54be": {
+      "title": "Weekly OHDSI Digest - June 15, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-15",
+      "file": "2026-06-15-weekly-ohdsi-digest---june-15-2026.md"
+    },
+    "9c1b3a267bc5f0b4": {
+      "title": "How are gastroenterology practices handling coding consistency for colonoscopy and endoscopy claims data?",
+      "source": "OHDSI Forums",
+      "date": "2026-06-10",
+      "file": "2026-06-10-how-are-gastroenterology-practices-handling-coding-consistency-for-colonoscopy-a.md"
+    },
+    "23a4c978e7fdc7b7": {
+      "title": "Seeking collaborators \u2014 Dengue epidemiology in OMOP CDM (Latin America)",
+      "source": "OHDSI Forums",
+      "date": "2026-06-09",
+      "file": "2026-06-09-seeking-collaborators-dengue-epidemiology-in-omop-cdm-latin-america.md"
+    },
+    "2dc43e02945791ab": {
+      "title": "Seeking collaborators \u2014 GLP-1 pharmacovigilance using OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-06-09",
+      "file": "2026-06-09-seeking-collaborators-glp-1-pharmacovigilance-using-omop-cdm.md"
+    },
+    "fa6362fdec93d435": {
+      "title": "Weekly OHDSI Digest - June 8, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-08",
+      "file": "2026-06-08-weekly-ohdsi-digest---june-8-2026.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "6d1f3c24a0b330ff": {
+      "title": "Funded: HeartShare DeCODE-HF: Data translation center to Combine Omics, Deep phenotyping, and Electronic health records for Heart Failure subtypes and treatment targets",
+      "source": "NIH Reporter",
+      "date": "2026-06-29",
+      "file": "2026-06-29-funded-heartshare-decode-hf-data-translation-center-to-combine-omics-deep-phenot.md"
+    },
+    "422e113c1fe4551f": {
+      "title": "Addressing Substance Use PCORI Funding Announcement -- Cycle 3 2026",
+      "source": "PCORI",
+      "date": "2026-06-29",
+      "file": "2026-06-29-addressing-substance-use-pcori-funding-announcement----cycle-3-2026.md"
+    },
+    "7e0cc9e099116fa0": {
+      "title": "Engagement Award: Capacity Building -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-29",
+      "file": "2026-06-29-engagement-award-capacity-building----fall-2026-cycle.md"
+    },
+    "65e542c0d833a060": {
+      "title": "Engagement Award: Convening Support -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-29",
+      "file": "2026-06-29-engagement-award-convening-support----fall-2026-cycle.md"
+    },
+    "2d71c9d6a4e251b4": {
+      "title": "Engagement Award: Dissemination Initiative -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-29",
+      "file": "2026-06-29-engagement-award-dissemination-initiative----fall-2026-cycle.md"
+    },
+    "c1fa01aaa9142ab3": {
+      "title": "Engagement Award: Building Capacity for Small Organizations To Engage in Patient-Centered Comparative Clinical Effectiveness Research (CER) -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-06-29",
+      "file": "2026-06-29-engagement-award-building-capacity-for-small-organizations-to-engage-in-patient-.md"
+    },
+    "43ae68f329f914b1": {
+      "title": "Real-World Evidence of the Effectiveness and Safety of Biosynthetic Semaglutide in Type 2 Diabetes: A Multicentre Study From Pakistan",
+      "source": "PubMed",
+      "date": "2026-06-28",
+      "file": "2026-06-28-real-world-evidence-of-the-effectiveness-and-safety-of-biosynthetic-semaglutide-.md"
+    },
+    "82af25af7b2b2752": {
+      "title": "Pola-R-CHP as frontline therapy for diffuse large B-cell lymphoma: a systematic review and meta-analysis of randomized trials and real-world evidence",
+      "source": "PubMed",
+      "date": "2026-06-26",
+      "file": "2026-06-26-pola-r-chp-as-frontline-therapy-for-diffuse-large-b-cell-lymphoma-a-systematic-r.md"
+    },
+    "7630e442dfbc0471": {
+      "title": "[Translated article] Real-world evidence of immune-related adverse events as predictive factor of response in non-small cell lung cancer",
+      "source": "PubMed",
+      "date": "2026-06-26",
+      "file": "2026-06-26-translated-article-real-world-evidence-of-immune-related-adverse-events-as-predi.md"
+    },
+    "be70df3e3f1a8f27": {
+      "title": "Standalone bio-interventional uveoscleral outflow enhancement for intraocular pressure reduction in open-angle glaucoma: One-year results from a prospective multicenter real-world evidence study (NCT05506423)",
+      "source": "PubMed",
+      "date": "2026-06-29",
+      "file": "2026-06-29-standalone-bio-interventional-uveoscleral-outflow-enhancement-for-intraocular-pr.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-06-29T15:42:50.198103+00:00"
 }
