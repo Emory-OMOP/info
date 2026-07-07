@@ -112,14 +112,14 @@ Cleaning
 :   Non-events are removed. Records are de-duplicated where applicable. The result is a curated research dataset, not a raw operational dump.
 
 !!! warning "OMOP is not a replacement for Clarity"
-    It's a research-optimized view of the same underlying data. If something looks unexpected in OMOP, the source of truth is always the Epic infrastructure. See our [Known Issues](../Data%20in%20Enterprise%20OMOP/Data%20Quality/Known%20Issues/index.md) page for documented limitations.
+    It's a research-optimized view of the same underlying data. If something looks unexpected in OMOP, the source of truth is always the Epic infrastructure. See our [Known Issues](../../Data%20in%20Enterprise%20OMOP/Data%20Quality/Known%20Issues/index.md) page for documented limitations.
 
 ## Next Steps
 
-Ready to explore the data model? Head to the [OMOP Primers](../OMOP%20Primers/index.md) landing page for table-by-table guides, or jump straight to the tables you'll use most:
+Ready to explore the data model? Head to the [OMOP Primers](../index.md) landing page for table-by-table guides, or jump straight to the tables you'll use most:
 
-- [Person](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Person/index.md) — start here, it's the center of everything
-- [Visit Occurrence](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Visits/Visit%20Occurrence/index.md) — the encounter equivalent
-- [Condition Occurrence](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Conditions/Condition%20Occurrence/index.md) — diagnoses and problems
-- [Drug Exposure](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Drugs/Drug%20Exposure/index.md) — medications
-- [Measurement](../OMOP%20Primers/Standardized%20Categories/Clinical%20Data/Measurement/index.md) — labs and vitals
+- [Person](../Standardized%20Categories/Clinical%20Data/Person/index.md) — start here, it's the center of everything
+- [Visit Occurrence](../Standardized%20Categories/Clinical%20Data/Visits/Visit%20Occurrence/index.md) — the encounter equivalent
+- [Condition Occurrence](../Standardized%20Categories/Clinical%20Data/Conditions/Condition%20Occurrence/index.md) — diagnoses and problems
+- [Drug Exposure](../Standardized%20Categories/Clinical%20Data/Drugs/Drug%20Exposure/index.md) — medications
+- [Measurement](../Standardized%20Categories/Clinical%20Data/Measurement/index.md) — labs and vitals

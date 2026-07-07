@@ -99,7 +99,7 @@ Choose a pathway based on your experience level. The Basic pathway gives you eno
 
     EHDEN Academy courses, The Book of OHDSI, community forums, and annual reports.
 
-    [:octicons-arrow-right-24: OHDSI resources](External%20Educational%20Resources/OHDSI%20-%20General/index.md){ .md-button }
+    [:octicons-arrow-right-24: OHDSI resources](External%20Educational%20Resources/index.md){ .md-button }
 
 </div>
 

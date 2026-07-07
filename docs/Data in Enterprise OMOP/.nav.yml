@@ -1,0 +1,11 @@
+# Matches the card order on the landing page.
+nav:
+  - index.md
+  - Data Mapping
+  - Data Quality
+  - Patient Identities
+  - Observed Conventions
+  - NLP Infrastructure
+  - Releases
+  - glob: "*"
+    ignore_no_matches: true
