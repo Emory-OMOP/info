@@ -1,2 +1,4 @@
+# With flatten_single_child_sections this page surfaces directly under
+# Project and Product Management, so the title carries the IRB context itself.
 nav:
-  - Non-human Subjects: non-human-subjects.md
+  - IRB — Non-Human Subjects Determination: non-human-subjects.md

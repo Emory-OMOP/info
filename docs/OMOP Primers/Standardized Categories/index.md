@@ -45,6 +45,14 @@ The OMOP CDM organizes tables into categories that match the color-coded regions
 
     [:octicons-arrow-right-24: Health Economics](Health%20Economics/index.md){ .md-button }
 
+-   :material-database-cog:{ .lg .middle } **Metadata & Results**
+
+    ---
+
+    The housekeeping tables: dataset versioning and provenance (`cdm_source`), plus cohort output from ATLAS and phenotyping algorithms.
+
+    [:octicons-arrow-right-24: Metadata & Results](Other/index.md){ .md-button }
+
 </div>
 
 ![OMOP CDM v5.4 entity relationship diagram showing standardized table categories](../../assets/images/cdm54.png)

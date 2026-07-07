@@ -1,0 +1,11 @@
+# Matches the card order on the landing page: clinical tables first, then the
+# supporting categories.
+nav:
+  - index.md
+  - Clinical Data
+  - Health System
+  - Vocabularies
+  - Health Economics
+  - Other
+  - glob: "*"
+    ignore_no_matches: true

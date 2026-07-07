@@ -1,4 +1,23 @@
 ignore: 404.md
+
+# Collapse single-child folder chains (e.g. Governance > IRB Pipelines > one
+# page) into a single nav entry instead of nested empty sections. Inherited by
+# every subdirectory.
+flatten_single_child_sections: true
+
+# Top-level tab order follows the researcher journey: learn OMOP, see what's
+# in the data, find tools, get trained, get help. Anything new lands after
+# Contact Us via the trailing glob.
 nav:
   - index.md
-  - "*"
+  - OMOP Primers
+  - Data in Enterprise OMOP
+  - Applications
+  - Training
+  - Support
+  - Divisions
+  - News & Opportunities: blog
+  - Project and Product Management
+  - Contact Us
+  - glob: "*"
+    ignore_no_matches: true

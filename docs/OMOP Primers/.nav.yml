@@ -1,0 +1,7 @@
+# Decision guide first, then the table reference.
+nav:
+  - index.md
+  - When to Use OMOP
+  - Standardized Categories
+  - glob: "*"
+    ignore_no_matches: true
