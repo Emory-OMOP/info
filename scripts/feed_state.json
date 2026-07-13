@@ -503,7 +503,259 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "0b5b9fe4a8566818": {
+      "title": "[New Publication in JAMIA Open] THESEUS: An AI Agent for Automating Executable Strategus R Scripts from Free-Text Study Designs",
+      "source": "OHDSI Forums",
+      "date": "2026-07-09",
+      "file": "2026-07-09-new-publication-in-jamia-open-theseus-an-ai-agent-for-automating-executable-stra.md"
+    },
+    "3806d59c6d9e601e": {
+      "title": "Call for participation: OHDSI network study on nitrofurantoin-associated pulmonary toxicity",
+      "source": "OHDSI Forums",
+      "date": "2026-07-09",
+      "file": "2026-07-09-call-for-participation-ohdsi-network-study-on-nitrofurantoin-associated-pulmonar.md"
+    },
+    "7ae4fc08a83a5e32": {
+      "title": "Global Symposium Reminders!",
+      "source": "OHDSI Forums",
+      "date": "2026-07-08",
+      "file": "2026-07-08-global-symposium-reminders.md"
+    },
+    "3d2e9568b95b0eab": {
+      "title": "Concept set critic for ATLAS/OMOP phenotypes \u2014 looking for feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-07-08",
+      "file": "2026-07-08-concept-set-critic-for-atlasomop-phenotypes-looking-for-feedback.md"
+    },
+    "3e1a5bf61d03a7c1": {
+      "title": "Weekly OHDSI Digest - July 6, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-06",
+      "file": "2026-07-06-weekly-ohdsi-digest---july-6-2026.md"
+    },
+    "d51c4c59026a958d": {
+      "title": "Commercial Solutions for OMOP/OHDSI Research Acceleration",
+      "source": "OHDSI Forums",
+      "date": "2026-07-06",
+      "file": "2026-07-06-commercial-solutions-for-omopohdsi-research-acceleration.md"
+    },
+    "163badd4ec952756": {
+      "title": "Rwevalidate: an R package for FDA-aligned validation of RWE cohorts on the OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-07-05",
+      "file": "2026-07-05-rwevalidate-an-r-package-for-fda-aligned-validation-of-rwe-cohorts-on-the-omop-c.md"
+    },
+    "957f84079ac930e5": {
+      "title": "CDM v5.5 Coming this August!",
+      "source": "OHDSI Forums",
+      "date": "2026-07-02",
+      "file": "2026-07-02-cdm-v55-coming-this-august.md"
+    },
+    "f9133c4a6e79cfeb": {
+      "title": "[New Publication in JBI] ARKE: Framing Medical Ontologies as Cognitive Guardrails for LLM Agents in Radiology Standardization",
+      "source": "OHDSI Forums",
+      "date": "2026-07-02",
+      "file": "2026-07-02-new-publication-in-jbi-arke-framing-medical-ontologies-as-cognitive-guardrails-f.md"
+    },
+    "60cc3899f8f9258b": {
+      "title": "Job Opportunity: Clinical Research Scientist at DataUnite",
+      "source": "OHDSI Forums",
+      "date": "2026-06-30",
+      "file": "2026-06-30-job-opportunity-clinical-research-scientist-at-dataunite.md"
+    },
+    "a5b1e5529bbb9df9": {
+      "title": "Weekly OHDSI Digest - June 29, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-29",
+      "file": "2026-06-29-weekly-ohdsi-digest---june-29-2026.md"
+    },
+    "871037bda623463f": {
+      "title": "Flat OMOP, would love your opinions",
+      "source": "OHDSI Forums",
+      "date": "2026-06-29",
+      "file": "2026-06-29-flat-omop-would-love-your-opinions.md"
+    },
+    "f194379d5a7014b7": {
+      "title": "Atlas WG Community call changes for July and August",
+      "source": "OHDSI Forums",
+      "date": "2026-06-29",
+      "file": "2026-06-29-atlas-wg-community-call-changes-for-july-and-august.md"
+    },
+    "6e07a81e882e11d1": {
+      "title": "Request for SynPUF datasets (SynPUF_1K and SynPUF_5%)",
+      "source": "OHDSI Forums",
+      "date": "2026-06-26",
+      "file": "2026-06-26-request-for-synpuf-datasets-synpuf-1k-and-synpuf-5.md"
+    },
+    "ece8ba08a1c4cd1e": {
+      "title": "T1DX vocabulary as a complex community contribution - request for community feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-06-25",
+      "file": "2026-06-25-t1dx-vocabulary-as-a-complex-community-contribution---request-for-community-feed.md"
+    },
+    "4cdef8933a103a60": {
+      "title": "Medical Imaging, esp DICOM, ETL conventions",
+      "source": "OHDSI Forums",
+      "date": "2026-06-23",
+      "file": "2026-06-23-medical-imaging-esp-dicom-etl-conventions.md"
+    },
+    "bbf7408342f05d31": {
+      "title": "Community Survey: Does data standardization still matter in the era of foundation models?",
+      "source": "OHDSI Forums",
+      "date": "2026-06-23",
+      "file": "2026-06-23-community-survey-does-data-standardization-still-matter-in-the-era-of-foundation.md"
+    },
+    "36f65c514800ae83": {
+      "title": "Weekly OHDSI Digest - June 22, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-22",
+      "file": "2026-06-22-weekly-ohdsi-digest---june-22-2026.md"
+    },
+    "ff5334ef755e1a41": {
+      "title": "Help wanted - developers for HADES shiny viewer",
+      "source": "OHDSI Forums",
+      "date": "2026-06-22",
+      "file": "2026-06-22-help-wanted---developers-for-hades-shiny-viewer.md"
+    },
+    "0acdc5b471230616": {
+      "title": "HADES AI support - seeking input",
+      "source": "OHDSI Forums",
+      "date": "2026-06-22",
+      "file": "2026-06-22-hades-ai-support---seeking-input.md"
+    },
+    "705ac7c0ffaa1221": {
+      "title": "Seeking guidance on OMOP CDM data access for LVAD cohort feasibility",
+      "source": "OHDSI Forums",
+      "date": "2026-06-21",
+      "file": "2026-06-21-seeking-guidance-on-omop-cdm-data-access-for-lvad-cohort-feasibility.md"
+    },
+    "a07cc4cb2c09a19d": {
+      "title": "PSDL Inspector (MIT): authoring + governance layer for OMOP phenotypes and SQL preflight \u2014 looking for feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-06-20",
+      "file": "2026-06-20-psdl-inspector-mit-authoring-governance-layer-for-omop-phenotypes-and-sql-prefli.md"
+    },
+    "dda850aefcc38cea": {
+      "title": "Exploring Malloy + OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-exploring-malloy-omop.md"
+    },
+    "dc9184a57389a644": {
+      "title": "Handling missing DRUG_STRENGTH rows in dose calculation",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-handling-missing-drug-strength-rows-in-dose-calculation.md"
+    },
+    "f937fff438855c1d": {
+      "title": "Mapping microbiology laboratory data and AST results to OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-mapping-microbiology-laboratory-data-and-ast-results-to-omop-cdm.md"
+    },
+    "166b7606573c4957": {
+      "title": "Become an exhibitor at the Global Symposium!",
+      "source": "OHDSI Forums",
+      "date": "2026-06-18",
+      "file": "2026-06-18-become-an-exhibitor-at-the-global-symposium.md"
+    },
+    "76b92eb02a1949b9": {
+      "title": "Present a poster for your Chapter or Node at the Global Symposium in October!",
+      "source": "OHDSI Forums",
+      "date": "2026-06-15",
+      "file": "2026-06-15-present-a-poster-for-your-chapter-or-node-at-the-global-symposium-in-october.md"
+    },
+    "cac112fc47fa54be": {
+      "title": "Weekly OHDSI Digest - June 15, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-06-15",
+      "file": "2026-06-15-weekly-ohdsi-digest---june-15-2026.md"
+    },
+    "80d3b5e00952f351": {
+      "title": "Development and Testing of a Multi-use Frameworks Playbook for Precision Medicine with AI: Integrating Imaging with Multimodal Data (PRIMED-AI) (U01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-06-30",
+      "file": "2026-06-30-development-and-testing-of-a-multi-use-frameworks-playbook-for-precision-medicin.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "0528ed283e1c0dd7": {
+      "title": "Funded: Cost Offsets and Spending on Glucagon-like peptide-1 receptor agonists (GLP-1s) in a Large National Electronic Health Record Database",
+      "source": "NIH Reporter",
+      "date": "2026-07-13",
+      "file": "2026-07-13-funded-cost-offsets-and-spending-on-glucagon-like-peptide-1-receptor-agonists-gl.md"
+    },
+    "b2d885cabde9cc47": {
+      "title": "Funded: Precision Orthopedics: Multimodal Data Infrastructure for Personalized Surgical Decisions in Joint Arthroplasty",
+      "source": "NIH Reporter",
+      "date": "2026-07-13",
+      "file": "2026-07-13-funded-precision-orthopedics-multimodal-data-infrastructure-for-personalized-sur.md"
+    },
+    "7d727bc2360fdf84": {
+      "title": "Funded: Comparing the Effectiveness of Advanced Therapies in Pediatric Crohn's Disease to Optimize Treatment Decisions",
+      "source": "NIH Reporter",
+      "date": "2026-07-13",
+      "file": "2026-07-13-funded-comparing-the-effectiveness-of-advanced-therapies-in-pediatric-crohns-dis.md"
+    },
+    "6d1f3c24a0b330ff": {
+      "title": "Funded: HeartShare DeCODE-HF: Data translation center to Combine Omics, Deep phenotyping, and Electronic health records for Heart Failure subtypes and treatment targets",
+      "source": "NIH Reporter",
+      "date": "2026-07-13",
+      "file": "2026-07-13-funded-heartshare-decode-hf-data-translation-center-to-combine-omics-deep-phenot.md"
+    },
+    "422e113c1fe4551f": {
+      "title": "Addressing Substance Use PCORI Funding Announcement -- Cycle 3 2026",
+      "source": "PCORI",
+      "date": "2026-07-13",
+      "file": "2026-07-13-addressing-substance-use-pcori-funding-announcement----cycle-3-2026.md"
+    },
+    "7e0cc9e099116fa0": {
+      "title": "Engagement Award: Capacity Building -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-07-13",
+      "file": "2026-07-13-engagement-award-capacity-building----fall-2026-cycle.md"
+    },
+    "65e542c0d833a060": {
+      "title": "Engagement Award: Convening Support -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-07-13",
+      "file": "2026-07-13-engagement-award-convening-support----fall-2026-cycle.md"
+    },
+    "2d71c9d6a4e251b4": {
+      "title": "Engagement Award: Dissemination Initiative -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-07-13",
+      "file": "2026-07-13-engagement-award-dissemination-initiative----fall-2026-cycle.md"
+    },
+    "c1fa01aaa9142ab3": {
+      "title": "Engagement Award: Building Capacity for Small Organizations To Engage in Patient-Centered Comparative Clinical Effectiveness Research (CER) -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-07-13",
+      "file": "2026-07-13-engagement-award-building-capacity-for-small-organizations-to-engage-in-patient-.md"
+    },
+    "1ef0e72ecf40004a": {
+      "title": "Clinical Impact of PCSK9 Inhibitor Discontinuation on Cardiovascular Outcomes\u3000- Real-World Evidence From the Kyoto PCSK9 Registry",
+      "source": "PubMed",
+      "date": "2026-07-11",
+      "file": "2026-07-11-clinical-impact-of-pcsk9-inhibitor-discontinuation-on-cardiovascular-outcomes---.md"
+    },
+    "065b946c7e1a9889": {
+      "title": "Henagliflozin attenuates adverse ventricular remodeling and improves cardiometabolic parameters in patients with type 2 diabetes and hypertension: real-world evidence from a propensity score-matched analysis",
+      "source": "PubMed",
+      "date": "2026-07-11",
+      "file": "2026-07-11-henagliflozin-attenuates-adverse-ventricular-remodeling-and-improves-cardiometab.md"
+    },
+    "54d5d2f28dda17e7": {
+      "title": "Comparative effectiveness and safety of adjuvant trastuzumab plus pertuzumab versus trastuzumab emtansine in HER2-positive breast cancer with residual disease after neoadjuvant therapy: a real-world retrospective study",
+      "source": "PubMed",
+      "date": "2026-07-13",
+      "file": "2026-07-13-comparative-effectiveness-and-safety-of-adjuvant-trastuzumab-plus-pertuzumab-ver.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-07-13T14:29:52.111109+00:00"
 }
