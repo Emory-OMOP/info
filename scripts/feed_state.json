@@ -503,7 +503,247 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "89c21b0814636ece": {
+      "title": "Mapping curated NHS data sets to OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-07-31",
+      "file": "2026-07-31-mapping-curated-nhs-data-sets-to-omop.md"
+    },
+    "4316ca5e5ea3aebb": {
+      "title": "When a clinical criterion isn\u2019t directly observable in OMOP data",
+      "source": "OHDSI Forums",
+      "date": "2026-07-31",
+      "file": "2026-07-31-when-a-clinical-criterion-isnt-directly-observable-in-omop-data.md"
+    },
+    "c93b5f5135cdf3a4": {
+      "title": "Exhibit, Sponsor and Donate to OHDSI",
+      "source": "OHDSI Forums",
+      "date": "2026-07-30",
+      "file": "2026-07-30-exhibit-sponsor-and-donate-to-ohdsi.md"
+    },
+    "00a441cb2f15966e": {
+      "title": "Running DQD on a large SQL Server database (resources on what indexes to create)",
+      "source": "OHDSI Forums",
+      "date": "2026-07-30",
+      "file": "2026-07-30-running-dqd-on-a-large-sql-server-database-resources-on-what-indexes-to-create.md"
+    },
+    "50d976f4c485a07f": {
+      "title": "Using OHDSI tools on UK Biobank Research Analysis Platform (UKB-RAP)",
+      "source": "OHDSI Forums",
+      "date": "2026-07-29",
+      "file": "2026-07-29-using-ohdsi-tools-on-uk-biobank-research-analysis-platform-ukb-rap.md"
+    },
+    "d26b30f86c6e7fb8": {
+      "title": "FHIR to OMOP Implementation Guide is up for STU ballot, pool closes August 13",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-fhir-to-omop-implementation-guide-is-up-for-stu-ballot-pool-closes-august-13.md"
+    },
+    "702ab2238908e811": {
+      "title": "Call for collaborators: detecting cross-site semantic divergence before network studies",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-call-for-collaborators-detecting-cross-site-semantic-divergence-before-network-s.md"
+    },
+    "e4007aac829b3462": {
+      "title": "FHIR to OMOP IG page on Modifiers",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-fhir-to-omop-ig-page-on-modifiers.md"
+    },
+    "e8df66a483f644bf": {
+      "title": "[Research Survey] Motivations for contributing to the OHDSI community ($25 gift card drawing)",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-research-survey-motivations-for-contributing-to-the-ohdsi-community-25-gift-card.md"
+    },
+    "eb69ed6772039bde": {
+      "title": "Weekly OHDSI Digest - July 27, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-27",
+      "file": "2026-07-27-weekly-ohdsi-digest---july-27-2026.md"
+    },
+    "e473d112dc037f15": {
+      "title": "Guidance on mapping deprecated CDT/HCPCS dental procedure codes to OMOP standard concepts",
+      "source": "OHDSI Forums",
+      "date": "2026-07-24",
+      "file": "2026-07-24-guidance-on-mapping-deprecated-cdthcpcs-dental-procedure-codes-to-omop-standard-.md"
+    },
+    "b3fe6f503964f03a": {
+      "title": "PoC: compiling ClinicalTrials.gov eligibility prose into a gate-verified Circe cohort, with refusal as a first-class output",
+      "source": "OHDSI Forums",
+      "date": "2026-07-22",
+      "file": "2026-07-22-poc-compiling-clinicaltrialsgov-eligibility-prose-into-a-gate-verified-circe-coh.md"
+    },
+    "22b2818a19575f63": {
+      "title": "Literature/examples on integrating and validating two independently-OMOP'd datasets?",
+      "source": "OHDSI Forums",
+      "date": "2026-07-21",
+      "file": "2026-07-21-literatureexamples-on-integrating-and-validating-two-independently-omopd-dataset.md"
+    },
+    "30c1030645f9ffdf": {
+      "title": "Weekly OHDSI Digest - July 20, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-20",
+      "file": "2026-07-20-weekly-ohdsi-digest---july-20-2026.md"
+    },
+    "690ad43ba9399d6d": {
+      "title": "OHDSI Global Symposium- Register - Book a Hotel-Room - Join the Jam Session!",
+      "source": "OHDSI Forums",
+      "date": "2026-07-16",
+      "file": "2026-07-16-ohdsi-global-symposium--register---book-a-hotel-room---join-the-jam-session.md"
+    },
+    "3f8e8695bf040284": {
+      "title": "Weekly OHDSI Digest - July 13, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-13",
+      "file": "2026-07-13-weekly-ohdsi-digest---july-13-2026.md"
+    },
+    "0b5b9fe4a8566818": {
+      "title": "[New Publication in JAMIA Open] THESEUS: An AI Agent for Automating Executable Strategus R Scripts from Free-Text Study Designs",
+      "source": "OHDSI Forums",
+      "date": "2026-07-09",
+      "file": "2026-07-09-new-publication-in-jamia-open-theseus-an-ai-agent-for-automating-executable-stra.md"
+    },
+    "3806d59c6d9e601e": {
+      "title": "Call for participation: OHDSI network study on nitrofurantoin-associated pulmonary toxicity",
+      "source": "OHDSI Forums",
+      "date": "2026-07-09",
+      "file": "2026-07-09-call-for-participation-ohdsi-network-study-on-nitrofurantoin-associated-pulmonar.md"
+    },
+    "7ae4fc08a83a5e32": {
+      "title": "Global Symposium Reminders!",
+      "source": "OHDSI Forums",
+      "date": "2026-07-08",
+      "file": "2026-07-08-global-symposium-reminders.md"
+    },
+    "3d2e9568b95b0eab": {
+      "title": "Concept set critic for ATLAS/OMOP phenotypes \u2014 looking for feedback",
+      "source": "OHDSI Forums",
+      "date": "2026-07-08",
+      "file": "2026-07-08-concept-set-critic-for-atlasomop-phenotypes-looking-for-feedback.md"
+    },
+    "3e1a5bf61d03a7c1": {
+      "title": "Weekly OHDSI Digest - July 6, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-06",
+      "file": "2026-07-06-weekly-ohdsi-digest---july-6-2026.md"
+    },
+    "d51c4c59026a958d": {
+      "title": "Commercial Solutions for OMOP/OHDSI Research Acceleration",
+      "source": "OHDSI Forums",
+      "date": "2026-07-06",
+      "file": "2026-07-06-commercial-solutions-for-omopohdsi-research-acceleration.md"
+    },
+    "163badd4ec952756": {
+      "title": "Rwevalidate: an R package for FDA-aligned validation of RWE cohorts on the OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-07-05",
+      "file": "2026-07-05-rwevalidate-an-r-package-for-fda-aligned-validation-of-rwe-cohorts-on-the-omop-c.md"
+    },
+    "957f84079ac930e5": {
+      "title": "CDM v5.5 Coming this August!",
+      "source": "OHDSI Forums",
+      "date": "2026-07-02",
+      "file": "2026-07-02-cdm-v55-coming-this-august.md"
+    },
+    "f9133c4a6e79cfeb": {
+      "title": "[New Publication in JBI] ARKE: Framing Medical Ontologies as Cognitive Guardrails for LLM Agents in Radiology Standardization",
+      "source": "OHDSI Forums",
+      "date": "2026-07-02",
+      "file": "2026-07-02-new-publication-in-jbi-arke-framing-medical-ontologies-as-cognitive-guardrails-f.md"
+    },
+    "60cc3899f8f9258b": {
+      "title": "Job Opportunity: Clinical Research Scientist at DataUnite",
+      "source": "OHDSI Forums",
+      "date": "2026-06-30",
+      "file": "2026-06-30-job-opportunity-clinical-research-scientist-at-dataunite.md"
+    },
+    "80d3b5e00952f351": {
+      "title": "Development and Testing of a Multi-use Frameworks Playbook for Precision Medicine with AI: Integrating Imaging with Multimodal Data (PRIMED-AI) (U01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-06-30",
+      "file": "2026-06-30-development-and-testing-of-a-multi-use-frameworks-playbook-for-precision-medicin.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "0528ed283e1c0dd7": {
+      "title": "Funded: Cost Offsets and Spending on Glucagon-like peptide-1 receptor agonists (GLP-1s) in a Large National Electronic Health Record Database",
+      "source": "NIH Reporter",
+      "date": "2026-08-03",
+      "file": "2026-08-03-funded-cost-offsets-and-spending-on-glucagon-like-peptide-1-receptor-agonists-gl.md"
+    },
+    "b2d885cabde9cc47": {
+      "title": "Funded: Precision Orthopedics: Multimodal Data Infrastructure for Personalized Surgical Decisions in Joint Arthroplasty",
+      "source": "NIH Reporter",
+      "date": "2026-08-03",
+      "file": "2026-08-03-funded-precision-orthopedics-multimodal-data-infrastructure-for-personalized-sur.md"
+    },
+    "7d727bc2360fdf84": {
+      "title": "Funded: Comparing the Effectiveness of Advanced Therapies in Pediatric Crohn's Disease to Optimize Treatment Decisions",
+      "source": "NIH Reporter",
+      "date": "2026-08-03",
+      "file": "2026-08-03-funded-comparing-the-effectiveness-of-advanced-therapies-in-pediatric-crohns-dis.md"
+    },
+    "920695d4fdedba6d": {
+      "title": "Funded: A secure analytics platform to study the prognosis of people with HIV in the USA, Canada and Europe and comparative effectiveness of treatment regimens: the Antiretroviral Therapy Cohort Collaboration",
+      "source": "NIH Reporter",
+      "date": "2026-08-03",
+      "file": "2026-08-03-funded-a-secure-analytics-platform-to-study-the-prognosis-of-people-with-hiv-in-.md"
+    },
+    "422e113c1fe4551f": {
+      "title": "Addressing Substance Use PCORI Funding Announcement -- Cycle 3 2026",
+      "source": "PCORI",
+      "date": "2026-08-03",
+      "file": "2026-08-03-addressing-substance-use-pcori-funding-announcement----cycle-3-2026.md"
+    },
+    "7e0cc9e099116fa0": {
+      "title": "Engagement Award: Capacity Building -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-08-03",
+      "file": "2026-08-03-engagement-award-capacity-building----fall-2026-cycle.md"
+    },
+    "65e542c0d833a060": {
+      "title": "Engagement Award: Convening Support -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-08-03",
+      "file": "2026-08-03-engagement-award-convening-support----fall-2026-cycle.md"
+    },
+    "2d71c9d6a4e251b4": {
+      "title": "Engagement Award: Dissemination Initiative -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-08-03",
+      "file": "2026-08-03-engagement-award-dissemination-initiative----fall-2026-cycle.md"
+    },
+    "c1fa01aaa9142ab3": {
+      "title": "Engagement Award: Building Capacity for Small Organizations To Engage in Patient-Centered Comparative Clinical Effectiveness Research (CER) -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-08-03",
+      "file": "2026-08-03-engagement-award-building-capacity-for-small-organizations-to-engage-in-patient-.md"
+    },
+    "183def46b68a0036": {
+      "title": "Real-world evidence on off-label underdosing of direct oral anticoagulants in Asian patients with atrial fibrillation: prescribing patterns, determinants, and outcomes",
+      "source": "PubMed",
+      "date": "2026-12-01",
+      "file": "2026-12-01-real-world-evidence-on-off-label-underdosing-of-direct-oral-anticoagulants-in-as.md"
+    },
+    "fbf1834983ff1785": {
+      "title": "[Virtual efficacy evaluation: methodological framework linking randomized controlled trials and real-world evidence in clinical research of TCM]",
+      "source": "PubMed",
+      "date": "2026-06-01",
+      "file": "2026-06-01-virtual-efficacy-evaluation-methodological-framework-linking-randomized-controll.md"
+    },
+    "35dae58fcf8b334b": {
+      "title": "Real-world evidence for the postmarket surveillance of cancer medicines: opportunities and challenges using Australia's population-based cancer registries",
+      "source": "PubMed",
+      "date": "2026-09-01",
+      "file": "2026-09-01-real-world-evidence-for-the-postmarket-surveillance-of-cancer-medicines-opportun.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-08-03T14:34:14.207863+00:00"
 }
