@@ -503,7 +503,229 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "f8e4ec212d386433": {
+      "title": "Atlas3 Testing Workshop 8/13 to 9/3",
+      "source": "OHDSI Forums",
+      "date": "2026-08-13",
+      "file": "2026-08-13-atlas3-testing-workshop-813-to-93.md"
+    },
+    "154598878d644049": {
+      "title": "OHDSI Global Symposium Tutorial: Integrating Geospatial Data into OMOP CDM",
+      "source": "OHDSI Forums",
+      "date": "2026-08-10",
+      "file": "2026-08-10-ohdsi-global-symposium-tutorial-integrating-geospatial-data-into-omop-cdm.md"
+    },
+    "d1a9c0369c1b7f1b": {
+      "title": "Weekly OHDSI Digest - August 10, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-08-10",
+      "file": "2026-08-10-weekly-ohdsi-digest---august-10-2026.md"
+    },
+    "deb11d1ee2c459cf": {
+      "title": "Less than 15 guestrooms left at the Hyatt in the OHDSI room block- Book now!",
+      "source": "OHDSI Forums",
+      "date": "2026-08-06",
+      "file": "2026-08-06-less-than-15-guestrooms-left-at-the-hyatt-in-the-ohdsi-room-block--book-now.md"
+    },
+    "bb6041026e92b6ca": {
+      "title": "Measurements for missing precoordinated terms",
+      "source": "OHDSI Forums",
+      "date": "2026-08-05",
+      "file": "2026-08-05-measurements-for-missing-precoordinated-terms.md"
+    },
+    "a9de59384af2ff1c": {
+      "title": "Help and feedback wanted: terminology service using OHDSI vocabulary",
+      "source": "OHDSI Forums",
+      "date": "2026-08-04",
+      "file": "2026-08-04-help-and-feedback-wanted-terminology-service-using-ohdsi-vocabulary.md"
+    },
+    "e8ea6b10592ce9cd": {
+      "title": "Weekly OHDSI Digest - August 3, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-08-03",
+      "file": "2026-08-03-weekly-ohdsi-digest---august-3-2026.md"
+    },
+    "89c21b0814636ece": {
+      "title": "Mapping curated NHS data sets to OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-07-31",
+      "file": "2026-07-31-mapping-curated-nhs-data-sets-to-omop.md"
+    },
+    "4316ca5e5ea3aebb": {
+      "title": "When a clinical criterion isn\u2019t directly observable in OMOP data",
+      "source": "OHDSI Forums",
+      "date": "2026-07-31",
+      "file": "2026-07-31-when-a-clinical-criterion-isnt-directly-observable-in-omop-data.md"
+    },
+    "c93b5f5135cdf3a4": {
+      "title": "Exhibit, Sponsor and Donate to OHDSI",
+      "source": "OHDSI Forums",
+      "date": "2026-07-30",
+      "file": "2026-07-30-exhibit-sponsor-and-donate-to-ohdsi.md"
+    },
+    "00a441cb2f15966e": {
+      "title": "Running DQD on a large SQL Server database (resources on what indexes to create)",
+      "source": "OHDSI Forums",
+      "date": "2026-07-30",
+      "file": "2026-07-30-running-dqd-on-a-large-sql-server-database-resources-on-what-indexes-to-create.md"
+    },
+    "50d976f4c485a07f": {
+      "title": "Using OHDSI tools on UK Biobank Research Analysis Platform (UKB-RAP)",
+      "source": "OHDSI Forums",
+      "date": "2026-07-29",
+      "file": "2026-07-29-using-ohdsi-tools-on-uk-biobank-research-analysis-platform-ukb-rap.md"
+    },
+    "d26b30f86c6e7fb8": {
+      "title": "FHIR to OMOP Implementation Guide is up for STU ballot, pool closes August 13",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-fhir-to-omop-implementation-guide-is-up-for-stu-ballot-pool-closes-august-13.md"
+    },
+    "702ab2238908e811": {
+      "title": "Call for collaborators: detecting cross-site semantic divergence before network studies",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-call-for-collaborators-detecting-cross-site-semantic-divergence-before-network-s.md"
+    },
+    "e4007aac829b3462": {
+      "title": "FHIR to OMOP IG page on Modifiers",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-fhir-to-omop-ig-page-on-modifiers.md"
+    },
+    "e8df66a483f644bf": {
+      "title": "[Research Survey] Motivations for contributing to the OHDSI community ($25 gift card drawing)",
+      "source": "OHDSI Forums",
+      "date": "2026-07-28",
+      "file": "2026-07-28-research-survey-motivations-for-contributing-to-the-ohdsi-community-25-gift-card.md"
+    },
+    "eb69ed6772039bde": {
+      "title": "Weekly OHDSI Digest - July 27, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-27",
+      "file": "2026-07-27-weekly-ohdsi-digest---july-27-2026.md"
+    },
+    "e473d112dc037f15": {
+      "title": "Guidance on mapping deprecated CDT/HCPCS dental procedure codes to OMOP standard concepts",
+      "source": "OHDSI Forums",
+      "date": "2026-07-24",
+      "file": "2026-07-24-guidance-on-mapping-deprecated-cdthcpcs-dental-procedure-codes-to-omop-standard-.md"
+    },
+    "b3fe6f503964f03a": {
+      "title": "PoC: compiling ClinicalTrials.gov eligibility prose into a gate-verified Circe cohort, with refusal as a first-class output",
+      "source": "OHDSI Forums",
+      "date": "2026-07-22",
+      "file": "2026-07-22-poc-compiling-clinicaltrialsgov-eligibility-prose-into-a-gate-verified-circe-coh.md"
+    },
+    "22b2818a19575f63": {
+      "title": "Literature/examples on integrating and validating two independently-OMOP'd datasets?",
+      "source": "OHDSI Forums",
+      "date": "2026-07-21",
+      "file": "2026-07-21-literatureexamples-on-integrating-and-validating-two-independently-omopd-dataset.md"
+    },
+    "30c1030645f9ffdf": {
+      "title": "Weekly OHDSI Digest - July 20, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-20",
+      "file": "2026-07-20-weekly-ohdsi-digest---july-20-2026.md"
+    },
+    "690ad43ba9399d6d": {
+      "title": "OHDSI Global Symposium- Register - Book a Hotel-Room - Join the Jam Session!",
+      "source": "OHDSI Forums",
+      "date": "2026-07-16",
+      "file": "2026-07-16-ohdsi-global-symposium--register---book-a-hotel-room---join-the-jam-session.md"
+    },
+    "3f8e8695bf040284": {
+      "title": "Weekly OHDSI Digest - July 13, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-07-13",
+      "file": "2026-07-13-weekly-ohdsi-digest---july-13-2026.md"
+    },
+    "0b5b9fe4a8566818": {
+      "title": "[New Publication in JAMIA Open] THESEUS: An AI Agent for Automating Executable Strategus R Scripts from Free-Text Study Designs",
+      "source": "OHDSI Forums",
+      "date": "2026-07-09",
+      "file": "2026-07-09-new-publication-in-jamia-open-theseus-an-ai-agent-for-automating-executable-stra.md"
+    },
+    "80d3b5e00952f351": {
+      "title": "Development and Testing of a Multi-use Frameworks Playbook for Precision Medicine with AI: Integrating Imaging with Multimodal Data (PRIMED-AI) (U01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-06-30",
+      "file": "2026-06-30-development-and-testing-of-a-multi-use-frameworks-playbook-for-precision-medicin.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "04ee4f34d1c59e00": {
+      "title": "Funded: Repurposing Glucagon-Like Peptide-1 Receptor Agonists for Mental Health Outcomes via Federated Causal Inference",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-repurposing-glucagon-like-peptide-1-receptor-agonists-for-mental-health-o.md"
+    },
+    "0528ed283e1c0dd7": {
+      "title": "Funded: Cost Offsets and Spending on Glucagon-like peptide-1 receptor agonists (GLP-1s) in a Large National Electronic Health Record Database",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-cost-offsets-and-spending-on-glucagon-like-peptide-1-receptor-agonists-gl.md"
+    },
+    "b2d885cabde9cc47": {
+      "title": "Funded: Precision Orthopedics: Multimodal Data Infrastructure for Personalized Surgical Decisions in Joint Arthroplasty",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-precision-orthopedics-multimodal-data-infrastructure-for-personalized-sur.md"
+    },
+    "7d727bc2360fdf84": {
+      "title": "Funded: Comparing the Effectiveness of Advanced Therapies in Pediatric Crohn's Disease to Optimize Treatment Decisions",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-comparing-the-effectiveness-of-advanced-therapies-in-pediatric-crohns-dis.md"
+    },
+    "1f727d39b78569d5": {
+      "title": "Funded: ?DIGITS: DIGital health Interoperability Technology Standards",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-digits-digital-health-interoperability-technology-standards.md"
+    },
+    "920695d4fdedba6d": {
+      "title": "Funded: A secure analytics platform to study the prognosis of people with HIV in the USA, Canada and Europe and comparative effectiveness of treatment regimens: the Antiretroviral Therapy Cohort Collaboration",
+      "source": "NIH Reporter",
+      "date": "2026-08-17",
+      "file": "2026-08-17-funded-a-secure-analytics-platform-to-study-the-prognosis-of-people-with-hiv-in-.md"
+    },
+    "a26cf45d8734d64a": {
+      "title": "Second Primary Malignancies Among Pediatric and Young Adult Survivors of Differentiated Thyroid Cancer: Real-World Evidence",
+      "source": "PubMed",
+      "date": "2026-08-16",
+      "file": "2026-08-16-second-primary-malignancies-among-pediatric-and-young-adult-survivors-of-differe.md"
+    },
+    "2c27de20b459d9e1": {
+      "title": "Efficacy and safety of Omadacycline in community-acquired pneumonia among elderly patients: a real-world evidence study",
+      "source": "PubMed",
+      "date": "2026-08-17",
+      "file": "2026-08-17-efficacy-and-safety-of-omadacycline-in-community-acquired-pneumonia-among-elderl.md"
+    },
+    "2351c9172c4fb1e3": {
+      "title": "Janus kinase inhibitors after ruxolitinib failure in myelofibrosis: A systematic review and pooled analysis of phase 3 efficacy and integrated safety across clinical trials and real-world evidence",
+      "source": "PubMed",
+      "date": "2026-08-14",
+      "file": "2026-08-14-janus-kinase-inhibitors-after-ruxolitinib-failure-in-myelofibrosis-a-systematic-.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-08-17T12:39:17.131554+00:00"
 }
