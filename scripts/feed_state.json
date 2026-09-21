@@ -503,7 +503,289 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "0bd569c3ccb52a5d": {
+      "title": "Weekly OHDSI Digest - September 21, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-21",
+      "file": "2026-09-21-weekly-ohdsi-digest---september-21-2026.md"
+    },
+    "76adc9ffa2cf5354": {
+      "title": "Large-Scale Propensity Score implementation",
+      "source": "OHDSI Forums",
+      "date": "2026-09-20",
+      "file": "2026-09-20-large-scale-propensity-score-implementation.md"
+    },
+    "28bbffe2fc71703f": {
+      "title": "Will AI Help or Hurt OHDSI's Global Mission?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-18",
+      "file": "2026-09-18-will-ai-help-or-hurt-ohdsis-global-mission.md"
+    },
+    "1324aeea9795bb1a": {
+      "title": "Is Synthea procedures.csv mapping to multiple OMOP tables  expected under domain-driven ETL?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-18",
+      "file": "2026-09-18-is-synthea-procedurescsv-mapping-to-multiple-omop-tables-expected-under-domain-d.md"
+    },
+    "8a93ffde4620714b": {
+      "title": "Seeking Collaborators: Understanding Site-specific Data Differences",
+      "source": "OHDSI Forums",
+      "date": "2026-09-16",
+      "file": "2026-09-16-seeking-collaborators-understanding-site-specific-data-differences.md"
+    },
+    "d831c51c41f423f3": {
+      "title": "OHDSI Jam Session Song Signup",
+      "source": "OHDSI Forums",
+      "date": "2026-09-15",
+      "file": "2026-09-15-ohdsi-jam-session-song-signup.md"
+    },
+    "0927261bf6961d74": {
+      "title": "Weekly OHDSI Digest - September 14, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-14",
+      "file": "2026-09-14-weekly-ohdsi-digest---september-14-2026.md"
+    },
+    "fa151612e94ed6c9": {
+      "title": "Register for the Global Symposium! Oct 20-22",
+      "source": "OHDSI Forums",
+      "date": "2026-09-14",
+      "file": "2026-09-14-register-for-the-global-symposium-oct-20-22.md"
+    },
+    "10ea139ffc1ea85d": {
+      "title": "OHDSI Boston Node",
+      "source": "OHDSI Forums",
+      "date": "2026-09-09",
+      "file": "2026-09-09-ohdsi-boston-node.md"
+    },
+    "97778b4ae2e74bab": {
+      "title": "Introducing the Custom Vocabulary Browser: exploring OMOP-compatible concepts beyond Athena",
+      "source": "OHDSI Forums",
+      "date": "2026-09-07",
+      "file": "2026-09-07-introducing-the-custom-vocabulary-browser-exploring-omop-compatible-concepts-bey.md"
+    },
+    "0b430dec4463795e": {
+      "title": "Clinical Trials/Registry tutorial at OHDSI symposium",
+      "source": "OHDSI Forums",
+      "date": "2026-09-03",
+      "file": "2026-09-03-clinical-trialsregistry-tutorial-at-ohdsi-symposium.md"
+    },
+    "2d2fac8d5b0fcd50": {
+      "title": "5 guestrooms left in the OHDSI Discounted Room block for the Global Symposium!",
+      "source": "OHDSI Forums",
+      "date": "2026-09-03",
+      "file": "2026-09-03-5-guestrooms-left-in-the-ohdsi-discounted-room-block-for-the-global-symposium.md"
+    },
+    "7ffcc231c39150fd": {
+      "title": "How to marry cost and care through coding and outcomes data",
+      "source": "OHDSI Forums",
+      "date": "2026-09-02",
+      "file": "2026-09-02-how-to-marry-cost-and-care-through-coding-and-outcomes-data.md"
+    },
+    "abecf72cfc45798d": {
+      "title": "LOINC 2.83 changes and Athena/OMOP impacts",
+      "source": "OHDSI Forums",
+      "date": "2026-09-01",
+      "file": "2026-09-01-loinc-283-changes-and-athenaomop-impacts.md"
+    },
+    "2bd5cc4b475e99b3": {
+      "title": "Weekly OHDSI Digest - August 31, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-08-31",
+      "file": "2026-08-31-weekly-ohdsi-digest---august-31-2026.md"
+    },
+    "c786bfc03ae0cf5e": {
+      "title": "3 weeks left to make a hotel room at the Hyatt Regency for the Global Symposium",
+      "source": "OHDSI Forums",
+      "date": "2026-08-31",
+      "file": "2026-08-31-3-weeks-left-to-make-a-hotel-room-at-the-hyatt-regency-for-the-global-symposium.md"
+    },
+    "c11f5db01214aa2d": {
+      "title": "August 2026 vocabulary release is available in Athena!",
+      "source": "OHDSI Forums",
+      "date": "2026-08-31",
+      "file": "2026-08-31-august-2026-vocabulary-release-is-available-in-athena.md"
+    },
+    "8d7eab6e86222273": {
+      "title": "Hiring: Sr. Scientist \u2013 Translational Genetics & Real-World Evidence at Arrowhead Pharmaceuticals",
+      "source": "OHDSI Forums",
+      "date": "2026-08-29",
+      "file": "2026-08-29-hiring-sr-scientist-translational-genetics-real-world-evidence-at-arrowhead-phar.md"
+    },
+    "f8eab76145037012": {
+      "title": "OMOP CDM v5.5 Release!",
+      "source": "OHDSI Forums",
+      "date": "2026-08-28",
+      "file": "2026-08-28-omop-cdm-v55-release.md"
+    },
+    "8e42e44734f7ab76": {
+      "title": "Using CONCEPT_ANCESTOR to generate ICD-10-CM code lists for EHR source queries \u2014 findings from three clinical domains",
+      "source": "OHDSI Forums",
+      "date": "2026-08-27",
+      "file": "2026-08-27-using-concept-ancestor-to-generate-icd-10-cm-code-lists-for-ehr-source-queries-f.md"
+    },
+    "95c94a76b6fa0af7": {
+      "title": "Introducing myself and seeking to collaborate, help and assist",
+      "source": "OHDSI Forums",
+      "date": "2026-08-26",
+      "file": "2026-08-26-introducing-myself-and-seeking-to-collaborate-help-and-assist.md"
+    },
+    "8cabed1cd7ba0a0d": {
+      "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Optional)",
+      "source": "Grants.gov",
+      "date": "2026-08-19",
+      "file": "2026-08-19-limited-competition-institutional-development-award-idea-for-clinical-amp-transl.md"
+    },
+    "80d3b5e00952f351": {
+      "title": "Development and Testing of a Multi-use Frameworks Playbook for Precision Medicine with AI: Integrating Imaging with Multimodal Data (PRIMED-AI) (U01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-06-30",
+      "file": "2026-06-30-development-and-testing-of-a-multi-use-frameworks-playbook-for-precision-medicin.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "b5a390f8a4e7b7a3": {
+      "title": "Advancing Real-World Effectiveness Evidence for Rapid-Acting Psychotropic Interventional Drugs (RAPIDs)",
+      "source": "Grants.gov",
+      "date": "2026-09-16",
+      "file": "2026-09-16-advancing-real-world-effectiveness-evidence-for-rapid-acting-psychotropic-interv.md"
+    },
+    "ba611959e58fe94a": {
+      "title": "Funded: Methods Training for Comparative Effectiveness Research in Cancer",
+      "source": "NIH Reporter",
+      "date": "2026-09-21",
+      "file": "2026-09-21-funded-methods-training-for-comparative-effectiveness-research-in-cancer.md"
+    },
+    "82bfb97340c663e2": {
+      "title": "Funded: Toward Automated, Scalable Knowledge Engineering for Real World Data Using Clinical Terminologies",
+      "source": "NIH Reporter",
+      "date": "2026-09-21",
+      "file": "2026-09-21-funded-toward-automated-scalable-knowledge-engineering-for-real-world-data-using.md"
+    },
+    "9695ea415c14b408": {
+      "title": "Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation",
+      "source": "NIH Reporter",
+      "date": "2026-09-21",
+      "file": "2026-09-21-funded-real-world-evidence-to-inform-decisions-for-hypertension-treatment-escala.md"
+    },
+    "199d0c9436296da1": {
+      "title": "Funded: Networked trial emulation framework for causal effects of Glucagon-Like Peptide-1 Receptor Agonists on Mental Health Outcomes",
+      "source": "NIH Reporter",
+      "date": "2026-09-21",
+      "file": "2026-09-21-funded-networked-trial-emulation-framework-for-causal-effects-of-glucagon-like-p.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-09-21",
+      "file": "2026-09-21-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-09-21",
+      "file": "2026-09-21-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "7e0cc9e099116fa0": {
+      "title": "Engagement Award: Capacity Building -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-21",
+      "file": "2026-09-21-engagement-award-capacity-building----fall-2026-cycle.md"
+    },
+    "65e542c0d833a060": {
+      "title": "Engagement Award: Convening Support -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-21",
+      "file": "2026-09-21-engagement-award-convening-support----fall-2026-cycle.md"
+    },
+    "2d71c9d6a4e251b4": {
+      "title": "Engagement Award: Dissemination Initiative -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-21",
+      "file": "2026-09-21-engagement-award-dissemination-initiative----fall-2026-cycle.md"
+    },
+    "c1fa01aaa9142ab3": {
+      "title": "Engagement Award: Building Capacity for Small Organizations To Engage in Patient-Centered Comparative Clinical Effectiveness Research (CER) -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-21",
+      "file": "2026-09-21-engagement-award-building-capacity-for-small-organizations-to-engage-in-patient-.md"
+    },
+    "fcd7267ad977a486": {
+      "title": "Broad Pragmatic Studies Supplemental Funding Announcement (SFA) to Support Studies within a Study Focused on Developing and Validating Measures to Advance the Science of Engagement in Research -- Cycle 3 2026 (Invitation Only)",
+      "source": "PCORI",
+      "date": "2026-09-21",
+      "file": "2026-09-21-broad-pragmatic-studies-supplemental-funding-announcement-sfa-to-support-studies.md"
+    },
+    "f512d9607bde6a47": {
+      "title": "Harnessing Digital Health Technologies To Support Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-harnessing-digital-health-technologies-to-support-patient-centered-comparative-c.md"
+    },
+    "a82efdff0be4a9fe": {
+      "title": "Broad Pragmatic Studies PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-broad-pragmatic-studies-pcori-funding-announcement----cycle-1-2027.md"
+    },
+    "a86ede2eecdad99d": {
+      "title": "Phased Large Awards for Comparative Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-phased-large-awards-for-comparative-effectiveness-research-pcori-funding-announc.md"
+    },
+    "44b6cc353c36c64e": {
+      "title": "Improving Methods for Conducting Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-improving-methods-for-conducting-patient-centered-comparative-clinical-effective.md"
+    },
+    "c4aa119a5f337833": {
+      "title": "Advancing the Science of Engagement in Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-advancing-the-science-of-engagement-in-research-pcori-funding-announcement----cy.md"
+    },
+    "6b58d7ceeca9c59f": {
+      "title": "Open Competition: Implementation of Findings From PCORI&#039;s Research Investments PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-open-competition-implementation-of-findings-from-pcori039s-research-investments-.md"
+    },
+    "99a76b339e6eba49": {
+      "title": "Limited Competition PCORI Funding Announcement: Implementation Awards -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-limited-competition-pcori-funding-announcement-implementation-awards----cycle-1-.md"
+    },
+    "ce838fa99357ce25": {
+      "title": "A Silver-Zeolite Spray Powder for Pressure Ulcers and Minor Burns: Real-World Evidence from Primary Care",
+      "source": "PubMed",
+      "date": "2026-09-21",
+      "file": "2026-09-21-a-silver-zeolite-spray-powder-for-pressure-ulcers-and-minor-burns-real-world-evi.md"
+    },
+    "42b1fe35ebd83acd": {
+      "title": "Temporal Changes in Hospital-Captured 90-Day Care After Venous Thromboembolism: A 16-Year Electronic Health Record Cohort Study",
+      "source": "PubMed",
+      "date": "2026-09-21",
+      "file": "2026-09-21-temporal-changes-in-hospital-captured-90-day-care-after-venous-thromboembolism-a.md"
+    },
+    "0dc26e6a5b50cad7": {
+      "title": "Real-World Analysis of Switching Between Ranibizumab Biosimilars: Safety and Results - a Multicenter Retrospective Observational Study",
+      "source": "PubMed",
+      "date": "2026-09-21",
+      "file": "2026-09-21-real-world-analysis-of-switching-between-ranibizumab-biosimilars-safety-and-resu.md"
+    },
+    "4ea916e541ab19f2": {
+      "title": "Sustained Glycemic Outcomes with the MiniMed(\u2122) 780G System: Real-World Evidence from >16,000 Users Across 18 Latin American Countries Over Two Years",
+      "source": "PubMed",
+      "date": "2026-09-19",
+      "file": "2026-09-19-sustained-glycemic-outcomes-with-the-minimed-780g-system-real-world-evidence-fro.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-09-21T17:52:47.115225+00:00"
 }
