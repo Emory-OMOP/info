@@ -503,7 +503,271 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "284a85036a449807": {
+      "title": "Weekly OHDSI Digest - September 28, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-28",
+      "file": "2026-09-28-weekly-ohdsi-digest---september-28-2026.md"
+    },
+    "3a6b9075ba48c259": {
+      "title": "Register for the global symposium and tutorials- less than a month away",
+      "source": "OHDSI Forums",
+      "date": "2026-09-26",
+      "file": "2026-09-26-register-for-the-global-symposium-and-tutorials--less-than-a-month-away.md"
+    },
+    "327a28737919f069": {
+      "title": "Drug Dose Data",
+      "source": "OHDSI Forums",
+      "date": "2026-09-25",
+      "file": "2026-09-25-drug-dose-data.md"
+    },
+    "276dfe6c023b6c83": {
+      "title": "Running ACHILLES with large postgres OMOP database",
+      "source": "OHDSI Forums",
+      "date": "2026-09-24",
+      "file": "2026-09-24-running-achilles-with-large-postgres-omop-database.md"
+    },
+    "c27874d43b11950a": {
+      "title": "Current alternatives to Usagi for scalable concept assignment?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-22",
+      "file": "2026-09-22-current-alternatives-to-usagi-for-scalable-concept-assignment.md"
+    },
+    "0bd569c3ccb52a5d": {
+      "title": "Weekly OHDSI Digest - September 21, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-21",
+      "file": "2026-09-21-weekly-ohdsi-digest---september-21-2026.md"
+    },
+    "76adc9ffa2cf5354": {
+      "title": "Large-Scale Propensity Score implementation",
+      "source": "OHDSI Forums",
+      "date": "2026-09-20",
+      "file": "2026-09-20-large-scale-propensity-score-implementation.md"
+    },
+    "28bbffe2fc71703f": {
+      "title": "Will AI Help or Hurt OHDSI's Global Mission?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-18",
+      "file": "2026-09-18-will-ai-help-or-hurt-ohdsis-global-mission.md"
+    },
+    "1324aeea9795bb1a": {
+      "title": "Is Synthea procedures.csv mapping to multiple OMOP tables  expected under domain-driven ETL?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-18",
+      "file": "2026-09-18-is-synthea-procedurescsv-mapping-to-multiple-omop-tables-expected-under-domain-d.md"
+    },
+    "8a93ffde4620714b": {
+      "title": "Seeking Collaborators: Understanding Site-specific Data Differences",
+      "source": "OHDSI Forums",
+      "date": "2026-09-16",
+      "file": "2026-09-16-seeking-collaborators-understanding-site-specific-data-differences.md"
+    },
+    "d831c51c41f423f3": {
+      "title": "OHDSI Jam Session Song Signup",
+      "source": "OHDSI Forums",
+      "date": "2026-09-15",
+      "file": "2026-09-15-ohdsi-jam-session-song-signup.md"
+    },
+    "0927261bf6961d74": {
+      "title": "Weekly OHDSI Digest - September 14, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-14",
+      "file": "2026-09-14-weekly-ohdsi-digest---september-14-2026.md"
+    },
+    "fa151612e94ed6c9": {
+      "title": "Register for the Global Symposium! Oct 20-22",
+      "source": "OHDSI Forums",
+      "date": "2026-09-14",
+      "file": "2026-09-14-register-for-the-global-symposium-oct-20-22.md"
+    },
+    "10ea139ffc1ea85d": {
+      "title": "OHDSI Boston Node",
+      "source": "OHDSI Forums",
+      "date": "2026-09-09",
+      "file": "2026-09-09-ohdsi-boston-node.md"
+    },
+    "97778b4ae2e74bab": {
+      "title": "Introducing the Custom Vocabulary Browser: exploring OMOP-compatible concepts beyond Athena",
+      "source": "OHDSI Forums",
+      "date": "2026-09-07",
+      "file": "2026-09-07-introducing-the-custom-vocabulary-browser-exploring-omop-compatible-concepts-bey.md"
+    },
+    "0b430dec4463795e": {
+      "title": "Clinical Trials/Registry tutorial at OHDSI symposium",
+      "source": "OHDSI Forums",
+      "date": "2026-09-03",
+      "file": "2026-09-03-clinical-trialsregistry-tutorial-at-ohdsi-symposium.md"
+    },
+    "2d2fac8d5b0fcd50": {
+      "title": "5 guestrooms left in the OHDSI Discounted Room block for the Global Symposium!",
+      "source": "OHDSI Forums",
+      "date": "2026-09-03",
+      "file": "2026-09-03-5-guestrooms-left-in-the-ohdsi-discounted-room-block-for-the-global-symposium.md"
+    },
+    "7ffcc231c39150fd": {
+      "title": "How to marry cost and care through coding and outcomes data",
+      "source": "OHDSI Forums",
+      "date": "2026-09-02",
+      "file": "2026-09-02-how-to-marry-cost-and-care-through-coding-and-outcomes-data.md"
+    },
+    "abecf72cfc45798d": {
+      "title": "LOINC 2.83 changes and Athena/OMOP impacts",
+      "source": "OHDSI Forums",
+      "date": "2026-09-01",
+      "file": "2026-09-01-loinc-283-changes-and-athenaomop-impacts.md"
+    },
+    "2bd5cc4b475e99b3": {
+      "title": "Weekly OHDSI Digest - August 31, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-08-31",
+      "file": "2026-08-31-weekly-ohdsi-digest---august-31-2026.md"
+    },
+    "8cabed1cd7ba0a0d": {
+      "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Optional)",
+      "source": "Grants.gov",
+      "date": "2026-08-19",
+      "file": "2026-08-19-limited-competition-institutional-development-award-idea-for-clinical-amp-transl.md"
+    },
+    "80d3b5e00952f351": {
+      "title": "Development and Testing of a Multi-use Frameworks Playbook for Precision Medicine with AI: Integrating Imaging with Multimodal Data (PRIMED-AI) (U01 Clinical Trial Not Allowed)",
+      "source": "Grants.gov",
+      "date": "2026-06-30",
+      "file": "2026-06-30-development-and-testing-of-a-multi-use-frameworks-playbook-for-precision-medicin.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "b5a390f8a4e7b7a3": {
+      "title": "Advancing Real-World Effectiveness Evidence for Rapid-Acting Psychotropic Interventional Drugs (RAPIDs)",
+      "source": "Grants.gov",
+      "date": "2026-09-16",
+      "file": "2026-09-16-advancing-real-world-effectiveness-evidence-for-rapid-acting-psychotropic-interv.md"
+    },
+    "ba611959e58fe94a": {
+      "title": "Funded: Methods Training for Comparative Effectiveness Research in Cancer",
+      "source": "NIH Reporter",
+      "date": "2026-09-28",
+      "file": "2026-09-28-funded-methods-training-for-comparative-effectiveness-research-in-cancer.md"
+    },
+    "82bfb97340c663e2": {
+      "title": "Funded: Toward Automated, Scalable Knowledge Engineering for Real World Data Using Clinical Terminologies",
+      "source": "NIH Reporter",
+      "date": "2026-09-28",
+      "file": "2026-09-28-funded-toward-automated-scalable-knowledge-engineering-for-real-world-data-using.md"
+    },
+    "9695ea415c14b408": {
+      "title": "Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation",
+      "source": "NIH Reporter",
+      "date": "2026-09-28",
+      "file": "2026-09-28-funded-real-world-evidence-to-inform-decisions-for-hypertension-treatment-escala.md"
+    },
+    "199d0c9436296da1": {
+      "title": "Funded: Networked trial emulation framework for causal effects of Glucagon-Like Peptide-1 Receptor Agonists on Mental Health Outcomes",
+      "source": "NIH Reporter",
+      "date": "2026-09-28",
+      "file": "2026-09-28-funded-networked-trial-emulation-framework-for-causal-effects-of-glucagon-like-p.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-09-28",
+      "file": "2026-09-28-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-09-28",
+      "file": "2026-09-28-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "7e0cc9e099116fa0": {
+      "title": "Engagement Award: Capacity Building -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-28",
+      "file": "2026-09-28-engagement-award-capacity-building----fall-2026-cycle.md"
+    },
+    "65e542c0d833a060": {
+      "title": "Engagement Award: Convening Support -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-28",
+      "file": "2026-09-28-engagement-award-convening-support----fall-2026-cycle.md"
+    },
+    "2d71c9d6a4e251b4": {
+      "title": "Engagement Award: Dissemination Initiative -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-28",
+      "file": "2026-09-28-engagement-award-dissemination-initiative----fall-2026-cycle.md"
+    },
+    "c1fa01aaa9142ab3": {
+      "title": "Engagement Award: Building Capacity for Small Organizations To Engage in Patient-Centered Comparative Clinical Effectiveness Research (CER) -- Fall 2026 Cycle",
+      "source": "PCORI",
+      "date": "2026-09-28",
+      "file": "2026-09-28-engagement-award-building-capacity-for-small-organizations-to-engage-in-patient-.md"
+    },
+    "fcd7267ad977a486": {
+      "title": "Broad Pragmatic Studies Supplemental Funding Announcement (SFA) to Support Studies within a Study Focused on Developing and Validating Measures to Advance the Science of Engagement in Research -- Cycle 3 2026 (Invitation Only)",
+      "source": "PCORI",
+      "date": "2026-09-28",
+      "file": "2026-09-28-broad-pragmatic-studies-supplemental-funding-announcement-sfa-to-support-studies.md"
+    },
+    "f512d9607bde6a47": {
+      "title": "Harnessing Digital Health Technologies To Support Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-harnessing-digital-health-technologies-to-support-patient-centered-comparative-c.md"
+    },
+    "a82efdff0be4a9fe": {
+      "title": "Broad Pragmatic Studies PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-broad-pragmatic-studies-pcori-funding-announcement----cycle-1-2027.md"
+    },
+    "a86ede2eecdad99d": {
+      "title": "Phased Large Awards for Comparative Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-phased-large-awards-for-comparative-effectiveness-research-pcori-funding-announc.md"
+    },
+    "44b6cc353c36c64e": {
+      "title": "Improving Methods for Conducting Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-improving-methods-for-conducting-patient-centered-comparative-clinical-effective.md"
+    },
+    "c4aa119a5f337833": {
+      "title": "Advancing the Science of Engagement in Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-advancing-the-science-of-engagement-in-research-pcori-funding-announcement----cy.md"
+    },
+    "6b58d7ceeca9c59f": {
+      "title": "Open Competition: Implementation of Findings From PCORI&#039;s Research Investments PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-open-competition-implementation-of-findings-from-pcori039s-research-investments-.md"
+    },
+    "99a76b339e6eba49": {
+      "title": "Limited Competition PCORI Funding Announcement: Implementation Awards -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-limited-competition-pcori-funding-announcement-implementation-awards----cycle-1-.md"
+    },
+    "c1cc0007eb22dd8c": {
+      "title": "Brain Penetrant Calcium Channel Blockers Were Not Associated With Reduced Alcohol Consumption: Converging Results From Two Large Independent Cohort Studies Using Electronic Health Records",
+      "source": "PubMed",
+      "date": "2026-10-01",
+      "file": "2026-10-01-brain-penetrant-calcium-channel-blockers-were-not-associated-with-reduced-alcoho.md"
+    },
+    "cc97c7ace42b4683": {
+      "title": "From clinical records to community care: using real-world evidence in Ayurveda",
+      "source": "PubMed",
+      "date": "2026-09-28",
+      "file": "2026-09-28-from-clinical-records-to-community-care-using-real-world-evidence-in-ayurveda.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-09-28T19:15:10.467586+00:00"
 }
