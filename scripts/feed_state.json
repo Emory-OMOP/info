@@ -503,7 +503,259 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "1b4a43f351cb97a4": {
+      "title": "Request for Information (RFI): Strategies to Advance RAPIDs and Real-World Evidence for Serious Mental Illnesses and Related Brain Disorders",
+      "source": "NIH Guide",
+      "date": "2026-10-12",
+      "file": "2026-10-12-request-for-information-rfi-strategies-to-advance-rapids-and-real-world-evidence.md"
+    },
+    "35c45ac8aea06745": {
+      "title": "Weekly OHDSI Digest - October 12, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-weekly-ohdsi-digest---october-12-2026.md"
+    },
+    "57dd086bbd2445df": {
+      "title": "Collaboration & Introduction: Data Pipelines, Medallion Architecture, & Biomedical NLP/RAG",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-collaboration-introduction-data-pipelines-medallion-architecture-biomedical-nlpr.md"
+    },
+    "8fd59a49a212aea9": {
+      "title": "Questions about PharMetrics Plus \u2192 OMOP conversion",
+      "source": "OHDSI Forums",
+      "date": "2026-10-11",
+      "file": "2026-10-11-questions-about-pharmetrics-plus-omop-conversion.md"
+    },
+    "eaee8734eda35d2f": {
+      "title": "[Global Symposium 2026 Workshop] AI-Assisted Phenotyping Connectathon: Join Us for a Joint OHDSI Working Group Workshop at the Global Symposium",
+      "source": "OHDSI Forums",
+      "date": "2026-10-11",
+      "file": "2026-10-11-global-symposium-2026-workshop-ai-assisted-phenotyping-connectathon-join-us-for-.md"
+    },
+    "dfc4b3c5d56236d3": {
+      "title": "Register for the Global Symposium-Reserve Your Seat!",
+      "source": "OHDSI Forums",
+      "date": "2026-10-05",
+      "file": "2026-10-05-register-for-the-global-symposium-reserve-your-seat.md"
+    },
+    "78d898435115d51e": {
+      "title": "Weekly OHDSI Digest - October 5, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-05",
+      "file": "2026-10-05-weekly-ohdsi-digest---october-5-2026.md"
+    },
+    "b1f5c4eb51af4394": {
+      "title": "Looking for an experienced OMOP/OHDSI consultant",
+      "source": "OHDSI Forums",
+      "date": "2026-10-02",
+      "file": "2026-10-02-looking-for-an-experienced-omopohdsi-consultant.md"
+    },
+    "e32659c9a9a70f84": {
+      "title": "Free license for a no-code, AI-assisted OMOP ETL tool",
+      "source": "OHDSI Forums",
+      "date": "2026-10-02",
+      "file": "2026-10-02-free-license-for-a-no-code-ai-assisted-omop-etl-tool.md"
+    },
+    "3d4af983d5d44ea1": {
+      "title": "Atlas 3.0 and WebAPI 3.0 Release Candidates Available",
+      "source": "OHDSI Forums",
+      "date": "2026-10-01",
+      "file": "2026-10-01-atlas-30-and-webapi-30-release-candidates-available.md"
+    },
+    "2e517174c5d9a7ab": {
+      "title": "Fact_relationship.relationship_concept_id (table fact_relationship revisited in 2026)",
+      "source": "OHDSI Forums",
+      "date": "2026-09-28",
+      "file": "2026-09-28-fact-relationshiprelationship-concept-id-table-fact-relationship-revisited-in-20.md"
+    },
+    "284a85036a449807": {
+      "title": "Weekly OHDSI Digest - September 28, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-28",
+      "file": "2026-09-28-weekly-ohdsi-digest---september-28-2026.md"
+    },
+    "3a6b9075ba48c259": {
+      "title": "Register for the global symposium and tutorials- less than a month away",
+      "source": "OHDSI Forums",
+      "date": "2026-09-26",
+      "file": "2026-09-26-register-for-the-global-symposium-and-tutorials--less-than-a-month-away.md"
+    },
+    "327a28737919f069": {
+      "title": "Drug Dose Data",
+      "source": "OHDSI Forums",
+      "date": "2026-09-25",
+      "file": "2026-09-25-drug-dose-data.md"
+    },
+    "276dfe6c023b6c83": {
+      "title": "Running ACHILLES with large postgres OMOP database",
+      "source": "OHDSI Forums",
+      "date": "2026-09-24",
+      "file": "2026-09-24-running-achilles-with-large-postgres-omop-database.md"
+    },
+    "c27874d43b11950a": {
+      "title": "Current alternatives to Usagi for scalable concept assignment?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-22",
+      "file": "2026-09-22-current-alternatives-to-usagi-for-scalable-concept-assignment.md"
+    },
+    "0bd569c3ccb52a5d": {
+      "title": "Weekly OHDSI Digest - September 21, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-21",
+      "file": "2026-09-21-weekly-ohdsi-digest---september-21-2026.md"
+    },
+    "76adc9ffa2cf5354": {
+      "title": "Large-Scale Propensity Score implementation",
+      "source": "OHDSI Forums",
+      "date": "2026-09-20",
+      "file": "2026-09-20-large-scale-propensity-score-implementation.md"
+    },
+    "28bbffe2fc71703f": {
+      "title": "Will AI Help or Hurt OHDSI's Global Mission?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-18",
+      "file": "2026-09-18-will-ai-help-or-hurt-ohdsis-global-mission.md"
+    },
+    "1324aeea9795bb1a": {
+      "title": "Is Synthea procedures.csv mapping to multiple OMOP tables  expected under domain-driven ETL?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-18",
+      "file": "2026-09-18-is-synthea-procedurescsv-mapping-to-multiple-omop-tables-expected-under-domain-d.md"
+    },
+    "8a93ffde4620714b": {
+      "title": "Seeking Collaborators: Understanding Site-specific Data Differences",
+      "source": "OHDSI Forums",
+      "date": "2026-09-16",
+      "file": "2026-09-16-seeking-collaborators-understanding-site-specific-data-differences.md"
+    },
+    "8cabed1cd7ba0a0d": {
+      "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Optional)",
+      "source": "Grants.gov",
+      "date": "2026-08-19",
+      "file": "2026-08-19-limited-competition-institutional-development-award-idea-for-clinical-amp-transl.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "b5a390f8a4e7b7a3": {
+      "title": "Advancing Real-World Effectiveness Evidence for Rapid-Acting Psychotropic Interventional Drugs (RAPIDs)",
+      "source": "Grants.gov",
+      "date": "2026-09-16",
+      "file": "2026-09-16-advancing-real-world-effectiveness-evidence-for-rapid-acting-psychotropic-interv.md"
+    },
+    "ba611959e58fe94a": {
+      "title": "Funded: Methods Training for Comparative Effectiveness Research in Cancer",
+      "source": "NIH Reporter",
+      "date": "2026-10-12",
+      "file": "2026-10-12-funded-methods-training-for-comparative-effectiveness-research-in-cancer.md"
+    },
+    "82bfb97340c663e2": {
+      "title": "Funded: Toward Automated, Scalable Knowledge Engineering for Real World Data Using Clinical Terminologies",
+      "source": "NIH Reporter",
+      "date": "2026-10-12",
+      "file": "2026-10-12-funded-toward-automated-scalable-knowledge-engineering-for-real-world-data-using.md"
+    },
+    "9695ea415c14b408": {
+      "title": "Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation",
+      "source": "NIH Reporter",
+      "date": "2026-10-12",
+      "file": "2026-10-12-funded-real-world-evidence-to-inform-decisions-for-hypertension-treatment-escala.md"
+    },
+    "199d0c9436296da1": {
+      "title": "Funded: Networked trial emulation framework for causal effects of Glucagon-Like Peptide-1 Receptor Agonists on Mental Health Outcomes",
+      "source": "NIH Reporter",
+      "date": "2026-10-12",
+      "file": "2026-10-12-funded-networked-trial-emulation-framework-for-causal-effects-of-glucagon-like-p.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-10-12",
+      "file": "2026-10-12-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-10-12",
+      "file": "2026-10-12-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "fcd7267ad977a486": {
+      "title": "Broad Pragmatic Studies Supplemental Funding Announcement (SFA) to Support Studies within a Study Focused on Developing and Validating Measures to Advance the Science of Engagement in Research -- Cycle 3 2026 (Invitation Only)",
+      "source": "PCORI",
+      "date": "2026-10-12",
+      "file": "2026-10-12-broad-pragmatic-studies-supplemental-funding-announcement-sfa-to-support-studies.md"
+    },
+    "f512d9607bde6a47": {
+      "title": "Harnessing Digital Health Technologies To Support Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-harnessing-digital-health-technologies-to-support-patient-centered-comparative-c.md"
+    },
+    "a82efdff0be4a9fe": {
+      "title": "Broad Pragmatic Studies PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-broad-pragmatic-studies-pcori-funding-announcement----cycle-1-2027.md"
+    },
+    "a86ede2eecdad99d": {
+      "title": "Phased Large Awards for Comparative Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-phased-large-awards-for-comparative-effectiveness-research-pcori-funding-announc.md"
+    },
+    "44b6cc353c36c64e": {
+      "title": "Improving Methods for Conducting Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-improving-methods-for-conducting-patient-centered-comparative-clinical-effective.md"
+    },
+    "c4aa119a5f337833": {
+      "title": "Advancing the Science of Engagement in Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-advancing-the-science-of-engagement-in-research-pcori-funding-announcement----cy.md"
+    },
+    "6b58d7ceeca9c59f": {
+      "title": "Open Competition: Implementation of Findings From PCORI&#039;s Research Investments PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-open-competition-implementation-of-findings-from-pcori039s-research-investments-.md"
+    },
+    "99a76b339e6eba49": {
+      "title": "Limited Competition PCORI Funding Announcement: Implementation Awards -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-limited-competition-pcori-funding-announcement-implementation-awards----cycle-1-.md"
+    },
+    "7e5048573e9a1b4d": {
+      "title": "Cardiometabolic Assessment in Patients with Overweight, Obesity, or Type 2 Diabetes Undergoing Artificial Intelligence-Based Retinal Screening: A Real-World Evidence Study",
+      "source": "PubMed",
+      "date": "2026-10-12",
+      "file": "2026-10-12-cardiometabolic-assessment-in-patients-with-overweight-obesity-or-type-2-diabete.md"
+    },
+    "72020f7f48fe432d": {
+      "title": "Detecting Nonreportable Disease Trends Using Electronic Health Records: Human Parvovirus B19 in Minnesota, January 2019 Through September 2024",
+      "source": "PubMed",
+      "date": "2026-10-11",
+      "file": "2026-10-11-detecting-nonreportable-disease-trends-using-electronic-health-records-human-par.md"
+    },
+    "e4f27143737fe117": {
+      "title": "Individualising biologic therapy for paediatric severe asthma: A comparative review of all five approved agents, real-world evidence, and a biomarker-guided clinical decision algorithm",
+      "source": "PubMed",
+      "date": "2026-10-12",
+      "file": "2026-10-12-individualising-biologic-therapy-for-paediatric-severe-asthma-a-comparative-revi.md"
+    },
+    "d8a77e3009a8cab8": {
+      "title": "Complete remission after rituximab therapy of pemphigus: Real-world evidence on dosing regimens and retreatment strategies",
+      "source": "PubMed",
+      "date": "2026-09-01",
+      "file": "2026-09-01-complete-remission-after-rituximab-therapy-of-pemphigus-real-world-evidence-on-d.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-10-12T20:54:49.725748+00:00"
 }
