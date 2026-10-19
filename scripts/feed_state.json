@@ -503,7 +503,193 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "f43820cbdb51d63b": {
+      "title": "Open-source extension to the OHDSI DQD for row-level data quality checking",
+      "source": "OHDSI Forums",
+      "date": "2026-10-17",
+      "file": "2026-10-17-open-source-extension-to-the-ohdsi-dqd-for-row-level-data-quality-checking.md"
+    },
+    "3517451d4b9bf1d6": {
+      "title": "DPC\uff08\u69d8\u5f0f1\u30fbEF\uff09\u3092 OMOP CDM \u306b\u5909\u63db\u3059\u308b\u30b3\u30fc\u30c9\u3092\u516c\u958b\u3057\u307e\u3057\u305f\uff08\u7591\u3044\u75c5\u540d\u306e\u6271\u3044\u306e\u76f8\u8ac7\uff09",
+      "source": "OHDSI Forums",
+      "date": "2026-10-17",
+      "file": "2026-10-17-dpc\u69d8\u5f0f1ef\u3092-omop-cdm-\u306b\u5909\u63db\u3059\u308b\u30b3\u30fc\u30c9\u3092\u516c\u958b\u3057\u307e\u3057\u305f\u7591\u3044\u75c5\u540d\u306e\u6271\u3044\u306e\u76f8\u8ac7.md"
+    },
+    "8c58e01ce0732407": {
+      "title": "Atlas/WebAPI 3.0.0 Released",
+      "source": "OHDSI Forums",
+      "date": "2026-10-16",
+      "file": "2026-10-16-atlaswebapi-300-released.md"
+    },
+    "2c39f7695564f339": {
+      "title": "Clinical Trial WG discussion",
+      "source": "OHDSI Forums",
+      "date": "2026-10-13",
+      "file": "2026-10-13-clinical-trial-wg-discussion.md"
+    },
+    "35c45ac8aea06745": {
+      "title": "Weekly OHDSI Digest - October 12, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-weekly-ohdsi-digest---october-12-2026.md"
+    },
+    "57dd086bbd2445df": {
+      "title": "Collaboration & Introduction: Data Pipelines, Medallion Architecture, & Biomedical NLP/RAG",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-collaboration-introduction-data-pipelines-medallion-architecture-biomedical-nlpr.md"
+    },
+    "8fd59a49a212aea9": {
+      "title": "Questions about PharMetrics Plus \u2192 OMOP conversion",
+      "source": "OHDSI Forums",
+      "date": "2026-10-11",
+      "file": "2026-10-11-questions-about-pharmetrics-plus-omop-conversion.md"
+    },
+    "eaee8734eda35d2f": {
+      "title": "[Global Symposium 2026 Workshop] AI-Assisted Phenotyping Connectathon: Join Us for a Joint OHDSI Working Group Workshop at the Global Symposium",
+      "source": "OHDSI Forums",
+      "date": "2026-10-11",
+      "file": "2026-10-11-global-symposium-2026-workshop-ai-assisted-phenotyping-connectathon-join-us-for-.md"
+    },
+    "dfc4b3c5d56236d3": {
+      "title": "Register for the Global Symposium-Reserve Your Seat!",
+      "source": "OHDSI Forums",
+      "date": "2026-10-05",
+      "file": "2026-10-05-register-for-the-global-symposium-reserve-your-seat.md"
+    },
+    "78d898435115d51e": {
+      "title": "Weekly OHDSI Digest - October 5, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-05",
+      "file": "2026-10-05-weekly-ohdsi-digest---october-5-2026.md"
+    },
+    "b1f5c4eb51af4394": {
+      "title": "Looking for an experienced OMOP/OHDSI consultant",
+      "source": "OHDSI Forums",
+      "date": "2026-10-02",
+      "file": "2026-10-02-looking-for-an-experienced-omopohdsi-consultant.md"
+    },
+    "e32659c9a9a70f84": {
+      "title": "Free license for a no-code, AI-assisted OMOP ETL tool",
+      "source": "OHDSI Forums",
+      "date": "2026-10-02",
+      "file": "2026-10-02-free-license-for-a-no-code-ai-assisted-omop-etl-tool.md"
+    },
+    "3d4af983d5d44ea1": {
+      "title": "Atlas 3.0 and WebAPI 3.0 Release Candidates Available",
+      "source": "OHDSI Forums",
+      "date": "2026-10-01",
+      "file": "2026-10-01-atlas-30-and-webapi-30-release-candidates-available.md"
+    },
+    "2e517174c5d9a7ab": {
+      "title": "Fact_relationship.relationship_concept_id (table fact_relationship revisited in 2026)",
+      "source": "OHDSI Forums",
+      "date": "2026-09-28",
+      "file": "2026-09-28-fact-relationshiprelationship-concept-id-table-fact-relationship-revisited-in-20.md"
+    },
+    "284a85036a449807": {
+      "title": "Weekly OHDSI Digest - September 28, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-28",
+      "file": "2026-09-28-weekly-ohdsi-digest---september-28-2026.md"
+    },
+    "3a6b9075ba48c259": {
+      "title": "Register for the global symposium and tutorials- less than a month away",
+      "source": "OHDSI Forums",
+      "date": "2026-09-26",
+      "file": "2026-09-26-register-for-the-global-symposium-and-tutorials--less-than-a-month-away.md"
+    },
+    "327a28737919f069": {
+      "title": "Drug Dose Data",
+      "source": "OHDSI Forums",
+      "date": "2026-09-25",
+      "file": "2026-09-25-drug-dose-data.md"
+    },
+    "276dfe6c023b6c83": {
+      "title": "Running ACHILLES with large postgres OMOP database",
+      "source": "OHDSI Forums",
+      "date": "2026-09-24",
+      "file": "2026-09-24-running-achilles-with-large-postgres-omop-database.md"
+    },
+    "c27874d43b11950a": {
+      "title": "Current alternatives to Usagi for scalable concept assignment?",
+      "source": "OHDSI Forums",
+      "date": "2026-09-22",
+      "file": "2026-09-22-current-alternatives-to-usagi-for-scalable-concept-assignment.md"
+    },
+    "0bd569c3ccb52a5d": {
+      "title": "Weekly OHDSI Digest - September 21, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-09-21",
+      "file": "2026-09-21-weekly-ohdsi-digest---september-21-2026.md"
+    },
+    "8cabed1cd7ba0a0d": {
+      "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Optional)",
+      "source": "Grants.gov",
+      "date": "2026-08-19",
+      "file": "2026-08-19-limited-competition-institutional-development-award-idea-for-clinical-amp-transl.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "b5a390f8a4e7b7a3": {
+      "title": "Advancing Real-World Effectiveness Evidence for Rapid-Acting Psychotropic Interventional Drugs (RAPIDs)",
+      "source": "Grants.gov",
+      "date": "2026-09-16",
+      "file": "2026-09-16-advancing-real-world-effectiveness-evidence-for-rapid-acting-psychotropic-interv.md"
+    },
+    "ba611959e58fe94a": {
+      "title": "Funded: Methods Training for Comparative Effectiveness Research in Cancer",
+      "source": "NIH Reporter",
+      "date": "2026-10-19",
+      "file": "2026-10-19-funded-methods-training-for-comparative-effectiveness-research-in-cancer.md"
+    },
+    "82bfb97340c663e2": {
+      "title": "Funded: Toward Automated, Scalable Knowledge Engineering for Real World Data Using Clinical Terminologies",
+      "source": "NIH Reporter",
+      "date": "2026-10-19",
+      "file": "2026-10-19-funded-toward-automated-scalable-knowledge-engineering-for-real-world-data-using.md"
+    },
+    "9695ea415c14b408": {
+      "title": "Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation",
+      "source": "NIH Reporter",
+      "date": "2026-10-19",
+      "file": "2026-10-19-funded-real-world-evidence-to-inform-decisions-for-hypertension-treatment-escala.md"
+    },
+    "199d0c9436296da1": {
+      "title": "Funded: Networked trial emulation framework for causal effects of Glucagon-Like Peptide-1 Receptor Agonists on Mental Health Outcomes",
+      "source": "NIH Reporter",
+      "date": "2026-10-19",
+      "file": "2026-10-19-funded-networked-trial-emulation-framework-for-causal-effects-of-glucagon-like-p.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-10-19",
+      "file": "2026-10-19-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-10-19",
+      "file": "2026-10-19-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "d6492a1f76467721": {
+      "title": "Real-world Evidence of Anifrolumab Use in Mexican Patients With Systemic Lupus Erythematosus: A Multicenter Observational Study",
+      "source": "PubMed",
+      "date": "2026-10-19",
+      "file": "2026-10-19-real-world-evidence-of-anifrolumab-use-in-mexican-patients-with-systemic-lupus-e.md"
+    },
+    "df01926a876a4af8": {
+      "title": "Statistical methods for analyzing change over time of continuous outcomes in observational health studies: a scoping review of suggested approaches",
+      "source": "PubMed",
+      "date": "2026-10-17",
+      "file": "2026-10-17-statistical-methods-for-analyzing-change-over-time-of-continuous-outcomes-in-obs.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-10-19T18:20:33.683008+00:00"
 }
