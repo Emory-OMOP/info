@@ -503,7 +503,259 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "b233f27ce064f89d": {
+      "title": "How to map and investigational personalized mRNA vaccine in OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-how-to-map-and-investigational-personalized-mrna-vaccine-in-omop.md"
+    },
+    "18526621e343f1d9": {
+      "title": "This Week in OHDSI - November 9, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-this-week-in-ohdsi---november-9-2026.md"
+    },
+    "4a4bad1c318d31d1": {
+      "title": "How to map an investigational personalized RNA vaccine in OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-how-to-map-an-investigational-personalized-rna-vaccine-in-omop.md"
+    },
+    "9d0ad7400de5f1de": {
+      "title": "Introducing OHDSI Study Studio: sealed result packs for Strategus network studies \u2014 feedback and one pilot wanted",
+      "source": "OHDSI Forums",
+      "date": "2026-11-08",
+      "file": "2026-11-08-introducing-ohdsi-study-studio-sealed-result-packs-for-strategus-network-studies.md"
+    },
+    "f2cfb23ffcb4396a": {
+      "title": "Offering CanvasXpress (open-source interactive scientific charts) to the OHDSI community",
+      "source": "OHDSI Forums",
+      "date": "2026-11-05",
+      "file": "2026-11-05-offering-canvasxpress-open-source-interactive-scientific-charts-to-the-ohdsi-com.md"
+    },
+    "c7eba1f73305ae1f": {
+      "title": "Another SQL OMOP Agent for IT and Hospital Analyst ...?",
+      "source": "OHDSI Forums",
+      "date": "2026-11-05",
+      "file": "2026-11-05-another-sql-omop-agent-for-it-and-hospital-analyst.md"
+    },
+    "aa5a83351da42e72": {
+      "title": "ICU representation in VISIT_DETAIL: community input needed",
+      "source": "OHDSI Forums",
+      "date": "2026-11-05",
+      "file": "2026-11-05-icu-representation-in-visit-detail-community-input-needed.md"
+    },
+    "a9541bf68322a581": {
+      "title": "Some by some, all by all, HOMER and discovery/mining of new findings (given agentic AI)",
+      "source": "OHDSI Forums",
+      "date": "2026-11-04",
+      "file": "2026-11-04-some-by-some-all-by-all-homer-and-discoverymining-of-new-findings-given-agentic-.md"
+    },
+    "617e9fffcead6b87": {
+      "title": "Weekly OHDSI Digest - November 2, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-11-02",
+      "file": "2026-11-02-weekly-ohdsi-digest---november-2-2026.md"
+    },
+    "dcb0f670a9303597": {
+      "title": "Best practices and study impact of adding medication dispensing records to DRUG_EXPOSURE",
+      "source": "OHDSI Forums",
+      "date": "2026-11-02",
+      "file": "2026-11-02-best-practices-and-study-impact-of-adding-medication-dispensing-records-to-drug-.md"
+    },
+    "ea1e6d16adca68b1": {
+      "title": "Adding LSOA to OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-02",
+      "file": "2026-11-02-adding-lsoa-to-omop.md"
+    },
+    "346f4bbf951362eb": {
+      "title": "Weekly OHDSI Digest - October 26, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-26",
+      "file": "2026-10-26-weekly-ohdsi-digest---october-26-2026.md"
+    },
+    "f43820cbdb51d63b": {
+      "title": "Open-source extension to the OHDSI DQD for row-level data quality checking",
+      "source": "OHDSI Forums",
+      "date": "2026-10-17",
+      "file": "2026-10-17-open-source-extension-to-the-ohdsi-dqd-for-row-level-data-quality-checking.md"
+    },
+    "3517451d4b9bf1d6": {
+      "title": "DPC\uff08\u69d8\u5f0f1\u30fbEF\uff09\u3092 OMOP CDM \u306b\u5909\u63db\u3059\u308b\u30b3\u30fc\u30c9\u3092\u516c\u958b\u3057\u307e\u3057\u305f\uff08\u7591\u3044\u75c5\u540d\u306e\u6271\u3044\u306e\u76f8\u8ac7\uff09",
+      "source": "OHDSI Forums",
+      "date": "2026-10-17",
+      "file": "2026-10-17-dpc\u69d8\u5f0f1ef\u3092-omop-cdm-\u306b\u5909\u63db\u3059\u308b\u30b3\u30fc\u30c9\u3092\u516c\u958b\u3057\u307e\u3057\u305f\u7591\u3044\u75c5\u540d\u306e\u6271\u3044\u306e\u76f8\u8ac7.md"
+    },
+    "8c58e01ce0732407": {
+      "title": "Atlas/WebAPI 3.0.0 Released",
+      "source": "OHDSI Forums",
+      "date": "2026-10-16",
+      "file": "2026-10-16-atlaswebapi-300-released.md"
+    },
+    "2c39f7695564f339": {
+      "title": "Clinical Trial WG discussion",
+      "source": "OHDSI Forums",
+      "date": "2026-10-13",
+      "file": "2026-10-13-clinical-trial-wg-discussion.md"
+    },
+    "35c45ac8aea06745": {
+      "title": "Weekly OHDSI Digest - October 12, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-weekly-ohdsi-digest---october-12-2026.md"
+    },
+    "57dd086bbd2445df": {
+      "title": "Collaboration & Introduction: Data Pipelines, Medallion Architecture, & Biomedical NLP/RAG",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-collaboration-introduction-data-pipelines-medallion-architecture-biomedical-nlpr.md"
+    },
+    "8fd59a49a212aea9": {
+      "title": "Questions about PharMetrics Plus \u2192 OMOP conversion",
+      "source": "OHDSI Forums",
+      "date": "2026-10-11",
+      "file": "2026-10-11-questions-about-pharmetrics-plus-omop-conversion.md"
+    },
+    "eaee8734eda35d2f": {
+      "title": "[Global Symposium 2026 Workshop] AI-Assisted Phenotyping Connectathon: Join Us for a Joint OHDSI Working Group Workshop at the Global Symposium",
+      "source": "OHDSI Forums",
+      "date": "2026-10-11",
+      "file": "2026-10-11-global-symposium-2026-workshop-ai-assisted-phenotyping-connectathon-join-us-for-.md"
+    },
+    "dfc4b3c5d56236d3": {
+      "title": "Register for the Global Symposium-Reserve Your Seat!",
+      "source": "OHDSI Forums",
+      "date": "2026-10-05",
+      "file": "2026-10-05-register-for-the-global-symposium-reserve-your-seat.md"
+    },
+    "78d898435115d51e": {
+      "title": "Weekly OHDSI Digest - October 5, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-05",
+      "file": "2026-10-05-weekly-ohdsi-digest---october-5-2026.md"
+    },
+    "b1f5c4eb51af4394": {
+      "title": "Looking for an experienced OMOP/OHDSI consultant",
+      "source": "OHDSI Forums",
+      "date": "2026-10-02",
+      "file": "2026-10-02-looking-for-an-experienced-omopohdsi-consultant.md"
+    },
+    "8cabed1cd7ba0a0d": {
+      "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Optional)",
+      "source": "Grants.gov",
+      "date": "2026-08-19",
+      "file": "2026-08-19-limited-competition-institutional-development-award-idea-for-clinical-amp-transl.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "b5a390f8a4e7b7a3": {
+      "title": "Advancing Real-World Effectiveness Evidence for Rapid-Acting Psychotropic Interventional Drugs (RAPIDs)",
+      "source": "Grants.gov",
+      "date": "2026-09-16",
+      "file": "2026-09-16-advancing-real-world-effectiveness-evidence-for-rapid-acting-psychotropic-interv.md"
+    },
+    "ba611959e58fe94a": {
+      "title": "Funded: Methods Training for Comparative Effectiveness Research in Cancer",
+      "source": "NIH Reporter",
+      "date": "2026-11-09",
+      "file": "2026-11-09-funded-methods-training-for-comparative-effectiveness-research-in-cancer.md"
+    },
+    "82bfb97340c663e2": {
+      "title": "Funded: Toward Automated, Scalable Knowledge Engineering for Real World Data Using Clinical Terminologies",
+      "source": "NIH Reporter",
+      "date": "2026-11-09",
+      "file": "2026-11-09-funded-toward-automated-scalable-knowledge-engineering-for-real-world-data-using.md"
+    },
+    "9695ea415c14b408": {
+      "title": "Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation",
+      "source": "NIH Reporter",
+      "date": "2026-11-09",
+      "file": "2026-11-09-funded-real-world-evidence-to-inform-decisions-for-hypertension-treatment-escala.md"
+    },
+    "199d0c9436296da1": {
+      "title": "Funded: Networked trial emulation framework for causal effects of Glucagon-Like Peptide-1 Receptor Agonists on Mental Health Outcomes",
+      "source": "NIH Reporter",
+      "date": "2026-11-09",
+      "file": "2026-11-09-funded-networked-trial-emulation-framework-for-causal-effects-of-glucagon-like-p.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-11-09",
+      "file": "2026-11-09-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-11-09",
+      "file": "2026-11-09-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "f512d9607bde6a47": {
+      "title": "Harnessing Digital Health Technologies To Support Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-harnessing-digital-health-technologies-to-support-patient-centered-comparative-c.md"
+    },
+    "a82efdff0be4a9fe": {
+      "title": "Broad Pragmatic Studies PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-broad-pragmatic-studies-pcori-funding-announcement----cycle-1-2027.md"
+    },
+    "a86ede2eecdad99d": {
+      "title": "Phased Large Awards for Comparative Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-phased-large-awards-for-comparative-effectiveness-research-pcori-funding-announc.md"
+    },
+    "44b6cc353c36c64e": {
+      "title": "Improving Methods for Conducting Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-improving-methods-for-conducting-patient-centered-comparative-clinical-effective.md"
+    },
+    "c4aa119a5f337833": {
+      "title": "Advancing the Science of Engagement in Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-advancing-the-science-of-engagement-in-research-pcori-funding-announcement----cy.md"
+    },
+    "6b58d7ceeca9c59f": {
+      "title": "Open Competition: Implementation of Findings From PCORI&#039;s Research Investments PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-open-competition-implementation-of-findings-from-pcori039s-research-investments-.md"
+    },
+    "99a76b339e6eba49": {
+      "title": "Limited Competition PCORI Funding Announcement: Implementation Awards -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-limited-competition-pcori-funding-announcement-implementation-awards----cycle-1-.md"
+    },
+    "e93cee6065b759fc": {
+      "title": "Comprehensive Outcomes From Real-World Evidence for Vagus Nerve Stimulation Therapy: Seizure and Nonseizure 36-Month Outcomes in People With Drug-Resistant Epilepsy",
+      "source": "PubMed",
+      "date": "2026-10-05",
+      "file": "2026-10-05-comprehensive-outcomes-from-real-world-evidence-for-vagus-nerve-stimulation-ther.md"
+    },
+    "0263d356de8a2411": {
+      "title": "Saroglitazar Facilitates Insulin De-escalation and Improves Metabolic Parameters in Pioglitazone-Ineligible Non-metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD) Type 2 Diabetes: Real-World Evidence From India",
+      "source": "PubMed",
+      "date": "2026-10-01",
+      "file": "2026-10-01-saroglitazar-facilitates-insulin-de-escalation-and-improves-metabolic-parameters.md"
+    },
+    "56a9167091517228": {
+      "title": "Teaching LLMs How ICU Physicians Approach Clinical Reasoning Through OMOP-Aligned Retrieval Improves Reasoning Across Clinical Domains",
+      "source": "PubMed",
+      "date": "2026-10-14",
+      "file": "2026-10-14-teaching-llms-how-icu-physicians-approach-clinical-reasoning-through-omop-aligne.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-11-09T21:55:59.379543+00:00"
 }
