@@ -503,7 +503,241 @@
       "source": "PubMed",
       "date": "2026-06-06",
       "file": "2026-06-06-an-expert-consensus-based-review-of-considerations-for-developing-a-quality-mana.md"
+    },
+    "edc4f108531e3288": {
+      "title": "Weekly OHDSI Digest - November 16, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-11-16",
+      "file": "2026-11-16-weekly-ohdsi-digest---november-16-2026.md"
+    },
+    "887a48e52351bd28": {
+      "title": "Error in data.ohdsi.org, full disk",
+      "source": "OHDSI Forums",
+      "date": "2026-11-16",
+      "file": "2026-11-16-error-in-dataohdsiorg-full-disk.md"
+    },
+    "c7f7675c719cc0df": {
+      "title": "[EDI \uc5b4\ud718] ATHENA EDI(2026-01\ud310)\uc640 \uc2ec\ud3c9\uc6d0 EDI-SNOMED CT \ub9e4\ud551 \uc804 \uacf5\uac1c\ubd84(2021~2025) \ub300\uc870 \u2014 2022~2024 \uacf5\uac1c\ubd84 \ubbf8\ubc18\uc601",
+      "source": "OHDSI Forums",
+      "date": "2026-11-13",
+      "file": "2026-11-13-edi-\uc5b4\ud718-athena-edi2026-01\ud310\uc640-\uc2ec\ud3c9\uc6d0-edi-snomed-ct-\ub9e4\ud551-\uc804-\uacf5\uac1c\ubd8420212025-\ub300\uc870-20222024-\uacf5\uac1c\ubd84-\ubbf8\ubc18.md"
+    },
+    "8a53bf68cd5d42c4": {
+      "title": "Independent Researcher Exploring Anxiety, Autonomic Regulation, and OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-12",
+      "file": "2026-11-12-independent-researcher-exploring-anxiety-autonomic-regulation-and-omop.md"
+    },
+    "3941521566e3497d": {
+      "title": "New Type Concept for SDTM table - Seeking community input",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-new-type-concept-for-sdtm-table---seeking-community-input.md"
+    },
+    "b233f27ce064f89d": {
+      "title": "How to map and investigational personalized mRNA vaccine in OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-how-to-map-and-investigational-personalized-mrna-vaccine-in-omop.md"
+    },
+    "18526621e343f1d9": {
+      "title": "This Week in OHDSI - November 9, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-this-week-in-ohdsi---november-9-2026.md"
+    },
+    "4a4bad1c318d31d1": {
+      "title": "How to map an investigational personalized RNA vaccine in OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-09",
+      "file": "2026-11-09-how-to-map-an-investigational-personalized-rna-vaccine-in-omop.md"
+    },
+    "9d0ad7400de5f1de": {
+      "title": "Introducing OHDSI Study Studio: sealed result packs for Strategus network studies \u2014 feedback and one pilot wanted",
+      "source": "OHDSI Forums",
+      "date": "2026-11-08",
+      "file": "2026-11-08-introducing-ohdsi-study-studio-sealed-result-packs-for-strategus-network-studies.md"
+    },
+    "f2cfb23ffcb4396a": {
+      "title": "Offering CanvasXpress (open-source interactive scientific charts) to the OHDSI community",
+      "source": "OHDSI Forums",
+      "date": "2026-11-05",
+      "file": "2026-11-05-offering-canvasxpress-open-source-interactive-scientific-charts-to-the-ohdsi-com.md"
+    },
+    "c7eba1f73305ae1f": {
+      "title": "Another SQL OMOP Agent for IT and Hospital Analyst ...?",
+      "source": "OHDSI Forums",
+      "date": "2026-11-05",
+      "file": "2026-11-05-another-sql-omop-agent-for-it-and-hospital-analyst.md"
+    },
+    "aa5a83351da42e72": {
+      "title": "ICU representation in VISIT_DETAIL: community input needed",
+      "source": "OHDSI Forums",
+      "date": "2026-11-05",
+      "file": "2026-11-05-icu-representation-in-visit-detail-community-input-needed.md"
+    },
+    "a9541bf68322a581": {
+      "title": "Some by some, all by all, HOMER and discovery/mining of new findings (given agentic AI)",
+      "source": "OHDSI Forums",
+      "date": "2026-11-04",
+      "file": "2026-11-04-some-by-some-all-by-all-homer-and-discoverymining-of-new-findings-given-agentic-.md"
+    },
+    "617e9fffcead6b87": {
+      "title": "Weekly OHDSI Digest - November 2, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-11-02",
+      "file": "2026-11-02-weekly-ohdsi-digest---november-2-2026.md"
+    },
+    "dcb0f670a9303597": {
+      "title": "Best practices and study impact of adding medication dispensing records to DRUG_EXPOSURE",
+      "source": "OHDSI Forums",
+      "date": "2026-11-02",
+      "file": "2026-11-02-best-practices-and-study-impact-of-adding-medication-dispensing-records-to-drug-.md"
+    },
+    "ea1e6d16adca68b1": {
+      "title": "Adding LSOA to OMOP",
+      "source": "OHDSI Forums",
+      "date": "2026-11-02",
+      "file": "2026-11-02-adding-lsoa-to-omop.md"
+    },
+    "346f4bbf951362eb": {
+      "title": "Weekly OHDSI Digest - October 26, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-26",
+      "file": "2026-10-26-weekly-ohdsi-digest---october-26-2026.md"
+    },
+    "f43820cbdb51d63b": {
+      "title": "Open-source extension to the OHDSI DQD for row-level data quality checking",
+      "source": "OHDSI Forums",
+      "date": "2026-10-17",
+      "file": "2026-10-17-open-source-extension-to-the-ohdsi-dqd-for-row-level-data-quality-checking.md"
+    },
+    "3517451d4b9bf1d6": {
+      "title": "DPC\uff08\u69d8\u5f0f1\u30fbEF\uff09\u3092 OMOP CDM \u306b\u5909\u63db\u3059\u308b\u30b3\u30fc\u30c9\u3092\u516c\u958b\u3057\u307e\u3057\u305f\uff08\u7591\u3044\u75c5\u540d\u306e\u6271\u3044\u306e\u76f8\u8ac7\uff09",
+      "source": "OHDSI Forums",
+      "date": "2026-10-17",
+      "file": "2026-10-17-dpc\u69d8\u5f0f1ef\u3092-omop-cdm-\u306b\u5909\u63db\u3059\u308b\u30b3\u30fc\u30c9\u3092\u516c\u958b\u3057\u307e\u3057\u305f\u7591\u3044\u75c5\u540d\u306e\u6271\u3044\u306e\u76f8\u8ac7.md"
+    },
+    "8c58e01ce0732407": {
+      "title": "Atlas/WebAPI 3.0.0 Released",
+      "source": "OHDSI Forums",
+      "date": "2026-10-16",
+      "file": "2026-10-16-atlaswebapi-300-released.md"
+    },
+    "2c39f7695564f339": {
+      "title": "Clinical Trial WG discussion",
+      "source": "OHDSI Forums",
+      "date": "2026-10-13",
+      "file": "2026-10-13-clinical-trial-wg-discussion.md"
+    },
+    "35c45ac8aea06745": {
+      "title": "Weekly OHDSI Digest - October 12, 2026",
+      "source": "OHDSI Forums",
+      "date": "2026-10-12",
+      "file": "2026-10-12-weekly-ohdsi-digest---october-12-2026.md"
+    },
+    "8cabed1cd7ba0a0d": {
+      "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Optional)",
+      "source": "Grants.gov",
+      "date": "2026-08-19",
+      "file": "2026-08-19-limited-competition-institutional-development-award-idea-for-clinical-amp-transl.md"
+    },
+    "af403b7359df23ea": {
+      "title": "HEAL Initiative: Non-addictive Analgesic Therapeutics Development [Small Molecules and Biologics] to Treat Pain (UG3/UH3 Clinical Trial Optional)",
+      "source": "Grants.gov",
+      "date": "2026-06-16",
+      "file": "2026-06-16-heal-initiative-non-addictive-analgesic-therapeutics-development-small-molecules.md"
+    },
+    "b5a390f8a4e7b7a3": {
+      "title": "Advancing Real-World Effectiveness Evidence for Rapid-Acting Psychotropic Interventional Drugs (RAPIDs) (UM1 Clinical Trial Required)",
+      "source": "Grants.gov",
+      "date": "2026-11-12",
+      "file": "2026-11-12-advancing-real-world-effectiveness-evidence-for-rapid-acting-psychotropic-interv.md"
+    },
+    "ba611959e58fe94a": {
+      "title": "Funded: Methods Training for Comparative Effectiveness Research in Cancer",
+      "source": "NIH Reporter",
+      "date": "2026-11-16",
+      "file": "2026-11-16-funded-methods-training-for-comparative-effectiveness-research-in-cancer.md"
+    },
+    "82bfb97340c663e2": {
+      "title": "Funded: Toward Automated, Scalable Knowledge Engineering for Real World Data Using Clinical Terminologies",
+      "source": "NIH Reporter",
+      "date": "2026-11-16",
+      "file": "2026-11-16-funded-toward-automated-scalable-knowledge-engineering-for-real-world-data-using.md"
+    },
+    "9695ea415c14b408": {
+      "title": "Funded: Real-world Evidence to Inform Decisions for Hypertension Treatment Escalation",
+      "source": "NIH Reporter",
+      "date": "2026-11-16",
+      "file": "2026-11-16-funded-real-world-evidence-to-inform-decisions-for-hypertension-treatment-escala.md"
+    },
+    "199d0c9436296da1": {
+      "title": "Funded: Networked trial emulation framework for causal effects of Glucagon-Like Peptide-1 Receptor Agonists on Mental Health Outcomes",
+      "source": "NIH Reporter",
+      "date": "2026-11-16",
+      "file": "2026-11-16-funded-networked-trial-emulation-framework-for-causal-effects-of-glucagon-like-p.md"
+    },
+    "e97005ad0a7f6de2": {
+      "title": "Funded: Data Coordination and Innovation Hub",
+      "source": "NIH Reporter",
+      "date": "2026-11-16",
+      "file": "2026-11-16-funded-data-coordination-and-innovation-hub.md"
+    },
+    "1ccdf671f275a7b4": {
+      "title": "Funded: Comparative Effectiveness and Safety of Osteoporosis Drug Therapies",
+      "source": "NIH Reporter",
+      "date": "2026-11-16",
+      "file": "2026-11-16-funded-comparative-effectiveness-and-safety-of-osteoporosis-drug-therapies.md"
+    },
+    "f512d9607bde6a47": {
+      "title": "Harnessing Digital Health Technologies To Support Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-harnessing-digital-health-technologies-to-support-patient-centered-comparative-c.md"
+    },
+    "a82efdff0be4a9fe": {
+      "title": "Broad Pragmatic Studies PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-broad-pragmatic-studies-pcori-funding-announcement----cycle-1-2027.md"
+    },
+    "a86ede2eecdad99d": {
+      "title": "Phased Large Awards for Comparative Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-phased-large-awards-for-comparative-effectiveness-research-pcori-funding-announc.md"
+    },
+    "44b6cc353c36c64e": {
+      "title": "Improving Methods for Conducting Patient-Centered Comparative Clinical Effectiveness Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-improving-methods-for-conducting-patient-centered-comparative-clinical-effective.md"
+    },
+    "c4aa119a5f337833": {
+      "title": "Advancing the Science of Engagement in Research PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-advancing-the-science-of-engagement-in-research-pcori-funding-announcement----cy.md"
+    },
+    "6b58d7ceeca9c59f": {
+      "title": "Open Competition: Implementation of Findings From PCORI&#039;s Research Investments PCORI Funding Announcement -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-open-competition-implementation-of-findings-from-pcori039s-research-investments-.md"
+    },
+    "99a76b339e6eba49": {
+      "title": "Limited Competition PCORI Funding Announcement: Implementation Awards -- Cycle 1 2027",
+      "source": "PCORI",
+      "date": "2027-05-04",
+      "file": "2027-05-04-limited-competition-pcori-funding-announcement-implementation-awards----cycle-1-.md"
+    },
+    "996a687c9eced9fd": {
+      "title": "Advancing population-based cancer registries through the OHDSI OMOP Common Data Model: governance, validation, and interoperability for cancer research",
+      "source": "PubMed",
+      "date": "2026-12-01",
+      "file": "2026-12-01-advancing-population-based-cancer-registries-through-the-ohdsi-omop-common-data-.md"
     }
   },
-  "last_fetch": "2026-06-08T15:49:02.345978+00:00"
+  "last_fetch": "2026-11-16T21:38:47.078493+00:00"
 }
