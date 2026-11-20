@@ -4,7 +4,7 @@
   /* -----------------------------------------------------------
      Configuration — update these when deploying
      ----------------------------------------------------------- */
-  var AGENT_URL = "http://localhost:8000";
+  var AGENT_URL = "http://localhost:10600";
   var PASSKEY = "changeme";
   var DEBUG = true; // TODO: set false before deploying
   var MAX_TURNS = 8;
