@@ -1,0 +1,225 @@
+{
+  "generated": "2026-03-10",
+  "summary": {
+    "total_vocabs": 1,
+    "total_rows": 57428,
+    "total_mapped": 29164,
+    "total_unmapped": 28264,
+    "overall_coverage": 50.8
+  },
+  "vocabs": [
+    {
+      "name": "EU2_Flowsheets",
+      "files": [
+        {
+          "filename": "mapping.csv",
+          "last_modified": "2026-03-10",
+          "total": 57428,
+          "mapped": 29164,
+          "unmapped": 28264,
+          "coverage": 50.8,
+          "predicates": {
+            "exactMatch": 5789,
+            "broadMatch": 19105,
+            "narrowMatch": 4242,
+            "noMatch": 28264,
+            "relatedMatch": 28
+          },
+          "confidence": {
+            "mean": 0.38,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "metadata_completeness": {
+            "mapping_tool": {
+              "count": 26953,
+              "total": 57428
+            },
+            "mapper": {
+              "count": 29164,
+              "total": 57428
+            },
+            "reviewer": {
+              "count": 26953,
+              "total": 57428
+            }
+          },
+          "top_unmapped": [
+            {
+              "code": "14950",
+              "description": "MEWS Difference from Baseline",
+              "frequency": 205152325,
+              "status": "llm-mapped",
+              "predicate": "broadMatch",
+              "confidence": 0.6
+            },
+            {
+              "code": "3040109307",
+              "description": "MEWS Score (Background)",
+              "frequency": 205150820,
+              "status": "pending",
+              "predicate": "noMatch",
+              "confidence": 0.0
+            },
+            {
+              "code": "3040000415",
+              "description": "Early Detection of Sepsis Score V1",
+              "frequency": 73715909,
+              "status": "pending",
+              "predicate": "noMatch",
+              "confidence": 0.0
+            },
+            {
+              "code": "3040111455",
+              "description": "Deterioration Index Score",
+              "frequency": 52463674,
+              "status": "pending",
+              "predicate": "noMatch",
+              "confidence": 0.0
+            },
+            {
+              "code": "8",
+              "description": "Pulse",
+              "frequency": 38006355,
+              "status": "human-reviewed",
+              "predicate": "exactMatch",
+              "confidence": 0.9
+            },
+            {
+              "code": "1120100035",
+              "description": "FiO2 (%)",
+              "frequency": 35651369,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.9
+            },
+            {
+              "code": "1120100075",
+              "description": "HR (ECG)",
+              "frequency": 35328399,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "1120100254",
+              "description": "SpO2",
+              "frequency": 35214495,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "1120100038",
+              "description": "PEEP/CPAP",
+              "frequency": 34976394,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.9
+            },
+            {
+              "code": "1120100231",
+              "description": "Expired N2O",
+              "frequency": 34902303,
+              "status": "llm-mapped",
+              "predicate": "broadMatch",
+              "confidence": 0.5
+            },
+            {
+              "code": "10",
+              "description": "SpO2",
+              "frequency": 33695056,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "1120100037",
+              "description": "PIP Observed",
+              "frequency": 32672715,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "1600100315",
+              "description": "Restart Automatic Vitals Timer",
+              "frequency": 32478754,
+              "status": "pending",
+              "predicate": "noMatch",
+              "confidence": 0.0
+            },
+            {
+              "code": "1120100012",
+              "description": "O2",
+              "frequency": 32125871,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.9
+            },
+            {
+              "code": "1120100034",
+              "description": "ETCO2",
+              "frequency": 31511025,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "9",
+              "description": "Resp",
+              "frequency": 30983262,
+              "status": "human-reviewed",
+              "predicate": "exactMatch",
+              "confidence": 0.9
+            },
+            {
+              "code": "5",
+              "description": "BP",
+              "frequency": 29942578,
+              "status": "human-reviewed",
+              "predicate": "exactMatch",
+              "confidence": 0.9
+            },
+            {
+              "code": "1120100150",
+              "description": "MAC",
+              "frequency": 29530485,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "1120100253",
+              "description": "RR",
+              "frequency": 29110238,
+              "status": "llm-mapped",
+              "predicate": "exactMatch",
+              "confidence": 0.95
+            },
+            {
+              "code": "1120440501",
+              "description": "RR (ETCO2)",
+              "frequency": 28757602,
+              "status": "llm-mapped",
+              "predicate": "narrowMatch",
+              "confidence": 0.85
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "total": 57428,
+        "mapped": 29164,
+        "unmapped": 28264,
+        "coverage": 50.8
+      },
+      "source_mappings": [
+        {
+          "file": "mapping.csv",
+          "url": "https://github.com/Emory-OMOP/CVB/blob/main/EU2_Flowsheets/Mappings/mapping.csv"
+        }
+      ]
+    }
+  ]
+}

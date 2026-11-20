@@ -1,0 +1,254 @@
+/* ==========================================================================
+   CVB Coverage Dashboard
+   Page-scoped styles — loaded only on the Vocabulary Mapping Coverage page.
+   ========================================================================== */
+
+.cvb-dashboard {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* Summary cards */
+.cvb-summary-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 60em) {
+  .cvb-summary-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cvb-summary-card {
+  background: var(--md-default-bg-color);
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: box-shadow .2s;
+}
+
+.cvb-summary-card:hover {
+  box-shadow: var(--md-shadow-z2);
+}
+
+.cvb-summary-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  line-height: 1.2;
+}
+
+.cvb-summary-value--highlight {
+  color: hsla(160, 55%, 45%, 1);
+}
+
+.cvb-summary-label {
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: .25rem;
+}
+
+/* Chart containers */
+.cvb-charts-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 60em) {
+  .cvb-charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cvb-chart-container {
+  background: var(--md-default-bg-color);
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  padding: 1rem;
+  position: relative;
+  height: 20rem;
+}
+
+.cvb-chart-container--small {
+  height: 20rem;
+}
+
+.cvb-chart-container--wide {
+  margin-bottom: 2rem;
+  height: 22rem;
+}
+
+/* Vocab tabs */
+.cvb-tabs {
+  margin-bottom: 2rem;
+}
+
+.cvb-tab-labels {
+  display: flex;
+  gap: 0;
+  border-bottom: .1rem solid var(--md-default-fg-color--lightest);
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+
+.cvb-tab-btn {
+  background: none;
+  border: none;
+  padding: .6rem 1.2rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  border-bottom: .15rem solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.cvb-tab-btn:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.cvb-tab-btn--active {
+  color: var(--md-accent-fg-color);
+  border-bottom-color: var(--md-accent-fg-color);
+}
+
+.cvb-tab-panel {
+  display: none;
+}
+
+.cvb-tab-panel--active {
+  display: block;
+}
+
+/* Items table */
+.cvb-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.cvb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+}
+
+.cvb-table th {
+  background: var(--md-default-fg-color--lightest);
+  padding: .5rem .75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.cvb-table td {
+  padding: .4rem .75rem;
+  border-bottom: .05rem solid var(--md-default-fg-color--lightest);
+}
+
+.cvb-table tbody tr:hover {
+  background: hsla(213, 70%, 50%, .06);
+}
+
+/* Vocab detail cards */
+.cvb-vocab-card {
+  background: var(--md-default-bg-color);
+  border: .05rem solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: box-shadow .2s;
+}
+
+.cvb-vocab-card:hover {
+  box-shadow: var(--md-shadow-z1);
+}
+
+.cvb-vocab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.cvb-vocab-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.cvb-badge {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .2rem .6rem;
+  border-radius: 1rem;
+}
+
+.cvb-badge--green {
+  background: hsla(140, 60%, 45%, .15);
+  color: hsla(140, 50%, 35%, 1);
+}
+
+[data-md-color-scheme="slate"] .cvb-badge--green {
+  color: hsla(140, 50%, 70%, 1);
+}
+
+.cvb-badge--gold {
+  background: hsla(40, 90%, 55%, .15);
+  color: hsla(40, 80%, 35%, 1);
+}
+
+[data-md-color-scheme="slate"] .cvb-badge--gold {
+  color: hsla(40, 80%, 70%, 1);
+}
+
+.cvb-badge--red {
+  background: hsla(0, 65%, 55%, .15);
+  color: hsla(0, 55%, 40%, 1);
+}
+
+[data-md-color-scheme="slate"] .cvb-badge--red {
+  color: hsla(0, 55%, 70%, 1);
+}
+
+.cvb-vocab-summary {
+  font-size: .85rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: .75rem;
+}
+
+.cvb-file {
+  padding: .5rem 0;
+  border-top: .05rem solid var(--md-default-fg-color--lightest);
+}
+
+.cvb-file strong {
+  font-size: .85rem;
+}
+
+.cvb-file-date {
+  font-size: .75rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+.cvb-file-stats {
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: .15rem;
+}
+
+.cvb-file-meta {
+  font-size: .75rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: .1rem;
+}
